@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="LmRKxmt2tr">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="一、NAOqi APIs&amp;emsp;&amp;emsp;NAOqi OS是NAO机器人的核心操作系统，NAOqi API提供了访问机器人的各种传感器设备接口以及应用接口。通过NAOqi，可以在动作、视觉、音频等不同模块之间相互传递信息，也可以通过编程实现各种功能。   二、安装python和NAOqi库&amp;emsp;&amp;emsp;Windows环境下，NAO支持的python版本为32位的python2，可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接">
+<meta property="og:url" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/index.html">
+<meta property="og:site_name" content="NJTECH_cxx">
+<meta property="og:description" content="一、NAOqi APIs&amp;emsp;&amp;emsp;NAOqi OS是NAO机器人的核心操作系统，NAOqi API提供了访问机器人的各种传感器设备接口以及应用接口。通过NAOqi，可以在动作、视觉、音频等不同模块之间相互传递信息，也可以通过编程实现各种功能。   二、安装python和NAOqi库&amp;emsp;&amp;emsp;Windows环境下，NAO支持的python版本为32位的python2，可以">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//python下载.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//pythonnaoqi下载.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//choregraphe下载.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//有线登陆.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//有线连接.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//有线连接2.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//有线编程.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//有线动图.gif">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//无线连接.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//无线连接2.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//虚拟连接.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//机器人视图.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//虚拟效果.gif">
+<meta property="og:updated_time" content="2019-05-25T03:43:22.862Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接">
+<meta name="twitter:description" content="一、NAOqi APIs&amp;emsp;&amp;emsp;NAOqi OS是NAO机器人的核心操作系统，NAOqi API提供了访问机器人的各种传感器设备接口以及应用接口。通过NAOqi，可以在动作、视觉、音频等不同模块之间相互传递信息，也可以通过编程实现各种功能。   二、安装python和NAOqi库&amp;emsp;&amp;emsp;Windows环境下，NAO支持的python版本为32位的python2，可以">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接//python下载.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/">
+
+
+
+
+
+  <title>基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接 | NJTECH_cxx</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.chenxiuxiang.site/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-02T14:26:10+08:00">
+                2019-01-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/基于python的NAO开发/" itemprop="url" rel="index">
+                    <span itemprop="name">基于python的NAO开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,109 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="一、NAOqi-APIs"><a href="#一、NAOqi-APIs" class="headerlink" title="一、NAOqi APIs"></a>一、NAOqi APIs</h3><p>&emsp;&emsp;NAOqi OS是NAO机器人的核心操作系统，NAOqi API提供了访问机器人的各种传感器设备接口以及应用接口。通过NAOqi，可以在动作、视觉、音频等不同模块之间相互传递信息，也可以通过编程实现各种功能。  </p>
+<h3 id="二、安装python和NAOqi库"><a href="#二、安装python和NAOqi库" class="headerlink" title="二、安装python和NAOqi库"></a>二、安装python和NAOqi库</h3><p>&emsp;&emsp;Windows环境下，NAO支持的python版本为32位的python2，可以在<a href="https://www.python.org" target="_blank" rel="noopener">python官网</a>中下载。选择<code>Windows x86 MSI installer</code>，并配置python2的环境变量，将<code>C:\Python27</code>和<code>C:\Python27\Scripts</code>添加至PATH中。然后在软银机器人社区<a href="https://community.ald.softbankrobotics.com/en/dashboard" target="_blank" rel="noopener">SoftBank Robotics Community</a>中下载NAOqi库，选择Resources中的Software，找到<code>Python 2.7 SDK 2.1.4 Win 32 Setup</code>下载即可。<br>&emsp;&emsp;下载链接：<a href="https://pan.baidu.com/s/14GyGthqWLF-zjbPPkIIxvQ" target="_blank" rel="noopener">NAOqi python SDK</a><br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\python下载.png" alt="python下载"><br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\pythonnaoqi下载.png" alt="naoqi下载"><br>&emsp;&emsp;检查<code>python</code>是否安装正确：同时按下<code>win+R</code>，并输入<code>cmd</code>，进入命令行程序，输入<code>python</code>，如果有提示信息则安装正确，否则检查环境变量是否添加正确。<br>&emsp;&emsp;检查<code>naoqi</code>是否安装正确：接上面的命令行(输入<code>python</code>的前提下)，继续输入<code>import naoqi</code>，无任何显示则安装正确。     </p>
+<h3 id="三、安装Choregraphe"><a href="#三、安装Choregraphe" class="headerlink" title="三、安装Choregraphe"></a>三、安装Choregraphe</h3><p>&emsp;&emsp;Choregraphe是一个图形化的多平台软件，编写完程序后可以在模拟机器人上测试，也可以运行在真实的机器人上。在软银机器人社区<a href="https://community.ald.softbankrobotics.com/en/dashboard" target="_blank" rel="noopener">SoftBank Robotics Community</a>中可以下载。选择Resources中的Software，找到<code>Choregraphe 2.1.4 Win 32 Setup</code>下载安装即可。<br>&emsp;&emsp;注：安装路径不要出现在中文。<br>&emsp;&emsp;下载链接：<a href="https://pan.baidu.com/s/1u27bWSQWevO006ZUVvbPgQ" target="_blank" rel="noopener">Choregraphe</a><br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\choregraphe下载.png" alt="Choregraphe">    </p>
+<h3 id="四、NAO机器人的有线连接"><a href="#四、NAO机器人的有线连接" class="headerlink" title="四、NAO机器人的有线连接"></a>四、NAO机器人的有线连接</h3><h4 id="4-1-连接步骤"><a href="#4-1-连接步骤" class="headerlink" title="4.1 连接步骤"></a>4.1 连接步骤</h4><p>&emsp;&emsp;首先将NAO和计算机通过网线连接，将计算机的网络设置为有线连接，然后打开浏览器，按下NAO机器人的胸部按钮，在浏览器中输入NAO报的IP地址。<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\有线登陆.png" alt="登陆"><br>&emsp;&emsp;输入用户名nao，密码nao(默认)即可登陆至nao机器人网页，在网络设置里面可以看到已经连接至有线。<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\有线连接.png" alt="有线"> </p>
+<h4 id="4-2-测试"><a href="#4-2-测试" class="headerlink" title="4.2 测试"></a>4.2 测试</h4><p>&emsp;&emsp;打开Choregraph，选择连接-&gt;连接至，在弹出的对话框中选择IP为刚才的NAO机器人，并选择连接。<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\有线连接2.png" alt="连接"><br>&emsp;&emsp;在Choregraph界面的左下角的指令盒内依次选择<code>Motions</code>中的<code>Wake Up</code>，<code>Stand Up</code>和<code>Rest</code>，并用信号线将其连接，即可实现简单的站立、休息的动作。在Choregraph界面的最上面单击绿色三角箭头按钮即可运行程序。<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\有线编程.png" alt="编程"><br>&emsp;&emsp; 当然也可以通过python编译器在里面输入相应的代码实现此功能。　  </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- encoding: UTF-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> argparse</span><br><span class="line"><span class="keyword">from</span> naoqi <span class="keyword">import</span> ALProxy</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">(robotIP, PORT=<span class="number">9559</span>)</span>:</span></span><br><span class="line"></span><br><span class="line">    motionProxy  = ALProxy(<span class="string">"ALMotion"</span>, robotIP, PORT)</span><br><span class="line">    postureProxy = ALProxy(<span class="string">"ALRobotPosture"</span>, robotIP, PORT)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Wake up robot</span></span><br><span class="line">    motionProxy.wakeUp()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Send robot to Stand Init</span></span><br><span class="line">    postureProxy.goToPosture(<span class="string">"StandInit"</span>, <span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># Go to rest position</span></span><br><span class="line">    motionProxy.rest()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    parser = argparse.ArgumentParser()</span><br><span class="line">    parser.add_argument(<span class="string">"--ip"</span>, type=str, default=<span class="string">"169.254.67.213"</span>,</span><br><span class="line">                        help=<span class="string">"Robot ip address"</span>)</span><br><span class="line">    parser.add_argument(<span class="string">"--port"</span>, type=int, default=<span class="number">9559</span>,</span><br><span class="line">                        help=<span class="string">"Robot port number"</span>)</span><br><span class="line"></span><br><span class="line">    args = parser.parse_args()</span><br><span class="line">    main(args.ip, args.port)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注意，IP和端口号(port)一定要对，IP为按NAO胸口按钮后报出的IP，真实NAO的port默认为9559。<br>&emsp;&emsp;最终效果如图所示：<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\有线动图.gif" alt="效果">  </p>
+<h3 id="五、NAO机器人的无线连接及测试"><a href="#五、NAO机器人的无线连接及测试" class="headerlink" title="五、NAO机器人的无线连接及测试"></a>五、NAO机器人的无线连接及测试</h3><h4 id="5-1-连接步骤"><a href="#5-1-连接步骤" class="headerlink" title="5.1 连接步骤"></a>5.1 连接步骤</h4><p>&emsp;&emsp;打开计算机的无线网络连接,连接一个无线网，然后在NAO网页界面的网络设置中选择和计算机相同的无线网络，并拔掉网线，即可实现无线连接。按下NAO胸口按钮，此时会报出无线网的IP地址。此时需要重新输入IP地址进入NAO网页界面。<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\无线连接.png" alt="无线连接">  </p>
+<h4 id="5-2-测试"><a href="#5-2-测试" class="headerlink" title="5.2 测试"></a>5.2 测试</h4><p>&emsp;&emsp;此时，在Choregraph中的连接选项中，选择无线网的IP地址的NAO机器人，并执行刚才的程序。同理在python代码中更改相应的IP地址和端口号即可。<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\无线连接2.png" alt="无线网"> </p>
+<h3 id="六、虚拟NAO机器人的连接及测试"><a href="#六、虚拟NAO机器人的连接及测试" class="headerlink" title="六、虚拟NAO机器人的连接及测试"></a>六、虚拟NAO机器人的连接及测试</h3><h4 id="6-2-连接步骤"><a href="#6-2-连接步骤" class="headerlink" title="6.2 连接步骤"></a>6.2 连接步骤</h4><p>&emsp;&emsp;Choregraph软件提供了可连接虚拟机器人的设置，也可以实现一些真实机器人的功能。先断开所有的真实机器人的连接，在连接选项中选择连接虚拟机器人即可连接至一个虚拟机器人。同时可以查看它的IP地址和端口号。（虚拟机器人默认的IP地址都为<code>127.0.0.1</code>）在视图选项中勾选上机器人视图即可查看虚拟机器人。<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\虚拟连接.png" alt="虚拟"><br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\机器人视图.png" alt="机器人视图">   </p>
+<h4 id="6-3-测试"><a href="#6-3-测试" class="headerlink" title="6.3 测试"></a>6.3 测试</h4><p>&emsp;&emsp;同理在python代码中更改相应的IP地址和端口号即可。　<br>　　<img src="/2019/01/02/基于python的NAO机器人开发01：安装python和naoqi库及有线和无线连接/\虚拟效果.gif" alt="效果"></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢老板！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/02/基于python的NAO机器人开发02：多线程实现边跳舞边唱歌/" rel="next" title="基于python的NAO机器人开发02：多线程实现边唱歌边跳舞">
+                <i class="fa fa-chevron-left"></i> 基于python的NAO机器人开发02：多线程实现边唱歌边跳舞
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/05/将hexo博客转移到另一台电脑/" rel="prev" title="将hexo博客转移到另一台电脑">
+                将hexo博客转移到另一台电脑 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjAyMi8xODU2OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#一、NAOqi-APIs"><span class="nav-number">1.</span> <span class="nav-text">一、NAOqi APIs</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二、安装python和NAOqi库"><span class="nav-number">2.</span> <span class="nav-text">二、安装python和NAOqi库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三、安装Choregraphe"><span class="nav-number">3.</span> <span class="nav-text">三、安装Choregraphe</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#四、NAO机器人的有线连接"><span class="nav-number">4.</span> <span class="nav-text">四、NAO机器人的有线连接</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#4-1-连接步骤"><span class="nav-number">4.1.</span> <span class="nav-text">4.1 连接步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-2-测试"><span class="nav-number">4.2.</span> <span class="nav-text">4.2 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#五、NAO机器人的无线连接及测试"><span class="nav-number">5.</span> <span class="nav-text">五、NAO机器人的无线连接及测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-1-连接步骤"><span class="nav-number">5.1.</span> <span class="nav-text">5.1 连接步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-测试"><span class="nav-number">5.2.</span> <span class="nav-text">5.2 测试</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#六、虚拟NAO机器人的连接及测试"><span class="nav-number">6.</span> <span class="nav-text">六、虚拟NAO机器人的连接及测试</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#6-2-连接步骤"><span class="nav-number">6.1.</span> <span class="nav-text">6.2 连接步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-3-测试"><span class="nav-number">6.2.</span> <span class="nav-text">6.3 测试</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">92.6k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共92.6k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="LmRKxmt2tr">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="概述&amp;emsp;&amp;emsp;初级版的内容主要分为两部分，第一部分是如何利用NAO的视觉传感器，即上下摄像头，来获取图片及如何利用opencv显示获得的图片。第二部分是如何利用opencv里面的视觉算法从NAO获取的图片中找到所需目标，并返回需要的目标信息。 视觉系统框架设计&amp;emsp;&amp;emsp;首先要搭建好视觉系统的程序框架，python是一种面向对象的编程语言，而面向对象最重要的特征就是类的封">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NAO足球&#x2F;高尔夫比赛视觉系统设计（python初级版）">
+<meta property="og:url" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）/index.html">
+<meta property="og:site_name" content="NJTECH_cxx">
+<meta property="og:description" content="概述&amp;emsp;&amp;emsp;初级版的内容主要分为两部分，第一部分是如何利用NAO的视觉传感器，即上下摄像头，来获取图片及如何利用opencv显示获得的图片。第二部分是如何利用opencv里面的视觉算法从NAO获取的图片中找到所需目标，并返回需要的目标信息。 视觉系统框架设计&amp;emsp;&amp;emsp;首先要搭建好视觉系统的程序框架，python是一种面向对象的编程语言，而面向对象最重要的特征就是类的封">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//框架设计.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//图像容器.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//筛选圆.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//HSV空间表.jpg">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//足球检测结果.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//摄像头视角.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//定位.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//摄像头参数.png">
+<meta property="og:updated_time" content="2019-05-22T12:54:13.912Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NAO足球&#x2F;高尔夫比赛视觉系统设计（python初级版）">
+<meta name="twitter:description" content="概述&amp;emsp;&amp;emsp;初级版的内容主要分为两部分，第一部分是如何利用NAO的视觉传感器，即上下摄像头，来获取图片及如何利用opencv显示获得的图片。第二部分是如何利用opencv里面的视觉算法从NAO获取的图片中找到所需目标，并返回需要的目标信息。 视觉系统框架设计&amp;emsp;&amp;emsp;首先要搭建好视觉系统的程序框架，python是一种面向对象的编程语言，而面向对象最重要的特征就是类的封">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）//框架设计.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）/">
+
+
+
+
+
+  <title>NAO足球/高尔夫比赛视觉系统设计（python初级版） | NJTECH_cxx</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.chenxiuxiang.site/2019/03/20/NAO比赛视觉系统设计（python初级版）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NAO足球/高尔夫比赛视觉系统设计（python初级版）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-20T18:12:26+08:00">
+                2019-03-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAO高尔夫比赛/" itemprop="url" rel="index">
+                    <span itemprop="name">NAO高尔夫比赛</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,888 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  12 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>&emsp;&emsp;初级版的内容主要分为两部分，第一部分是如何利用NAO的视觉传感器，即上下摄像头，来获取图片及如何利用<code>opencv</code>显示获得的图片。第二部分是如何利用<code>opencv</code>里面的视觉算法从NAO获取的图片中找到所需目标，并返回需要的目标信息。</p>
+<h1 id="视觉系统框架设计"><a href="#视觉系统框架设计" class="headerlink" title="视觉系统框架设计"></a>视觉系统框架设计</h1><p>&emsp;&emsp;首先要搭建好视觉系统的程序框架，<code>python</code>是一种面向对象的编程语言，而面向对象最重要的特征就是类的封装，所以我们可以将整个视觉系统分为若干类，每个类实现相应的功能。<br><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\框架设计.png" alt="data">   </p>
+<h1 id="ConfigureNAO类"><a href="#ConfigureNAO类" class="headerlink" title="ConfigureNAO类"></a>ConfigureNAO类</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> naoqi <span class="keyword">import</span> ALProxy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ConfigureNao</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, IP=<span class="string">"169.254.67.213"</span>, PORT=<span class="number">9559</span>)</span>:</span></span><br><span class="line">        self.IP = IP</span><br><span class="line">        self.PORT = PORT</span><br><span class="line"></span><br><span class="line">        self.cameraProxy = ALProxy(<span class="string">"ALVideoDevice"</span>, self.IP, self.PORT)</span><br><span class="line">        self.landMarkProxy = ALProxy(<span class="string">"ALLandMarkDetection"</span>, self.IP, self.PORT)    </span><br><span class="line"></span><br><span class="line">        self.motionProxy = ALProxy(<span class="string">"ALMotion"</span>, self.IP, self.PORT)</span><br><span class="line">        self.postureProxy = ALProxy(<span class="string">"ALRobotPosture"</span>, self.IP, self.PORT)</span><br><span class="line"></span><br><span class="line">        self.tts = ALProxy(<span class="string">"ALTextToSpeech"</span>, self.IP, self.PORT)</span><br><span class="line">        self.memoryProxy = ALProxy(<span class="string">"ALMemory"</span>, self.IP, self.PORT)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;首先定义NAO机器人的<code>IP</code>和<code>端口号</code>，并将此作为类的参数，其次声明一些常用的类，如视觉、运动、姿势和存储类等。只有实例化后的类才可以使用。       </p>
+<h1 id="VisualBasis类"><a href="#VisualBasis类" class="headerlink" title="VisualBasis类"></a>VisualBasis类</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># coding: utf-8</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> configureNao <span class="keyword">import</span> ConfigureNao</span><br><span class="line"><span class="keyword">from</span> naoqi <span class="keyword">import</span> ALProxy</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> almath </span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> sys</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> cv2.cv <span class="keyword">as</span> cv</span><br><span class="line"><span class="keyword">import</span> vision_definitions <span class="keyword">as</span> vd</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">VisualBasis</span><span class="params">(ConfigureNao)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, IP, PORT, cameraID=vd.kBottomCamera, resolution=vd.kVGA)</span>:</span></span><br><span class="line">        super(VisualBasis, self).__init__(IP, PORT)</span><br><span class="line">        self.cameraID = cameraID</span><br><span class="line">        self.resolution = resolution</span><br><span class="line">        self.colorSpace = vd.kBGRColorSpace</span><br><span class="line">        self.fps = <span class="number">20</span></span><br><span class="line"></span><br><span class="line">        self.frameHeight = <span class="number">320</span></span><br><span class="line">        self.frameWidth = <span class="number">640</span></span><br><span class="line">        self.frameChannels = <span class="number">0</span></span><br><span class="line">        self.frameArray = <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">        self.cameraPitchRange = <span class="number">47.64</span> / <span class="number">180</span> * np.pi</span><br><span class="line">        self.cameraYawRange = <span class="number">60.97</span> / <span class="number">180</span> * np.pi</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这里使用了<code>naoqi</code>系统的宏定义<code>vision_definitions</code>，为了书写方便，将其简写为<code>vd</code>，其中这里使用了摄像头ID的宏定义：<code>vd.kBottomCamera</code>(下摄像头)和<code>vd.kTopCamera</code>(上摄像头)、分辨率宏定义<code>vd.kVGA</code>和颜色空间宏定义<code>vd.kBGRColorSpace</code>。(具体含义见下文分析)。另外将图像本身(<code>frameArray</code>)及其高度、宽度、通道，摄像头的俯仰角作为类的属性，以便后续方法的调用。<br>&emsp;&emsp;因为NAO读取球目标和黄杆目标分别使用的是上面和下面的摄像头，所以将摄像头ID作为类的参数以便后续调整。基类的第二个参数为分辨率，方便后续图像的清晰度调整。IP和PORT是为了继承父类所需的参数。    </p>
+<h2 id="获取图片"><a href="#获取图片" class="headerlink" title="获取图片"></a>获取图片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">updateFrame</span><span class="params">(self)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> self.cameraProxy.getActiveCamera() != self.cameraID:</span><br><span class="line">        self.cameraProxy.setActiveCamera(self.cameraID)</span><br><span class="line"></span><br><span class="line">    videoClient = self.cameraProxy.subscribe(<span class="string">"cxx"</span>, self.resolution, self.colorSpace, self.fps)</span><br><span class="line">    frame = self.cameraProxy.getImageRemote(videoClient)</span><br><span class="line">    self.cameraProxy.unsubscribe(videoClient)</span><br><span class="line"></span><br><span class="line">    self.frameWidth = frame[<span class="number">0</span>]</span><br><span class="line">    self.frameHeight = frame[<span class="number">1</span>]</span><br><span class="line">    self.frameChannels = frame[<span class="number">2</span>]</span><br><span class="line">    self.frameArray = np.frombuffer(frame[<span class="number">6</span>], dtype=np.uint8).reshape([frame[<span class="number">1</span>], frame[<span class="number">0</span>], frame[<span class="number">2</span>]])</span><br><span class="line">    <span class="comment"># frombuffer将data以流的形式读入转化成ndarray对象, 第一参数为stream,第二参数为返回值的数据类型</span></span><br><span class="line">    <span class="comment"># frame[6]: binary array of size height * width * nblayers containing image data.</span></span><br><span class="line">    <span class="keyword">if</span> self.frameArray <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        print(<span class="string">"no frame find"</span>)</span><br><span class="line">        <span class="keyword">return</span> np.array([])   </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> self.frameArray</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;让NAO读取一张图片大致可以分为3个步骤。1.激活摄像头。2.订阅。3.读取图像。<br>&emsp;&emsp;调用<code>setActiveCamera()</code>函数即可激活摄像头，其次就是调用<code>subscribe()</code>函数订阅该摄像头，该函数的函数头为<code>std::string ALVideoDeviceProxy::subscribe(const std::string&amp; Name, const int&amp; resolution, const int&amp; colorSpace, const int&amp; fps)</code>，一共需要4个参数。第1个为订阅者的名字，随便写一个字符串即可，第2个是分辨率，NAO最高支持<code>1280*960</code>的分辨率，但是越高的分辨率意味着越大的数据量，所以我们选择的是<code>640*480</code>的分辨率，其宏定义为<code>vd.kVGA</code>，第3个参数为颜色空间，这里选择的是一般的<code>BGR</code>空间，其宏定义为<code>vd.kBGRColorSpace</code>，最后一个为帧数，这里选择20即可。<br>&emsp;&emsp;订阅完之后，就可以调用<code>getImageRemote()</code>函数来获得图像了。其参数为之前的订阅者，返回值为图像的容器，具体内容如下：<br><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\图像容器.png" alt="data"><br>&emsp;&emsp;其中<code>0-5</code>都是图像的基本信息，即宽、高、通道、颜色空间和时间戳。第<code>6</code>个索引值存放的内容就是我们需要的图像信息，使用<code>numpy</code>里面的<code>reshape()</code>函数将其简单的处理成我们需要的<code>宽*高*通道</code>类型的数组。<br>&emsp;&emsp;最后使用<code>unsubscribe()</code>取消订阅以释放内存即可。    </p>
+<h2 id="显示图片"><a href="#显示图片" class="headerlink" title="显示图片"></a>显示图片</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">showFrame</span><span class="params">(self, frameArray, timeMs=<span class="number">1000</span>, isSave=False)</span>:</span></span><br><span class="line">    <span class="keyword">if</span> frameArray <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        print(<span class="string">"please get an image from Nao with the method updateFrame()"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        cv2.imshow(<span class="string">"current frame"</span>, frameArray)            </span><br><span class="line">        cv2.waitKey(timeMs)</span><br><span class="line">        <span class="keyword">if</span> isSave <span class="keyword">is</span> <span class="literal">True</span>:</span><br><span class="line">            cv2.imwrite(<span class="string">"test.jpg"</span>, frameArray)</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;<code>opencv</code>中常用的显示图片的函数为<code>imshow()</code>，该函数需要传入2个参数，即显示图像窗口的名称和图像内容。然后调用<code>waitKey()</code>函数延迟显示一段时间，单位为<code>ms</code>。最后提供了一个是否保存的参数接口，以便后续需要保存获得的图像。    </p>
+<h1 id="FootBallDetect"><a href="#FootBallDetect" class="headerlink" title="FootBallDetect"></a>FootBallDetect</h1><p>&emsp;&emsp;针对足球和红球，主要的流程为检测-&gt;筛选-&gt;定位。首先对NAO获得的图像进行检测，从而获得足球/红球或类似的目标，其次对其进行简单的判断筛选，以确保是我们需要的目标，最后进行定位，返回需要的目标信息。    </p>
+<h2 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FootBallDetect</span><span class="params">(VisualBasis)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, IP, PORT, cameraID=vd.kBottomCamera, resolution=vd.kVGA)</span>:</span></span><br><span class="line">        super(FootBallDetect, self).__init__(IP, PORT, cameraID, resolution)</span><br><span class="line">        self.ballData = &#123;<span class="string">"centerX"</span>: <span class="number">0</span>, <span class="string">"centerY"</span>: <span class="number">0</span>, <span class="string">"radius"</span>: <span class="number">0</span>&#125;</span><br><span class="line">        self.ballPosition = [<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br><span class="line">        self.minDist = <span class="number">100</span>   <span class="comment"># int(self._frameHeight/30.0)</span></span><br><span class="line">        self.minRadius = <span class="number">25</span></span><br><span class="line">        self.maxRadius = <span class="number">80</span>  <span class="comment"># int(self._frameHeight/10.0)</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;首先将足球的基本信息和位置信息作为类的属性，然后将<code>霍夫圆检测算法</code>(具体见下文分析)中的参数也作为类的属性。     </p>
+<h2 id="检测"><a href="#检测" class="headerlink" title="检测"></a>检测</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">findCirclesV0</span><span class="params">(self, img, minDist=<span class="number">100</span>, minRadius=<span class="number">25</span>, maxRadius=<span class="number">80</span>)</span>:</span></span><br><span class="line">    grayImg = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) </span><br><span class="line">    circles = cv2.HoughCircles(grayImg, cv.CV_HOUGH_GRADIENT, <span class="number">1</span>, minDist, </span><br><span class="line">                               param1=<span class="number">100</span>, param2=<span class="number">20</span>, minRadius=minRadius, maxRadius=maxRadius)  </span><br><span class="line">    <span class="keyword">if</span> circles <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        circles = []</span><br><span class="line">        print(<span class="string">"no circle"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        circles = circles[<span class="number">0</span>, ]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> circles</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;初级版采用的检测球的算法是<code>霍夫变换圆检测算法</code>，该算法比较简单，而且<code>opencv</code>有现成的函数，直接调用即可。函数头为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cv2.HoughCircles(image, method, dp, minDist, circles, param1, param2, minRadius, maxRadius)</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;<code>image</code>：输入图像，必须为灰度图像，这里使用<code>opencv</code>中的<code>cvtColor()</code>函数将其从<code>BGR</code>转为<code>GRAY</code>即可。<code>method</code>为检测方法，常用的是霍夫梯度法<code>HOUGH_GRADIENT</code>（opencv2的写法为：<code>cv2.cv.CV_HOUGH_GRADIENT</code>）。<code>dp</code>为检测内侧圆心的累加器图像的分辨率于输入图像之比的倒数，如<code>dp=1</code>，累加器和输入图像具有相同的分辨率，如果<code>dp=2</code>，累计器便有输入图像一半那么大的宽度和高度（取1即可）。<code>minDist</code>表示两个圆之间圆心的最小距离。<code>param1</code>是<code>method</code>设置的检测方法的对应的参数，对于霍夫梯度法，它表示传递给<code>canny</code>边缘检测算子的高阈值，而低阈值为高阈值的一半。<code>param2</code>是<code>method</code>设置的检测方法的对应的参数，对于霍夫梯度法，它表示在检测阶段圆心的累加器阈值，它越小，就越可以检测到更多根本不存在的圆，而它越大的话，能通过检测的圆就更加接近完美的圆形了。<code>minRadius</code>表示圆半径的最小值，<code>maxRadius</code>表示圆半径的最大值。<br>&emsp;&emsp;由上述分析可知，霍夫圆检测算法的参数十分重要，如果设置的不合理，很难达到预期的要求。   </p>
+<h2 id="筛选"><a href="#筛选" class="headerlink" title="筛选"></a>筛选</h2><p>&emsp;&emsp;将球检测出来后，下一步就是进行筛选并找到我们需要的球。初级版采用的策略是<code>颜色概率法</code>。如下图所示：<br><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\筛选圆.png" alt="筛选圆"><br>&emsp;&emsp;检测出圆形后，外接一个正方形，其边长<code>d</code>为<code>2(k*r)</code>，<code>r</code>为圆的半径，<code>k</code>为比例。这样就可以通过各个颜色出现的概率判断是否是绿地毯上的红球或足球（黑白球）。<br>&emsp;&emsp;<code>opencv</code>中有两种常用的颜色通道空间：<code>HSV</code>空间和<code>BGR</code>空间。实际测试下来发现<code>HSV</code>空间比较稳定。    </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selectCircleV0</span><span class="params">(self, circles)</span>:</span></span><br><span class="line">    img = self.frameArray.copy()</span><br><span class="line">    HSV = cv2.cvtColor(self.frameArray, cv2.COLOR_BGR2HSV)     </span><br><span class="line">    circleSelected = []</span><br><span class="line">    BWRatiomin = <span class="number">1.0</span></span><br><span class="line">    k = <span class="number">1.5</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> circle <span class="keyword">in</span> circles:</span><br><span class="line">        centerX, centerY, radius = circle[<span class="number">0</span>], circle[<span class="number">1</span>], circle[<span class="number">2</span>]</span><br><span class="line">        initX, initY = int(centerX - int(k * radius)), int(centerY - int(k * radius))</span><br><span class="line">        endX, endY = int(centerX + int(k * radius)), int(centerY + int(k * radius))</span><br><span class="line">        <span class="keyword">if</span> initX &lt; <span class="number">0</span> <span class="keyword">or</span> initY &lt; <span class="number">0</span> <span class="keyword">or</span> endX &gt; img.shape[<span class="number">1</span>] <span class="keyword">or</span> endY &gt; img.shape[<span class="number">0</span>] <span class="keyword">or</span> radius &lt; <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line"></span><br><span class="line">        rectBallArea = HSV[initY:endY, initX:endX, :]</span><br><span class="line">        HFlat, SFlat, VFlat = rectBallArea[:, :, <span class="number">0</span>].flatten(), rectBallArea[:, :, <span class="number">1</span>].flatten(), rectBallArea[:, :, <span class="number">2</span>].flatten()</span><br><span class="line">        size = HFlat.shape[<span class="number">0</span>]</span><br><span class="line">        onesArray = np.ones((size,))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 参考HSV颜色分布表</span></span><br><span class="line">        GScoreHL = np.uint8(<span class="number">35</span> * onesArray &lt;= HFlat)</span><br><span class="line">        GScoreHR = np.uint8(HFlat &lt;= <span class="number">77</span> * onesArray)    </span><br><span class="line">        GScoreSL = np.uint8(<span class="number">43</span> * onesArray &lt;= SFlat)</span><br><span class="line">        GScoreVL = np.uint8(<span class="number">46</span> * onesArray &lt;= VFlat)</span><br><span class="line">        GScore = float(np.sum(GScoreHL * GScoreHR * GScoreSL * GScoreVL))</span><br><span class="line"></span><br><span class="line">        WScoreSR = np.uint8(SFlat &lt;= <span class="number">35</span> * onesArray)</span><br><span class="line">        WScoreVL = np.uint8(<span class="number">221</span> * onesArray &lt;= VFlat)</span><br><span class="line">        WScore = float(np.sum(WScoreSR * WScoreVL))</span><br><span class="line"></span><br><span class="line">        BScoreVR = np.uint8(VFlat &lt;= <span class="number">46</span> * onesArray)    </span><br><span class="line">        BScore = float(np.sum(BScoreVR))       </span><br><span class="line"></span><br><span class="line">        GRatio, BRatio, WRatio = GScore * <span class="number">1.0</span> / size, BScore * <span class="number">1.0</span> / size, WScore * <span class="number">1.0</span> / size</span><br><span class="line">        WhiteBlackRatio = BScore * <span class="number">1.0</span> / size + WScore * <span class="number">1.0</span> / size</span><br><span class="line">        <span class="keyword">if</span> WhiteBlackRatio &gt; <span class="number">0.1</span> <span class="keyword">and</span> np.abs(WhiteBlackRatio - <span class="number">0.34</span>) &lt; BWRatiomin <span class="keyword">and</span> GRatio &gt; <span class="number">0.1</span>:</span><br><span class="line">            BWRatiomin = np.abs(WhiteBlackRatio - <span class="number">0.34</span>)</span><br><span class="line">            circleSelected = circle                  </span><br><span class="line">    circleSelected = np.array(circleSelected)          </span><br><span class="line">    <span class="keyword">return</span> circleSelected</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;首先将图像空间转换为<code>HSV</code>空间，然后对于检测出来的圆利用<code>for</code>循环依次遍历筛选。对于每个圆，首先根据比例<code>k</code>和圆心、半径求出矩形的左上角和右下角，对于超出图像边界的矩形框不予讨论，其次将<code>HSV</code>空间根据通道索引将其分解成3个部分，然后将每个部分根据<code>HSV</code>空间颜色分布表求出每个部分的颜色得分，全部设置为1，然后求和，算出每个颜色的总得分，然后除以总数，即可得到概率，最后根据概率即可判断是否是我们需要的目标。<br><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\HSV空间表.jpg" alt="data">      </p>
+<p>&emsp;&emsp;可以利用<code>opencv</code>的<code>circle()</code>函数将结果显示出来：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">drawCircle</span><span class="params">(self, img, circle)</span>:</span>  </span><br><span class="line">    x, y, r = int(circle[<span class="number">0</span>]), int(circle[<span class="number">1</span>]), int(circle[<span class="number">2</span>])</span><br><span class="line">    cv2.circle(img, (x, y), r, (<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>), <span class="number">2</span>)  </span><br><span class="line">    cv2.imshow(<span class="string">"result"</span>, img)</span><br><span class="line">    cv2.waitKey(<span class="number">0</span>)</span><br><span class="line">    cv2.destroyAllWindows()</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;下面进行一个简单的测试，将之前的函数综合调用一下，并画出检测的结果。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    footBallDet = FootBallDetect(<span class="string">"192.168.1.101"</span>, <span class="number">9559</span>)</span><br><span class="line">    footBallDet.postureProxy.goToPosture(<span class="string">"StandInit"</span>, <span class="number">0.5</span>)</span><br><span class="line">    img = footBallDet.updateFrame()</span><br><span class="line">    circles = footBallDet.findCirclesV0(img)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> circles == []:</span><br><span class="line">        print(<span class="string">"no ball"</span>)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        circleSelected = footBallDet.selectCircleV0(circles)</span><br><span class="line">        footBallDet.drawCircle(img, circleSelected)</span><br></pre></td></tr></table></figure></p>
+<p><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\足球检测结果.png" alt="足球检测结果"><br>&emsp;&emsp;结果显示在图中可以大致框出足球范围。   </p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><p><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\摄像头视角.png" alt="摄像头视角"><br>&emsp;&emsp;灰色矩形区域是摄像头拍摄的图像区域，其中图像原点位于矩形的左上角，坐标轴方向如图所示。蓝点表示摄像头，红点表示球的位置。摄像头的<code>pitch</code>（张角）和<code>yaw</code>（仰角）的正方向如图所示。红线表示摄像头的张角范围（左右视角范围），紫线表示仰角范围（上下视角范围）。球的位置坐标为<code>(x,y)</code>。<br>&emsp;&emsp;如果球正好位于图像的中心位置<code>(320,240)</code>，那么<code>摄像头-球-机器人双脚中心</code>正好可以构成一个平面的直角三角形，如下图所示：<br><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\定位.png" alt="摄像头视角"><br>&emsp;&emsp;摄像头离地面的</p>
+<p><img src="/2019/03/20/NAO比赛视觉系统设计（python初级版）/\摄像头参数.png" alt="摄像头参数">   </p>
+<p>&emsp;&emsp;注：初级版只是为了NAO足球比赛的，完整的NAO比赛视觉系统设计参见高级版的博客。   </p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢老板！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/15/C++重难点：重载与模板/" rel="next" title="C++重难点：重载与模板">
+                <i class="fa fa-chevron-left"></i> C++重难点：重载与模板
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/25/python高级编程/" rel="prev" title="python高级编程">
+                python高级编程 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjAyMi8xODU2OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#视觉系统框架设计"><span class="nav-number">2.</span> <span class="nav-text">视觉系统框架设计</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#ConfigureNAO类"><span class="nav-number">3.</span> <span class="nav-text">ConfigureNAO类</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VisualBasis类"><span class="nav-number">4.</span> <span class="nav-text">VisualBasis类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#获取图片"><span class="nav-number">4.1.</span> <span class="nav-text">获取图片</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#显示图片"><span class="nav-number">4.2.</span> <span class="nav-text">显示图片</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FootBallDetect"><span class="nav-number">5.</span> <span class="nav-text">FootBallDetect</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#初始化"><span class="nav-number">5.1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测"><span class="nav-number">5.2.</span> <span class="nav-text">检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#筛选"><span class="nav-number">5.3.</span> <span class="nav-text">筛选</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">5.4.</span> <span class="nav-text">定位</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">92.6k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共92.6k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
