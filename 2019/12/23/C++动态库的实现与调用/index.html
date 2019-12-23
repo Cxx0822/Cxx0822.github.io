@@ -90,17 +90,27 @@
 
 
 
-<meta name="description" content="&amp;emsp;&amp;emsp;在Linux系统中，所有的软件和硬件都是以文件的形式存在的。   文件&amp;emsp;&amp;emsp;在Linux中的每一个文件或目录都包含有访问权限，这些访问权限决定了谁能访问和如何访问这些文件和目录。    用户与用户组&amp;emsp;&amp;emsp;Linux是一个多用户、多任务的环境，一般将用户分为3个类别：owner，group和others，每个类别各有read，write和e">
+<meta name="description" content="平台&amp;emsp;&amp;emsp;Visual Studio 2015&amp;emsp;&amp;emsp;Qt Creator      概述&amp;emsp;&amp;emsp;动态链接库(Dynamic Link Library)DLL文件与exe文件一样也是可执行文件，但是DLL也被称之为库，因为里面封装了各种类和函数等，就像是一个库一样，存储着很多东西，主要是用来调用的。调用方式主要分为两种：隐式(通过lib文件与头文件">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Linux的文件与目录">
-<meta property="og:url" content="http://www.chenxiuxiang.site/2019/03/05/Linux的文件与目录/index.html">
+<meta property="og:title" content="C++动态库的实现与调用">
+<meta property="og:url" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
-<meta property="og:description" content="&amp;emsp;&amp;emsp;在Linux系统中，所有的软件和硬件都是以文件的形式存在的。   文件&amp;emsp;&amp;emsp;在Linux中的每一个文件或目录都包含有访问权限，这些访问权限决定了谁能访问和如何访问这些文件和目录。    用户与用户组&amp;emsp;&amp;emsp;Linux是一个多用户、多任务的环境，一般将用户分为3个类别：owner，group和others，每个类别各有read，write和e">
+<meta property="og:description" content="平台&amp;emsp;&amp;emsp;Visual Studio 2015&amp;emsp;&amp;emsp;Qt Creator      概述&amp;emsp;&amp;emsp;动态链接库(Dynamic Link Library)DLL文件与exe文件一样也是可执行文件，但是DLL也被称之为库，因为里面封装了各种类和函数等，就像是一个库一样，存储着很多东西，主要是用来调用的。调用方式主要分为两种：隐式(通过lib文件与头文件">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-07T13:07:12.652Z">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/新建工程_1.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/新建工程_2.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/新建文件.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/生成解决方案.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/生成文件.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/新建工程_3.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/放置文件.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/添加文件.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/运行结果.png">
+<meta property="og:updated_time" content="2019-12-23T06:51:12.553Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Linux的文件与目录">
-<meta name="twitter:description" content="&amp;emsp;&amp;emsp;在Linux系统中，所有的软件和硬件都是以文件的形式存在的。   文件&amp;emsp;&amp;emsp;在Linux中的每一个文件或目录都包含有访问权限，这些访问权限决定了谁能访问和如何访问这些文件和目录。    用户与用户组&amp;emsp;&amp;emsp;Linux是一个多用户、多任务的环境，一般将用户分为3个类别：owner，group和others，每个类别各有read，write和e">
+<meta name="twitter:title" content="C++动态库的实现与调用">
+<meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Visual Studio 2015&amp;emsp;&amp;emsp;Qt Creator      概述&amp;emsp;&amp;emsp;动态链接库(Dynamic Link Library)DLL文件与exe文件一样也是可执行文件，但是DLL也被称之为库，因为里面封装了各种类和函数等，就像是一个库一样，存储着很多东西，主要是用来调用的。调用方式主要分为两种：隐式(通过lib文件与头文件">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/新建工程_1.png">
 
 
 
@@ -130,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://www.chenxiuxiang.site/2019/03/05/Linux的文件与目录/">
+  <link rel="canonical" href="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/">
 
 
 
 
 
-  <title>Linux的文件与目录 | NJTECH_cxx</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>C++动态库的实现与调用 | NJTECH_cxx</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
@@ -253,7 +263,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.chenxiuxiang.site/2019/03/05/Linux的文件与目录/">
+    <link itemprop="mainEntityOfPage" href="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
@@ -270,7 +280,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Linux的文件与目录</h1>
+          <h1 class="post-title" itemprop="name headline">C++动态库的实现与调用</h1>
         
 
         <div class="post-meta">
@@ -282,8 +292,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-03-05T17:02:56+08:00">
-                2019-03-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T10:52:06+08:00">
+                2019-12-23
               </time>
             
 
@@ -319,7 +329,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  879 字
+                  605 字
                 </span>
               
 
@@ -335,7 +345,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -356,21 +366,33 @@
       
 
       
-        <p>&emsp;&emsp;在Linux系统中，所有的软件和硬件都是以<code>文件</code>的形式存在的。  </p>
-<h1 id="文件"><a href="#文件" class="headerlink" title="文件"></a>文件</h1><p>&emsp;&emsp;在Linux中的每一个文件或目录都包含有访问权限，这些访问权限决定了谁能访问和如何访问这些文件和目录。   </p>
-<h2 id="用户与用户组"><a href="#用户与用户组" class="headerlink" title="用户与用户组"></a>用户与用户组</h2><p>&emsp;&emsp;Linux是一个多用户、多任务的环境，一般将用户分为3个类别：<code>owner</code>，<code>group</code>和<code>others</code>，每个类别各有<code>read</code>，<code>write</code>和<code>execute</code>等权限。此外，还有1个超级用户<code>root</code>，可以访问任何类别的任何文件。<br>&emsp;&emsp;一般身份和root的相关信息记录在<code>/etc/passwd</code>文件内，个人的密码记录在<code>/etc/shadow</code>文件内，组名的信息记录在<code>etc/group</code>文件内。<br>&emsp;&emsp;切换用户命令：<code>su [-] ownername</code>。不加<code>-</code>表示只能获得执行权限，加了表示获得环境变量及执行权限。<code>ownername</code>默认为<code>root</code>。普通用户切换到<code>root</code>需要密码，<code>root</code>切换到普通用户不需要密码，<code>root</code>输入<code>exit</code>可以退出<code>root</code>。<br>注：如果进入<code>root</code>权限时显示<code>su:Authentication failure</code>则是因为之前没有设置过<code>root</code>的密码，输入命令<code>sudo passwd</code>并按照提示即可设置密码。</p>
-<h2 id="文件属性"><a href="#文件属性" class="headerlink" title="文件属性"></a>文件属性</h2><p>（图）输入命令查看文件</p>
-<p>&emsp;&emsp;第一列：文件的类型和权限<br>&emsp;&emsp;第一列一共有10个字符，第1个字符表示的是文件是目录或文件。<br>| d | - |  l | b |  c |<br>|  :———: |  :———:  |  :———: |  :———:  |  :———: |<br>|目录|文件|链接文件|可供存储的接口设备|串行端口设备|<br>&emsp;&emsp;接下来的9个字符，3个为1组，一共有3组，分别为<code>r(可读)</code>，<code>w(可写)</code>和<code>x(可执行)</code>权限，如果没有权限则用<code>-</code>表示。3组分别为<code>文件所有者的权限</code>，<code>同用户组的权限</code>和<code>其他非本用户组的权限</code>。<br>&emsp;&emsp;<code>read</code>：可以读取文件的内容，<code>write</code>：可以编辑、增加或修改文件的内容（但不能删除），<code>execute</code>：可以被系统执行。</p>
-<p>&emsp;&emsp;第二列：有多少个文件名连接到此节点<br>&emsp;&emsp;第三列：所有者账号<br>&emsp;&emsp;第四列：所属用户组<br>&emsp;&emsp;第五列：容量大小，单位为<code>B</code><br>&emsp;&emsp;第六列：创建日期或最近的修改日期<br>&emsp;&emsp;第七列：文件名    </p>
-<h2 id="改变文件属性与权限"><a href="#改变文件属性与权限" class="headerlink" title="改变文件属性与权限"></a>改变文件属性与权限</h2><p>&emsp;&emsp;常用的有3个命名：<code>chgrp</code>，<code>chown</code>和<code>chmod</code>。</p>
-<h3 id="chgrp"><a href="#chgrp" class="headerlink" title="chgrp"></a>chgrp</h3><p>&emsp;&emsp;命令格式：<code>chgrp groupame dirname/filename</code>   </p>
-<h3 id="chown"><a href="#chown" class="headerlink" title="chown"></a>chown</h3><p>&emsp;&emsp;命令格式：<code>chgrp ownerame dirname/filename</code> </p>
-<h3 id="chmod"><a href="#chmod" class="headerlink" title="chmod"></a>chmod</h3><p>&emsp;&emsp;设置权限的方式有两种，分别是数字和符号，比较常用的是数字设置。其中<code>read</code>是4，<code>write</code>是2，<code>execute</code>是1。每个类别的权限为这3种权限的和。例有一个文件的权限为<code>rwxrwx---</code>，则owner的数字为：<code>4+2+1=7</code>，group的数字为：<code>4+2+1=7</code>，others的数字为<code>0+0+0=0</code>，总的数字为<code>774</code>。命令格式为：<code>chmod xyz dirname/filename</code>。（xyz为各个类别的数字。）   </p>
-<h2 id="文件种类"><a href="#文件种类" class="headerlink" title="文件种类"></a>文件种类</h2><p>&emsp;&emsp;常见的Linux文件类型有：<code>普通文件、目录、连接文件、设备文件、套接字(sockets,s)和管道(pipe,p)</code>。文件类型可以在文件属性的第一个字符中查到。    </p>
-<h3 id="普通文件"><a href="#普通文件" class="headerlink" title="普通文件(-)"></a>普通文件(-)</h3><p>&emsp;&emsp;普通文件又可以分为<code>纯文本文件</code>、<code>二进制文件</code>和<code>数据格式文件</code>。  </p>
-<h3 id="目录-directory-d"><a href="#目录-directory-d" class="headerlink" title="目录(directory,d)"></a>目录(directory,d)</h3><h3 id="连接文件-link-l"><a href="#连接文件-link-l" class="headerlink" title="连接文件(link,l)"></a>连接文件(link,l)</h3><p>&emsp;&emsp;类似于Windows系统的<code>快捷方式</code>。</p>
-<h3 id="设备与设备文件-device"><a href="#设备与设备文件-device" class="headerlink" title="设备与设备文件(device)"></a>设备与设备文件(device)</h3><p>&emsp;&emsp;与系统外设及存储等相关的文件，集中在<code>/dev</code>目录下。又分为两种，一种是块设备文件<code>(block,b)</code>，如硬盘，软盘等，另一种是字符设备<code>(character,c)</code>，如键盘，鼠标等。   </p>
+        <h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>&emsp;&emsp;Visual Studio 2015<br>&emsp;&emsp;Qt Creator     </p>
+<h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>&emsp;&emsp;动态链接库(<code>Dynamic Link Library</code>)<code>DLL</code>文件与<code>exe</code>文件一样也是可执行文件，但是<code>DLL</code>也被称之为库，因为里面封装了各种类和函数等，就像是一个库一样，存储着很多东西，主要是用来调用的。调用方式主要分为两种：隐式(通过<code>lib</code>文件与头文件)与显式(只通过<code>DLL</code>文件)。<br>&emsp;&emsp;代码复用是提高软件开发效率的重要途径。一般而言，只要某部分代码具有通用性，就可将它构造成相对独立的功能模块并在之后的项目中重复使用。比较常见的例子是各种应用程序框架，<code>ATL</code>、<code>MFC</code>等，它们都以源代码的形式发布。由于这种复用是<code>源码级别</code>的，源代码完全暴露给了程序员，因而称之为<code>白盒复用</code>。为了弥补<code>白盒复用</code>的不足，就提出了<code>二进制级别</code>的代码复用。使用二进制级别的代码复用一定程度上隐藏了源代码，对于缓解代码耦合现象起到了一定的作用。这样的复用被称为<code>黑盒复用</code>。<br>&emsp;&emsp;注：实现<code>黑盒复用</code>的途径不只<code>dll</code>一种，静态链接库甚至更高级的<code>COM</code>组件都是。      </p>
+<h1 id="实现C-的动态链接库"><a href="#实现C-的动态链接库" class="headerlink" title="实现C++的动态链接库"></a>实现C++的动态链接库</h1><h2 id="创建动态链接库"><a href="#创建动态链接库" class="headerlink" title="创建动态链接库"></a>创建动态链接库</h2><h3 id="新建工程项目CreateDLL"><a href="#新建工程项目CreateDLL" class="headerlink" title="新建工程项目CreateDLL"></a>新建工程项目CreateDLL</h3><p>&emsp;&emsp;打开<code>Visual Studio 2015</code>新建工程，并选择<code>DLL</code>应用程序类型。  </p>
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/新建工程_1.png"></div>  
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/新建工程_2.png"></div>   
 
+<h3 id="创建-cpp和-h文件"><a href="#创建-cpp和-h文件" class="headerlink" title="创建.cpp和.h文件"></a>创建.cpp和.h文件</h3><p>&emsp;&emsp;右击项目工程，添加-&gt;新建项，依次建立<code>createDLL.cpp</code>和<code>createDLL.h</code>文件。     </p>
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/新建文件.png"></div>   
+
+<h3 id="编写文件"><a href="#编写文件" class="headerlink" title="编写文件"></a>编写文件</h3><h4 id="createDLL-h"><a href="#createDLL-h" class="headerlink" title="createDLL.h"></a>createDLL.h</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">__declspec(dllexport) <span class="function"><span class="keyword">void</span> <span class="title">test_fun</span><span class="params">()</span></span>;</span><br></pre></td></tr></table></figure>
+<h4 id="createDLL-cpp"><a href="#createDLL-cpp" class="headerlink" title="createDLL.cpp"></a>createDLL.cpp</h4><p>&emsp;&emsp;这里写了一个简单的<code>hello world</code>测试程序。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"createDLL.h"</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">test_fun</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="built_in">cout</span> &lt;&lt; <span class="string">"hello world"</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><p>&emsp;&emsp;重新生成解决方案</p>
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/生成解决方案.png"></div> 
+
+<h3 id="文件位置"><a href="#文件位置" class="headerlink" title="文件位置"></a>文件位置</h3><p>&emsp;&emsp;在<code>Debug</code>文件夹下，有新生成的动态链接库文件。   </p>
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/生成文件.png"></div> 
+
+<h2 id="使用动态链接库"><a href="#使用动态链接库" class="headerlink" title="使用动态链接库"></a>使用动态链接库</h2><h3 id="新建工程UseDLL"><a href="#新建工程UseDLL" class="headerlink" title="新建工程UseDLL"></a>新建工程UseDLL</h3><p>&emsp;&emsp;这里选择控制台应用程序。</p>
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/新建工程_3.png"></div>  
+
+<h3 id="添加文件"><a href="#添加文件" class="headerlink" title="添加文件"></a>添加文件</h3><p>&emsp;&emsp;将刚才的<code>createDLL.dll</code>,<code>createDLL.lib</code>和<code>createDLL.h</code>文件放到工程文件目录下。 </p>
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/放置文件.png"></div>     
+&emsp;&emsp;将刚才的`createDLL.dll`,`createDLL.lib`和`createDLL.h`文件分别放到工程文件目录下的头文件和资源文件中。    
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/添加文件.png"></div>
+
+<h3 id="新建-cpp"><a href="#新建-cpp" class="headerlink" title="新建.cpp"></a>新建.cpp</h3><p>&emsp;&emsp;调用之前的函数即可。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">"createDLL.h"</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	test_fun();</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<div align="center"><img src="/2019/12/23/C++动态库的实现与调用/运行结果.png"></div>
       
     </div>
     
@@ -423,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/02/26/基于Ubuntu系统的NAO开发01：安装系统并配置python环境/" rel="next" title="基于Ubuntu系统的NAO开发01：安装系统并配置python环境">
-                <i class="fa fa-chevron-left"></i> 基于Ubuntu系统的NAO开发01：安装系统并配置python环境
+              <a href="/2019/12/16/模板匹配算法简介/" rel="next" title="模板匹配算法简介">
+                <i class="fa fa-chevron-left"></i> 模板匹配算法简介
               </a>
             
           </div>
@@ -432,10 +454,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/03/07/C++重难点：虚函数与虚继承/" rel="prev" title="C++重难点：虚函数与虚继承">
-                C++重难点：虚函数与虚继承 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -563,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#文件"><span class="nav-number">1.</span> <span class="nav-text">文件</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#用户与用户组"><span class="nav-number">1.1.</span> <span class="nav-text">用户与用户组</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件属性"><span class="nav-number">1.2.</span> <span class="nav-text">文件属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改变文件属性与权限"><span class="nav-number">1.3.</span> <span class="nav-text">改变文件属性与权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#chgrp"><span class="nav-number">1.3.1.</span> <span class="nav-text">chgrp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chown"><span class="nav-number">1.3.2.</span> <span class="nav-text">chown</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#chmod"><span class="nav-number">1.3.3.</span> <span class="nav-text">chmod</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件种类"><span class="nav-number">1.4.</span> <span class="nav-text">文件种类</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#普通文件"><span class="nav-number">1.4.1.</span> <span class="nav-text">普通文件(-)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#目录-directory-d"><span class="nav-number">1.4.2.</span> <span class="nav-text">目录(directory,d)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#连接文件-link-l"><span class="nav-number">1.4.3.</span> <span class="nav-text">连接文件(link,l)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设备与设备文件-device"><span class="nav-number">1.4.4.</span> <span class="nav-text">设备与设备文件(device)</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">2.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现C-的动态链接库"><span class="nav-number">3.</span> <span class="nav-text">实现C++的动态链接库</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建动态链接库"><span class="nav-number">3.1.</span> <span class="nav-text">创建动态链接库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建工程项目CreateDLL"><span class="nav-number">3.1.1.</span> <span class="nav-text">新建工程项目CreateDLL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建-cpp和-h文件"><span class="nav-number">3.1.2.</span> <span class="nav-text">创建.cpp和.h文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编写文件"><span class="nav-number">3.1.3.</span> <span class="nav-text">编写文件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#createDLL-h"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">createDLL.h</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#createDLL-cpp"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">createDLL.cpp</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译"><span class="nav-number">3.1.4.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件位置"><span class="nav-number">3.1.5.</span> <span class="nav-text">文件位置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用动态链接库"><span class="nav-number">3.2.</span> <span class="nav-text">使用动态链接库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建工程UseDLL"><span class="nav-number">3.2.1.</span> <span class="nav-text">新建工程UseDLL</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文件"><span class="nav-number">3.2.2.</span> <span class="nav-text">添加文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#新建-cpp"><span class="nav-number">3.2.3.</span> <span class="nav-text">新建.cpp</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
