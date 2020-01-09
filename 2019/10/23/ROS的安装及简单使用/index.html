@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/10/23/ROS的安装及简单使用//ROS版本.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/10/23/ROS的安装及简单使用//turtle测试.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/10/23/ROS的安装及简单使用//ping测试.png">
-<meta property="og:updated_time" content="2020-01-09T07:12:49.721Z">
+<meta property="og:updated_time" content="2020-01-09T07:35:43.997Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS的安装及简单使用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu 16.04    ROS简介&amp;emsp;&amp;emsp;ROS即机器人操作系统(Robot Operating System)，ROS系统是起源于2007年斯坦福大学人工智能实验室的项目与机器人技术公司Willow Garage的个人机器人项目之间的合作，2008年之后就由Willow Garage来进行推动。2010年Willow Garage公司发布了开源">
@@ -396,7 +396,7 @@
 <p>&emsp;&emsp;注：多行命令，需依次输入，下同。   </p>
 <h2 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h2><p>&emsp;&emsp;如果在每次一个新的终端启动时，ROS环境变量都能自动地添加进你的<code>bash</code>会话是非常方便，这可以通过如下命令来实现：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"source /opt/ros/kinetic/setup.bash"</span> &gt;&gt; ~<span class="string">/.bashrc</span></span><br><span class="line">source ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="构建包所需的依赖"><a href="#构建包所需的依赖" class="headerlink" title="构建包所需的依赖"></a>构建包所需的依赖</h2><p>&emsp;&emsp;到这一步，应该已经安装好了运行核心ROS包的所有东西。要创建和管理你自己的<code>ROS workspace</code>，还有单独发布的许多的工具。比如，<code>rosinstall</code>是一个常用的命令行工具，使你可以通过一个命令为ROS包简单地下载许多源码树。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-rosinstall <span class="keyword">python</span>-rosinstall-generator <span class="keyword">python</span>-wstool build-essential</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;至此，已经安装完了ROS的所有部分，下面可以进行一个简单的测试。      </p>
+<p>&emsp;&emsp;至此，已经安装完了ROS的所有部分，下面可以进行一个简单的测试。   </p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="启动ROS核心管理器"><a href="#启动ROS核心管理器" class="headerlink" title="启动ROS核心管理器"></a>启动ROS核心管理器</h3><p>&emsp;&emsp;打开一个终端，输入以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">roscore</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="启动乌龟仿真器节点"><a href="#启动乌龟仿真器节点" class="headerlink" title="启动乌龟仿真器节点"></a>启动乌龟仿真器节点</h3><p>&emsp;&emsp;再打开一个终端，输入以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun turtlesim turtlesim_node</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="启动控制乌龟操作节点"><a href="#启动控制乌龟操作节点" class="headerlink" title="启动控制乌龟操作节点"></a>启动控制乌龟操作节点</h3><p>&emsp;&emsp;再打开一个终端，输入以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun turtlesim turtle_teleop_key</span></span><br></pre></td></tr></table></figure></p>

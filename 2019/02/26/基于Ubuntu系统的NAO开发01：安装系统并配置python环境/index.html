@@ -108,7 +108,7 @@
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/02/26/基于Ubuntu系统的NAO开发01：安装系统并配置python环境//06.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/02/26/基于Ubuntu系统的NAO开发01：安装系统并配置python环境//07.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/02/26/基于Ubuntu系统的NAO开发01：安装系统并配置python环境//08.png">
-<meta property="og:updated_time" content="2020-01-09T07:27:26.921Z">
+<meta property="og:updated_time" content="2020-01-09T07:37:57.204Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于Ubuntu系统的NAO开发01：安装系统并配置python环境">
 <meta name="twitter:description" content="安装Ubuntu系统&amp;emsp;&amp;emsp;Ubuntu是基于linux的免费开源桌面PC操作系统。本博客是在Windows10系统基础上，安装Ubuntu双系统，为了配合NAO机器人的使用，选择安装Ubuntu14.04版本。 制作系统盘&amp;emsp;&amp;emsp;首先准备一个空u盘（格式化后的）制作系统盘。可以选择UltraISO软件制作，制作过程也十分简单。先下载Ubuntu14.04的镜像文件">
@@ -353,7 +353,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,048 字
+                  2,079 字
                 </span>
               
 
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  7 分钟
+                  8 分钟
                 </span>
               
             </div>
@@ -498,6 +498,7 @@
 </tbody>
 </table>
 </div>
+<p>&emsp;&emsp;注：安装系统后，需要更换国内源和软件更新，具体可以搜索其他博客学习。     </p>
 <h2 id="配置NAO环境"><a href="#配置NAO环境" class="headerlink" title="配置NAO环境"></a>配置NAO环境</h2><p>&emsp;&emsp;配置方法可以参考NAO的<a href="http://doc.aldebaran.com/2-1/dev/python/install_guide.html" target="_blank" rel="noopener">官方文档</a>。<br>&emsp;&emsp;注：下载的python-linux-SDK版本（32/64）要和Ubuntu系统一致。</p>
 <h3 id="安装python"><a href="#安装python" class="headerlink" title="安装python"></a>安装python</h3><p>&emsp;&emsp;Ubuntu系统自带python2，所以无需安装。</p>
 <h3 id="安装python-SDK"><a href="#安装python-SDK" class="headerlink" title="安装python SDK"></a>安装python SDK</h3><p>&emsp;&emsp;根据官网的提示，进入NAO社区下载。我安装的系统是Ubuntu64位，所以选择64位的python SDK。<a href="https://pan.baidu.com/s/193PnLt8VFoWVJRunSBAsMQ" target="_blank" rel="noopener">百度云链接</a> 提取码：8acy。<br>&emsp;&emsp;先压缩下载好的文件，可以选择命令行压缩也可以直接右击文件选择<code>Extract Here</code>。压缩命令为：<code>tar -xvf soft.tar.gz.tar</code>，要先进入目标文件夹，如：<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd /home/cxx/NAO/NAOUbuntu</span><br><span class="line">tar -xvf pynaoqi-python2<span class="number">.7</span><span class="number">-2.1</span><span class="number">.4</span><span class="number">.13</span>-linux64.tar.gz.tar  （按TAB键盘可自动补全）</span><br></pre></td></tr></table></figure></p>
