@@ -148,7 +148,7 @@
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/06/23/基于YOLO的目标检测//pytorch训练过程.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/06/23/基于YOLO的目标检测//pytorch预测结果.jpg">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2019/06/23/基于YOLO的目标检测//pytorchresults.png">
-<meta property="og:updated_time" content="2020-01-09T04:09:41.549Z">
+<meta property="og:updated_time" content="2020-01-09T04:15:16.907Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于YOLO的目标检测">
 <meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;    平台&amp;emsp;&amp;emsp;系统：Ubuntu&amp;emsp;&amp;emsp;框架：Darknet    配置环境opencv配置下载opencv3.4.0&amp;emsp;&amp;emsp;从官网下载即可，网址，选择Sources源代码，尽量选择3.4.0及以下的版本，高版本的不一定能配置成功。      安装依赖&amp;emsp;&amp;emsp;依次执行下面4条命令即可。     sud">
@@ -393,7 +393,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  12,296 字
+                  12,294 字
                 </span>
               
 
@@ -593,7 +593,7 @@ export PKG_CONFIG_PATH</code><br>保存，执行如下命令使得配置生效�
 <p>&emsp;&emsp;注：<code>Ubuntu</code>系统下可能为<code>python3</code>。        </p>
 <p>&emsp;&emsp;训练过程如图所示：<br><img src="/2019/06/23/基于YOLO的目标检测/\pytorch训练过程.png" alt="data">  </p>
 <h3 id="预测"><a href="#预测" class="headerlink" title="预测"></a>预测</h3><p>&emsp;&emsp;训练结束后，会在<code>weights</code>文件夹下生成很多权重文件，其中<code>best.pt</code>就是最好的权重。首先将需要检测的图片放到<code>data</code>文件夹下的<code>samples</code>文件夹下，然后切换至主文件夹下，运行以下命令：<br><figure class="highlight fortran"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect.py --<span class="keyword">data</span> <span class="keyword">data</span>/coco.<span class="keyword">data</span> --cfg cfg/yolov3-<span class="built_in">tiny</span>.cfg --weights weights/best.pt</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;注：最近的官网源代码对<code>detect.py</code>进行了更新，将<code>data</code>参数设置改为了<code>names</code>参数设置，所以运行命令更改为：<br><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python detect<span class="selector-class">.py</span> --names data/coco<span class="selector-class">.names</span> --cfg cfg/yolov3-tiny<span class="selector-class">.cfg</span> --weights weights/yolov3-tiny<span class="selector-class">.conv</span>.<span class="number">15</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注：最近的官网源代码对<code>detect.py</code>进行了更新，将<code>data</code>参数设置改为了<code>names</code>参数设置，所以运行命令更改为：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">python</span> <span class="comment">detect</span><span class="string">.</span><span class="comment">py</span> --<span class="comment">names</span> <span class="comment">data/coco</span><span class="string">.</span><span class="comment">names</span> --<span class="comment">cfg</span> <span class="comment">cfg/yolov3</span><span class="literal">-</span><span class="comment">tiny</span><span class="string">.</span><span class="comment">cfg</span> --<span class="comment">weights</span> <span class="comment">weights/best</span><span class="string">.</span><span class="comment">pt</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;运行结束后，会在主文件夹下生成<code>output</code>文件夹，里面存放着预测结果。<br><img src="/2019/06/23/基于YOLO的目标检测/\pytorch预测结果.jpg" alt="data">  </p>
 <h3 id="结果分析-1"><a href="#结果分析-1" class="headerlink" title="结果分析"></a>结果分析</h3><p>&emsp;&emsp;训练结束后，除了生成权重文件外，还生成了<code>results.txt</code>文本文件，该文件记录了刚才训练过程中的日志信息，只需执行一条简单的命令就可以将其可视化。<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -<span class="built_in">c</span> from utils <span class="keyword">import</span> utils;utils.plot_results()</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;运行结束后，会在主文件夹下生成一个<code>result.png</code>。<br><img src="/2019/06/23/基于YOLO的目标检测/\pytorchresults.png" alt="data"><br>&emsp;&emsp;注：不知道为啥<code>Classification</code>没有显示…  </p>
