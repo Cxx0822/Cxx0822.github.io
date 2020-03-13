@@ -103,7 +103,7 @@
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车//修改之后.jpg">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车//定位校准前.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车//定位校准后.png">
-<meta property="og:updated_time" content="2020-03-13T02:14:05.749Z">
+<meta property="og:updated_time" content="2020-03-13T02:17:20.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无人清洁车">
 <meta name="twitter:description" content="使用步骤1.打开电源，启动Ubuntu系统，连接路由器。注：挪动清洁车时，一定要打开电源，小距离移动除外。    2.手推/键盘操作移动清洁车，移动区域覆盖目标区域。ROS命令：1roslaunch anbot_bringup anbot_bringup.launch &amp;emsp;&amp;emsp;实际建图时，可以通过Rviz观察当前建图信息，并调整清洁车位置。&amp;emsp;&amp;emsp;彩色表示当前激光雷">
@@ -326,7 +326,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  515 字
+                  521 字
                 </span>
               
 
@@ -368,7 +368,7 @@
 <p>&emsp;&emsp;实际建图时，可以通过<code>Rviz</code>观察当前建图信息，并调整清洁车位置。<br><img src="/2020/03/13/无人清洁车/\当前建图情况.png" alt="data"><br>&emsp;&emsp;彩色表示当前激光雷达扫描区域，黑色表示墙等障碍物，灰白色表示空白作业区域。外圈白色线条状表示因地面等其他因素激光照射出去的范围。  </p>
 <h2 id="3-保存地图，人工修图。"><a href="#3-保存地图，人工修图。" class="headerlink" title="3.保存地图，人工修图。"></a>3.保存地图，人工修图。</h2><p>ROS命令：<br><figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rostopic <span class="keyword">pub</span>/robot_map_save std_msgs/<span class="built_in">String</span> <span class="string">"data:  ''"</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;注：实际操作时，按<code>Tab</code>键自动补全。<br>&emsp;&emsp;图片位于<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SweepRobotManger<span class="regexp">/robot/i</span>nstall<span class="regexp">/share/</span>robot_config<span class="regexp">/map/mym</span>ap.jpg</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;未修之前地图：<br><img src="/2020/03/13/无人清洁车/\未修之前.jpg" alt="data"><br>&emsp;&emsp;修图工具：<code>Pinta</code>，功能界面类似于<code>画图</code>，普通画图编辑器。<br><img src="/2020/03/13/无人清洁车/\pinta.png" alt="data"><br>&emsp;&emsp;修图目标：1.确保场景为封闭环境。2.确保边界清晰。3.确保作业区域无杂质。<br>&emsp;&emsp;操作方法：使用画笔工具添加或加粗边界，使用橡皮擦工具清除杂质。<br><img src="/2020/03/13/无人清洁车/\修改之后.jpg" alt="data">  </p>
+<p>&emsp;&emsp;未修之前地图：<br><img src="/2020/03/13/无人清洁车/\未修之前.jpg" alt="data"><br>&emsp;&emsp;修图工具：<code>Pinta</code>，功能界面类似于<code>画图</code>，普通画图编辑器。<br><img src="/2020/03/13/无人清洁车/\pinta.png" alt="data"><br>&emsp;&emsp;修图目标：1.确保场景为封闭环境。2.确保边界清晰。3.确保作业区域无杂质。<br>&emsp;&emsp;操作方法：使用画笔工具添加或加粗边界，使用橡皮擦工具清除杂质。<br>&emsp;&emsp;修改之后地图：<br><img src="/2020/03/13/无人清洁车/\修改之后.jpg" alt="data">  </p>
 <h2 id="4-启动导航，手动定位。"><a href="#4-启动导航，手动定位。" class="headerlink" title="4.启动导航，手动定位。"></a>4.启动导航，手动定位。</h2><p>ROS命令：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch anbot_bringup anbot_navigation.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;注：启动前按住急停按钮，确保清洁车不能移动，定位后在按下急停按钮，使其作业。<br>&emsp;&emsp;启动该命令后，自动进入<code>Rviz</code>界面，手动调整机器人位姿，使其在正确的地图位置中。<br>&emsp;&emsp;定位校准前：<br><img src="/2020/03/13/无人清洁车/\定位校准前.png" alt="data"><br>&emsp;&emsp;具体操作：点击<code>2D Pose Estimate</code>，拖动鼠标，确定方向，使激光雷达扫描区域(彩色区域)和实际地图中墙壁重合。<br>&emsp;&emsp;定位校准后：<br><img src="/2020/03/13/无人清洁车/\定位校准后.png" alt="data"><br>&emsp;&emsp;注：绿色线条区域为导航算法自动生成。红色为机器人位置。   </p>
 <h2 id="5-自动导航，启动刷盘等，开始作业。"><a href="#5-自动导航，启动刷盘等，开始作业。" class="headerlink" title="5.自动导航，启动刷盘等，开始作业。"></a>5.自动导航，启动刷盘等，开始作业。</h2><p>ROS命令：<br><figure class="highlight sqf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rostopic pub/<span class="built_in">agent</span> anbot_msgs/<span class="built_in">Agent</span> <span class="string">"&#123;太多了 不一一写了，tab补全即可&#125;"</span></span><br></pre></td></tr></table></figure></p>
