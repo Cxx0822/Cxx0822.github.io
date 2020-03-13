@@ -90,17 +90,21 @@
 
 
 
-<meta name="description" content="使用步骤 打开电源，启动Ubuntu系统，连接路由器。注：挪动清洁车时，一定要打开电源，小距离移动除外。    手推/键盘操作移动清洁车，移动区域覆盖目标区域。ROS命令：   12345678roslaunch anbot_bringup anbot_bringup.launch```   &amp;amp;emsp;&amp;amp;emsp;实际建图时，可以通过`Rviz`观察当前建图信息，并调整清洁车位置">
+<meta name="description" content="使用步骤 打开电源，启动Ubuntu系统，连接路由器。注：挪动清洁车时，一定要打开电源，小距离移动除外。    手推/键盘操作移动清洁车，移动区域覆盖目标区域。ROS命令： 1roslaunch anbot_bringup anbot_bringup.launch   &amp;emsp;&amp;emsp;实际建图时，可以通过Rviz观察当前建图信息，并调整清洁车位置。&amp;emsp;&amp;emsp;彩色表示当前激光雷">
 <meta property="og:type" content="article">
 <meta property="og:title" content="无人清洁车">
 <meta property="og:url" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
-<meta property="og:description" content="使用步骤 打开电源，启动Ubuntu系统，连接路由器。注：挪动清洁车时，一定要打开电源，小距离移动除外。    手推/键盘操作移动清洁车，移动区域覆盖目标区域。ROS命令：   12345678roslaunch anbot_bringup anbot_bringup.launch```   &amp;amp;emsp;&amp;amp;emsp;实际建图时，可以通过`Rviz`观察当前建图信息，并调整清洁车位置">
+<meta property="og:description" content="使用步骤 打开电源，启动Ubuntu系统，连接路由器。注：挪动清洁车时，一定要打开电源，小距离移动除外。    手推/键盘操作移动清洁车，移动区域覆盖目标区域。ROS命令： 1roslaunch anbot_bringup anbot_bringup.launch   &amp;emsp;&amp;emsp;实际建图时，可以通过Rviz观察当前建图信息，并调整清洁车位置。&amp;emsp;&amp;emsp;彩色表示当前激光雷">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-03-13T01:55:37.922Z">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车//当前建图情况.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车//未修之前.jpg">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车//pinta.png">
+<meta property="og:updated_time" content="2020-03-13T02:00:07.160Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="无人清洁车">
-<meta name="twitter:description" content="使用步骤 打开电源，启动Ubuntu系统，连接路由器。注：挪动清洁车时，一定要打开电源，小距离移动除外。    手推/键盘操作移动清洁车，移动区域覆盖目标区域。ROS命令：   12345678roslaunch anbot_bringup anbot_bringup.launch```   &amp;amp;emsp;&amp;amp;emsp;实际建图时，可以通过`Rviz`观察当前建图信息，并调整清洁车位置">
+<meta name="twitter:description" content="使用步骤 打开电源，启动Ubuntu系统，连接路由器。注：挪动清洁车时，一定要打开电源，小距离移动除外。    手推/键盘操作移动清洁车，移动区域覆盖目标区域。ROS命令： 1roslaunch anbot_bringup anbot_bringup.launch   &amp;emsp;&amp;emsp;实际建图时，可以通过Rviz观察当前建图信息，并调整清洁车位置。&amp;emsp;&amp;emsp;彩色表示当前激光雷">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2020/03/13/无人清洁车//当前建图情况.png">
 
 
 
@@ -319,7 +323,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  626 字
+                  562 字
                 </span>
               
 
@@ -358,13 +362,21 @@
       
         <h1 id="使用步骤"><a href="#使用步骤" class="headerlink" title="使用步骤"></a>使用步骤</h1><ol>
 <li>打开电源，启动Ubuntu系统，连接路由器。<br>注：挪动清洁车时，一定要打开电源，小距离移动除外。   </li>
-<li>手推/键盘操作移动清洁车，移动区域覆盖目标区域。<br>ROS命令：   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">roslaunch anbot_bringup anbot_bringup.launch</span><br><span class="line">```   </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>实际建图时，可以通过`Rviz`观察当前建图信息，并调整清洁车位置。   </span><br><span class="line">![data](无人清洁车\\当前建图情况.png)    </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>彩色表示当前激光雷达扫描区域，黑色表示墙等障碍物，灰白色表示空白作业区域。外圈白色线条状表示因地面等其他因素激光照射出去的范围。  </span><br><span class="line"></span><br><span class="line">3. 保存地图，人工修图。    </span><br><span class="line">ROS命令：</span><br></pre></td></tr></table></figure>
+<li>手推/键盘操作移动清洁车，移动区域覆盖目标区域。<br>ROS命令： <figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch anbot_bringup anbot_bringup.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>rostopic pub/robot_map_save std_msgs/String “data:  ‘’”<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&amp;emsp;&amp;emsp;注：实际操作时，按<span class="code">`Tab`</span>键自动补全。   </span><br><span class="line">&amp;emsp;&amp;emsp;图片位于<span class="code">`SweepRobotManger/robot/install/share/robot_config/map/mymap.jpg`</span>。  </span><br><span class="line">&amp;emsp;&amp;emsp;未修之前地图：     </span><br><span class="line">![<span class="string">data</span>](<span class="link">无人清洁车\\未修之前.jpg</span>)  </span><br><span class="line">&amp;emsp;&amp;emsp;修图工具：<span class="code">`Pinta`</span>，功能界面类似于<span class="code">`画图`</span>，普通画图编辑器。  </span><br><span class="line">![<span class="string">data</span>](<span class="link">无人清洁车\\pinta.png</span>)      </span><br><span class="line">&amp;emsp;&amp;emsp;修图目标：1.确保场景为封闭环境。2.确保边界清晰。3.确保作业区域无杂质。      </span><br><span class="line">&amp;emsp;&amp;emsp;操作方法：使用画笔工具添加或加粗边界，使用橡皮擦工具清除杂质。  </span><br><span class="line"></span><br><span class="line"><span class="bullet">4. </span>启动导航，手动定位。</span><br><span class="line">ROS命令：</span><br></pre></td></tr></table></figure></p>
-<p>roslaunch anbot_bringup anbot_navigation.launch<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&amp;emsp;&amp;emsp;注：启动前按住急停按钮，确保清洁车不能移动，定位后在按下急停按钮，使其作业。   </span><br><span class="line">&amp;emsp;&amp;emsp;启动该命令后，自动进入<span class="code">`Rviz`</span>界面，手动调整机器人位姿，使其在正确的地图位置中。  </span><br><span class="line">&amp;emsp;&amp;emsp;定位校准前：  </span><br><span class="line">![<span class="string">data</span>](<span class="link">无人清洁车\\定位校准前.png</span>)      </span><br><span class="line">&amp;emsp;&amp;emsp;具体操作：点击<span class="code">`2D Pose Estimate`</span>，拖动鼠标，确定方向，使激光雷达扫描区域(彩色区域)和实际地图中墙壁重合。  </span><br><span class="line">&amp;emsp;&amp;emsp;定位校准后：  </span><br><span class="line">![<span class="string">data</span>](<span class="link">无人清洁车\\定位校准后.png</span>)   </span><br><span class="line">&amp;emsp;&amp;emsp;注：绿色线条区域为导航算法自动生成。红色为机器人位置。   </span><br><span class="line"></span><br><span class="line"><span class="bullet">5. </span>自动导航，启动刷盘等，开始作业。     </span><br><span class="line">ROS命令：</span><br></pre></td></tr></table></figure></p>
-<p>rostopic pub/agent anbot_msgs/Agent “{太多了 不一一写了，tab补全即可}”<br><code>``
-&amp;emsp;&amp;emsp;通过键盘将</code>brushUpDown<code>和</code>squeegeUpDown<code>数值改为</code>1`即可。<br>&emsp;&emsp;注：启动该命令前，确保清洁车处于急停不可移动状态。</p>
+<p>&emsp;&emsp;实际建图时，可以通过<code>Rviz</code>观察当前建图信息，并调整清洁车位置。<br><img src="/2020/03/13/无人清洁车/\当前建图情况.png" alt="data"><br>&emsp;&emsp;彩色表示当前激光雷达扫描区域，黑色表示墙等障碍物，灰白色表示空白作业区域。外圈白色线条状表示因地面等其他因素激光照射出去的范围。  </p>
+<ol>
+<li>保存地图，人工修图。<br>ROS命令： <figure class="highlight rust"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rostopic <span class="keyword">pub</span>/robot_map_save std_msgs/<span class="built_in">String</span> <span class="string">"data:  ''"</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;注：实际操作时，按<code>Tab</code>键自动补全。<br>&emsp;&emsp;图片位于<code>SweepRobotManger/robot/install/share/robot_config/map/mymap.jpg</code>。<br>&emsp;&emsp;未修之前地图：<br><img src="/2020/03/13/无人清洁车/\未修之前.jpg" alt="data"><br>&emsp;&emsp;修图工具：<code>Pinta</code>，功能界面类似于<code>画图</code>，普通画图编辑器。<br><img src="/2020/03/13/无人清洁车/\pinta.png" alt="data"><br>&emsp;&emsp;修图目标：1.确保场景为封闭环境。2.确保边界清晰。3.确保作业区域无杂质。<br>&emsp;&emsp;操作方法：使用画笔工具添加或加粗边界，使用橡皮擦工具清除杂质。  </p>
+<ol>
+<li>启动导航，手动定位。<br>ROS命令：  <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">roslaunch anbot_bringup anbot_navigation.launch</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>注：启动前按住急停按钮，确保清洁车不能移动，定位后在按下急停按钮，使其作业。   </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>启动该命令后，自动进入`Rviz`界面，手动调整机器人位姿，使其在正确的地图位置中。  </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>定位校准前：  </span><br><span class="line">![data](无人清洁车\\定位校准前.png)      </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>具体操作：点击`2D Pose Estimate`，拖动鼠标，确定方向，使激光雷达扫描区域(彩色区域)和实际地图中墙壁重合。  </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>定位校准后：  </span><br><span class="line">![data](无人清洁车\\定位校准后.png)   </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>注：绿色线条区域为导航算法自动生成。红色为机器人位置。   </span><br><span class="line"></span><br><span class="line">5. 自动导航，启动刷盘等，开始作业。     </span><br><span class="line">ROS命令：</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>rostopic pub/agent anbot_msgs/Agent “{太多了 不一一写了，tab补全即可}”<br>```  </p>
+<p>&emsp;&emsp;通过键盘将<code>brushUpDown</code>和<code>squeegeUpDown</code>数值改为<code>1</code>即可。<br>&emsp;&emsp;注：启动该命令前，确保清洁车处于急停不可移动状态。</p>
 
       
     </div>
