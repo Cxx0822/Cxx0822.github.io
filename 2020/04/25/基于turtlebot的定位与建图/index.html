@@ -97,10 +97,15 @@
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;turtlebot2&amp;emsp;&amp;emsp;RPLIDAR A1/2(思岚)     Ubuntu与ROS系统安装&amp;emsp;&amp;emsp;具体详见另一篇博客Ubuntu安装，ROS安装 turtlebot配置安装turtlebot库&amp;emsp;&amp;emsp;升级软件版本1sudo apt-get update &amp;emsp;&amp;e">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2020-04-25T11:43:44.689Z">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/25/基于turtlebot的定位与建图//显示底盘端口.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/25/基于turtlebot的定位与建图//显示激光雷达端口.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/25/基于turtlebot的定位与建图//启动激光雷达.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/25/基于turtlebot的定位与建图//启动建图.png">
+<meta property="og:updated_time" content="2020-04-26T02:47:23.501Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于turtlebot的定位与建图">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;turtlebot2&amp;emsp;&amp;emsp;RPLIDAR A1/2(思岚)     Ubuntu与ROS系统安装&amp;emsp;&amp;emsp;具体详见另一篇博客Ubuntu安装，ROS安装 turtlebot配置安装turtlebot库&amp;emsp;&amp;emsp;升级软件版本1sudo apt-get update &amp;emsp;&amp;e">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2020/04/25/基于turtlebot的定位与建图//显示底盘端口.png">
 
 
 
@@ -366,7 +371,7 @@
 <p>&emsp;&emsp;如编译报错，则需安装以下依赖库：<br><figure class="highlight q"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install pyqt4-<span class="built_in">dev</span>-tools sudo apt-<span class="built_in">get</span> install pyqt5-<span class="built_in">dev</span>-tools</span><br></pre></td></tr></table></figure></p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="检查硬件连接"><a href="#检查硬件连接" class="headerlink" title="检查硬件连接"></a>检查硬件连接</h3><p>&emsp;&emsp;打开<code>turtlebot2</code>电源，将<code>turtlebot2</code>的<code>USB</code>线接入工控机(PC机)的<code>USB</code>口(最好是<code>USB3.0</code>)，然后打开终端，启动<code>ROS</code>。<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">roscore</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;再打开一个终端，输入检测命令：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> <span class="string">/dev/kobuki</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;显示相应设备即可。<br>&emsp;&emsp;如果没有显示，则执行：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun kobuki_ftdi create_udev_rules</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/25/基于turtlebot的定位与建图/\显示底盘端口.png" alt="data"><br>&emsp;&emsp;显示相应设备即可。<br>&emsp;&emsp;如果没有显示，则执行：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun kobuki_ftdi create_udev_rules</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="检查底盘及电机"><a href="#检查底盘及电机" class="headerlink" title="检查底盘及电机"></a>检查底盘及电机</h3><p>&emsp;&emsp;打开电源，再打开一个终端，输入启动底盘命令：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turtlebot_bringup minimal.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;不报错，听到声音即可。<br>&emsp;&emsp;再打开一个终端，输入键盘操作底盘命令：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turtlebot_teleop keyboard_teleop.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;根据提示信息，输入指令字母，<code>turtlebot</code>能动即可。   </p>
@@ -376,7 +381,7 @@
 <h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br><span class="line">gedit ~/.bashrc  <span class="comment"># 打开环境变量文件</span></span><br><span class="line"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash  <span class="comment"># 在文档最下面添加该命令</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc  <span class="comment"># 生效</span></span><br></pre></td></tr></table></figure>
 <h2 id="设置串口权限"><a href="#设置串口权限" class="headerlink" title="设置串口权限"></a>设置串口权限</h2><p>&emsp;&emsp;使激光雷达串口可以读和写。 </p>
 <h3 id="检查端口号"><a href="#检查端口号" class="headerlink" title="检查端口号"></a>检查端口号</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmesg <span class="string">| grep ttyUSB*</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;有cp210x对应的USB口即可。(RPLIDAR A系列激光雷达使用的是cp210x串口驱动)。 </p>
+<p><img src="/2020/04/25/基于turtlebot的定位与建图/\显示激光雷达端口.png" alt="data"><br>&emsp;&emsp;有cp210x对应的USB口即可。(RPLIDAR A系列激光雷达使用的是cp210x串口驱动)。 </p>
 <h3 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit <span class="regexp">/etc/u</span>dev<span class="regexp">/rules.d/</span><span class="number">70</span>-ttyusb.rules</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;打开后，输入：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">KERNEL</span>==<span class="string">"ttyUSB[0-9]*"</span>, MODE=<span class="string">"0666"</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;运行如下程序，查看权限，有两个<code>rw</code>即可。<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -l <span class="string">/dev</span> |grep ttyUSB*</span><br></pre></td></tr></table></figure></p>
@@ -384,11 +389,12 @@
 <p>&emsp;&emsp;添加环境变量：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"source ~/catkin_ws/devel/setup.bash"</span> &gt;&gt; ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;转至<code>rplidar_ros</code>文件夹，输入命令：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="regexp">/scripts/</span>create_udev_rules.sh</span><br></pre></td></tr></table></figure></p>
 <h2 id="测试激光雷达"><a href="#测试激光雷达" class="headerlink" title="测试激光雷达"></a>测试激光雷达</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch rplidar_ros rplidar.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;无错误，激光雷达正常运转即可。   </p>
+<p><img src="/2020/04/25/基于turtlebot的定位与建图/\启动激光雷达.png" alt="data"><br>&emsp;&emsp;无错误，激光雷达正常运转即可。   </p>
 <h1 id="基于hector-slam的定位与建图"><a href="#基于hector-slam的定位与建图" class="headerlink" title="基于hector-slam的定位与建图"></a>基于hector-slam的定位与建图</h1><h2 id="平台-1"><a href="#平台-1" class="headerlink" title="平台"></a>平台</h2><p>&emsp;&emsp;硬件：<code>RPLIDAR A1</code>，算法：<code>hector-slam</code>。  </p>
 <h2 id="安装算法包"><a href="#安装算法包" class="headerlink" title="安装算法包"></a>安装算法包</h2><p>&emsp;&emsp;具体操作见上。算法包网址：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/NickL77/RPLidar_Hector_SLAM</span><br></pre></td></tr></table></figure></p>
 <h2 id="定位与建图"><a href="#定位与建图" class="headerlink" title="定位与建图"></a>定位与建图</h2><p>&emsp;&emsp;打开激光雷达：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch rplidar_ros rplidar.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;运行建图算法：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch hector_slam_launch tutorial.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/25/基于turtlebot的定位与建图/\启动建图.png" alt="data">  </p>
 
       
     </div>
