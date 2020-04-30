@@ -101,7 +101,7 @@
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//编译工作空间.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//添加环境变量.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//创建功能包.png">
-<meta property="og:updated_time" content="2020-04-30T07:01:21.024Z">
+<meta property="og:updated_time" content="2020-04-30T07:07:58.350Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS功能包及其应用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;ROS Kinetic Kame 环境配置&amp;emsp;&amp;emsp;具体详见该博客    创建工作空间Work Space&amp;emsp;&amp;emsp;首先创建ROS的工作空间，一般创建在Home目录下，使用命令行或者右击创建文件夹均可。例如，我在Home文件夹下创建一个名为cxx_ws(也可以是其他名字)的工作空间。&amp;emsp;&amp;">
@@ -346,7 +346,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  427 字
+                  494 字
                 </span>
               
 
@@ -393,9 +393,9 @@
 <p>&emsp;&emsp;添加环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> devel/setup.bash  <span class="comment"># 该文件定义了工作空间所需要的环境变量</span></span><br><span class="line">gedit ~/.bashrc          <span class="comment"># .bashrc类似于windows下的环境变量</span></span><br><span class="line"><span class="built_in">source</span> ~/cxx_ws/devel/setup.bash  <span class="comment"># 在打开的文件中添加该命令</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2020/04/30/ROS功能包及其应用/\添加环境变量.png" alt="data"><br>&emsp;&emsp;注：加过一次命令即可，后续只需刷新环境变量即可。   </p>
 <h1 id="创建功能包"><a href="#创建功能包" class="headerlink" title="创建功能包"></a>创建功能包</h1><p>&emsp;&emsp;创建功能包的指令为：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">catkin_create_pkg</span> &lt;<span class="selector-tag">package_name</span>&gt; <span class="selector-attr">[depend1]</span> <span class="selector-attr">[depend2]</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;<code>package_name</code>为包名，<code>depend</code>为依赖包名。<br>&emsp;&emsp;进入<code>src</code>文件夹，创建<code>hello</code>功能包。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd src</span><br><span class="line">catkin_create_pkg hello std_msgs roscpp</span><br><span class="line">```  </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>刷新环境变量：</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;<code>package_name</code>为包名，<code>depend</code>为依赖包名。<br>&emsp;&emsp;进入<code>src</code>文件夹，创建<code>hello</code>功能包。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd src</span><br><span class="line">catkin_create_pkg hello std_msgs roscpp</span><br><span class="line">``` </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>刷新环境变量：</span><br></pre></td></tr></table></figure></p>
 <p>cd ..<br>catkin_make<br>source devel/setup.bash<br>```</p>
-<p><img src="/2020/04/30/ROS功能包及其应用/\创建功能包.png" alt="data"><br>&emsp;&emsp;注：同一个工作空间下，不允许存在同名功能包，不同工作空间下，允许存在同名功能包。     </p>
+<p><img src="/2020/04/30/ROS功能包及其应用/\创建功能包.png" alt="data"><br>&emsp;&emsp;注：同一个工作空间下，不允许存在同名功能包，不同工作空间下，允许存在同名功能包。功能包名字只能使用小写字母、数字和下划线，首字符必须是小写字母。<br>&emsp;&emsp;<code>std_msgs</code>包含了常见消息类型。<code>roscpp</code>使用C++实现<code>ROS</code>的各种功能，提供了一个客户端库。<br>&emsp;&emsp;创建完成的功能包</p>
 
       
     </div>
