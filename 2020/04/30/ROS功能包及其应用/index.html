@@ -99,9 +99,11 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//初始化工作空间.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//编译工作空间.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//ROS文件夹结构.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//添加环境变量.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//创建功能包.png">
-<meta property="og:updated_time" content="2020-04-30T07:47:13.590Z">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//启动节点.png">
+<meta property="og:updated_time" content="2020-05-01T03:17:16.407Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS功能包及其应用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;ROS Kinetic Kame 环境配置&amp;emsp;&amp;emsp;具体详见该博客    创建工作空间Work Space&amp;emsp;&amp;emsp;首先创建ROS的工作空间，一般创建在Home目录下，使用命令行或者右击创建文件夹均可。例如，我在Home文件夹下创建一个名为cxx_ws(也可以是其他名字)的工作空间。&amp;emsp;&amp;">
@@ -346,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  889 字
+                  1,613 字
                 </span>
               
 
@@ -362,7 +364,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  6 分钟
                 </span>
               
             </div>
@@ -389,10 +391,11 @@
 <p><img src="/2020/04/30/ROS功能包及其应用/\初始化工作空间.png" alt="data">  </p>
 <p>&emsp;&emsp;然后回到工作空间，并编译。<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">cd</span></span> ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;编译完成后，工作空间会新增2个文件夹，<code>build</code>和<code>devel</code>。其中<code>build</code>文件夹为编译空间<code>Build Space</code>，<code>devel</code>为开发空间<code>Development Space</code>。<br><img src="/2020/04/30/ROS功能包及其应用/\编译工作空间.png" alt="data"> </p>
-<p>&emsp;&emsp;注：<code>catkin_make</code>含义：<code>CMake</code>(<code>cross platform make</code>)是一个跨平台的安装(编译)工具，可以用简单的语句来描述所有平台的安装(编译过程)，能够输出各种各样的<code>makefile</code>或者<code>project</code>文件。而<code>catkin_make</code>是<code>cmake</code>的升级版，可以认为是对<code>cmake</code>进一步封装的高级命令。       </p>
+<p>&emsp;&emsp;注：<code>catkin_make</code>含义：<code>CMake</code>(<code>cross platform make</code>)是一个跨平台的安装(编译)工具，可以用简单的语句来描述所有平台的安装(编译过程)，能够输出各种各样的<code>makefile</code>或者<code>project</code>文件。而<code>catkin_make</code>是<code>cmake</code>的升级版，可以认为是对<code>cmake</code>进一步封装的高级命令。<br>&emsp;&emsp;附：<code>ROS</code>工程文件结构：<br><img src="/2020/04/30/ROS功能包及其应用/\ROS文件夹结构.png" alt="data"> </p>
 <p>&emsp;&emsp;添加环境变量<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> devel/setup.bash  <span class="comment"># 该文件定义了工作空间所需要的环境变量</span></span><br><span class="line">gedit ~/.bashrc          <span class="comment"># .bashrc类似于windows下的环境变量</span></span><br><span class="line"><span class="built_in">source</span> ~/cxx_ws/devel/setup.bash  <span class="comment"># 在打开的文件中添加该命令</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2020/04/30/ROS功能包及其应用/\添加环境变量.png" alt="data"><br>&emsp;&emsp;注：加入环境变量命令输入一次即可，后续只需刷新环境变量。   </p>
-<h1 id="创建功能包"><a href="#创建功能包" class="headerlink" title="创建功能包"></a>创建功能包</h1><h2 id="创建package"><a href="#创建package" class="headerlink" title="创建package"></a>创建package</h2><p>&emsp;&emsp;创建功能包的指令为：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">catkin_create_pkg</span> &lt;<span class="selector-tag">package_name</span>&gt; <span class="selector-attr">[depend1]</span> <span class="selector-attr">[depend2]</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="创建功能包"><a href="#创建功能包" class="headerlink" title="创建功能包"></a>创建功能包</h1><p>&emsp;&emsp;<code>ROS</code>功能包指的是一种特定的文件结构和文件夹组成。<code>src</code>文件夹由一个个<code>package</code>软件包组成，一个软件包中可以包含一个或多个节点的文件。               </p>
+<h2 id="创建package"><a href="#创建package" class="headerlink" title="创建package"></a>创建package</h2><p>&emsp;&emsp;创建功能包的指令为：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">catkin_create_pkg</span> &lt;<span class="selector-tag">package_name</span>&gt; <span class="selector-attr">[depend1]</span> <span class="selector-attr">[depend2]</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;<code>package_name</code>为包名，<code>depend</code>为依赖包名。<br>&emsp;&emsp;进入<code>src</code>文件夹，创建<code>hello</code>功能包。<br><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">src</span></span><br><span class="line"><span class="attr">catkin_create_pkg</span> <span class="string">hello std_msgs roscpp</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;刷新环境变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">catkin_make</span><br><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2020/04/30/ROS功能包及其应用/\创建功能包.png" alt="data"><br>&emsp;&emsp;注：同一个工作空间下，不允许存在同名功能包，不同工作空间下，允许存在同名功能包。功能包名字只能使用小写字母、数字和下划线，首字符必须是小写字母。<br>&emsp;&emsp;<code>std_msgs</code>包含了常见消息类型。<code>roscpp</code>使用C++实现<code>ROS</code>的各种功能，提供了一个客户端库。<br>&emsp;&emsp;创建完成的功能包一般会自带<code>include</code>、<code>src</code>、<code>CMakeList.txt</code>和<code>package.xml</code>文件。   </p>
@@ -407,15 +410,23 @@
 <li>srv：存放自定义格式的服务(.srv)。  </li>
 <li>models：存放机器人或仿真场景的3D模型(.sda,.stl,.dae)。  </li>
 <li>urdf：存放机器人的模型描述(.urdf,.xacro)。   </li>
-<li>launch：存放launch文件(.launch,.xml)。<br>&emsp;&emsp;通常除了<code>CMakeLists.txt</code>和<code>package.xml</code>是必须的，其他根据需求添加，实际建立工程文件时，都要遵守以上的命名规则。      </li>
+<li>launch：存放launch文件(.launch,.xml)。<br>&emsp;&emsp;通常除了<code>CMakeLists.txt</code>和<code>package.xml</code>是必须的，其他根据需求添加，实际建立工程文件时，都要遵守以上的命名规则。    </li>
 </ol>
-<h2 id="package编译过程"><a href="#package编译过程" class="headerlink" title="package编译过程"></a>package编译过程</h2><p>&emsp;&emsp;功能包的编译过程也就是<code>catkin</code>的编译过程。   </p>
+<h3 id="CMakeList-txt"><a href="#CMakeList-txt" class="headerlink" title="CMakeList.txt"></a>CMakeList.txt</h3><h3 id="package-xml"><a href="#package-xml" class="headerlink" title="package.xml"></a>package.xml</h3><h2 id="package编译过程"><a href="#package编译过程" class="headerlink" title="package编译过程"></a>package编译过程</h2><p>&emsp;&emsp;功能包的编译过程也就是<code>catkin</code>的编译过程。   </p>
 <ol>
 <li>首先在工作空间的<code>src</code>目录下递归的查找每一个<code>ros</code>的<code>package</code>。 </li>
 <li>因为每一个<code>package</code>中都有<code>package.xml</code>和<code>CMakeList.txt</code>文件，所以<code>catkin</code>编译系统依据<code>CMakeList.txt</code>文件，生成<code>makefile</code>文件，放在工作空间的<code>build</code>文件夹中。    </li>
-<li>然后<code>make</code>刚刚生成的<code>makefiles</code>等文件，编译链接生成可执行文件，放在工作空间下的<code>devel</code>文件夹中。<br>&emsp;&emsp;简而言之，<code>catkin</code>就是将<code>camke</code>和<code>make</code>指令做了一个封装从而完成整个编译过程的工具。  </li>
+<li>然后<code>make</code>刚刚生成的<code>makefiles</code>等文件，编译链接生成可执行文件，放在工作空间下的<code>devel</code>文件夹中。<br>&emsp;&emsp;简而言之，<code>catkin</code>就是将<code>camke</code>和<code>make</code>指令做了一个封装从而完成整个编译过程的工具。   </li>
 </ol>
-<h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><p><a href="https://blog.csdn.net/weixin_41070687/article/details/82079308" target="_blank" rel="noopener">博客1</a><br><a href="https://www.jianshu.com/p/42207bdd0a2e" target="_blank" rel="noopener">博客2</a><br><a href="https://www.cnblogs.com/linuxAndMcu/p/10571643.html" target="_blank" rel="noopener">博客3</a></p>
+<h1 id="创建ROS节点"><a href="#创建ROS节点" class="headerlink" title="创建ROS节点"></a>创建ROS节点</h1><p>&emsp;&emsp;一个节点就是<code>ROS</code>下面一个可执行程序，使用<code>ROS</code>可以与其他节点进行通信。     </p>
+<h2 id="创建Node"><a href="#创建Node" class="headerlink" title="创建Node"></a>创建Node</h2><p>&emsp;&emsp;<code>Node</code>文件通常放在<code>package</code>下的<code>src</code>文件夹中。<br>&emsp;&emsp;例如在本例中，进入<code>hello</code>文件夹的<code>src</code>文件夹，右击创建一个<code>cpp</code>文件：<code>hello_node.cpp</code>。<br>&emsp;&emsp;打开<code>hello_node.cpp</code>文件，并输入代码：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span> <span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> **argv)</span> </span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">  ros::init(argc, argv, <span class="string">"hello_node"</span>) ;</span><br><span class="line">  ros::NodeHandle nh;</span><br><span class="line">  ROS_INFO_STREAM(<span class="string">"Hello, ROS!"</span>) ;</span><br><span class="line">&#125;</span><br><span class="line">```   </span><br><span class="line">&amp;emsp;&amp;emsp;`<span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;ros/ros.h&gt;`为声明`ROS`的标准库。    </span></span></span><br><span class="line">&amp;emsp;&amp;emsp;`ros::init(argc, argv, <span class="string">"hello"</span>)`为`ROS`初始化节点函数，其调用形式一般为：`ros::init(argc, argv, <span class="string">"my_node_name"</span>);`。本例中，将`node_name`取名为`hello_node`，当然也可以是其他名字。 </span><br><span class="line">&amp;emsp;&amp;emsp;`ros::NodeHandle nh;`为`ROS`启动节点函数。一个`ROS`的`node`只有一个`NodeHandle`，它提供这个`node`的对于`topic`的收发功能。     </span><br><span class="line">&amp;emsp;&amp;emsp;`ROS_INFO_STREAM(<span class="string">"Hello, ROS!"</span>) ; `打印日志信息，相对于`<span class="built_in">print</span>`。    </span><br><span class="line"></span><br><span class="line">## 编译Node</span><br><span class="line">### 声明依赖库</span><br><span class="line">&amp;emsp;&amp;emsp;依赖库的声明在`package.xml`中，打开该文件，检查是否所有的依赖库都已安装。(通常，创建`package`都会声明好的)</span><br><span class="line">### 声明可执行文件</span><br><span class="line">&amp;emsp;&amp;emsp;打开`CMakeLists.txt`文件，找到注释掉的`Declare a C++ executable`声明`C++`可执行文件这一行，在这一段的最后，按照注释添加声明，在本例中，添加如下命令：</span><br></pre></td></tr></table></figure></p>
+<p>add_executable(hello_node src/hello_node.cpp)<br><figure class="highlight sas"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable">&amp;emsp</span>;<span class="variable">&amp;emsp</span>;再往下找到注释掉的`Specify libraries to <span class="meta">link</span> a library <span class="meta">or</span> executable target aginst`指定链接库这一行，在这一段的最后，按照注释添加声明，在本例中，添加如下指令：(`hello_node`为可执行文件名字，可以换成其他的，下同)</span><br></pre></td></tr></table></figure></p>
+<p>target_link_libraries(hello_node ${catkin_LIBRARIES})<br><code>``  
+![data](ROS功能包及其应用\\修改配置文件.png) 
+&amp;emsp;&amp;emsp;修改完成后，回到工作空间文件夹，重新</code>catkin_make<code>编译即可。     
+&amp;emsp;&amp;emsp;编译完成后，会在</code>devel/lib/hello<code>文件夹下生成</code>hello_node`可执行文件。     </p>
+<h2 id="运行Node"><a href="#运行Node" class="headerlink" title="运行Node"></a>运行Node</h2><p>&emsp;&emsp;运行指令为：<code>rosrun package-name executable-name</code>，其中<code>package-name</code>为功能包名称，本例中为<code>hello</code>，<code>executable-name</code>为可执行文件名称，即在上文声明可执行文件中的可执行文件名字，在本例中为<code>hello_node</code>，也可以在<code>lib</code>文件夹中找到可执行文件名字。<br>&emsp;&emsp;<code>Node</code>节点不能单独单独运行，需要一个节点管理器才能正常运行。<br>&emsp;&emsp;首先在终端输入<code>roscore</code>：启动节点管理器。<br>&emsp;&emsp;然后再打开一个终端，输入运行节点命令：<code>rosrun hello hello_node</code>即可看到打印出来的信息。<br><img src="/2020/04/30/ROS功能包及其应用/\启动节点.png" alt="data">     </p>
+<h1 id="创建launch文件"><a href="#创建launch文件" class="headerlink" title="创建launch文件"></a>创建launch文件</h1><h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><p><a href="https://blog.csdn.net/weixin_41070687/article/details/82079308" target="_blank" rel="noopener">博客1</a><br><a href="https://www.jianshu.com/p/42207bdd0a2e" target="_blank" rel="noopener">博客2</a><br><a href="https://www.cnblogs.com/linuxAndMcu/p/10571643.html" target="_blank" rel="noopener">博客3</a></p>
 
       
     </div>
@@ -605,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境配置"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建工作空间Work-Space"><span class="nav-number">3.</span> <span class="nav-text">创建工作空间Work Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建功能包"><span class="nav-number">4.</span> <span class="nav-text">创建功能包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建package"><span class="nav-number">4.1.</span> <span class="nav-text">创建package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package详解"><span class="nav-number">4.2.</span> <span class="nav-text">package详解</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package编译过程"><span class="nav-number">4.3.</span> <span class="nav-text">package编译过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">5.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境配置"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建工作空间Work-Space"><span class="nav-number">3.</span> <span class="nav-text">创建工作空间Work Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建功能包"><span class="nav-number">4.</span> <span class="nav-text">创建功能包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建package"><span class="nav-number">4.1.</span> <span class="nav-text">创建package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package详解"><span class="nav-number">4.2.</span> <span class="nav-text">package详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMakeList-txt"><span class="nav-number">4.2.1.</span> <span class="nav-text">CMakeList.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-xml"><span class="nav-number">4.2.2.</span> <span class="nav-text">package.xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package编译过程"><span class="nav-number">4.3.</span> <span class="nav-text">package编译过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建ROS节点"><span class="nav-number">5.</span> <span class="nav-text">创建ROS节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Node"><span class="nav-number">5.1.</span> <span class="nav-text">创建Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Node"><span class="nav-number">5.2.</span> <span class="nav-text">运行Node</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建launch文件"><span class="nav-number">6.</span> <span class="nav-text">创建launch文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">7.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
             
 
           </div>
@@ -639,7 +650,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">100.3k</span>
+    <span title="Site words total count">101.1k</span>
   
 </div>
 
@@ -659,7 +670,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共100.3k字</span>
+  <span class="post-count">博客全站共101.1k字</span>
 </div>
         
 <div class="busuanzi-count">
