@@ -102,9 +102,11 @@
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//ROS文件夹结构.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//添加环境变量.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//创建功能包.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//package.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//CMakeLists.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//修改配置文件.png">
 <meta property="og:image" content="http://www.chenxiuxiang.site/2020/04/30/ROS功能包及其应用//启动节点.png">
-<meta property="og:updated_time" content="2020-05-01T03:24:46.914Z">
+<meta property="og:updated_time" content="2020-05-02T08:39:35.037Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS功能包及其应用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;ROS Kinetic Kame 环境配置&amp;emsp;&amp;emsp;具体详见该博客    创建工作空间Work Space&amp;emsp;&amp;emsp;首先创建ROS的工作空间，一般创建在Home目录下，使用命令行或者右击创建文件夹均可。例如，我在Home文件夹下创建一个名为cxx_ws(也可以是其他名字)的工作空间。&amp;emsp;&amp;">
@@ -349,7 +351,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,563 字
+                  1,766 字
                 </span>
               
 
@@ -365,7 +367,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  6 分钟
+                  7 分钟
                 </span>
               
             </div>
@@ -413,7 +415,9 @@
 <li>urdf：存放机器人的模型描述(.urdf,.xacro)。   </li>
 <li>launch：存放launch文件(.launch,.xml)。<br>&emsp;&emsp;通常除了<code>CMakeLists.txt</code>和<code>package.xml</code>是必须的，其他根据需求添加，实际建立工程文件时，都要遵守以上的命名规则。    </li>
 </ol>
-<h3 id="CMakeList-txt"><a href="#CMakeList-txt" class="headerlink" title="CMakeList.txt"></a>CMakeList.txt</h3><h3 id="package-xml"><a href="#package-xml" class="headerlink" title="package.xml"></a>package.xml</h3><h2 id="package编译过程"><a href="#package编译过程" class="headerlink" title="package编译过程"></a>package编译过程</h2><p>&emsp;&emsp;功能包的编译过程也就是<code>catkin</code>的编译过程。   </p>
+<h3 id="package-xml"><a href="#package-xml" class="headerlink" title="package.xml"></a>package.xml</h3><p>&emsp;&emsp;<code>package.xml</code>包含了<code>package</code>的名称、版本号、内容描述、维护人员、软件许可、编译构建工具、编译依赖、运行依赖等信息。文件写法遵循<code>XML</code>标签文本的写法，目前存在两种格式，但内容大致一样。（红色字体的是必备标签）<br><img src="/2020/04/30/ROS功能包及其应用/\package.png" alt="data">  </p>
+<h3 id="CMakeLists-txt"><a href="#CMakeLists-txt" class="headerlink" title="CMakeLists.txt"></a>CMakeLists.txt</h3><p>&emsp;&emsp;<code>CMakeList.txt</code>原本是<code>Cmake</code>编译系统的规则文件，<code>ROS</code>的构建系统<code>catkin</code>基本上使用<code>CMake</code>，只是针对<code>ROS</code>工程添加了一些宏定义。因此在写法上C<code>MakeList.txt</code>和<code>Cmake</code>基本一致。<code>CMakeList.txt</code>文件规定了<code>catkin</code>的编译规则，直接规定这个包需要依赖那些<code>package</code>，要编译生成那些目标，如何编译等等流程写法：该文件的基本语法都是按照<code>CMake</code>，只是在其基础上添加了一些宏。<br><img src="/2020/04/30/ROS功能包及其应用/\CMakeLists.png" alt="data">    </p>
+<h2 id="package编译过程"><a href="#package编译过程" class="headerlink" title="package编译过程"></a>package编译过程</h2><p>&emsp;&emsp;功能包的编译过程也就是<code>catkin</code>的编译过程。   </p>
 <ol>
 <li>首先在工作空间的<code>src</code>目录下递归的查找每一个<code>ros</code>的<code>package</code>。 </li>
 <li>因为每一个<code>package</code>中都有<code>package.xml</code>和<code>CMakeList.txt</code>文件，所以<code>catkin</code>编译系统依据<code>CMakeList.txt</code>文件，生成<code>makefile</code>文件，放在工作空间的<code>build</code>文件夹中。    </li>
@@ -618,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境配置"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建工作空间Work-Space"><span class="nav-number">3.</span> <span class="nav-text">创建工作空间Work Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建功能包"><span class="nav-number">4.</span> <span class="nav-text">创建功能包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建package"><span class="nav-number">4.1.</span> <span class="nav-text">创建package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package详解"><span class="nav-number">4.2.</span> <span class="nav-text">package详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CMakeList-txt"><span class="nav-number">4.2.1.</span> <span class="nav-text">CMakeList.txt</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#package-xml"><span class="nav-number">4.2.2.</span> <span class="nav-text">package.xml</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package编译过程"><span class="nav-number">4.3.</span> <span class="nav-text">package编译过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建ROS节点"><span class="nav-number">5.</span> <span class="nav-text">创建ROS节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Node"><span class="nav-number">5.1.</span> <span class="nav-text">创建Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译Node"><span class="nav-number">5.2.</span> <span class="nav-text">编译Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明依赖库"><span class="nav-number">5.2.1.</span> <span class="nav-text">声明依赖库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明可执行文件"><span class="nav-number">5.2.2.</span> <span class="nav-text">声明可执行文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Node"><span class="nav-number">5.3.</span> <span class="nav-text">运行Node</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建launch文件"><span class="nav-number">6.</span> <span class="nav-text">创建launch文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">7.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境配置"><span class="nav-number">2.</span> <span class="nav-text">环境配置</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建工作空间Work-Space"><span class="nav-number">3.</span> <span class="nav-text">创建工作空间Work Space</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建功能包"><span class="nav-number">4.</span> <span class="nav-text">创建功能包</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建package"><span class="nav-number">4.1.</span> <span class="nav-text">创建package</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package详解"><span class="nav-number">4.2.</span> <span class="nav-text">package详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#package-xml"><span class="nav-number">4.2.1.</span> <span class="nav-text">package.xml</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CMakeLists-txt"><span class="nav-number">4.2.2.</span> <span class="nav-text">CMakeLists.txt</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#package编译过程"><span class="nav-number">4.3.</span> <span class="nav-text">package编译过程</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建ROS节点"><span class="nav-number">5.</span> <span class="nav-text">创建ROS节点</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建Node"><span class="nav-number">5.1.</span> <span class="nav-text">创建Node</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译Node"><span class="nav-number">5.2.</span> <span class="nav-text">编译Node</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#声明依赖库"><span class="nav-number">5.2.1.</span> <span class="nav-text">声明依赖库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#声明可执行文件"><span class="nav-number">5.2.2.</span> <span class="nav-text">声明可执行文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行Node"><span class="nav-number">5.3.</span> <span class="nav-text">运行Node</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#创建launch文件"><span class="nav-number">6.</span> <span class="nav-text">创建launch文件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">7.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
             
 
           </div>
@@ -652,7 +656,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">101.0k</span>
+    <span title="Site words total count">101.2k</span>
   
 </div>
 
@@ -672,7 +676,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共101.0k字</span>
+  <span class="post-count">博客全站共101.2k字</span>
 </div>
         
 <div class="busuanzi-count">
