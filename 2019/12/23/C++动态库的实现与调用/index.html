@@ -153,33 +153,33 @@
   <meta name="description" content="平台&amp;emsp;&amp;emsp;Visual Studio 2015&amp;emsp;&amp;emsp;Qt Creator      概述&amp;emsp;&amp;emsp;动态链接库(Dynamic Link Library)DLL文件与exe文件一样也是可执行文件，但是DLL也被称之为库，因为里面封装了各种类和函数等，就像是一个库一样，存储着很多东西，主要是用来调用的。调用方式主要分为两种：隐式(通过lib文件与头文件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++动态库的实现与调用">
-<meta property="og:url" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/index.html">
+<meta property="og:url" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="平台&amp;emsp;&amp;emsp;Visual Studio 2015&amp;emsp;&amp;emsp;Qt Creator      概述&amp;emsp;&amp;emsp;动态链接库(Dynamic Link Library)DLL文件与exe文件一样也是可执行文件，但是DLL也被称之为库，因为里面封装了各种类和函数等，就像是一个库一样，存储着很多东西，主要是用来调用的。调用方式主要分为两种：隐式(通过lib文件与头文件">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_1.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_2.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建文件.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/生成解决方案.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/生成文件.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_3.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/放置文件.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加文件.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/运行结果.png/">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/创建工程_qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/命名_1qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/文件夹内容_1qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/dll文件_qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/创建工程_2qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加文件_qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加头文件_qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加库文件_qt.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/运行结果_qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_1.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_2.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建文件.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/生成解决方案.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/生成文件.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_3.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/放置文件.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加文件.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/运行结果.png/">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/创建工程_qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/命名_1qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/文件夹内容_1qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/dll文件_qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/创建工程_2qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加文件_qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加头文件_qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/添加库文件_qt.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/运行结果_qt.png">
 <meta property="og:updated_time" content="2020-01-09T07:19:37.032Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++动态库的实现与调用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Visual Studio 2015&amp;emsp;&amp;emsp;Qt Creator      概述&amp;emsp;&amp;emsp;动态链接库(Dynamic Link Library)DLL文件与exe文件一样也是可执行文件，但是DLL也被称之为库，因为里面封装了各种类和函数等，就像是一个库一样，存储着很多东西，主要是用来调用的。调用方式主要分为两种：隐式(通过lib文件与头文件">
-<meta name="twitter:image" content="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_1.png/">
+<meta name="twitter:image" content="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/C++动态库的实现与调用/新建工程_1.png/">
 
 
 
@@ -187,7 +187,7 @@
 
   
   
-  <link rel="canonical" href="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/">
+  <link rel="canonical" href="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/">
 
 
 
@@ -466,7 +466,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/">
+    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
@@ -722,7 +722,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/" title="C++动态库的实现与调用">http://www.chenxiuxiang.site/2019/12/23/C++动态库的实现与调用/</a>
+    <a href="http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/" title="C++动态库的实现与调用">http://cxx0822.github.io/2019/12/23/C++动态库的实现与调用/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -1638,14 +1638,7 @@ WIDGET = {FID: 'H94fFEffHo'}
       }, 300);
     }).append(e);
   })
-</script>
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1662,7 +1655,14 @@ WIDGET = {FID: 'H94fFEffHo'}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>

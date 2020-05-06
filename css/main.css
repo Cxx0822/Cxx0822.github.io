@@ -1831,26 +1831,6 @@ pre .javascript .function {
     font-size: 22px;
   }
 }
-.sidebar {
-  background: url("/images/sidebar-bg1.jpg") repeat !important;
-  background-image: url("/images/sidebar-bg1.jpg") repeat !important;
-  background-size: cover !important;
-  position: fixed !important;
-  right: 0 !important;
-  top: 0 !important;
-  bottom: 0 !important;
-  width: 0;
-}
-.sidebar a,
-.sidebar span.exturl {
-  color: #999;
-  border-bottom-color: #555;
-}
-.sidebar a:hover,
-.sidebar span.exturl:hover {
-  color: #eee;
-  border-bottom-color: #eee;
-}
 .sidebar-inner {
   position: relative;
   padding: 20px 10px;
@@ -1962,7 +1942,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffdf4d;
+  background: #c71124;
 }
 .feed-link,
 .chat {
