@@ -1213,6 +1213,73 @@ pre .javascript .function {
 .use-motion .menu-item {
   opacity: 0;
 }
+.github-corner :hover .octo-arm {
+  animation: octocat-wave 560ms ease-in-out;
+}
+.github-corner > svg {
+  fill: #222;
+  color: #fff;
+  position: absolute;
+  top: 0;
+  border: 0;
+  right: 0;
+}
+@media (max-width: 991px) {
+  .github-corner > svg {
+    fill: #fff;
+    color: #222;
+  }
+  .github-corner .github-corner:hover .octo-arm {
+    animation: none;
+  }
+  .github-corner .github-corner .octo-arm {
+    animation: octocat-wave 560ms ease-in-out;
+  }
+}
+@-moz-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-webkit-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@-o-keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
+@keyframes octocat-wave {
+  0%, 100% {
+    transform: rotate(0);
+  }
+  20%, 60% {
+    transform: rotate(-25deg);
+  }
+  40%, 80% {
+    transform: rotate(10deg);
+  }
+}
 .post-body {
   overflow-wrap: break-word;
   word-wrap: break-word;
@@ -1848,7 +1915,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #c69429;
+  background: #4a5730;
 }
 .feed-link,
 .chat {
@@ -2647,19 +2714,6 @@ ul.breadcrumb li+li:last-child {
   background: #f9f9f9;
   border-bottom-color: #fff;
 }
-.menu-item-active a:after,
-.menu .menu-item a:hover:after,
-.menu .menu-item span.exturl:hover:after {
-  content: " ";
-  position: absolute;
-  top: 50%;
-  margin-top: -3px;
-  right: 15px;
-  width: 6px;
-  height: 6px;
-  background-color: #bbb;
-  border-radius: 50%;
-}
 .menu .menu-item {
   display: block;
   margin: 0;
@@ -2740,9 +2794,6 @@ ul.breadcrumb li+li:last-child {
 .sub-menu .menu-item-active a:hover {
   background: #fff !important;
   border-bottom-color: #fc6423;
-}
-.sub-menu .menu-item-active a:after {
-  content: initial;
 }
 .use-motion .sidebar .motion-element {
   opacity: 1;
@@ -2895,6 +2946,186 @@ ul.breadcrumb li+li:last-child {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.content-wrap {
+  padding: initial;
+  background: initial;
+  box-shadow: initial;
+  border-radius: initial;
+}
+.post-block {
+  padding: 40px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+  border-radius: 15px 15px 15px 15px;
+}
+#posts > article + article .post-block {
+  margin-top: 12px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  border-radius: 15px;
+}
+.comments {
+  padding: 40px;
+  margin: auto;
+  margin-top: 12px;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  border-radius: 15px;
+}
+.posts-expand {
+  padding-top: initial;
+}
+.post-nav-divider {
+  width: 4%;
+}
+.post-nav-item {
+  width: 48%;
+}
+.post-eof {
+  display: none;
+}
+.pagination {
+  margin: 12px 0 0;
+  border-top: initial;
+  background: #fff;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  border-radius: 15px;
+  padding: 10px 0 10px;
+}
+.pagination .prev,
+.pagination .next,
+.pagination .page-number {
+  margin-bottom: initial;
+  top: initial;
+}
+.main {
+  padding-bottom: initial;
+}
+.footer {
+  bottom: auto;
+}
+.sub-menu {
+  border-bottom: initial !important;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12);
+}
+.sub-menu+ #content > #posts .post-block {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+  margin-top: 12px;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .sub-menu+ #content > #posts .post-block {
+    margin-top: 10px;
+  }
+}
+@media (max-width: 767px) {
+  .sub-menu+ #content > #posts .post-block {
+    margin-top: 8px;
+  }
+}
+.post-header h1,
+.post-header h2 {
+  margin: initial;
+}
+.posts-expand .post-title-link {
+  line-height: inherit;
+}
+.posts-expand .post-title {
+  font-size: 1.7em;
+}
+.post-body h1 {
+  font-size: 1.6em;
+  border-bottom: 1px solid #eee;
+}
+.post-body h1 code {
+  font-size: 1em;
+}
+.post-body h2 {
+  font-size: 1.45em;
+  border-bottom: 1px solid #eee;
+}
+.post-body h2 code {
+  font-size: 1em;
+}
+.post-body h3 {
+  font-size: 1.3em;
+  border-bottom: 1px dotted #eee;
+}
+.post-body h3 code {
+  font-size: 1em;
+}
+.post-body h4 {
+  font-size: 1.2em;
+}
+.post-body h4 code {
+  font-size: 1em;
+}
+.post-body h5 {
+  font-size: 1.07em;
+}
+.post-body h5 code {
+  font-size: 1em;
+}
+.post-body h6 {
+  font-size: 1.03em;
+}
+.post-body h6 code {
+  font-size: 1em;
+}
+@media (min-width: 768px) and (max-width: 991px) {
+  .content-wrap {
+    padding: 10px;
+  }
+  .posts-expand {
+    margin: initial;
+  }
+  .posts-expand .post-button {
+    margin-top: 20px;
+  }
+  .post-block {
+    padding: 20px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+    border-radius: 15px;
+  }
+  #posts > article + article .post-block {
+    margin-top: 10px;
+  }
+  .comments {
+    margin-top: 10px;
+    padding: 10px 20px;
+  }
+  .pagination {
+    margin: 10px 0 0;
+  }
+}
+@media (max-width: 767px) {
+  .content-wrap {
+    padding: 8px;
+  }
+  .posts-expand {
+    margin: initial;
+  }
+  .posts-expand .post-button {
+    margin: 12px 0px;
+  }
+  .posts-expand img {
+    padding: initial !important;
+  }
+  .post-block {
+    padding: 12px;
+    min-height: auto;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.06), 0 1px 5px 0 rgba(0,0,0,0.12), 0 -1px 0.5px 0 rgba(0,0,0,0.09);
+    border-radius: 15px;
+  }
+  #posts > article + article .post-block {
+    margin-top: 8px;
+  }
+  .comments {
+    margin-top: 8px;
+    padding: 0 12px;
+  }
+  .pagination {
+    margin: 8px 0 0;
+  }
+}
 .post {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -2908,6 +3139,9 @@ body {
   background-attachment: fixed;
   background-position: 50% 50%;
   background-size: cover;
+}
+.footer {
+  background: rgba(0,0,0,0.6) none repeat scroll !important;
 }
 .main-inner {
   background: #fff;

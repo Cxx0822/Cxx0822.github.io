@@ -23,6 +23,10 @@
 <meta name="theme-color" content="#222">
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
   
@@ -153,12 +157,12 @@
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="平台&amp;emsp;&amp;emsp;Ubuntu 16.04&amp;emsp;&amp;emsp;ROS Kinetic Kame     建图算法概述Gmapping源代码简单使用下载并编译源代码&amp;emsp;&amp;emsp;Gmapping的程序框架是依托Open_slam(OpenSLAM.org的目标是为SLAM研究人员提供一个平台，使他们能够发布自己的算法。OpenSLAM.org成立于2006年，并于2018年移">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2020/05/05/Gmapping算法原理及源代码解析//gmapping整体框架1.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2020/05/05/Gmapping算法原理及源代码解析/Gmapping算法原理及源代码解析//gmapping整体框架1.png">
 <meta property="og:updated_time" content="2020-05-06T08:06:01.442Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gmapping算法原理及源代码解析">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu 16.04&amp;emsp;&amp;emsp;ROS Kinetic Kame     建图算法概述Gmapping源代码简单使用下载并编译源代码&amp;emsp;&amp;emsp;Gmapping的程序框架是依托Open_slam(OpenSLAM.org的目标是为SLAM研究人员提供一个平台，使他们能够发布自己的算法。OpenSLAM.org成立于2006年，并于2018年移">
-<meta name="twitter:image" content="http://www.chenxiuxiang.site/2020/05/05/Gmapping算法原理及源代码解析//gmapping整体框架1.png">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2020/05/05/Gmapping算法原理及源代码解析/Gmapping算法原理及源代码解析//gmapping整体框架1.png">
 
 
 
@@ -407,6 +411,13 @@
     </header>
 
     
+  
+  
+
+  
+
+  <a href="https://github.com/Cxx0822" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
 
 
     <main id="main" class="main">
@@ -574,7 +585,7 @@
 <p>&emsp;&emsp;回到工程文件夹，使用<code>catkin_make</code>编译。(编译时间较长)<br>&emsp;&emsp;其中<code>navigation</code>文件夹中有一些功能包需要<code>C++ 11</code>标准，如果在编译过程中出现该类错误，需要在<code>CMakeLists.txt</code>文件中加入<code>set(CMAKE_CXX_FIAGS &quot;-std=c++11 -o3&quot;)</code>。(先试一下修改工程文件夹中<code>src</code>文件夹下的<code>CMakeLists.txt</code>文件，如果不行，则根据错误提示进入<code>navigation</code>中的功能包下的<code>CMakeLists.txt</code>文件进行修改。)             </p>
 <h2 id="测试Gmapping"><a href="#测试Gmapping" class="headerlink" title="测试Gmapping"></a>测试Gmapping</h2><h2 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="https://blog.csdn.net/qq_36635888/article/details/104478702" target="_blank" rel="noopener">博客1</a>    </p>
 <h1 id="Gmapping源代码理解"><a href="#Gmapping源代码理解" class="headerlink" title="Gmapping源代码理解"></a>Gmapping源代码理解</h1><p>&emsp;&emsp;下载完成后，进入<code>src/slam_gmapping/gmapping/src</code>文件夹，打开<code>main.cpp</code>，可以看到<code>gmapping</code>在<code>ros</code>下面定义的一个节点<code>slam_gmapping</code>，该节点也是上节中<code>rosrun</code>命令下的节点。<br>&emsp;&emsp;<code>mian</code>函数比较简单，只是声明了一个节点和一个<code>SlamGMapping</code>类，并调用了该类下面的<code>startLiveSlam()</code>函数，该函数的声明在该文件夹下的<code>slam_gmapping.cpp</code>文件中。下面则正式进入源代码的分析。    </p>
-<h2 id="Gmapping源代码框架"><a href="#Gmapping源代码框架" class="headerlink" title="Gmapping源代码框架"></a>Gmapping源代码框架</h2><p><img src="/2020/05/05/Gmapping算法原理及源代码解析/\gmapping整体框架1.png" alt="data"> </p>
+<h2 id="Gmapping源代码框架"><a href="#Gmapping源代码框架" class="headerlink" title="Gmapping源代码框架"></a>Gmapping源代码框架</h2><p><img src="Gmapping算法原理及源代码解析\\gmapping整体框架1.png" alt="data"> </p>
 <h2 id="startLiveSlam"><a href="#startLiveSlam" class="headerlink" title="startLiveSlam()"></a>startLiveSlam()</h2><p>&emsp;&emsp;该函数的功能为正式开始<code>Slam</code>进程。其代码如下：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> SlamGMapping::startLiveSlam()</span><br><span class="line">&#123;</span><br><span class="line">  entropy_publisher_ = private_nh_.advertise&lt;std_msgs::Float64&gt;(<span class="string">"entropy"</span>, <span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">  sst_ = node_.advertise&lt;nav_msgs::OccupancyGrid&gt;(<span class="string">"map"</span>, <span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">  sstm_ = node_.advertise&lt;nav_msgs::MapMetaData&gt;(<span class="string">"map_metadata"</span>, <span class="number">1</span>, <span class="literal">true</span>);</span><br><span class="line">  ss_ = node_.advertiseService(<span class="string">"dynamic_map"</span>, &amp;SlamGMapping::mapCallback, <span class="keyword">this</span>);</span><br><span class="line"></span><br><span class="line">  scan_filter_sub_ = <span class="keyword">new</span> message_filters::Subscriber&lt;sensor_msgs::LaserScan&gt;(node_, <span class="string">"scan"</span>, <span class="number">5</span>);</span><br><span class="line">  scan_filter_ = <span class="keyword">new</span> tf::MessageFilter&lt;sensor_msgs::LaserScan&gt;(*scan_filter_sub_, tf_, odom_frame_, <span class="number">5</span>);</span><br><span class="line">  scan_filter_-&gt;registerCallback(boost::bind(&amp;SlamGMapping::laserCallback, <span class="keyword">this</span>, _1));</span><br><span class="line"></span><br><span class="line">  transform_thread_ = <span class="keyword">new</span> boost::thread(boost::bind(&amp;SlamGMapping::publishLoop, <span class="keyword">this</span>, transform_publish_period_));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;该函数整体上为<code>ros</code>中的<code>Topic</code>通讯，大致可以分为三部分，第一部分为消息的订阅(发送)，<code>nodeName.advertise&lt;[msg_type]&gt;([msgName],[msgCountLimit],[latct])</code>表示创建一个<code>Publisher</code>对象。通过调用对象的<code>publish()</code>函数，可以在这个<code>topic上</code>发布<code>message</code>。<code>advertiseService</code>表示订阅服务器的。   </p>
 <p>&emsp;&emsp;</p>
@@ -667,6 +678,27 @@
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
       
       
 
@@ -963,6 +995,12 @@
     </footer>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
     
@@ -1448,6 +1486,38 @@
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "default";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "default";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
 
   
 

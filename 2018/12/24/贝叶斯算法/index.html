@@ -23,6 +23,10 @@
 <meta name="theme-color" content="#222">
 
 
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
 
 
   
@@ -153,15 +157,15 @@
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="贝叶斯算法一、基本原理&amp;emsp;&amp;emsp;贝叶斯算法属于有监督的学习算法，即原始数据集是已知的，其主要思想为根据在一定特征下属于哪个类别的条件概率大小来判断分类。&amp;emsp;&amp;emsp;条件概率是指事件A在另外一个事件B已经发生条件下的发生概率,记为P(A|B),B为条件，A为需要计算的概率。其计算公式为：P(A|B)=P(AB)/P(B),但一般来说A,B事件不是独立事件，即P(AB)不等于">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法//条件概率公式.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法//贝叶斯算法条件概率公式_文字.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法//贝叶斯算法条件概率公式.png">
-<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法//特征计算公式.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法/贝叶斯算法//条件概率公式.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法/贝叶斯算法//贝叶斯算法条件概率公式_文字.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法/贝叶斯算法//贝叶斯算法条件概率公式.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法/贝叶斯算法//特征计算公式.png">
 <meta property="og:updated_time" content="2019-06-29T02:50:34.582Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="贝叶斯算法">
 <meta name="twitter:description" content="贝叶斯算法一、基本原理&amp;emsp;&amp;emsp;贝叶斯算法属于有监督的学习算法，即原始数据集是已知的，其主要思想为根据在一定特征下属于哪个类别的条件概率大小来判断分类。&amp;emsp;&amp;emsp;条件概率是指事件A在另外一个事件B已经发生条件下的发生概率,记为P(A|B),B为条件，A为需要计算的概率。其计算公式为：P(A|B)=P(AB)/P(B),但一般来说A,B事件不是独立事件，即P(AB)不等于">
-<meta name="twitter:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法//条件概率公式.png">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2018/12/24/贝叶斯算法/贝叶斯算法//条件概率公式.png">
 
 
 
@@ -410,6 +414,13 @@
     </header>
 
     
+  
+  
+
+  
+
+  <a href="https://github.com/Cxx0822" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
 
 
     <main id="main" class="main">
@@ -589,7 +600,7 @@
       
 
       
-        <h1 id="贝叶斯算法"><a href="#贝叶斯算法" class="headerlink" title="贝叶斯算法"></a>贝叶斯算法</h1><h2 id="一、基本原理"><a href="#一、基本原理" class="headerlink" title="一、基本原理"></a>一、基本原理</h2><p>&emsp;&emsp;贝叶斯算法属于有监督的学习算法，即原始数据集是已知的，其主要思想为根据在一定特征下属于哪个类别的条件概率大小来判断分类。<br>&emsp;&emsp;条件概率是指事件A在另外一个事件B已经发生条件下的发生概率,记为P(A|B),B为条件，A为需要计算的概率。其计算公式为：P(A|B)=P(AB)/P(B),但一般来说A,B事件不是独立事件，即P(AB)不等于P(A)P(B)，所以一般用贝叶斯公式将其展开，即：<br><img src="/2018/12/24/贝叶斯算法/\条件概率公式.png" alt="data"><br>&emsp;&emsp;对应于分类算法的意义，该公式可以表示为：<br><img src="/2018/12/24/贝叶斯算法/\贝叶斯算法条件概率公式_文字.png" alt="data"><br>&emsp;&emsp;P(类别|特征)：在一定特征下属于该类别的概率，即我们最终用来判断分类的概率。P(特征|类别)：在该类别下的特征概率。即在已知类别的情况下，每个特征出现的频数除以总的特征数。P(类别)：数据集中的每个类别的概率，即每个类别的次数除以数据集的总个数。P(特征)：特征的概率，由于数据集是一样的，其特征也一样，计算概率时，可忽略该项。<br>&emsp;&emsp;哪个分类的条件概率大就判定为哪个类别，这也是贝叶斯算法的核心思想。其计算公式中最重要的部分就是每个特征的在对应类别下的概率。有多少个特征就要进行多少次计算，这里我们假设每个特征都是相互独立的，即任意2个特征都不相互影响分类结果，这也称为朴素贝叶斯算法。  </p>
+        <h1 id="贝叶斯算法"><a href="#贝叶斯算法" class="headerlink" title="贝叶斯算法"></a>贝叶斯算法</h1><h2 id="一、基本原理"><a href="#一、基本原理" class="headerlink" title="一、基本原理"></a>一、基本原理</h2><p>&emsp;&emsp;贝叶斯算法属于有监督的学习算法，即原始数据集是已知的，其主要思想为根据在一定特征下属于哪个类别的条件概率大小来判断分类。<br>&emsp;&emsp;条件概率是指事件A在另外一个事件B已经发生条件下的发生概率,记为P(A|B),B为条件，A为需要计算的概率。其计算公式为：P(A|B)=P(AB)/P(B),但一般来说A,B事件不是独立事件，即P(AB)不等于P(A)P(B)，所以一般用贝叶斯公式将其展开，即：<br><img src="贝叶斯算法\\条件概率公式.png" alt="data"><br>&emsp;&emsp;对应于分类算法的意义，该公式可以表示为：<br><img src="贝叶斯算法\\贝叶斯算法条件概率公式_文字.png" alt="data"><br>&emsp;&emsp;P(类别|特征)：在一定特征下属于该类别的概率，即我们最终用来判断分类的概率。P(特征|类别)：在该类别下的特征概率。即在已知类别的情况下，每个特征出现的频数除以总的特征数。P(类别)：数据集中的每个类别的概率，即每个类别的次数除以数据集的总个数。P(特征)：特征的概率，由于数据集是一样的，其特征也一样，计算概率时，可忽略该项。<br>&emsp;&emsp;哪个分类的条件概率大就判定为哪个类别，这也是贝叶斯算法的核心思想。其计算公式中最重要的部分就是每个特征的在对应类别下的概率。有多少个特征就要进行多少次计算，这里我们假设每个特征都是相互独立的，即任意2个特征都不相互影响分类结果，这也称为朴素贝叶斯算法。  </p>
 <h2 id="二、算法实现（文本分类）"><a href="#二、算法实现（文本分类）" class="headerlink" title="二、算法实现（文本分类）"></a>二、算法实现（文本分类）</h2><p>&emsp;&emsp;对一个在线社区的留言板内容构建一个过滤器，如果某条留言使用了负面的语言，则将该留言标识为内容不当。<br>&emsp;&emsp;首先需要将文本转换为数字向量以便为标识，然后基于这些向量来计算条件概率(贝叶斯算法)并在此基础上构建分类器。</p>
 <h3 id="准备数据"><a href="#准备数据" class="headerlink" title="准备数据"></a>准备数据</h3><p>&emsp;&emsp;首先将获得的每句话的文本数据存在于列表中，然后将所有的文本数据整合到一个列表中，此时列表中的所有单词元素应该是唯一的。最后创建一个文档向量，向量的每一个元素为1或0，分别表示词汇表中的单词在输入单词列表中是否存在。<br>&emsp;&emsp;此时单词列表中的单词就是数据集的特征，即1个单词对应1个特征。<br>程序实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">loadDataSet</span><span class="params">()</span>:</span></span><br><span class="line">    postingList = [[<span class="string">'my'</span>, <span class="string">'dog'</span>, <span class="string">'has'</span>, <span class="string">'flea'</span>, <span class="string">'problems'</span>, <span class="string">'help'</span>, <span class="string">'please'</span>],</span><br><span class="line">                   [<span class="string">'maybe'</span>, <span class="string">'not'</span>, <span class="string">'take'</span>, <span class="string">'him'</span>, <span class="string">'to'</span>, <span class="string">'dog'</span>, <span class="string">'park'</span>, <span class="string">'stupid'</span>],</span><br><span class="line">                   [<span class="string">'my'</span>, <span class="string">'dalmation'</span>, <span class="string">'is'</span>, <span class="string">'so'</span>, <span class="string">'cute'</span>, <span class="string">'I'</span>, <span class="string">'love'</span>, <span class="string">'him'</span>],</span><br><span class="line">                   [<span class="string">'stop'</span>, <span class="string">'posting'</span>, <span class="string">'stupid'</span>, <span class="string">'worthless'</span>, <span class="string">'garbage'</span>],</span><br><span class="line">                   [<span class="string">'mr'</span>, <span class="string">'licks'</span>, <span class="string">'ate'</span>, <span class="string">'my'</span>, <span class="string">'steak'</span>, <span class="string">'how'</span>, <span class="string">'to'</span>, <span class="string">'stop'</span>, <span class="string">'him'</span>],</span><br><span class="line">                   [<span class="string">'quit'</span>, <span class="string">'buying'</span>, <span class="string">'worthless'</span>, <span class="string">'dog'</span>, <span class="string">'food'</span>, <span class="string">'stupid'</span>]]</span><br><span class="line">    classVec = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">return</span> postingList, classVec</span><br></pre></td></tr></table></figure></p>
 <p>程序说明：<br>&emsp;&emsp;postingList为文本数据。首先将每句话存放在一个列表中，然后将每个单词用逗号隔开。classVec为已知的分类标签，即事先对每句话划分好的标签。0表示这句话是正面的，1表示负面的。 </p>
@@ -598,7 +609,7 @@
 <p>&emsp;&emsp;setOfWords2Vec()创建一个文档向量。该函数对输入的数据中的每个单词进行搜索，如果该单词在单词列表中，则记为1。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">listOPosts, listClasses = loadDataSet()</span><br><span class="line">myVocabList = createVocabList(listOPosts)</span><br><span class="line">returnVec_0 = setOfWords2Vec(myVocabList, listOPosts[<span class="number">0</span>])</span><br><span class="line">returnVec_1 = setOfWords2Vec(myVocabList, listOPosts[<span class="number">1</span>])</span><br></pre></td></tr></table></figure></p>
 <p>程序输出为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[<span class="string">'to'</span>, <span class="string">'how'</span>, <span class="string">'dog'</span>, <span class="string">'ate'</span>, <span class="string">'park'</span>, <span class="string">'is'</span>, <span class="string">'food'</span>, <span class="string">'my'</span>, <span class="string">'steak'</span>, <span class="string">'flea'</span>, <span class="string">'take'</span>, <span class="string">'problems'</span>, <span class="string">'buying'</span>, <span class="string">'I'</span>, <span class="string">'mr'</span>, <span class="string">'love'</span>, <span class="string">'posting'</span>, <span class="string">'not'</span>, <span class="string">'garbage'</span>, <span class="string">'maybe'</span>, <span class="string">'licks'</span>, <span class="string">'dalmation'</span>, <span class="string">'cute'</span>, <span class="string">'please'</span>, <span class="string">'quit'</span>, <span class="string">'stop'</span>, <span class="string">'help'</span>, <span class="string">'him'</span>, <span class="string">'stupid'</span>, <span class="string">'so'</span>, <span class="string">'worthless'</span>, <span class="string">'has'</span>]</span><br><span class="line">[<span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>]</span><br><span class="line">[<span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>]</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;myVocabList就是单词列表，也就是该数据集的所有特征。第1个文档向量的输入数据为第1句话，第1个元素’0’表示’to’这个单词没有在第1句话出现，第2个文档向量的输入数据为第2句话，第1个元素’1’表示’to’这个单词在第2句话中有出现。<br>&emsp;&emsp;一共有6组数据列表，每个列表的长度即单词列表的长度，即不重复单词的个数，也就是数据集的特征总数。</p>
-<h3 id="训练算法"><a href="#训练算法" class="headerlink" title="训练算法"></a>训练算法</h3><p>&emsp;&emsp;得到数据集的每组特征后，便可以利用贝叶斯的条件概率公式训练算法。其计算公式可以改写为：<br><img src="/2018/12/24/贝叶斯算法/\贝叶斯算法条件概率公式.png" alt="data"><br>&emsp;&emsp;w表示特征，c表示分类。对每个类别都进行计算，最后比较对应的概率值大小就可以判断其分类。<br>&emsp;&emsp;p(c)表示类别出现的概率，即在原始数据集中每个类型出现的概率。例如在数据集的6句话中，负面评论共3次，则类别0的概率为3/6=0.5。<br>&emsp;&emsp;p(w|c)表示在该类别下该特征的频率。即在已知类别的情况下，每个特征出现的概率。由于原始数据集不仅只有1个特征，所以需要对每个特征进行计算并求积。即：<br><img src="/2018/12/24/贝叶斯算法/\特征计算公式.png" alt="data"><br>&emsp;&emsp;每个特征的概率计算方法为：每个特征在某个类别下出现的次数/该类别下的总特征数。<br>程序实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trainNBO</span><span class="params">(trainMatrix, trainCategory)</span>:</span></span><br><span class="line">    numTrainDocs = len(trainMatrix)  <span class="comment"># 输入文档的长度，即共有几组数据</span></span><br><span class="line">    numWords = len(trainMatrix[<span class="number">0</span>])   <span class="comment"># 单词的个数，即每组数据有多少个单词</span></span><br><span class="line">    pAbusive = sum(trainCategory) / float(numTrainDocs)  <span class="comment"># 是负面标签的概率 </span></span><br><span class="line">    p0Num = ones(numWords)</span><br><span class="line">    p1Num = ones(numWords)</span><br><span class="line">    p0Denom = <span class="number">0.0</span></span><br><span class="line">    p1Denom = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numTrainDocs):</span><br><span class="line">        <span class="keyword">if</span> trainCategory[i] == <span class="number">1</span>:</span><br><span class="line">            <span class="comment"># 计算当类别标签为1时，各个单词出现的次数</span></span><br><span class="line">            p1Num += trainMatrix[i]  <span class="comment"># 标签为1的类别下，每个单词出现的次数+1</span></span><br><span class="line">            p1Denom += sum(trainMatrix[i])  <span class="comment"># 标签为1的类别下，单词在单词表中出现的总次数</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            p0Num += trainMatrix[i]		</span><br><span class="line">            p0Denom += sum(trainMatrix[i])</span><br><span class="line">    p1Vect = p1Num / p1Denom</span><br><span class="line">    p0Vect = p0Num / p0Denom</span><br><span class="line">    <span class="keyword">return</span> p0Vect, p1Vect, pAbusive</span><br></pre></td></tr></table></figure></p>
+<h3 id="训练算法"><a href="#训练算法" class="headerlink" title="训练算法"></a>训练算法</h3><p>&emsp;&emsp;得到数据集的每组特征后，便可以利用贝叶斯的条件概率公式训练算法。其计算公式可以改写为：<br><img src="贝叶斯算法\\贝叶斯算法条件概率公式.png" alt="data"><br>&emsp;&emsp;w表示特征，c表示分类。对每个类别都进行计算，最后比较对应的概率值大小就可以判断其分类。<br>&emsp;&emsp;p(c)表示类别出现的概率，即在原始数据集中每个类型出现的概率。例如在数据集的6句话中，负面评论共3次，则类别0的概率为3/6=0.5。<br>&emsp;&emsp;p(w|c)表示在该类别下该特征的频率。即在已知类别的情况下，每个特征出现的概率。由于原始数据集不仅只有1个特征，所以需要对每个特征进行计算并求积。即：<br><img src="贝叶斯算法\\特征计算公式.png" alt="data"><br>&emsp;&emsp;每个特征的概率计算方法为：每个特征在某个类别下出现的次数/该类别下的总特征数。<br>程序实现：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">trainNBO</span><span class="params">(trainMatrix, trainCategory)</span>:</span></span><br><span class="line">    numTrainDocs = len(trainMatrix)  <span class="comment"># 输入文档的长度，即共有几组数据</span></span><br><span class="line">    numWords = len(trainMatrix[<span class="number">0</span>])   <span class="comment"># 单词的个数，即每组数据有多少个单词</span></span><br><span class="line">    pAbusive = sum(trainCategory) / float(numTrainDocs)  <span class="comment"># 是负面标签的概率 </span></span><br><span class="line">    p0Num = ones(numWords)</span><br><span class="line">    p1Num = ones(numWords)</span><br><span class="line">    p0Denom = <span class="number">0.0</span></span><br><span class="line">    p1Denom = <span class="number">0.0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(numTrainDocs):</span><br><span class="line">        <span class="keyword">if</span> trainCategory[i] == <span class="number">1</span>:</span><br><span class="line">            <span class="comment"># 计算当类别标签为1时，各个单词出现的次数</span></span><br><span class="line">            p1Num += trainMatrix[i]  <span class="comment"># 标签为1的类别下，每个单词出现的次数+1</span></span><br><span class="line">            p1Denom += sum(trainMatrix[i])  <span class="comment"># 标签为1的类别下，单词在单词表中出现的总次数</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            p0Num += trainMatrix[i]		</span><br><span class="line">            p0Denom += sum(trainMatrix[i])</span><br><span class="line">    p1Vect = p1Num / p1Denom</span><br><span class="line">    p0Vect = p0Num / p0Denom</span><br><span class="line">    <span class="keyword">return</span> p0Vect, p1Vect, pAbusive</span><br></pre></td></tr></table></figure></p>
 <p>程序说明：<br>&emsp;&emsp;首先对所有的标签进行求和，并除以总的文档长度，得到概率p(c)。因为负面的记1，正面记0，所以求得的和即是负面标签的总数。然后初始化类别概率为0。在计算每个特征的概率时，首先要对类别进行判断，当满足该类别时，对其特征进行求和，即单词在单词列表中出现的次数，因为是用’1’和’0’来标记的，所以直接求和即可，同时也需要计算总的特征数，即在类别下单词在单词列表中出现的总次数。最后计算出概率。<br>程序验证：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">listOPosts, listClasses = loadDataSet()</span><br><span class="line">myVocabList = createVocabList(listOPosts)</span><br><span class="line">trainMat = []</span><br><span class="line"><span class="keyword">for</span> postinDoc <span class="keyword">in</span> listOPosts:</span><br><span class="line">    trainMat.append(setOfWords2Vec(myVocabList, postinDoc))</span><br><span class="line">p0V, p1V, pAb = trainNBO(trainMat, listClasses)</span><br><span class="line">``` </span><br><span class="line">```python</span><br><span class="line">myVocabList [<span class="string">'flea'</span>, <span class="string">'licks'</span>, <span class="string">'please'</span>, <span class="string">'garbage'</span>, <span class="string">'love'</span>, <span class="string">'how'</span>, <span class="string">'cute'</span>, <span class="string">'park'</span>, <span class="string">'my'</span>, <span class="string">'dalmation'</span>, <span class="string">'dog'</span>, <span class="string">'so'</span>, <span class="string">'mr'</span>, <span class="string">'posting'</span>, <span class="string">'stop'</span>, <span class="string">'has'</span>, <span class="string">'steak'</span>, <span class="string">'ate'</span>, <span class="string">'not'</span>, <span class="string">'buying'</span>, <span class="string">'help'</span>, <span class="string">'maybe'</span>, <span class="string">'worthless'</span>, <span class="string">'quit'</span>, <span class="string">'to'</span>, <span class="string">'I'</span>, <span class="string">'him'</span>, <span class="string">'stupid'</span>, <span class="string">'food'</span>, <span class="string">'problems'</span>, <span class="string">'take'</span>, <span class="string">'is'</span>]</span><br><span class="line">p0V [<span class="number">0.04166667</span> <span class="number">0.04166667</span> <span class="number">0.04166667</span> <span class="number">0.</span>         <span class="number">0.04166667</span> <span class="number">0.04166667</span></span><br><span class="line"> <span class="number">0.04166667</span> <span class="number">0.</span>         <span class="number">0.125</span>      <span class="number">0.04166667</span> <span class="number">0.04166667</span> <span class="number">0.04166667</span></span><br><span class="line"> <span class="number">0.04166667</span> <span class="number">0.</span>         <span class="number">0.04166667</span> <span class="number">0.04166667</span> <span class="number">0.04166667</span> <span class="number">0.04166667</span></span><br><span class="line"> <span class="number">1.</span>         <span class="number">0.</span>         <span class="number">0.04166667</span> <span class="number">0.</span>         <span class="number">0.</span>         <span class="number">0.</span></span><br><span class="line"> <span class="number">0.04166667</span> <span class="number">0.04166667</span> <span class="number">0.08333333</span> <span class="number">0.</span>         <span class="number">0.</span>         <span class="number">0.04166667</span></span><br><span class="line"> <span class="number">0.</span>         <span class="number">0.04166667</span>]</span><br><span class="line">p1V [<span class="number">0.</span>         <span class="number">0.</span>         <span class="number">0.</span>         <span class="number">0.05263158</span> <span class="number">0.</span>         <span class="number">0.</span></span><br><span class="line"> <span class="number">1.</span>         <span class="number">0.05263158</span> <span class="number">0.</span>         <span class="number">0.</span>         <span class="number">0.10526316</span> <span class="number">0.</span></span><br><span class="line"> <span class="number">2.</span>         <span class="number">0.05263158</span> <span class="number">0.05263158</span> <span class="number">0.</span>         <span class="number">0.</span>         <span class="number">0.</span></span><br><span class="line"> <span class="number">0.05263158</span> <span class="number">0.05263158</span> <span class="number">0.</span>         <span class="number">0.05263158</span> <span class="number">0.10526316</span> <span class="number">0.05263158</span></span><br><span class="line"> <span class="number">0.05263158</span> <span class="number">0.</span>         <span class="number">0.05263158</span> <span class="number">0.15789474</span> <span class="number">0.05263158</span> <span class="number">0.</span></span><br><span class="line"> <span class="number">0.05263158</span> <span class="number">0.</span>        ]</span><br><span class="line">pAb <span class="number">0.5</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;例如在该数据集中，在已知的单词表中，’flea’在正面的评论中出现1次，正面评论的总特征数为24，所以概率为1/24=0.041，而在负面评论中出现0次，所以概率为0。负面评论中概率最大的单词为’stupid’，共出现3次，负面评论的总特征数为19，概率为3/19=0.15，即’stupid’是最能表征负面评论的特征。  </p>
 <h3 id="测试算法"><a href="#测试算法" class="headerlink" title="测试算法"></a>测试算法</h3><p>&emsp;&emsp;对原始数据集进行贝叶斯算法训练得到其模型后，便可以根据实际的输入数据进行预测分类了。<br>&emsp;&emsp;但现在会出现一个问题，当计算多个特征概率的乘积以获得某个类别的概率时，如果其中一个特征的概率为0，则最后的乘积也是0。为了解决这个问题，可以将所有特征出现的次数初始化为1，并将分母初始化为2。其次当多个特征的概率很小时，其乘积会越来越小，从而会影响数值的精度，为此，可以用取对数的方法，将乘积转换为求和。<br>训练算法程序改写为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">p0Num = ones(numWords)</span><br><span class="line">p1Num = ones(numWords)</span><br><span class="line">p0Denom = <span class="number">2.0</span></span><br><span class="line">p1Denom = <span class="number">2.0</span></span><br><span class="line">...</span><br><span class="line">p1Vect = log(p1Num / p1Denom)</span><br><span class="line">p0Vect = log(p0Num / p0Denom)</span><br></pre></td></tr></table></figure></p>
@@ -698,6 +709,27 @@
       
 
       
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
       
       
 
@@ -998,6 +1030,12 @@
     </footer>
     
 
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
     
 
     
@@ -1483,6 +1521,38 @@
   
 
   
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "default";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "default";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
 
   
 
