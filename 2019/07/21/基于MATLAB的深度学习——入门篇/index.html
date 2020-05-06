@@ -157,19 +157,19 @@
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="概述&amp;emsp;&amp;emsp;MATLAB从2016年开始就提供深度神经网络的相关工具了，现如今，深度学习的基本使用模块已经相对完善，并且支持逐层拖拽的simulink型的架构设计方式。&amp;emsp;&amp;emsp;Deep Learning Toolbox™提供了一个用于通过算法、预训练模型和应用程序来设计和实现深度神经网络的框架。您可以使用卷积神经网络(ConvNet、CNN)和长短期记忆 (LSTM">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//app.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//附加功能.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//net.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//layers.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//InputSize.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//classify.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//结果.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//前5.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//app.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//附加功能.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//net.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//layers.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//InputSize.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//classify.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//结果.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//前5.png">
 <meta property="og:updated_time" content="2019-08-04T01:40:00.866Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于MATLAB的深度学习——入门篇">
 <meta name="twitter:description" content="概述&amp;emsp;&amp;emsp;MATLAB从2016年开始就提供深度神经网络的相关工具了，现如今，深度学习的基本使用模块已经相对完善，并且支持逐层拖拽的simulink型的架构设计方式。&amp;emsp;&amp;emsp;Deep Learning Toolbox™提供了一个用于通过算法、预训练模型和应用程序来设计和实现深度神经网络的框架。您可以使用卷积神经网络(ConvNet、CNN)和长短期记忆 (LSTM">
-<meta name="twitter:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇/基于MATLAB的深度学习——入门篇//app.png">
+<meta name="twitter:image" content="http://cxx0822.github.io/2019/07/21/基于MATLAB的深度学习——入门篇//app.png">
 
 
 
@@ -569,7 +569,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <!-- <span title="本文字数">7.8k</span> -->
+                <!-- <span title="本文字数">7.9k</span> -->
 			  <span title="本文字数">
                   1,446字
                 </span>
@@ -609,18 +609,18 @@ WIDGET = {FID: 'H94fFEffHo'}
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>&emsp;&emsp;<code>MATLAB</code>从2016年开始就提供深度神经网络的相关工具了，现如今，深度学习的基本使用模块已经相对完善，并且支持逐层拖拽的<code>simulink</code>型的架构设计方式。<br>&emsp;&emsp;<code>Deep Learning Toolbox™</code>提供了一个用于通过算法、预训练模型和应用程序来设计和实现深度神经网络的框架。您可以使用卷积神经网络<code>(ConvNet</code>、<code>CNN)</code>和长短期记忆 <code>(LSTM)</code> 网络对图像、时序和文本数据执行分类和回归。应用程序和绘图可帮助您可视化激活值、编辑网络架构和监控训练进度。<br>&emsp;&emsp;对于小型训练集，您可以使用预训练深度网络模型(包括 <code>SqueezeNet</code>、<code>Inception-v3</code>、<code>ResNet-101</code>、<code>GoogLeNet</code>和<code>VGG-19</code>)以及从<code>TensorFlow®-Keras</code>和<code>Caffe</code>导入的模型执行迁移学习。<br>&emsp;&emsp;要加速对大型数据集的训练，您可以将计算和数据分布到桌面计算机上的多核处理器和<code>GPU</code>中(使用<code>Parallel Computing Toolbox™</code>)，或者扩展到群集和云，包括<code>Amazon EC2® P2</code>、<code>P3</code> 和 <code>G3</code> <code>GPU</code> 实例(使用 <code>MATLAB® Distributed Computing Server™</code>)。</p>
 <h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>&emsp;&emsp;Windows 10<br>&emsp;&emsp;MATLAB 2018a<br>&emsp;&emsp;Deep Learning Toolbox<br>&emsp;&emsp;Computer Vision Toolbox</p>
-<p>注：如果没有<code>Deep Learning Toolbox</code>和<code>Computer Vision Toolbox</code>，需要自己安装，在<code>MATLAB</code>主页的<code>APP</code>中，点击<code>获取更多App</code>，在打开的附加功能资源管理器中，搜索这2个工具箱并下载安装即可。<br><img src="基于MATLAB的深度学习——入门篇\\app.png" alt="data"><br><img src="基于MATLAB的深度学习——入门篇\\附加功能.png" alt="data">   </p>
+<p>注：如果没有<code>Deep Learning Toolbox</code>和<code>Computer Vision Toolbox</code>，需要自己安装，在<code>MATLAB</code>主页的<code>APP</code>中，点击<code>获取更多App</code>，在打开的附加功能资源管理器中，搜索这2个工具箱并下载安装即可。<br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\app.png" alt="data"><br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\附加功能.png" alt="data">   </p>
 <h1 id="一个简单的例子"><a href="#一个简单的例子" class="headerlink" title="一个简单的例子"></a>一个简单的例子</h1><p>&emsp;&emsp;在<a href="https://ww2.mathworks.cn/help/deeplearning/index.html?s_tid=CRUX_lftnav" target="_blank" rel="noopener">MATLAB官方文档</a>中，提供了一些简单的入门实例。下面我们挑选第一个案例进行简单的分析。   </p>
 <h2 id="使用-GoogLeNet-对图像进行分类"><a href="#使用-GoogLeNet-对图像进行分类" class="headerlink" title="使用 GoogLeNet 对图像进行分类"></a>使用 GoogLeNet 对图像进行分类</h2><p>&emsp;&emsp;首先是使用一个典型的的深度卷积神经网络<code>GoogLeNet</code>对图像进行分类。<br>&emsp;&emsp;<code>GoogLeNet</code>已经对超过一百万个图像进行了训练，可以将图像分为<code>1000</code>个对象类别（例如键盘、咖啡杯、铅笔和多种动物）。该网络已基于大量图像学习了丰富的特征表示。网络以图像作为输入，然后输出图像中对象的标签以及每个对象类别的概率。    </p>
 <h3 id="加载预训练网络"><a href="#加载预训练网络" class="headerlink" title="加载预训练网络"></a>加载预训练网络</h3><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net = googlenet</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;加载一个已知网络十分简单，直接令变量名等于网络名即可(第一次加载可能需要联网下载)。下面我们使用<code>disp(net)</code>简单看一个<code>googlenet</code>的内容：<br><img src="基于MATLAB的深度学习——入门篇\\net.png" alt="data"><br>&emsp;&emsp;每个net都有2个属性，即<code>Layers</code>(网络层)和<code>Connections</code>(层连接)，<code>Layers</code>为数组，指的是网络图层，指定为<code>Layer</code>阵列。<code>Connections</code>是表，图层连接，指定为具有两列的表。每个表行表示图层图中的连接。第一列<code>Source</code>指定每个连接的源。第二列<code>Destination</code>指定每个连接的目标。连接源和目标要么是图层名称,要么<code>layerName/IOName</code>的窗体,其中<code>IOName</code>是图层输入或输出的名称。<br>&emsp;&emsp;我们可以继续<code>disp(net.Layers)</code>查看其网络结构：<br><img src="基于MATLAB的深度学习——入门篇\\layers.png" alt="data"><br>&emsp;&emsp;可以看出，<code>googlenet</code>一共有144层，第一列为网络名称，第二列为网络的类型，第三列为网络的具体参数。<br>&emsp;&emsp;这里我们需要网络结构里面的第一个和最后一个参数，即图像输入和分类类别，先定义2个变量保存该信息。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inputSize = net.Layers(<span class="number">1</span>).InputSize;</span><br><span class="line">classNames = net.Layers(<span class="keyword">end</span>).ClassNames;</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;我们可以简单看下这2个参数里面的信息：<br><img src="基于MATLAB的深度学习——入门篇\\InputSize.png" alt="data">    </p>
+<p>&emsp;&emsp;加载一个已知网络十分简单，直接令变量名等于网络名即可(第一次加载可能需要联网下载)。下面我们使用<code>disp(net)</code>简单看一个<code>googlenet</code>的内容：<br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\net.png" alt="data"><br>&emsp;&emsp;每个net都有2个属性，即<code>Layers</code>(网络层)和<code>Connections</code>(层连接)，<code>Layers</code>为数组，指的是网络图层，指定为<code>Layer</code>阵列。<code>Connections</code>是表，图层连接，指定为具有两列的表。每个表行表示图层图中的连接。第一列<code>Source</code>指定每个连接的源。第二列<code>Destination</code>指定每个连接的目标。连接源和目标要么是图层名称,要么<code>layerName/IOName</code>的窗体,其中<code>IOName</code>是图层输入或输出的名称。<br>&emsp;&emsp;我们可以继续<code>disp(net.Layers)</code>查看其网络结构：<br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\layers.png" alt="data"><br>&emsp;&emsp;可以看出，<code>googlenet</code>一共有144层，第一列为网络名称，第二列为网络的类型，第三列为网络的具体参数。<br>&emsp;&emsp;这里我们需要网络结构里面的第一个和最后一个参数，即图像输入和分类类别，先定义2个变量保存该信息。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">inputSize = net.Layers(<span class="number">1</span>).InputSize;</span><br><span class="line">classNames = net.Layers(<span class="keyword">end</span>).ClassNames;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;我们可以简单看下这2个参数里面的信息：<br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\InputSize.png" alt="data">    </p>
 <h3 id="读取图像并调整图像大小"><a href="#读取图像并调整图像大小" class="headerlink" title="读取图像并调整图像大小"></a>读取图像并调整图像大小</h3><p>&emsp;&emsp;有了训练好的网络结构后，我们就可以用图片进行分类预测了。<br>&emsp;&emsp;首先读取一张图片，这里使用了官方文档里面的图片，然后要将其调整到网络需要的输入图片大小(否则会编译报错)。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">I = imread(<span class="string">'peppers.png'</span>);</span><br><span class="line">I = imresize(I,inputSize(<span class="number">1</span>:<span class="number">2</span>));</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;使用<code>imresize</code>将图像大小调整为网络的输入大小。调整大小会略微更改图像的纵横比。当然也可以使用更好的调整大小的函数。<br>&emsp;&emsp;<code>B = imresize(A, [numrows numcols])</code>：<code>numrows</code>和<code>numcols</code>分别指定目标图像的高度和宽度。这里的<code>numrows</code>和<code>numcols</code>就是刚才<code>inputSize</code>的第1列和第2列数组，即<code>224,224</code>。  </p>
 <h3 id="对图像进行分类"><a href="#对图像进行分类" class="headerlink" title="对图像进行分类"></a>对图像进行分类</h3><p>&emsp;&emsp;使用<code>classify</code>对图像进行分类并计算类概率。用于分类的网络训练为针对每个输入图像输出单个标签，即使图像包含多个对象时也是如此。最后我们也可以显示图像及预测的标签，以及具有该标签的图像的预测概率。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[label,scores] = classify(net,I);</span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">imshow(I)</span><br><span class="line">title(string(label) + <span class="string">", "</span> + num2str(<span class="number">100</span>*scores(classNames == label),<span class="number">3</span>) + <span class="string">"%"</span>);</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;<code>classify()</code>：使用经过训练的深度学习神经网络对数据进行分类，一共有3种形式：<br><img src="基于MATLAB的深度学习——入门篇\\classify.png" alt="data"><br>&emsp;&emsp;其返回值<code>label</code>就是<code>scores</code>中数组最高的那个对应的<code>label</code>，<code>scores</code>是一个<code>1000*1</code>的向量(因为<code>googlenet</code>一共有<code>1000</code>个分类类别)，里面依次存放着每个列别的置信度。<code>scores(classNames == label)</code>即表示找到<code>label</code>对应的那个<code>scores</code>。 其结果如图所示：<br><img src="基于MATLAB的深度学习——入门篇\\结果.png" alt="data">     </p>
+<p>&emsp;&emsp;<code>classify()</code>：使用经过训练的深度学习神经网络对数据进行分类，一共有3种形式：<br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\classify.png" alt="data"><br>&emsp;&emsp;其返回值<code>label</code>就是<code>scores</code>中数组最高的那个对应的<code>label</code>，<code>scores</code>是一个<code>1000*1</code>的向量(因为<code>googlenet</code>一共有<code>1000</code>个分类类别)，里面依次存放着每个列别的置信度。<code>scores(classNames == label)</code>即表示找到<code>label</code>对应的那个<code>scores</code>。 其结果如图所示：<br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\结果.png" alt="data">     </p>
 <h3 id="显示排名靠前的预测值"><a href="#显示排名靠前的预测值" class="headerlink" title="显示排名靠前的预测值"></a>显示排名靠前的预测值</h3><p>&emsp;&emsp;根据<code>scores</code>的特点，我们还可以显示出排名前五的预测标签，并以直方图形式显示它们的相关概率。由于网络将图像分类为如此多的对象类别，并且许多类别是相似的，因此在评估网络时通常会考虑准确度排名前五的几个类别。网络以高概率将图像分类为甜椒。<br><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[~,idx] = <span class="built_in">sort</span>(scores,<span class="string">'descend'</span>);  <span class="comment">% 降序排列</span></span><br><span class="line">idx = idx(<span class="number">5</span>:<span class="number">-1</span>:<span class="number">1</span>);</span><br><span class="line">classNamesTop = net.Layers(<span class="keyword">end</span>).ClassNames(idx);  <span class="comment">% 获取前5个类别</span></span><br><span class="line">scoresTop = scores(idx);</span><br><span class="line"></span><br><span class="line"><span class="built_in">figure</span></span><br><span class="line">barh(scoresTop)   <span class="comment">%绘制水平条形图</span></span><br><span class="line">xlim([<span class="number">0</span> <span class="number">1</span>])</span><br><span class="line">title(<span class="string">'Top 5 Predictions'</span>)</span><br><span class="line">xlabel(<span class="string">'Probability'</span>)</span><br><span class="line">yticklabels(classNamesTop)</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;其结果如下：<br><img src="基于MATLAB的深度学习——入门篇\\前5.png" alt="data"></p>
+<p>&emsp;&emsp;其结果如下：<br><img src="/2019/07/21/基于MATLAB的深度学习——入门篇/\前5.png" alt="data"></p>
 <h1 id="标注自己的数据集"><a href="#标注自己的数据集" class="headerlink" title="标注自己的数据集"></a>标注自己的数据集</h1>
       
     </div>
@@ -1604,7 +1604,14 @@ WIDGET = {FID: 'H94fFEffHo'}
       }, 300);
     }).append(e);
   })
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1621,14 +1628,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>

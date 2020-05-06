@@ -157,20 +157,20 @@
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="摘要&amp;emsp;&amp;emsp;Cats vs. Dogs（猫狗大战）是Kaggle大数据竞赛某一年的一道赛题，利用给定的数据集，用算法实现猫和狗的识别。本博客设计了一个简单的两层卷积神经网络，利用TensorFlow深度学习框架进行模型训练，最终得到一个简单的二分类器。&amp;emsp;&amp;emsp;本博客从数据集开始讲起，然后通过模型搭建、模型训练和模型测试依次讲解深度学习目标检测常用的步骤，并穿插着Te">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//打乱数据集.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//读取图片机制.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//读取图片机制_2.gif">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//显示图片.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//归一化公式.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//参数统计.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//参数统计_代码.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//模型训练.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//测试结果.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//打乱数据集.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//读取图片机制.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//读取图片机制_2.gif">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//显示图片.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//归一化公式.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//参数统计.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//参数统计_代码.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//模型训练.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//测试结果.png">
 <meta property="og:updated_time" content="2019-08-04T01:38:56.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于卷积神经网络的猫狗分类器">
 <meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;Cats vs. Dogs（猫狗大战）是Kaggle大数据竞赛某一年的一道赛题，利用给定的数据集，用算法实现猫和狗的识别。本博客设计了一个简单的两层卷积神经网络，利用TensorFlow深度学习框架进行模型训练，最终得到一个简单的二分类器。&amp;emsp;&amp;emsp;本博客从数据集开始讲起，然后通过模型搭建、模型训练和模型测试依次讲解深度学习目标检测常用的步骤，并穿插着Te">
-<meta name="twitter:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/基于卷积神经网络的猫狗分类器//打乱数据集.png">
+<meta name="twitter:image" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器//打乱数据集.png">
 
 
 
@@ -619,9 +619,9 @@ WIDGET = {FID: 'H94fFEffHo'}
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_all_files</span><span class="params">(file_path, is_random=True)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    获取图片路径及其标签</span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        file_path: a string 图片所在目录</span></span><br><span class="line"><span class="string">        file_path：true or flase 是否乱序</span></span><br><span class="line"><span class="string">    返回值：</span></span><br><span class="line"><span class="string">        imageList：a list 图像列表</span></span><br><span class="line"><span class="string">        lableList：a list 标签列表</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    image_list, label_list = [], []</span><br><span class="line">    cat_count, dog_count = <span class="number">0</span>, <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 从文件夹中读取文件名字</span></span><br><span class="line">    <span class="keyword">for</span> item <span class="keyword">in</span> os.listdir(file_path):</span><br><span class="line">        <span class="comment"># listdir()：返回指定路径下的文件和文件夹列表</span></span><br><span class="line">        item_path = file_path + <span class="string">'\\'</span> + item</span><br><span class="line">        item_label = item.split(<span class="string">'.'</span>)[<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> os.path.isfile(item_path):</span><br><span class="line">            <span class="comment"># isfile()：判断某一路径是否为文件</span></span><br><span class="line">            image_list.append(item_path)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            <span class="keyword">raise</span> ValueError(<span class="string">'no file.'</span>)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> item_label == <span class="string">'cat'</span>:</span><br><span class="line">            label_list.append(<span class="number">0</span>)</span><br><span class="line">            cat_count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            label_list.append(<span class="number">1</span>)</span><br><span class="line">            dog_count += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    print(<span class="string">"There are %d cats, %d dogs."</span> % (cat_count, dog_count))</span><br><span class="line"></span><br><span class="line">    image_list = np.asarray(image_list)  <span class="comment"># 当数据源是ndarray时，array会copy出一个副本，占用新的内存，但asarray不会</span></span><br><span class="line">    label_list = np.asarray(label_list)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> is_random:</span><br><span class="line">        rnd_index = np.arange(len(image_list))</span><br><span class="line">        np.random.shuffle(rnd_index)</span><br><span class="line">        <span class="comment"># 将文件乱序 # shuffle()：将序列的所有元素随机排序</span></span><br><span class="line">        image_list = image_list[rnd_index]</span><br><span class="line">        label_list = label_list[rnd_index]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> image_list, label_list</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;首先初始化存储数据和标签的列表，然后依次遍历文件夹并读取名字，如果是文件则将文件名存储到<code>image_list</code>列表中，并将文件名的第一个参数存储到<code>label_list</code>列表中，然后分别统计猫和狗的数量。最后我们利用<code>numpy</code>中的<code>shuffle()</code>函数将列表打乱。  </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    image_dir = <span class="string">r"D:\\TensorFlow\\dogAndCat\\test"</span></span><br><span class="line">    train_list = get_all_files(image_dir)</span><br><span class="line">    print(train_list)</span><br></pre></td></tr></table></figure>
-<p>&emsp;&emsp;这里我们采用10张猫和10张狗的照片进行了一个简单的测试，其结果如图所示：<br><img src="基于卷积神经网络的猫狗分类器\\打乱数据集.png" alt="data"><br>&emsp;&emsp;可以看出所有的数据集都已经全部打乱。   </p>
+<p>&emsp;&emsp;这里我们采用10张猫和10张狗的照片进行了一个简单的测试，其结果如图所示：<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\打乱数据集.png" alt="data"><br>&emsp;&emsp;可以看出所有的数据集都已经全部打乱。   </p>
 <h2 id="数据集分批次处理"><a href="#数据集分批次处理" class="headerlink" title="数据集分批次处理"></a>数据集分批次处理</h2><p>&emsp;&emsp;这里的处理主要涉及到两个方面，第一，分批次获取数据集，因为一次性将所有25000张图片载入内存不现实也不必要，所以将图片分成不同批次进行训练，第二，由于采集的数据集大小并不统一，所以很有必要先将其调整到一个统一的大小。<br>&emsp;&emsp;在讲解如何分批处理前，首先要知道<code>TensorFlow</code>是如何读取数据的。  </p>
-<h3 id="tensorflow读取数据机制"><a href="#tensorflow读取数据机制" class="headerlink" title="tensorflow读取数据机制"></a>tensorflow读取数据机制</h3><p>&emsp;&emsp;<code>TensorFlow</code>中为了充分利用<code>GPU</code>，减少<code>GPU</code>等待数据的空闲时间，使用了两个线程分别执行数据读入和数据计算。具体来说就是使用一个线程源源不断的将硬盘中的图片数据读入到一个内存队列中，另一个线程负责计算任务，所需数据直接从内存队列中获取。<br>&emsp;&emsp;<code>TensorFlow</code>在内存队列之前，还设立了一个文件名队列，文件名队列存放的是参与训练的文件名，要训练<code>N</code>个<code>epoch</code>(1个<code>epoch</code>等于使用训练集中的全部样本训练一次)，则文件名队列中就含有<code>N</code>个批次的所有文件名。如图所示：<br><img src="基于卷积神经网络的猫狗分类器\\读取图片机制.png" alt="data"><br>&emsp;&emsp;在<code>N</code>个<code>epoch</code>的文件名最后是一个结束标志，当<code>TensorFlow</code>读到这个结束标志的时候，会抛出一个<code>OutofRange</code> 的异常，外部捕获到这个异常之后就可以结束程序了。<br>&emsp;&emsp;而创建<code>TensorFlow</code>的文件名队列就需要使用到 <code>tf.train.slice_input_producer()</code>函数。    </p>
+<h3 id="tensorflow读取数据机制"><a href="#tensorflow读取数据机制" class="headerlink" title="tensorflow读取数据机制"></a>tensorflow读取数据机制</h3><p>&emsp;&emsp;<code>TensorFlow</code>中为了充分利用<code>GPU</code>，减少<code>GPU</code>等待数据的空闲时间，使用了两个线程分别执行数据读入和数据计算。具体来说就是使用一个线程源源不断的将硬盘中的图片数据读入到一个内存队列中，另一个线程负责计算任务，所需数据直接从内存队列中获取。<br>&emsp;&emsp;<code>TensorFlow</code>在内存队列之前，还设立了一个文件名队列，文件名队列存放的是参与训练的文件名，要训练<code>N</code>个<code>epoch</code>(1个<code>epoch</code>等于使用训练集中的全部样本训练一次)，则文件名队列中就含有<code>N</code>个批次的所有文件名。如图所示：<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\读取图片机制.png" alt="data"><br>&emsp;&emsp;在<code>N</code>个<code>epoch</code>的文件名最后是一个结束标志，当<code>TensorFlow</code>读到这个结束标志的时候，会抛出一个<code>OutofRange</code> 的异常，外部捕获到这个异常之后就可以结束程序了。<br>&emsp;&emsp;而创建<code>TensorFlow</code>的文件名队列就需要使用到 <code>tf.train.slice_input_producer()</code>函数。    </p>
 <h3 id="tf-train-slice-input-producer"><a href="#tf-train-slice-input-producer" class="headerlink" title="tf.train.slice_input_producer()"></a>tf.train.slice_input_producer()</h3><p>&emsp;&emsp;<code>tf.train.slice_input_producer()</code>是一个<code>tensor</code>生成器，作用是按照设定，每次从一个<code>tensor</code>列表中按顺序或者随机抽取出一个<code>tensor</code>放入文件名队列。<br>&emsp;&emsp;其函数头为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">slice_input_producer(tensor_list, num_epochs=<span class="literal">None</span>, shuffle=<span class="literal">True</span>, seed=<span class="literal">None</span>, capacity=<span class="number">32</span>, shared_name=<span class="literal">None</span>, name=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;<code>tensor_list</code>是输入，格式为<code>tensor</code>的列表；一般为<code>[data, label]</code>，即由特征和标签组成的数据集，<code>num_epochs</code>是抽取<code>batch</code>(批次)的次数，如果没有给定值，那么将会抽取无数次<code>batch</code>(这会导致你训练过程停不下来)，如果给定值，那么在到达次数之后就会报<code>OutOfRange</code>的错误，<code>shuffle</code>是是否随机打乱，<code>seed</code>是随机种子，<code>capcity</code>是队列容量的大小，为整数，<code>name</code>是名称。<br>&emsp;&emsp;其返回值为<code>tensor</code>的列表，其结果和<code>tensor_list</code>一致。例如将之前的<code>train_list</code>作为输入，其结果显示为：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    image_dir = <span class="string">r"D:\\TensorFlow\\dog_and_cat\\test"</span></span><br><span class="line">    train_list = get_all_files(image_dir, is_random=<span class="literal">False</span>)</span><br><span class="line">    intput_queue = tf.train.slice_input_producer(train_list, shuffle=<span class="literal">False</span>)</span><br><span class="line">    print(intput_queue)</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;结果为：<br><code>[&lt;tf.Tensor &#39;input_producer/GatherV2:0&#39; shape=() dtype=string&gt;, &lt;tf.Tensor &#39;input_producer/GatherV2_1:0&#39; shape=() dtype=int32&gt;]</code>，其中第一个就是对应的<code>image_list</code>的向量，第二个为<code>label_list</code>。<br>&emsp;&emsp;有了队列之后就可以使用<code>tf.train.batch()</code>或<code>tf.train.shuffle_batch()</code>来生成批次大小为<code>batch_size</code>的<code>tensor</code>。   </p>
@@ -676,7 +676,7 @@ WIDGET = {FID: 'H94fFEffHo'}
     sess.close()
 </code></pre>
 <p>&emsp;&emsp;在讲解这部分代码之前，我们首先要简单了解一下<code>TensorFlow</code>的多线程概念。<br>&emsp;&emsp;<code>TensorFlow</code>的<code>Session</code>对象是支持多线程的，可以在同一个会话(<code>Session</code>)中创建多个线程，并行执行。在<code>Session</code>中的所有线程都必须能被同步终止，异常必须能被正确捕获并报告，会话终止的时候， 队列必须能被正确地关闭。<br>&emsp;&emsp;<code>TensorFlow</code>提供了两个类来实现对<code>Session</code>中多线程的管理：<code>tf.Coordinator</code>和<code>tf.QueueRunner</code>，这两个类往往一起使用。<code>Coordinator</code>类用来管理在<code>Session</code>中的多个线程，可以用来同时停止多个工作线程并且向那个在等待所有工作线程终止的程序报告异常，该线程捕获到这个异常之后就会终止所有线程。使用<code>tf.train.Coordinator()</code>来创建一个线程管理器(协调器)对象。<br>&emsp;&emsp;<code>QueueRunner</code>类用来启动<code>tensor</code>的入队线程，可以用来启动多个工作线程同时将多个<code>tensor</code>(训练数据)推送入文件名称队列中，具体执行函数是<code>tf.train.start_queue_runners</code>，只有调用 <code>tf.train.start_queue_runners</code>之后，才会真正把<code>tensor</code>推入内存序列中，供计算单元调用，否则会由于内存序列为空，数据流图会处于一直等待状态。    </p>
-<p>&emsp;&emsp;结合上述理论，我们再次了解一下<code>TensorFlow</code>的数据读取机制：<br><img src="基于卷积神经网络的猫狗分类器\\读取图片机制_2.gif" alt="data">  </p>
+<p>&emsp;&emsp;结合上述理论，我们再次了解一下<code>TensorFlow</code>的数据读取机制：<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\读取图片机制_2.gif" alt="data">  </p>
 <ol>
 <li>调用 tf.train.slice_input_producer，从本地文件里抽取tensor，准备放入Filename Queue（文件名队列）中;</li>
 <li>调用 tf.train.batch，从文件名队列中提取tensor，使用单个或多个线程，准备放入文件队列;</li>
@@ -687,7 +687,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <li>使用 coord.should_stop()来查询是否应该终止所有线程，当文件队列（queue）中的所有文件都已经读取出列的时候，会抛出一个OutofRangeError 的异常，这时候就应该停止Sesson中的所有线程了;</li>
 <li>使用coord.request_stop()来发出终止所有线程的命令，使用coord.join(threads)把线程加入主线程，等待threads结束。</li>
 </ol>
-<p>&emsp;&emsp;有了上述2个理论基础，我们就可以理解之前的代码了，首先启动会话，然后启动线程管理器，然后将之前的训练数据依次放入队列中，这里加了一个图片显示，主要是利用<code>matplotlib</code>这个库，最后在依次终止所有的线程和会话。<br><img src="基于卷积神经网络的猫狗分类器\\显示图片.png" alt="data"><br>&emsp;&emsp;这是其中的一张图片的显示结果。   </p>
+<p>&emsp;&emsp;有了上述2个理论基础，我们就可以理解之前的代码了，首先启动会话，然后启动线程管理器，然后将之前的训练数据依次放入队列中，这里加了一个图片显示，主要是利用<code>matplotlib</code>这个库，最后在依次终止所有的线程和会话。<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\显示图片.png" alt="data"><br>&emsp;&emsp;这是其中的一张图片的显示结果。   </p>
 <h1 id="模型搭建"><a href="#模型搭建" class="headerlink" title="模型搭建"></a>模型搭建</h1><p>&emsp;&emsp;有了数据集后，我们就可以正式搭建卷积神经网络的结构了。这里主要是仿照<code>TensorFlow</code>的官方例程<code>cifar-10</code>网络结构来写的。就是两个卷积层（每个卷积层后加一个池化层），两个全连接层，最后一个<code>softmax</code>输出分类结果。   </p>
 <pre><code class="lang-python">import tensorflow as tf
 
@@ -780,7 +780,7 @@ def inference(images, batch_size, n_classes):
 </li>
 <li><p>tf.nn.max_pool()：池化函数<br>函数头为：<code>tf.nn.max_pool(input, ksize, strides, padding, name=None)</code><br>这里面的<code>input</code>,<code>strides</code>和<code>padding</code>和之前的卷积函数里面的几乎一样，唯一有点不同的是<code>ksize</code>，这个表示池化窗口的大小，一般是<code>[1,height,width,1]</code>，因为一般我们不在<code>batch</code>和<code>channels</code>上做池化，所以这两个维度都设为1。   </p>
 </li>
-<li><p>tf.nn.lrn()：局部响应归一化函数<br>函数头为：<code>tf.nn.lrn(input,depth_radius=None,bias=None,alpha=None,beta=None,name=None)</code><br>局部响应归一化原理是仿造生物学上活跃的神经元对相邻神经元的抑制现象(侧抑制)，其公式如下：<br><img src="基于卷积神经网络的猫狗分类器\\归一化公式.png" alt="data"><br>计算方法如下：<br><code>sqr_sum[a, b, c, d] = sum(input[a, b, c, d - depth_radius : d + depth_radius + 1] ** 2),output = input / (bias + alpha * sqr_sum) ** beta</code>。<br><code>N</code>表示通道数(<code>channel</code>)。<code>a,n/2,k,α,β</code>分别表示函数中的<code>input,depth_radius,bias,alpha,beta</code>。具体含义可以参考这篇博客：<a href="https://blog.csdn.net/sinat_21585785/article/details/75087768" target="_blank" rel="noopener">网址</a>。    </p>
+<li><p>tf.nn.lrn()：局部响应归一化函数<br>函数头为：<code>tf.nn.lrn(input,depth_radius=None,bias=None,alpha=None,beta=None,name=None)</code><br>局部响应归一化原理是仿造生物学上活跃的神经元对相邻神经元的抑制现象(侧抑制)，其公式如下：<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\归一化公式.png" alt="data"><br>计算方法如下：<br><code>sqr_sum[a, b, c, d] = sum(input[a, b, c, d - depth_radius : d + depth_radius + 1] ** 2),output = input / (bias + alpha * sqr_sum) ** beta</code>。<br><code>N</code>表示通道数(<code>channel</code>)。<code>a,n/2,k,α,β</code>分别表示函数中的<code>input,depth_radius,bias,alpha,beta</code>。具体含义可以参考这篇博客：<a href="https://blog.csdn.net/sinat_21585785/article/details/75087768" target="_blank" rel="noopener">网址</a>。    </p>
 </li>
 </ol>
 <h2 id="卷积-池化层"><a href="#卷积-池化层" class="headerlink" title="卷积+池化层"></a>卷积+池化层</h2><p>&emsp;&emsp;这里一共有2层，首先利用<code>tf.variable_scope()</code>定义变量的作用域并重命名，下同。然后利用<code>tf.get_variable()</code>分别创建<code>weights</code>变量和<code>biases</code>变量，下同。<code>truncated_normal_initializer()</code>和<code>tf.constant_initializer()</code>都是参数初始化函数，读者可以自己查阅。然后利用<code>tf.nn.conv2d()</code>函数进行卷积，其中<code>input</code>为图像，也就是函数的输入，<code>filter</code>为<code>weights</code>，这里的取值为<code>[3,3,3,16]</code>，前面的2个3表示滤波器的大小为<code>3*3</code>，后面的3是因为图像的通道数为3，最后的16表示一共使用16个<code>3*3</code>的滤波器。<code>stride</code>取值为1，即步长为1，且边缘填充。最后将其和偏差相加并输入到<code>Rule</code>激活函数中，下同。<br>&emsp;&emsp;接下来就是一个池化层，相比较卷积层要简单了很多，这里的<code>input</code>就是刚才的池化层1，即<code>conv1</code>，<code>ksize</code>取值为<code>[1,3,3,1]</code>，即滤波器的大小为<code>3*3</code>，这里的<code>stride</code>取值为2，且边缘填充。最后使用<code>tf.nn.lrn()</code>进行局部响应归一化。<br>&emsp;&emsp;第二个的卷积和池化层和第一个类似，这里就不再叙述了。值得注意的是第二个卷积层中的<code>[3,3,16,16]</code>里面的第1个16表示的是上一层卷积层的第四个维度16，即16个滤波器的16。        </p>
@@ -802,7 +802,7 @@ def evaluation(logits, labels):
         accuracy = tf.reduce_mean(correct)
     return accuracy
 </code></pre>
-<h2 id="网络结构再分析"><a href="#网络结构再分析" class="headerlink" title="网络结构再分析"></a>网络结构再分析</h2><p>&emsp;&emsp;我们以<code>208*208*3</code>的输入图像为例，将卷积网络结构的形状、大小及参数汇总到如下的表格中：<br><img src="基于卷积神经网络的猫狗分类器\\参数统计.png" alt="data"><br>&emsp;&emsp;表中的第一列为每一层维度大小，第一个卷积层的<code>16</code>也就是该层使用的滤波器个数，而池化层会将之前的维度减半，后面的全连接层是一个一维列向量。表中的第二列为每一层的激活值尺寸，即将之前的维度全部相乘得到的值，第三列是每一层的参数个数。卷积层的计算公式为：<code>(滤波器参数+1)*滤波器个数</code>，其中<code>1</code>表示偏差。池化层没有参数，全连接层的计算公式为：<code>(上一层维度+1)*这一层维度</code>，这里的<code>1</code>也表示偏差。<br>&emsp;&emsp;我们也可以用<code>TensorFlow</code>里面的<code>tf.trainable_variables()</code>将训练的变量找到并计算其数量：    </p>
+<h2 id="网络结构再分析"><a href="#网络结构再分析" class="headerlink" title="网络结构再分析"></a>网络结构再分析</h2><p>&emsp;&emsp;我们以<code>208*208*3</code>的输入图像为例，将卷积网络结构的形状、大小及参数汇总到如下的表格中：<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\参数统计.png" alt="data"><br>&emsp;&emsp;表中的第一列为每一层维度大小，第一个卷积层的<code>16</code>也就是该层使用的滤波器个数，而池化层会将之前的维度减半，后面的全连接层是一个一维列向量。表中的第二列为每一层的激活值尺寸，即将之前的维度全部相乘得到的值，第三列是每一层的参数个数。卷积层的计算公式为：<code>(滤波器参数+1)*滤波器个数</code>，其中<code>1</code>表示偏差。池化层没有参数，全连接层的计算公式为：<code>(上一层维度+1)*这一层维度</code>，这里的<code>1</code>也表示偏差。<br>&emsp;&emsp;我们也可以用<code>TensorFlow</code>里面的<code>tf.trainable_variables()</code>将训练的变量找到并计算其数量：    </p>
 <pre><code class="lang-python">if __name__ == &#39;__main__&#39;:
     image_dir = r&#39;D:\\TensorFlow\\dog_and_cat\\data\\train&#39;
 
@@ -818,7 +818,7 @@ def evaluation(logits, labels):
     paras_count = tf.reduce_sum([tf.reduce_prod(v.shape) for v in var_list])
     print(&#39;The number of parameters are :%d&#39; % sess.run(paras_count), end=&#39;\n\n&#39;)
 </code></pre>
-<p>&emsp;&emsp;结果显示为：<br><img src="基于卷积神经网络的猫狗分类器\\参数统计_代码.png" alt="data"><br>&emsp;&emsp;可以看出，其结果和之前我们计算的一致。<br>注：<code>paras_count</code>计算步骤为：先找到每个变量的维度，然后再计算各个维度相乘的积，最后再求和。<br>&emsp;&emsp;由表可见，随着卷积网络的加深，激活值尺寸由开始的<code>692224</code>，慢慢地减少到<code>43264</code>，最后减少到<code>softmax</code>层的<code>2</code>，当然如果激活尺寸下降太快，也会影响神经网络的性能。我们还能观察到其大部分的参数都是集中在全连接层。<br>&emsp;&emsp;当然了，这个卷积网络的参数也可以取其他的值。读者可以在代码中自行修改。     </p>
+<p>&emsp;&emsp;结果显示为：<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\参数统计_代码.png" alt="data"><br>&emsp;&emsp;可以看出，其结果和之前我们计算的一致。<br>注：<code>paras_count</code>计算步骤为：先找到每个变量的维度，然后再计算各个维度相乘的积，最后再求和。<br>&emsp;&emsp;由表可见，随着卷积网络的加深，激活值尺寸由开始的<code>692224</code>，慢慢地减少到<code>43264</code>，最后减少到<code>softmax</code>层的<code>2</code>，当然如果激活尺寸下降太快，也会影响神经网络的性能。我们还能观察到其大部分的参数都是集中在全连接层。<br>&emsp;&emsp;当然了，这个卷积网络的参数也可以取其他的值。读者可以在代码中自行修改。     </p>
 <h1 id="模型训练"><a href="#模型训练" class="headerlink" title="模型训练"></a>模型训练</h1><p>&emsp;&emsp;下面就是将之前的函数综合起来进行模型训练。  </p>
 <pre><code class="lang-python">import time
 from load_data import *
@@ -878,7 +878,7 @@ def training():
     coord.join(threads=threads)
     sess.close()
 </code></pre>
-<p>&emsp;&emsp;首先初始化一些参数，其中分类类别为<code>2</code>，图像大小为<code>208*208</code>，<code>batch_size</code>为<code>8</code>，即一次训练<code>8</code>张图片，容量为<code>200</code>，迭代次数为<code>10000</code>，学习率为<code>1e-4</code>。然后初始化图片存放的位置。<br>&emsp;&emsp;下面就正式启动会话，开始训练。先用<code>get_all_files()</code>函数将图片全部读入到<code>train_list</code>列表中，然后将该列表放到<code>get_batch</code>中获取训练批次<code>image_train_batch</code>和<code>label_train_batch</code>，其次放入到之前设计好的卷积网络模型中，得到模型的输出<code>train_logits</code>，并依次进行损失函数和评估处理以得到正确率。最后使用自适应矩估计算法<code>AdamOptimizer()</code>进行反向传播的参数优化。<br>&emsp;&emsp;接下来是用<code>Saver()</code>将训练好的模型保存，因为卷积网络的计算量很大，每次运行都耗费很长时间，所以很有必要将训练好的模型保存以便下次处理。<br>&emsp;&emsp;再往下就是调用<code>run()</code>函数实际运行了，首先初始化所有变量，然后调用线程(见上文分析)，最后就是迭代训练，每100次显示训练的正确率。<br><img src="基于卷积神经网络的猫狗分类器\\模型训练.png" alt="data"><br>&emsp;&emsp;注：如果设置迭代次数为<code>10000</code>次，一次训练大概需要2个小时左右。     </p>
+<p>&emsp;&emsp;首先初始化一些参数，其中分类类别为<code>2</code>，图像大小为<code>208*208</code>，<code>batch_size</code>为<code>8</code>，即一次训练<code>8</code>张图片，容量为<code>200</code>，迭代次数为<code>10000</code>，学习率为<code>1e-4</code>。然后初始化图片存放的位置。<br>&emsp;&emsp;下面就正式启动会话，开始训练。先用<code>get_all_files()</code>函数将图片全部读入到<code>train_list</code>列表中，然后将该列表放到<code>get_batch</code>中获取训练批次<code>image_train_batch</code>和<code>label_train_batch</code>，其次放入到之前设计好的卷积网络模型中，得到模型的输出<code>train_logits</code>，并依次进行损失函数和评估处理以得到正确率。最后使用自适应矩估计算法<code>AdamOptimizer()</code>进行反向传播的参数优化。<br>&emsp;&emsp;接下来是用<code>Saver()</code>将训练好的模型保存，因为卷积网络的计算量很大，每次运行都耗费很长时间，所以很有必要将训练好的模型保存以便下次处理。<br>&emsp;&emsp;再往下就是调用<code>run()</code>函数实际运行了，首先初始化所有变量，然后调用线程(见上文分析)，最后就是迭代训练，每100次显示训练的正确率。<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\模型训练.png" alt="data"><br>&emsp;&emsp;注：如果设置迭代次数为<code>10000</code>次，一次训练大概需要2个小时左右。     </p>
 <h1 id="模型测试"><a href="#模型测试" class="headerlink" title="模型测试"></a>模型测试</h1><p>&emsp;&emsp;训练好模型后，就可以拿测试集数据来检验模型的正确性了。   </p>
 <pre><code class="lang-python">def eval():
     N_CLASSES = 2
@@ -927,7 +927,7 @@ def training():
     coord.join(threads=threads)
     sess.close()
 </code></pre>
-<p>&emsp;&emsp;程序和训练模型的程序几乎一致，唯一的区别在于，这里放入<code>run()</code>函数运行的部分是<code>image_train_batch</code>和<code>train_logits</code>，即图像批次和训练结果。这里的<code>prediction</code>也就是每个类别的置信度，即是猫或是狗的概率。接下来就是分析该概率，接近于<code>0</code>则表示是猫，否则为狗。最后用<code>matplotlib</code>库将图像显示出来：<br><img src="基于卷积神经网络的猫狗分类器\\测试结果.png" alt="data"><br>&emsp;&emsp;这是某一张图的结果，从结果可以看出，该模型的输出结果为[0.0494897,0.9505103]，即认为<code>4%</code>的概率是猫，<code>95%</code>的概率是狗。    </p>
+<p>&emsp;&emsp;程序和训练模型的程序几乎一致，唯一的区别在于，这里放入<code>run()</code>函数运行的部分是<code>image_train_batch</code>和<code>train_logits</code>，即图像批次和训练结果。这里的<code>prediction</code>也就是每个类别的置信度，即是猫或是狗的概率。接下来就是分析该概率，接近于<code>0</code>则表示是猫，否则为狗。最后用<code>matplotlib</code>库将图像显示出来：<br><img src="/2019/06/04/基于卷积神经网络的猫狗分类器/\测试结果.png" alt="data"><br>&emsp;&emsp;这是某一张图的结果，从结果可以看出，该模型的输出结果为[0.0494897,0.9505103]，即认为<code>4%</code>的概率是猫，<code>95%</code>的概率是狗。    </p>
 <h1 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h1><p>&emsp;&emsp;本博客利用<code>TensorFlow</code>搭建了一个简单的两层卷积神经网络结构，基本实现了猫狗分类器，正确率和置信度总体上还可以，基本上能达到要求，毕竟我们只是使用了一个非常简单的卷积网络，但正确率和置信度仍有提高的空间，读者可以适当的增加网络层数，并设置好相应的参数，以改变模型的正确率。<br>&emsp;&emsp;由于本人也是初学深度学习，有写的不好或写错的地方还望读者多多留言指出，以便后续的改进。      </p>
 
       
@@ -1912,7 +1912,14 @@ def training():
       }, 300);
     }).append(e);
   })
-</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script>
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1929,14 +1936,7 @@ def training():
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end -->
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
+<!-- hexo-inject:end --></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
