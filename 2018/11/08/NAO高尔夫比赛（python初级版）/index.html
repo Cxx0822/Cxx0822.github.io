@@ -1,0 +1,1269 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="LmRKxmt2tr">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="主逻辑 　　&amp;emsp;&amp;emsp;主逻辑为：找球——&amp;gt;定位——&amp;gt;击球。 找球基本思想&amp;emsp;&amp;emsp;找球的过程可分为两步，即在场地找球和找到球之后走到球附近。&amp;emsp;&amp;emsp;初级版采用地毯式搜索在场地找球，即走一段停下来然后在原地摇头找球，找到则调整身体，使身体正对着球，并走到球附近，否则继续往前走。&amp;emsp;&amp;emsp;找到球后的行走过程中，机器人会不断的看球确认">
+<meta property="og:type" content="article">
+<meta property="og:title" content="NAO高尔夫比赛（python初级版）">
+<meta property="og:url" content="http://www.chenxiuxiang.site/2018/11/08/NAO高尔夫比赛（python初级版）/index.html">
+<meta property="og:site_name" content="NJTECH_cxx">
+<meta property="og:description" content="主逻辑 　　&amp;emsp;&amp;emsp;主逻辑为：找球——&amp;gt;定位——&amp;gt;击球。 找球基本思想&amp;emsp;&amp;emsp;找球的过程可分为两步，即在场地找球和找到球之后走到球附近。&amp;emsp;&amp;emsp;初级版采用地毯式搜索在场地找球，即走一段停下来然后在原地摇头找球，找到则调整身体，使身体正对着球，并走到球附近，否则继续往前走。&amp;emsp;&amp;emsp;找到球后的行走过程中，机器人会不断的看球确认">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2018/11/08/NAO高尔夫比赛（python初级版）//正手击球.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2018/11/08/NAO高尔夫比赛（python初级版）//三角定位.png">
+<meta property="og:updated_time" content="2019-03-20T10:14:54.495Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NAO高尔夫比赛（python初级版）">
+<meta name="twitter:description" content="主逻辑 　　&amp;emsp;&amp;emsp;主逻辑为：找球——&amp;gt;定位——&amp;gt;击球。 找球基本思想&amp;emsp;&amp;emsp;找球的过程可分为两步，即在场地找球和找到球之后走到球附近。&amp;emsp;&amp;emsp;初级版采用地毯式搜索在场地找球，即走一段停下来然后在原地摇头找球，找到则调整身体，使身体正对着球，并走到球附近，否则继续往前走。&amp;emsp;&amp;emsp;找到球后的行走过程中，机器人会不断的看球确认">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2018/11/08/NAO高尔夫比赛（python初级版）//正手击球.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.chenxiuxiang.site/2018/11/08/NAO高尔夫比赛（python初级版）/">
+
+
+
+
+
+  <title>NAO高尔夫比赛（python初级版） | NJTECH_cxx</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.chenxiuxiang.site/2018/11/08/NAO高尔夫比赛（python初级版）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">NAO高尔夫比赛（python初级版）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T19:45:07+08:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAO高尔夫比赛/" itemprop="url" rel="index">
+                    <span itemprop="name">NAO高尔夫比赛</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,520 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="主逻辑"><a href="#主逻辑" class="headerlink" title="主逻辑 　　"></a><strong>主逻辑</strong> 　　</h1><p>&emsp;&emsp;主逻辑为：找球——&gt;定位——&gt;击球。</p>
+<h2 id="找球"><a href="#找球" class="headerlink" title="找球"></a>找球</h2><h3 id="基本思想"><a href="#基本思想" class="headerlink" title="基本思想"></a>基本思想</h3><p>&emsp;&emsp;找球的过程可分为两步，即在场地找球和找到球之后走到球附近。<br>&emsp;&emsp;初级版采用地毯式搜索在场地找球，即走一段停下来然后在原地摇头找球，找到则调整身体，使身体正对着球，并走到球附近，否则继续往前走。<br>&emsp;&emsp;找到球后的行走过程中，机器人会不断的看球确认，一旦发现其身体方向并没有正对着球，则停止行走，并再次调整身体，直到走到指定位置。　   　</p>
+<h3 id="python程序实现"><a href="#python程序实现" class="headerlink" title="python程序实现"></a>python程序实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">walkToBall</span><span class="params">(self, min_ball_d=<span class="number">0.35</span>, max_ball_theta=<span class="number">0.15</span>)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    行走到球附近，若没有找到球则往前走一点</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        min_ball_d:最小接近球的距离</span></span><br><span class="line"><span class="string">        max_ball_theta:最大偏离角</span></span><br><span class="line"><span class="string">    '''</span>        </span><br><span class="line">    isfindBall = self.findBall()</span><br><span class="line">    <span class="comment"># 如果没有找到球则摇头找球</span></span><br><span class="line">    <span class="keyword">if</span> isfindBall <span class="keyword">is</span> <span class="literal">False</span>:</span><br><span class="line">        <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">            isfindBall = self.moveheadToFindball()               </span><br><span class="line">            <span class="keyword">if</span> isfindBall <span class="keyword">is</span> <span class="literal">False</span>:</span><br><span class="line">                self.motionProxy.moveInit()</span><br><span class="line">                self.motionProxy.moveTo(<span class="number">0.5</span>, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">break</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 否则找到球，调整机器人身体，使其正对着球</span></span><br><span class="line">    self.motionProxy.moveTo(<span class="number">0</span>, <span class="number">0</span>, self.ball_info[<span class="number">2</span>])</span><br><span class="line">    self.motionProxy.angleInterpolationWithSpeed(<span class="string">"HeadYaw"</span>, <span class="number">0</span>, <span class="number">0.1</span>)  <span class="comment"># 头部回正</span></span><br><span class="line"></span><br><span class="line">    moveTask_1 = self.motionProxy.post.moveTo(<span class="number">1.5</span> * self.ball_info[<span class="number">0</span>], <span class="number">0</span>, <span class="number">0</span>) </span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        isfindBall = self.findBall(self.pitchAngle, <span class="number">0</span>)</span><br><span class="line">        <span class="keyword">if</span> isfindBall <span class="keyword">is</span> <span class="literal">False</span>:</span><br><span class="line">            self.moveheadToFindball(pitchAngles=[<span class="number">-10</span>], yawAngles=[<span class="number">-15</span>, <span class="number">15</span>])</span><br><span class="line">        ball_d = ((self.ball_info[<span class="number">0</span>] ** <span class="number">2</span> + self.ball_info[<span class="number">1</span>] ** <span class="number">2</span>) ** <span class="number">0.5</span>)</span><br><span class="line">        ball_theta = abs(self.ball_info[<span class="number">2</span>])</span><br><span class="line">        time.sleep(<span class="number">0.5</span>)     </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 头不断往下低,防止看不到球</span></span><br><span class="line">        Names = [<span class="string">"HeadPitch"</span>]            </span><br><span class="line">        <span class="keyword">if</span> ball_d &gt; <span class="number">0.4</span>:</span><br><span class="line">            self.pitchAngle = <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="number">0.3</span> &lt; ball_d &lt; <span class="number">0.4</span>:</span><br><span class="line">            self.pitchAngle = (<span class="number">-100</span> * ball_d + <span class="number">40</span>)</span><br><span class="line">        <span class="keyword">elif</span> <span class="number">0.02</span> &lt; ball_d &lt; <span class="number">0.3</span>:</span><br><span class="line">            self.pitchAngle = <span class="number">20</span></span><br><span class="line">        self.motionProxy.angleInterpolationWithSpeed(Names, self.pitchAngle * rad, <span class="number">0.1</span>)                                            </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 到达最小距离内，停止</span></span><br><span class="line">        <span class="keyword">if</span> min_ball_d / <span class="number">3</span> &lt; ball_d &lt; min_ball_d:</span><br><span class="line">            self.tts.say(<span class="string">"I am right."</span>)</span><br><span class="line">            self.motionProxy.stop(moveTask_1)</span><br><span class="line">            time.sleep(<span class="number">0.5</span>)</span><br><span class="line">            self.motionProxy.moveInit()</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line">        <span class="comment"># 偏差在范围内，继续走</span></span><br><span class="line">        <span class="keyword">elif</span> <span class="number">0.02</span> &lt; abs(ball_theta) &lt; max_ball_theta:</span><br><span class="line">            <span class="comment"># 到达最小接近球的距离</span></span><br><span class="line">            <span class="keyword">if</span> min_ball_d / <span class="number">3</span> &lt; ball_d &lt; min_ball_d:</span><br><span class="line">                self.tts.say(<span class="string">"I am right."</span>)</span><br><span class="line">                self.motionProxy.stop(moveTask_1)</span><br><span class="line">                time.sleep(<span class="number">0.5</span>)</span><br><span class="line">                self.motionProxy.moveInit()</span><br><span class="line">                <span class="keyword">break</span>  </span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">continue</span>   </span><br><span class="line">        <span class="comment"># 超过最大偏离角</span></span><br><span class="line">        <span class="keyword">elif</span> abs(ball_theta) &gt; max_ball_theta:</span><br><span class="line">            self.tts.say(<span class="string">"I am wrong."</span>)</span><br><span class="line">            self.motionProxy.stop(moveTask_1)</span><br><span class="line">            time.sleep(<span class="number">0.5</span>)</span><br><span class="line">            self.motionProxy.moveInit()               </span><br><span class="line">            self.motionProxy.moveTo(<span class="number">0</span>, <span class="number">0</span>, self.ball_info[<span class="number">2</span>])   </span><br><span class="line"></span><br><span class="line">            moveTask_1 = self.motionProxy.post.moveTo(<span class="number">1.5</span> * self.ball_info[<span class="number">0</span>], <span class="number">0</span>, <span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="程序说明"><a href="#程序说明" class="headerlink" title="程序说明"></a>程序说明</h3><p>&emsp;&emsp;首先调用看球函数<code>findBall()</code>进行一次找球，如果找到则跳到下面的<code>If</code>判断，否则返回<code>False</code>，进入<code>If</code>结构，即调用摇头找球函数<code>moveheadTofindBall()</code>进行摇头找球，如果还未找到则继续往前走。<br>&emsp;&emsp;找到球后，首先根据返回的<code>ball_Info</code>属性<code>（ball_info = [ball_x, ball_y, ball_theta]）</code>的第3个值，调整身体位置，然后进入<code>While True</code>循环。<br>&emsp;&emsp;进入该循环前，首先调用<code>moveTo()</code>函数，并调用其<code>post</code>属性使其进程挂起，即在行走的过程中，可以做其他事情。为了防止机器人的行走有误差，可将<code>moveTo()</code>函数的<code>x</code>参数加入一个系数，以确保机器人一定能走到球附近。<br>&emsp;&emsp;在行走的过程中，机器人会每隔0.5s看一次球，并通过返回的<code>ball_Info</code>信息来判断是否到达指定位置和身体是否偏移球的位置。<br>&emsp;&emsp;由于到达指定位置的优先级大于是否偏离球的位置，所以将是否到达指定位置的判断放在前面，即不管身体是否偏移，到达位置即可，（后续会再看一次球，调整回来）。<br>&emsp;&emsp;如果未到达指定位置，但身体没有偏离到最大偏差角，即继续执行，一旦偏离最大偏差角，则停止行走，并立即调整身体位姿，并重新调用之前的<code>moveTo()</code>函数。<br>&emsp;&emsp;注：在距离球越近时，机器人应根据距离调整低头的角度，以确定球在视野范围内。在进入走到球附近的程序中，如果没看到球，会进行一次小范围摇头找球，以确定机器人是以看到球的基础上进行校正。  </p>
+<h2 id="定位"><a href="#定位" class="headerlink" title="定位"></a>定位</h2><h3 id="三角定位"><a href="#三角定位" class="headerlink" title="三角定位"></a>三角定位</h3><h4 id="基本思想-1"><a href="#基本思想-1" class="headerlink" title="基本思想"></a>基本思想</h4><p>&emsp;&emsp;定位的主要目的即让机器人调整至最佳击球位置。由于我们采用的是右手握杆击球，即球杆，球和球洞在同一条水平线上。<br><img src="/2018/11/08/NAO高尔夫比赛（python初级版）/\正手击球.png" alt="data"></p>
+<p><center>图1 机器人最佳击球位置</center><br>　　由于机器人到达球的附近时，并不一定是最佳击球位置，所以定位是高尔夫比赛中必不可少的一个环节。初级版采用的是三角定位的方式，即调整机器人的位姿，使得机器人、球和球洞之间的三角形为直角三角形。     </p>
+<p><img src="/2018/11/08/NAO高尔夫比赛（python初级版）/\三角定位.png" alt="data"></p>
+<p><center>图2 三角定位(反手锐角)</center><br>&emsp;&emsp;如图2所示，红色圆点为球的位置，蓝色圆点为机器人的位置，黄色为黄杆(球洞)。机器人-球-球洞之间的夹角为α,机器人-球洞-球之间的夹角为β,球-机器人-球洞之间的夹角为γ（已知），机器人和球的距离为d（已知），球和球洞的距离为l。<br>&emsp;&emsp;此时由于α为锐角，而最佳击球位置为直角，所以机器人应该向左绕一个以球为圆心，夹角为θ(θ = 0.5 * pi - α)的圆弧。并且此时应用反手击球。同理可得，如果α为钝角，θ = α - 0.5 * pi，机器人向右绕圆弧。<br>&emsp;&emsp;如果机器人在另一侧，方法同上，但击球方式应为正手击球。<br>&emsp;&emsp;但此时存在一个问题，只有黄杆上面的landmark（如图1所示），机器人才能识别出距离，但只有在1米的有效距离内识别出，而机器人可以在很远的距离内识别出黄杆，但无法返回距离。<br>&emsp;&emsp;所以，在远距离时，只能利用黄杆来定位，但在机器人、球和黄杆组成的三角形中，由于已知的信息较少，无法正确解出三角形，因此我们必须假设一个信息是已知的。<br>&emsp;&emsp;我们假设β是已知的，并且球和球洞的距离越远，该角度越小。利用这个假设，我们便可以让机器人通过<code>moveTo()</code>函数，使得到达最佳位置，即机器人-球-球洞的夹角为0.5pi。</p>
+<h4 id="python程序实现-1"><a href="#python程序实现-1" class="headerlink" title="python程序实现"></a>python程序实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">moveCircle_stick</span><span class="params">(self, stickAngle, ball_d, compensateAngle1)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    绕球走半径为机器人与球的距离的圆弧，分正反手   </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数:</span></span><br><span class="line"><span class="string">        stickAngle:黄杆与机器人的角度</span></span><br><span class="line"><span class="string">        ball_d:机器人与球的距离</span></span><br><span class="line"><span class="string">        compensateAngle1:补偿角(机器人-杆-球的角度)</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># 杆-球-机器人的夹角(分锐角和钝角)</span></span><br><span class="line">    stick_ball_robotAngle = math.pi - compensateAngle1 * rad - abs(stickAngle)</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 正手打</span></span><br><span class="line">    <span class="keyword">if</span> stickAngle &gt;= <span class="number">0</span>:</span><br><span class="line">        self.isbackhandFlag = <span class="literal">False</span></span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= stick_ball_robotAngle &lt; <span class="number">0.5</span> * math.pi:</span><br><span class="line">            moveAngle = <span class="number">0.5</span> * math.pi - stick_ball_robotAngle</span><br><span class="line">            move_d = (ball_d ** <span class="number">2</span> + ball_d ** <span class="number">2</span> </span><br><span class="line">                        - <span class="number">2</span> * ball_d * ball_d * math.cos(moveAngle)) ** <span class="number">0.5</span></span><br><span class="line">            self.motionProxy.moveInit()</span><br><span class="line">            self.motionProxy.moveTo(<span class="number">0</span>, -move_d, moveAngle)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            moveAngle = stick_ball_robotAngle - <span class="number">0.5</span> * math.pi</span><br><span class="line">            move_d = (ball_d ** <span class="number">2</span> + ball_d ** <span class="number">2</span> </span><br><span class="line">                        - <span class="number">2</span> * ball_d * ball_d * math.cos(moveAngle)) ** <span class="number">0.5</span> </span><br><span class="line">            self.motionProxy.moveInit()</span><br><span class="line">            self.motionProxy.moveTo(<span class="number">0</span>, move_d, -moveAngle)</span><br><span class="line">    <span class="comment"># 反手打</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        self.isbackhandFlag = <span class="literal">True</span></span><br><span class="line">        stickAngle = abs(stickAngle)</span><br><span class="line">        <span class="keyword">if</span> <span class="number">0</span> &lt;= stick_ball_robotAngle &lt; <span class="number">0.5</span> * math.pi:</span><br><span class="line">            moveAngle = <span class="number">0.5</span> * math.pi - stick_ball_robotAngle</span><br><span class="line">            move_d = (ball_d ** <span class="number">2</span> + ball_d ** <span class="number">2</span> </span><br><span class="line">                        - <span class="number">2</span> * ball_d * ball_d * math.cos(<span class="number">0.5</span> * math.pi - stick_ball_robotAngle)) ** <span class="number">0.5</span></span><br><span class="line">            self.motionProxy.moveInit()</span><br><span class="line">            self.motionProxy.moveTo(<span class="number">0</span>, move_d, -moveAngle)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            moveAngle = stick_ball_robotAngle - <span class="number">0.5</span> * math.pi</span><br><span class="line">            move_d = (ball_d ** <span class="number">2</span> + ball_d ** <span class="number">2</span> </span><br><span class="line">                        - <span class="number">2</span> * ball_d * ball_d * math.cos(stick_ball_robotAngle - <span class="number">0.5</span> * math.pi)) ** <span class="number">0.5</span> </span><br><span class="line">            self.motionProxy.moveInit()</span><br><span class="line">            self.motionProxy.moveTo(<span class="number">0</span>, -move_d, moveAngle)</span><br></pre></td></tr></table></figure>
+<h4 id="程序说明-1"><a href="#程序说明-1" class="headerlink" title="程序说明"></a>程序说明</h4><p>&emsp;&emsp;首先计算出图2的α，用来判断是锐角还是钝角，其次需要判断机器人和黄杆的角度，如果为正值，应该为正手击球，否则应为反手击球。<br>&emsp;&emsp;在<code>moveTo()</code>的函数中，需要给定的参数为y和θ的值。其中y的值可以用余弦定理求得，而θ为0.5pi与α的差值的绝对值。<br>&emsp;&emsp;注:机器人以左手为y坐标系正半轴，正前方为x坐标系正半轴，设置<code>moveTo()</code>函数的参数时，要注意正负号。　  
+　　　</p>
+<h3 id="图像定位"><a href="#图像定位" class="headerlink" title="图像定位"></a>图像定位</h3><h4 id="基本思想-2"><a href="#基本思想-2" class="headerlink" title="基本思想"></a>基本思想</h4><p>&emsp;&emsp;经过三角定位后，机器人基本上到达最佳击球位置，但是我们的最佳击球位置不是(0,0),而是(0.20,-0.05),所以经过三角定位后，还需要左右和上下平移。<br>&emsp;&emsp;之前的方法为利用看球后返回的x和y轴的信息，然后调用<code>moveTo()</code>函数，不断的调整，但实际测试下来，效果并不理想，主要有2个原因。<br>&emsp;&emsp;第一如果机器人不是正对着球，看球的信息会不太准确，而且由于此时要求精度较高，该误差较大。第二机器人本身精度也有误差，特别是此时只是微小移动，很难快速收敛。<br>&emsp;&emsp;针对以上问题，我们决定直接利用球在图像中的信息进行调整，即不需要在进行球的返回信息(x和y)计算，而且此时球在图像中的像素值很大，加入一个比例控制系数就会很快的收敛。    </p>
+<h4 id="python程序实现-2"><a href="#python程序实现-2" class="headerlink" title="python程序实现"></a>python程序实现</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">locateWithImage</span><span class="params">(self, best_ball_x=<span class="number">400</span>, best_ball_y=<span class="number">320</span>, best_ball_radius=<span class="number">28</span>)</span>:</span>   </span><br><span class="line">    self.motionProxy.angleInterpolationWithSpeed([<span class="string">"HeadPitch"</span>, <span class="string">"HeadYaw"</span>], [<span class="number">20</span> * rad, <span class="number">0</span> * rad], <span class="number">0.1</span>)     </span><br><span class="line">    self.ballDetect.updateBallData(client=<span class="string">"cx"</span>, fitting=<span class="literal">True</span>)</span><br><span class="line">    centerX, centerY, radius = self.ballDetect.getBallInfoInImage()</span><br><span class="line">    bias_x = centerY - best_ball_y         </span><br><span class="line">    bias_y = centerX - best_ball_x       </span><br><span class="line">    Kp = <span class="number">0.0008</span>           </span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> abs(radius - best_ball_radius) &lt; <span class="number">15</span>: </span><br><span class="line">        <span class="keyword">if</span> (abs(bias_x) &lt; <span class="number">40</span> <span class="keyword">and</span> abs(bias_y) &lt; <span class="number">20</span>):</span><br><span class="line">            self.tts.say(<span class="string">"I am OK"</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            self.motionProxy.moveInit()</span><br><span class="line">            move_x = Kp * bias_x </span><br><span class="line">            move_x = <span class="number">-1.0</span> / <span class="number">100</span> <span class="keyword">if</span> (move_x &lt; <span class="number">0</span> <span class="keyword">and</span> move_x &gt; <span class="number">-1.0</span> / <span class="number">100</span>) <span class="keyword">else</span> move_x</span><br><span class="line">            move_x = <span class="number">1.0</span> / <span class="number">100</span> <span class="keyword">if</span> (move_x &gt; <span class="number">0</span> <span class="keyword">and</span> move_x &lt; <span class="number">1.0</span> / <span class="number">100</span>) <span class="keyword">else</span> move_x</span><br><span class="line">            <span class="keyword">if</span> abs(bias_x) &gt; <span class="number">15</span>:</span><br><span class="line">                self.motionProxy.moveTo(-move_x, <span class="number">0</span>, <span class="number">0</span>)</span><br><span class="line">                time.sleep(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line">            move_y = Kp * bias_y </span><br><span class="line">            move_y = <span class="number">-1.0</span> / <span class="number">100</span> <span class="keyword">if</span> (move_y &lt; <span class="number">0</span> <span class="keyword">and</span> move_y &gt; <span class="number">-1.0</span> / <span class="number">100</span>) <span class="keyword">else</span> move_y</span><br><span class="line">            move_y = <span class="number">1.0</span> / <span class="number">100</span> <span class="keyword">if</span> (move_y &gt; <span class="number">0</span> <span class="keyword">and</span> move_y &lt; <span class="number">1.0</span> / <span class="number">100</span>) <span class="keyword">else</span> move_y</span><br><span class="line">            <span class="keyword">if</span> abs(bias_y) &gt; <span class="number">15</span>:</span><br><span class="line">                self.motionProxy.moveTo(<span class="number">0</span>, -move_y, <span class="number">0</span>)</span><br><span class="line">                time.sleep(<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
+<h4 id="程序说明-2"><a href="#程序说明-2" class="headerlink" title="程序说明"></a>程序说明</h4><p>&emsp;&emsp;首先要测得最佳击球位置在图像中的像素位置，然后根据实际值与期望值的差得到误差，注意此时图像和机器人的坐标系不一样，然后每次调整位置时，加入一个比例系数Kp，实验测得，经过3-4次调整即可快速的收敛，到达最佳击球位置。<br>&emsp;&emsp;注：三角定位要和图像定位结合使用，三角定位是为了调整机器人与球洞的角度，而图像定位是为了让其到达指定的(x,y)位置，为了更精准的到达指定位置，每次循环进行1次三角定位和2次图像定位。实验测得，经过3次左右的循环，便可完成定位，而且其效果也比较理想。    
+　　</p>
+<h2 id="击球"><a href="#击球" class="headerlink" title="击球"></a>击球</h2><h3 id="基本思想-3"><a href="#基本思想-3" class="headerlink" title="基本思想"></a>基本思想</h3><p>&emsp;&emsp;考虑到机器人与球洞的位置，我们设计了2种击球方式，即正手击球和反手击球。<br>&emsp;&emsp;其方向可以通过黄杆或landmark的角度来判断。当角度为正值时，说明球洞在机器人的左手边，由于我们采用右手击球，所以应为正手击球，否则应为反手击球。    </p>
+<h3 id="python程序实现-3"><a href="#python程序实现-3" class="headerlink" title="python程序实现"></a>python程序实现</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">forehandToHitball</span><span class="params">(self, hitSpeed)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    正手击球</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        hitSpeed:击球的力度</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># 手回正</span></span><br><span class="line">    names = [<span class="string">"RShoulderPitch"</span>, <span class="string">"RShoulderRoll"</span>, <span class="string">"RElbowRoll"</span>, <span class="string">"RElbowYaw"</span>, <span class="string">"RWristYaw"</span>]</span><br><span class="line">    maxSpeedFraction = <span class="number">0.1</span></span><br><span class="line">    targetAngles = [[<span class="number">90</span> * rad, <span class="number">-20</span> * rad, <span class="number">5</span> * rad, <span class="number">90</span> * rad, <span class="number">0</span> * rad],</span><br><span class="line">                    [<span class="number">80</span> * rad, <span class="number">-40</span> * rad, <span class="number">5</span> * rad, <span class="number">90</span> * rad, <span class="number">0</span> * rad],          </span><br><span class="line">                    [<span class="number">50</span> * rad, <span class="number">-45</span> * rad, <span class="number">50</span> * rad, <span class="number">90</span> * rad, <span class="number">-37</span> * rad],</span><br><span class="line">                    [<span class="number">50</span> * rad, <span class="number">5</span> * rad, <span class="number">50</span> * rad, <span class="number">90</span> * rad, <span class="number">20</span> * rad]]  <span class="comment"># 击球      </span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> targetAngle <span class="keyword">in</span> targetAngles:</span><br><span class="line">        <span class="keyword">if</span> targetAngle == targetAngles[<span class="number">-1</span>]:</span><br><span class="line">            maxSpeedFraction = hitSpeed</span><br><span class="line">        self.motionProxy.angleInterpolationWithSpeed(names, targetAngle, maxSpeedFraction)</span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">backhandToHitball</span><span class="params">(self, hitSpeed)</span>:</span></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">    反手击球</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    参数：</span></span><br><span class="line"><span class="string">        hitSpeed：击球的力度</span></span><br><span class="line"><span class="string">    '''</span>        </span><br><span class="line">    names = [<span class="string">"RShoulderPitch"</span>, <span class="string">"RShoulderRoll"</span>, <span class="string">"RElbowRoll"</span>, <span class="string">"RElbowYaw"</span>, <span class="string">"RWristYaw"</span>]</span><br><span class="line">    maxSpeedFraction = <span class="number">0.1</span></span><br><span class="line"></span><br><span class="line">    targetAngles = [[<span class="number">90</span> * rad, <span class="number">-20</span> * rad, <span class="number">5</span> * rad, <span class="number">90</span> * rad, <span class="number">0</span> * rad],  <span class="comment"># 手回正</span></span><br><span class="line">                    [<span class="number">80</span> * rad, <span class="number">-40</span> * rad, <span class="number">5</span> * rad, <span class="number">90</span> * rad, <span class="number">0</span> * rad],</span><br><span class="line">                    [<span class="number">50</span> * rad, <span class="number">-45</span> * rad, <span class="number">50</span> * rad, <span class="number">90</span> * rad, <span class="number">0</span> * rad],</span><br><span class="line">                    [<span class="number">50</span> * rad, <span class="number">0</span> * rad, <span class="number">70</span> * rad, <span class="number">90</span> * rad, <span class="number">40</span> * rad],</span><br><span class="line">                    [<span class="number">60</span> * rad, <span class="number">2</span> * rad, <span class="number">60</span> * rad, <span class="number">90</span> * rad, <span class="number">40</span> * rad],</span><br><span class="line">                    [<span class="number">60</span> * rad, <span class="number">-20</span> * rad, <span class="number">60</span> * rad, <span class="number">90</span> * rad, <span class="number">-20</span> * rad]]</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> targetAngle <span class="keyword">in</span> targetAngles:</span><br><span class="line">        <span class="keyword">if</span> targetAngle == targetAngles[<span class="number">-1</span>]:</span><br><span class="line">            maxSpeedFraction = hitSpeed</span><br><span class="line">        self.motionProxy.angleInterpolationWithSpeed(names, targetAngle, maxSpeedFraction)</span><br><span class="line">        time.sleep(<span class="number">0.5</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="程序说明-3"><a href="#程序说明-3" class="headerlink" title="程序说明"></a>程序说明</h3><p>&emsp;&emsp;无论正手还是反手，都是机器人手臂的一系列关节角变化，通过连续的给每个关节不同的角度，即可实现击球动作。<br>&emsp;&emsp;注：最后一个关节角的速度是击球时的力度，所以其值应不同于其余值，应该给定一个较大的值。    </p>
+<h2 id="存在的问题和不足"><a href="#存在的问题和不足" class="headerlink" title="存在的问题和不足"></a><strong>存在的问题和不足</strong></h2><p>&emsp;&emsp;初级版的程序虽然整体上可以实现功能，但都是基于理想的情况下，实际测试下来，程序仍存在一些未知的bug，所以在高级版的程序中，我们要对其进行优化，主要包括以下几个方面。     </p>
+<h3 id="逻辑思想："><a href="#逻辑思想：" class="headerlink" title="逻辑思想："></a>逻辑思想：</h3><ol>
+<li>所有的找球，看黄杆/landmark的程序必须考虑完整，即分为看到和没看到2种情况，后续的动作一定要基于之前是找到的情况。</li>
+<li>当机器人一直往前走仍找不到球，或因为没看到球而认为没有球一直往前走，这种情况下该怎么办？</li>
+<li>定位时没有看到球，或者看球错误导致球超出视野范围外，需要让机器人摇头找下球，重新定位。</li>
+<li>击球的力度能和距离关联，实现不同的距离给定不同的力度。 </li>
+<li>当球的位置超过球洞，即机器人需绕道球洞后面进行击球，此时应考虑如何避开球洞。</li>
+</ol>
+<h3 id="python程序："><a href="#python程序：" class="headerlink" title="python程序："></a>python程序：</h3><ol>
+<li>每次摇头找球或找黄杆/landmark时，第一次需要摇头，后面则不需要摇头，调用之前的值即可。</li>
+<li>利用try-except对程序进行异常处理，防止实际比赛时，程序报错。</li>
+</ol>
+<p>注：本博客采用的视觉算法是我师兄的一篇博客：<a href="https://zhoujiahuan.github.io/2018/07/24/visual-part-in-NAO-golf/#more" target="_blank" rel="noopener">NAO机器人高尔夫中的视觉系统设计</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢老板！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/11/08/仿人气动手臂：硬件连接图/" rel="next" title="仿人气动手臂:硬件连接图">
+                <i class="fa fa-chevron-left"></i> 仿人气动手臂:硬件连接图
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/09/MATLAB的GUI小游戏：你话我猜/" rel="prev" title="MATLAB的GUI小游戏:你话我猜">
+                MATLAB的GUI小游戏:你话我猜 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjAyMi8xODU2OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主逻辑"><span class="nav-number">1.</span> <span class="nav-text">主逻辑 　　</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#找球"><span class="nav-number">1.1.</span> <span class="nav-text">找球</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想"><span class="nav-number">1.1.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python程序实现"><span class="nav-number">1.1.2.</span> <span class="nav-text">python程序实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序说明"><span class="nav-number">1.1.3.</span> <span class="nav-text">程序说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位"><span class="nav-number">1.2.</span> <span class="nav-text">定位</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#三角定位"><span class="nav-number">1.2.1.</span> <span class="nav-text">三角定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本思想-1"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python程序实现-1"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">python程序实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序说明-1"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">程序说明</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#图像定位"><span class="nav-number">1.2.2.</span> <span class="nav-text">图像定位</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本思想-2"><span class="nav-number">1.2.2.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#python程序实现-2"><span class="nav-number">1.2.2.2.</span> <span class="nav-text">python程序实现</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#程序说明-2"><span class="nav-number">1.2.2.3.</span> <span class="nav-text">程序说明</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#击球"><span class="nav-number">1.3.</span> <span class="nav-text">击球</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本思想-3"><span class="nav-number">1.3.1.</span> <span class="nav-text">基本思想</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python程序实现-3"><span class="nav-number">1.3.2.</span> <span class="nav-text">python程序实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#程序说明-3"><span class="nav-number">1.3.3.</span> <span class="nav-text">程序说明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#存在的问题和不足"><span class="nav-number">1.4.</span> <span class="nav-text">存在的问题和不足</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#逻辑思想："><span class="nav-number">1.4.1.</span> <span class="nav-text">逻辑思想：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#python程序："><span class="nav-number">1.4.2.</span> <span class="nav-text">python程序：</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">103.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共103.2k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+  <meta name="google-site-verification" content="true">
+
+
+
+
+
+
+
+
+  <meta name="baidu-site-verification" content="LmRKxmt2tr">
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="AlexNet简介&amp;emsp;&amp;emsp;  网络结构&amp;emsp;&amp;emsp;该网络包含8个带权重的层；前5层是卷积层，剩下的3层是全连接层。最后一层全连接层的输出是1000维softmax的输入，softmax会产生1000类标签。        卷积层C1&amp;emsp;&amp;emsp;该层的处理流程是：卷积—&amp;gt;ReLU—&amp;gt;池化—&amp;gt;归一化。&amp;emsp;&amp;emsp;卷积：输入图像是22">
+<meta property="og:type" content="article">
+<meta property="og:title" content="典型的深度神经网络">
+<meta property="og:url" content="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络/index.html">
+<meta property="og:site_name" content="NJTECH_cxx">
+<meta property="og:description" content="AlexNet简介&amp;emsp;&amp;emsp;  网络结构&amp;emsp;&amp;emsp;该网络包含8个带权重的层；前5层是卷积层，剩下的3层是全连接层。最后一层全连接层的输出是1000维softmax的输入，softmax会产生1000类标签。        卷积层C1&amp;emsp;&amp;emsp;该层的处理流程是：卷积—&amp;gt;ReLU—&amp;gt;池化—&amp;gt;归一化。&amp;emsp;&amp;emsp;卷积：输入图像是22">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络//AlexNet网络结构.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络//AlexNet参数统计.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络//VGG网络结构_1.png">
+<meta property="og:image" content="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络//VGG网络结构_2.png">
+<meta property="og:updated_time" content="2019-08-04T01:39:32.978Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="典型的深度神经网络">
+<meta name="twitter:description" content="AlexNet简介&amp;emsp;&amp;emsp;  网络结构&amp;emsp;&amp;emsp;该网络包含8个带权重的层；前5层是卷积层，剩下的3层是全连接层。最后一层全连接层的输出是1000维softmax的输入，softmax会产生1000类标签。        卷积层C1&amp;emsp;&amp;emsp;该层的处理流程是：卷积—&amp;gt;ReLU—&amp;gt;池化—&amp;gt;归一化。&amp;emsp;&amp;emsp;卷积：输入图像是22">
+<meta name="twitter:image" content="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络//AlexNet网络结构.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络/">
+
+
+
+
+
+  <title>典型的深度神经网络 | NJTECH_cxx</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.chenxiuxiang.site/2019/07/06/典型的深度神经网络/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">典型的深度神经网络</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-07-06T09:50:31+08:00">
+                2019-07-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/深度学习/" itemprop="url" rel="index">
+                    <span itemprop="name">深度学习</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i> 阅读数
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  3,311 字
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  15 分钟
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="AlexNet"><a href="#AlexNet" class="headerlink" title="AlexNet"></a>AlexNet</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>&emsp;&emsp; </p>
+<h2 id="网络结构"><a href="#网络结构" class="headerlink" title="网络结构"></a>网络结构</h2><p>&emsp;&emsp;该网络包含<code>8</code>个带权重的层；前<code>5</code>层是卷积层，剩下的<code>3</code>层是全连接层。最后一层全连接层的输出是<code>1000</code>维<code>softmax</code>的输入，<code>softmax</code>会产生<code>1000</code>类标签。<br><img src="/2019/07/06/典型的深度神经网络/\AlexNet网络结构.png" alt="data">       </p>
+<h3 id="卷积层C1"><a href="#卷积层C1" class="headerlink" title="卷积层C1"></a>卷积层C1</h3><p>&emsp;&emsp;该层的处理流程是：卷积—&gt;ReLU—&gt;池化—&gt;归一化。<br>&emsp;&emsp;卷积：输入图像是<code>227×227×3</code>，使用<code>96</code>个<code>11×11×3</code>的卷积核，步长为<code>4</code>，不边缘填充，所以得到的<code>FeatureMap</code>为<code>55×55×96</code>。<code>(55=(227-11)/4+1)</code><br>&emsp;&emsp;ReLU：将卷积层输出的<code>FeatureMap</code>输入到<code>ReLU</code>函数中。<br>&emsp;&emsp;池化：使用<code>3×3</code>步长为<code>2</code>的池化单元，输出为<code>27×27×96</code>。<code>(27=(55−3)/2+1)</code><br>&emsp;&emsp;局部响应归一化：使用<code>k=2,n=5,α=10−4,β=0.75</code>进行局部归一化，输出的仍然为<code>27×27×96</code>，输出分为两组，每组的大小为<code>27×27×48</code>。</p>
+<h3 id="卷积层C2"><a href="#卷积层C2" class="headerlink" title="卷积层C2"></a>卷积层C2</h3><p>&emsp;&emsp;该层的处理流程是：卷积—&gt;ReLU—&gt;池化—&gt;归一化<br>&emsp;&emsp;卷积：输入是<code>2</code>组<code>27×27×48</code>。使用<code>2</code>组，每组<code>128</code>个尺寸为<code>5×5×48</code>的卷积核，边缘填充<code>padding=2</code>，卷积的步长为<code>1</code>。则输出的<code>FeatureMap</code>为<code>2</code>组，每组的大小为<code>27×27×128</code>。一共是<code>27×27×256</code>。<code>(27=(27+2∗2−5)/1+1)</code><br>&emsp;&emsp;ReLU：将卷积层输出的<code>FeatureMap</code>输入到<code>ReLU</code>函数中。<br>&emsp;&emsp;池化运算的尺寸为<code>3×3</code>，步长为<code>2</code>，池化后图像的尺寸为<code>13=(27−3)/2+1</code>，所以输出为<code>13×13×256</code>。<br>&emsp;&emsp;局部响应归一化：使用<code>k=2,n=5,α=10−4,β=0.75</code>进行局部归一化，输出的仍然为<code>13×13×256</code>，输出分为<code>2</code>组，每组的大小为<code>13×13×128</code>。    </p>
+<h3 id="卷积层C3"><a href="#卷积层C3" class="headerlink" title="卷积层C3"></a>卷积层C3</h3><p>&emsp;&emsp;该层的处理流程是：卷积—&gt;ReLU<br>&emsp;&emsp;卷积：输入是<code>13×13×256</code>，使用<code>2</code>组共<code>384</code>个尺寸为<code>3×3×256</code>的卷积核，边缘填充<code>padding=1</code>，卷积的步长为<code>1</code>。则输出的<code>FeatureMap</code>为<code>13×13×384</code>。<code>(13=(13+2∗1−3)/1+1)</code><br>&emsp;&emsp;ReLU：将卷积层输出的<code>FeatureMap</code>输入到<code>ReLU</code>函数中。  </p>
+<h3 id="卷积层C4"><a href="#卷积层C4" class="headerlink" title="卷积层C4"></a>卷积层C4</h3><p>&emsp;&emsp;该层的处理流程是：卷积—&gt;ReLU<br>&emsp;&emsp;卷积：输入是<code>13×13×384</code>，分为两组，每组为<code>13×13×192</code>。使用<code>2</code>组，每组<code>192</code>个尺寸为<code>3×3×192</code>的卷积核，边缘填充<code>padding=1</code>，卷积的步长为<code>1</code>。则输出的<code>FeatureMap</code>为<code>13×13×384</code>，分为两组，每组为<code>13×13×192</code>。<code>(13=(13+2∗1−3)/1+1)</code><br>&emsp;&emsp;ReLU：将卷积层输出的<code>FeatureMap</code>输入到<code>ReLU</code>函数中。  </p>
+<h3 id="卷积层C5"><a href="#卷积层C5" class="headerlink" title="卷积层C5"></a>卷积层C5</h3><p>&emsp;&emsp;该层处理流程为：卷积—&gt;ReLU—&gt;池化<br>&emsp;&emsp;卷积：输入为<code>13×13×384</code>，分为两组，每组为<code>13×13×192</code>。使用<code>2</code>组，每组为<code>128</code>个尺寸为<code>3×3×192</code>的卷积核，边缘填充<code>padding=1</code>，卷积的步长为<code>1</code>。则输出的<code>FeatureMap</code>为<code>13×13×256</code>。<code>(13=(13+2∗1−3)/1+1)</code><br>&emsp;&emsp;ReLU：将卷积层输出的<code>FeatureMap</code>输入到<code>ReLU</code>函数中。<br>&emsp;&emsp;池化：池化运算的尺寸为<code>3×3</code>，步长为<code>2</code>，池化后图像的尺寸为<code>(13−3)/2+1=6</code>，即池化后的输出为<code>6×6×256</code>   </p>
+<h3 id="全连接层FC6"><a href="#全连接层FC6" class="headerlink" title="全连接层FC6"></a>全连接层FC6</h3><p>&emsp;&emsp;该层的流程为：（卷积）全连接 —&gt;ReLU —&gt;Dropout<br>&emsp;&emsp;卷积-&gt;全连接：输入为<code>6×6×256</code>，该层有<code>4096</code>个卷积核，每个卷积核的大小为<code>6×6×256</code>。由于卷积核的尺寸刚好与待处理特征图（输入）的尺寸相同，即卷积核中的每个系数只与特征图（输入）尺寸的一个像素值相乘，一一对应，因此，该层被称为全连接层。<br>由于卷积核与特征图的尺寸相同，卷积运算后只有一个值，因此，卷积后的像素层尺寸为<code>4096×1×1</code>，即有<code>4096</code>个神经元。<br>&emsp;&emsp;ReLU：这<code>4096</code>个运算结果通过<code>ReLU</code>激活函数生成<code>4096</code>个值。<br>&emsp;&emsp;Dropout：抑制过拟合，随机的断开某些神经元的连接或者是不激活某些神经元。  </p>
+<h3 id="全连接层FC7"><a href="#全连接层FC7" class="headerlink" title="全连接层FC7"></a>全连接层FC7</h3><p>&emsp;&emsp;流程为：全连接—&gt;ReLU—&gt;Dropout<br>&emsp;&emsp;全连接：输入为<code>4096</code>的向量。<br>&emsp;&emsp;ReLU：这<code>4096</code>个运算结果通过<code>ReLU</code>激活函数生成<code>4096</code>个值。<br>&emsp;&emsp;Dropout：抑制过拟合，随机的断开某些神经元的连接或者是不激活某些神经元。     </p>
+<h3 id="输出层"><a href="#输出层" class="headerlink" title="输出层"></a>输出层</h3><p>&emsp;&emsp;第七层输出的<code>4096</code>个数据与第八层的<code>1000</code>个神经元进行全连接，经过训练后输出<code>1000</code>个<code>float</code>型的值，这就是预测结果。    </p>
+<h2 id="参数数量"><a href="#参数数量" class="headerlink" title="参数数量"></a>参数数量</h2><p>&emsp;&emsp;卷积层的参数 = 卷积核的数量 * 卷积核 + 偏置<br><img src="/2019/07/06/典型的深度神经网络/\AlexNet参数统计.png" alt="data">    </p>
+<h2 id="TensorFlow实现"><a href="#TensorFlow实现" class="headerlink" title="TensorFlow实现"></a>TensorFlow实现</h2><h1 id="VGG"><a href="#VGG" class="headerlink" title="VGG"></a>VGG</h1><h2 id="简介-1"><a href="#简介-1" class="headerlink" title="简介"></a>简介</h2><p>&emsp;&emsp;<code>VGGNet</code>是牛津大学计算机视觉组(<code>Visual Geometry Group</code>)和<code>Google DeepMind</code>公司的研究员一起研发的深度卷积神经网络。<br>&emsp;&emsp;<code>VGG在AlexNet</code>基础上做了改进，整个网络都使用了同样大小的<code>3*3</code>卷积核尺寸和<code>2*2</code>最大池化尺寸，网络结构简洁。   </p>
+<h2 id="网络结构-1"><a href="#网络结构-1" class="headerlink" title="网络结构"></a>网络结构</h2><p>&emsp;&emsp;<code>VGG</code>一共有五组卷积，每组卷积之后紧接着最大池化层，后面接上三个全连接层，最后<code>softmax</code>输出。一共有两种形式，即<code>VGG16</code>和<code>VGG19</code>，后面的数字含义为卷积层和全连接层的个数，不包括池化层。<br><img src="/2019/07/06/典型的深度神经网络/\VGG网络结构_1.png" alt="data"><br><img src="/2019/07/06/典型的深度神经网络/\VGG网络结构_2.png" alt="data">    </p>
+<h3 id="第一组卷积"><a href="#第一组卷积" class="headerlink" title="第一组卷积"></a>第一组卷积</h3><p>&emsp;&emsp;2个卷积层+1个池化层<br>&emsp;&emsp;卷积层：<code>conv3 - 64</code>，卷积核为<code>3×3×3</code>，步长为<code>1</code>，填充为<code>1</code>，共<code>64</code>个，输出为：<code>224*224*64</code>，<code>(224=(224+2∗1−3)/1+1)</code>。(输入图像是<code>224×224×3</code>) 第2个卷积层结构不变，输出不变，下同。<br>&emsp;&emsp;池化层：池化核为<code>2×2</code>，步长为<code>2</code>，填充为<code>0</code>，共<code>64</code>个，输出为：<code>112*112*64</code>，<code>(112=(224+2∗0−2)/2+1)</code>。     </p>
+<h3 id="第二组卷积"><a href="#第二组卷积" class="headerlink" title="第二组卷积"></a>第二组卷积</h3><p>&emsp;&emsp;2个卷积层+1个池化层<br>&emsp;&emsp;卷积层：<code>conv3 - 128</code>，卷积核为<code>3×3×3</code>，步长为<code>1</code>，填充为<code>1</code>，共<code>128</code>个，输出为：<code>112*112*128</code>，<code>(112=(112+2∗1−3)/1+1)</code>。<br>&emsp;&emsp;池化层：池化核为<code>2×2</code>，步长为<code>2</code>，填充为<code>0</code>，共<code>128</code>个，输出为：<code>56*56*128</code>，<code>(56=(112+2∗0−2)/2+1)</code>。   </p>
+<h3 id="第三组卷积"><a href="#第三组卷积" class="headerlink" title="第三组卷积"></a>第三组卷积</h3><p>&emsp;&emsp;2个卷积层+1个池化层<br>&emsp;&emsp;卷积层：<code>conv3 - 256</code>，卷积核为<code>3×3×3</code>，步长为<code>1</code>，填充为<code>1</code>，共<code>256</code>个，输出为：<code>56*56*256</code>，<code>(56=(56+2∗1−3)/1+1)</code>。<br>&emsp;&emsp;池化层：池化核为<code>2×2</code>，步长为<code>2</code>，填充为<code>0</code>，共<code>256</code>个，输出为：<code>28*28*256</code>，<code>(28=(56+2∗0−2)/2+1)</code>。    </p>
+<h3 id="第四组卷积"><a href="#第四组卷积" class="headerlink" title="第四组卷积"></a>第四组卷积</h3><p>&emsp;&emsp;2个卷积层+1个池化层<br>&emsp;&emsp;卷积层：<code>conv3 - 512</code>，卷积核为<code>3×3×3</code>，步长为<code>1</code>，填充为<code>1</code>，共<code>512</code>个，输出为：<code>28*28*512</code>，<code>(28=(28+2∗1−3)/1+1)</code>。<br>&emsp;&emsp;池化层：池化核为<code>2×2</code>，步长为<code>2</code>，填充为<code>0</code>，共<code>512</code>个，输出为：<code>14*14*512</code>，<code>(14=(28+2∗0−2)/2+1)</code>。   </p>
+<h3 id="第五组卷积"><a href="#第五组卷积" class="headerlink" title="第五组卷积"></a>第五组卷积</h3><p>&emsp;&emsp;2个卷积层+1个池化层<br>&emsp;&emsp;卷积层：<code>conv3 - 512</code>，卷积核为<code>3×3×3</code>，步长为<code>1</code>，填充为<code>1</code>，共<code>512</code>个，输出为：<code>14*14*512</code>，<code>(14=(14+2∗1−3)/1+1)</code>。<br>&emsp;&emsp;池化层：池化核为<code>2×2</code>，步长为<code>2</code>，填充为<code>0</code>，共<code>512</code>个，输出为：<code>7*7*512</code>，<code>(7=(14+2∗0−2)/2+1)</code>。   </p>
+<h3 id="全连接层和输出层"><a href="#全连接层和输出层" class="headerlink" title="全连接层和输出层"></a>全连接层和输出层</h3><p>&emsp;&emsp;和<code>AlexNet</code>类似。     </p>
+<h2 id="参数数量-1"><a href="#参数数量-1" class="headerlink" title="参数数量"></a>参数数量</h2><h2 id="改进"><a href="#改进" class="headerlink" title="改进"></a>改进</h2><ol>
+<li>去掉了<code>LRN</code>层，作者发现深度网络中LRN的作用并不明显，干脆取消了。</li>
+<li>采用更小的卷积核-<code>3x3</code>，<code>Alexnet</code>中使用了更大的卷积核，比如有<code>7x7</code>的，因此<code>VGG</code>相对于<code>Alexnet</code>而言，参数量更少。</li>
+<li>池化核变小，<code>VGG</code>中的池化核是<code>2x2</code>，<code>stride</code>为<code>2</code>，<code>Alexnet</code>池化核是<code>3x3</code>，步长为<code>2</code>。</li>
+</ol>
+<p>&emsp;&emsp;这样做改进都是有一些原因的，首先为了更好的探究深度对网络的影响，必须要解决参数量的问题，更深的网络意味着更多的参数，训练更困难，使用大卷积核时尤其明显。作者通过分析，认为由于卷积神经网络的特性，<code>3x3</code>大小的卷积核足以捕捉到横、竖以及斜对角像素的变化。使用大卷积核会带来参数量的爆炸不说，而且图像中会存在一些部分被多次卷积，可能会给特征提取带来困难，所以在<code>VGG</code>中，普遍使用<code>3x3</code>的卷积。     </p>
+<h2 id="TensorFlow实现-1"><a href="#TensorFlow实现-1" class="headerlink" title="TensorFlow实现"></a>TensorFlow实现</h2><h1 id="GoogLeNet"><a href="#GoogLeNet" class="headerlink" title="GoogLeNet"></a>GoogLeNet</h1><h2 id="TensorFlow实现-2"><a href="#TensorFlow实现-2" class="headerlink" title="TensorFlow实现"></a>TensorFlow实现</h2><h3 id="项目文件结构说明"><a href="#项目文件结构说明" class="headerlink" title="项目文件结构说明"></a>项目文件结构说明</h3><h3 id="数据集预处理"><a href="#数据集预处理" class="headerlink" title="数据集预处理"></a>数据集预处理</h3><h4 id="数据集下载"><a href="#数据集下载" class="headerlink" title="数据集下载"></a>数据集下载</h4><h4 id="生成train-txt和val-txt"><a href="#生成train-txt和val-txt" class="headerlink" title="生成train.txt和val.txt"></a>生成train.txt和val.txt</h4><h3 id="制作tfrecords数据格式"><a href="#制作tfrecords数据格式" class="headerlink" title="制作tfrecords数据格式"></a>制作tfrecords数据格式</h3><h4 id="tfrecords数据格式简介"><a href="#tfrecords数据格式简介" class="headerlink" title="tfrecords数据格式简介"></a>tfrecords数据格式简介</h4><p>&emsp;&emsp;<code>TFRecords</code>文件包含了<code>tf.train.Example</code>协议内存块(<code>protocol buffer</code>)(协议内存块包含了字段<code>Features</code>)。我们可以写一段代码获取你的数据，将数据填入到<code>Example</code>协议内存块(<code>protocol buffer</code>)，将协议内存块序列化为一个字符串， 并且通过<code>tf.python_io.TFRecordWriter</code>写入到<code>TFRecords</code>文件。<br>&emsp;&emsp;从<code>TFRecords</code>文件中读取数据， 可以使用<code>tf.TFRecordReader</code>的<code>tf.parse_single_example</code>解析器。这个操作可以将<code>Example</code>协议内存块(<code>protocol buffer</code>)解析为张量。     </p>
+<h4 id="写入tfrecords数据"><a href="#写入tfrecords数据" class="headerlink" title="写入tfrecords数据"></a>写入tfrecords数据</h4><p>&emsp;&emsp;一个<code>Example</code>中包含<code>Features</code>，<code>Features</code>里包含<code>Feature</code>的字典。最后，<code>Feature</code>里包含有一个<code>FloatList</code>，或者<code>ByteList</code>，或者<code>Int64List</code>。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">create_records</span><span class="params">(image_dir, file, output_record_dir, resize_height, resize_width, shuffle)</span>:</span></span><br><span class="line">    images_list, labels_list = load_labels_file(file, <span class="number">1</span>, shuffle)</span><br><span class="line"></span><br><span class="line">    writer = tf.python_io.TFRecordWriter(output_record_dir)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i, [image_name, labels] <span class="keyword">in</span> enumerate(zip(images_list, labels_list)):</span><br><span class="line">        image_path = os.path.join(image_dir, images_list[i])</span><br><span class="line">        <span class="keyword">if</span> <span class="keyword">not</span> os.path.exists(image_path):</span><br><span class="line">            print(<span class="string">'Err:no image'</span>, image_path)</span><br><span class="line">            <span class="keyword">continue</span></span><br><span class="line">        image = read_image(image_path, resize_height, resize_width)</span><br><span class="line">        image_raw = image.tostring()</span><br><span class="line"></span><br><span class="line">        label = labels[<span class="number">0</span>]</span><br><span class="line">        example = tf.train.Example(features=tf.train.Features(feature=&#123;</span><br><span class="line">            <span class="string">'image_raw'</span>: _bytes_feature(image_raw),</span><br><span class="line">            <span class="string">'height'</span>: _int64_feature(image.shape[<span class="number">0</span>]),</span><br><span class="line">            <span class="string">'width'</span>: _int64_feature(image.shape[<span class="number">1</span>]),</span><br><span class="line">            <span class="string">'depth'</span>: _int64_feature(image.shape[<span class="number">2</span>]),</span><br><span class="line">            <span class="string">'label'</span>: _int64_feature(label)</span><br><span class="line">        &#125;))</span><br><span class="line">        writer.write(example.SerializeToString())</span><br><span class="line">    writer.close()</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;首先利用<code>load_labels_file()</code>函数(后面会给出其定义，下同)将<code>images</code>和<code>labels</code>加载进来，然后创建一个<code>TFRecordWriter</code>对象，这个对象就负责把记录写到指定的文件中，其函数参数为<code>TFRecords</code>，即文件路径。然后利用<code>read_image()</code>读取图片，最后将数据填入到<code>Example</code>协议内存块，其中图片的格式为字符串格式，其他均为整型格式。<br>附：辅助函数定义：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*-coding: utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成整型的属性</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_int64_feature</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.train.Feature(int64_list=tf.train.Int64List(value=[value]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成字符串型的属性</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">_bytes_feature</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.train.Feature(bytes_list=tf.train.BytesList(value=[value]))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成实数型的属性</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">float_list_feature</span><span class="params">(value)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> tf.train.Feature(float_list=tf.train.FloatList(value=value))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_example_nums</span><span class="params">(tf_records_filenames)</span>:</span></span><br><span class="line">    nums = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> record <span class="keyword">in</span> tf.python_io.tf_record_iterator(tf_records_filenames):</span><br><span class="line">        nums += <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> nums</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">show_image</span><span class="params">(title, image)</span>:</span></span><br><span class="line">    plt.imshow(image)</span><br><span class="line">    plt.axis(<span class="string">'on'</span>)</span><br><span class="line">    plt.title(title)</span><br><span class="line">    plt.show()</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">load_labels_file</span><span class="params">(filename, labels_num=<span class="number">1</span>, shuffle=False)</span>:</span></span><br><span class="line">    images = []</span><br><span class="line">    labels = []</span><br><span class="line">    <span class="keyword">with</span> open(filename) <span class="keyword">as</span> f:</span><br><span class="line">        lines_list = f.readlines()</span><br><span class="line">        <span class="keyword">if</span> shuffle:</span><br><span class="line">            random.shuffle(lines_list) </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> lines <span class="keyword">in</span> lines_list:</span><br><span class="line">            line = lines.rstrip().split(<span class="string">' '</span>)</span><br><span class="line">            label = []</span><br><span class="line">            <span class="keyword">for</span> i <span class="keyword">in</span> range(labels_num):</span><br><span class="line">                label.append(int(line[i + <span class="number">1</span>]))  <span class="comment"># 单label，即line[1]就是label</span></span><br><span class="line">            images.append(line[<span class="number">0</span>])</span><br><span class="line">            labels.append(label) </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> images, labels</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_image</span><span class="params">(filename, resize_height, resize_width, normalization=False)</span>:</span></span><br><span class="line">    bgr_image = cv2.imread(filename)</span><br><span class="line">    <span class="keyword">if</span> len(bgr_image.shape) == <span class="number">2</span>:</span><br><span class="line">        print(<span class="string">"Warning:gray image"</span>, filename)</span><br><span class="line">        bgr_image = cv2.cvtColor(bgr_image, cv2.COLOR_GRAY2BGR)  </span><br><span class="line"></span><br><span class="line">    rgb_image = cv2.cvtColor(bgr_image, cv2.COLOR_BGR2RGB)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> resize_height &gt; <span class="number">0</span> <span class="keyword">and</span> resize_width &gt; <span class="number">0</span>:</span><br><span class="line">        rgb_image = cv2.resize(rgb_image, (resize_width, resize_height))   </span><br><span class="line"></span><br><span class="line">    rgb_image = np.asanyarray(rgb_image)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> normalization:</span><br><span class="line">        rgb_image = rgb_image / <span class="number">255.0</span>  </span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> rgb_image</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_batch_images</span><span class="params">(images, labels, batch_size, labels_nums, one_hot=False, shuffle=False, num_threads=<span class="number">1</span>)</span>:</span></span><br><span class="line">    min_after_dequeue = <span class="number">200</span></span><br><span class="line">    capacity = min_after_dequeue + <span class="number">3</span> * batch_size  <span class="comment"># 保证capacity必须大于min_after_dequeue参数值</span></span><br><span class="line">    <span class="keyword">if</span> shuffle:</span><br><span class="line">        images_batch, labels_batch = tf.train.shuffle_batch([images, labels],</span><br><span class="line">                                                            batch_size=batch_size,</span><br><span class="line">                                                            capacity=capacity,</span><br><span class="line">                                                            min_after_dequeue=min_after_dequeue,</span><br><span class="line">                                                            num_threads=num_threads)</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        images_batch, labels_batch = tf.train.batch([images, labels],</span><br><span class="line">                                                    batch_size=batch_size,</span><br><span class="line">                                                    capacity=capacity,</span><br><span class="line">                                                    num_threads=num_threads)</span><br><span class="line">    <span class="keyword">if</span> one_hot:</span><br><span class="line">        labels_batch = tf.one_hot(labels_batch, labels_nums, <span class="number">1</span>, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> images_batch, labels_batch</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;整体比较简单，就不多做解释了。    </p>
+<h4 id="读取tfrecords数据"><a href="#读取tfrecords数据" class="headerlink" title="读取tfrecords数据"></a>读取tfrecords数据</h4><p>&emsp;&emsp;一旦生成了<code>TFRecords</code>文件，为了高效地读取数据，<code>TF</code>中使用队列(<code>queue</code>)读取数据。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">read_records</span><span class="params">(filename, resize_height, resize_width, type=None)</span>:</span></span><br><span class="line">    filename_queue = tf.train.string_input_producer([filename])</span><br><span class="line">    reader = tf.TFRecordReader()</span><br><span class="line">    _, serialized_example = reader.read(filename_queue)</span><br><span class="line"></span><br><span class="line">    features = tf.parse_single_example(</span><br><span class="line">        serialized_example, </span><br><span class="line">        features=&#123;</span><br><span class="line">            <span class="string">'image_raw'</span>: tf.FixedLenFeature([], tf.string),</span><br><span class="line">            <span class="string">'height'</span>: tf.FixedLenFeature([], tf.int64),</span><br><span class="line">            <span class="string">'width'</span>: tf.FixedLenFeature([], tf.int64),</span><br><span class="line">            <span class="string">'depth'</span>: tf.FixedLenFeature([], tf.int64),</span><br><span class="line">            <span class="string">'label'</span>: tf.FixedLenFeature([], tf.int64)</span><br><span class="line">        &#125;</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    tf_image = tf.decode_raw(features[<span class="string">'image_raw'</span>], tf.uint8)</span><br><span class="line">    tf_height = features[<span class="string">'height'</span>]</span><br><span class="line">    tf_width = features[<span class="string">'width'</span>]</span><br><span class="line">    tf_depth = features[<span class="string">'depth'</span>]</span><br><span class="line">    tf_label = tf.cast(features[<span class="string">'label'</span>], tf.int32)</span><br><span class="line"></span><br><span class="line">    tf_image = tf.reshape(tf_image, [resize_height, resize_width, <span class="number">3</span>])</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> type <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">        tf_image = tf.cast(tf_image, tf.float32)</span><br><span class="line">    <span class="keyword">elif</span> type == <span class="string">'normalization'</span>:</span><br><span class="line">        tf_image = tf.cast(tf_image, tf.float32) * (<span class="number">1.</span> / <span class="number">255.0</span>)</span><br><span class="line">    <span class="keyword">elif</span> type == <span class="string">'standardization'</span>:</span><br><span class="line">        tf_imag = tf.cast(tf_image, tf.float32) * (<span class="number">1.</span> / <span class="number">255</span>) - <span class="number">0.5</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> tf_image, tf_label</span><br><span class="line">```  </span><br><span class="line">&amp;emsp;&amp;emsp;首先利用`string_input_producer()`将字符串输出到一个输入管道队列，然后利用`parse_single_example()`解析器解析。    </span><br><span class="line"></span><br><span class="line"><span class="comment">#### 测试</span></span><br><span class="line">```python</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">batch_test</span><span class="params">(record_file, resize_height, resize_width)</span>:</span></span><br><span class="line">    <span class="comment"># 读取record函数</span></span><br><span class="line">    tf_image, tf_label = read_records(record_file, resize_height, resize_width, type=<span class="string">'normalization'</span>)</span><br><span class="line">    image_batch, label_batch = get_batch_images(tf_image, tf_label, batch_size=<span class="number">4</span>, labels_nums=<span class="number">2</span>, one_hot=<span class="literal">False</span>, shuffle=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    init = tf.global_variables_initializer()</span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:  <span class="comment"># 开始一个会话</span></span><br><span class="line">        sess.run(init)</span><br><span class="line">        coord = tf.train.Coordinator()</span><br><span class="line">        threads = tf.train.start_queue_runners(coord=coord)</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>):</span><br><span class="line">            <span class="comment"># 在会话中取出images和labels</span></span><br><span class="line">            images, labels = sess.run([image_batch, label_batch])</span><br><span class="line">            <span class="comment"># 这里仅显示每个batch里第一张图片</span></span><br><span class="line">            show_image(<span class="string">"image"</span>, images[<span class="number">0</span>, :, :, :])</span><br><span class="line">            print(<span class="string">'shape:&#123;&#125;,tpye:&#123;&#125;,labels:&#123;&#125;'</span>.format(images.shape, images.dtype, labels))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 停止所有线程</span></span><br><span class="line">        coord.request_stop()</span><br><span class="line">        coord.join(threads)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment"># 参数设置</span></span><br><span class="line">    resize_height = <span class="number">224</span>  <span class="comment"># 指定存储图片高度</span></span><br><span class="line">    resize_width = <span class="number">224</span>  <span class="comment"># 指定存储图片宽度</span></span><br><span class="line">    shuffle = <span class="literal">True</span></span><br><span class="line">    <span class="comment"># 产生train.record文件</span></span><br><span class="line">    image_dir = <span class="string">'dataset/train'</span></span><br><span class="line">    train_labels = <span class="string">'dataset/train.txt'</span>  <span class="comment"># 图片路径</span></span><br><span class="line">    train_record_output = <span class="string">'dataset/record/train.tfrecords'</span></span><br><span class="line">    create_records(image_dir, train_labels, train_record_output, resize_height, resize_width, shuffle)</span><br><span class="line">    train_nums = get_example_nums(train_record_output)</span><br><span class="line">    print(<span class="string">"save train example nums=&#123;&#125;"</span>.format(train_nums))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 产生val.record文件</span></span><br><span class="line">    image_dir = <span class="string">'dataset/val'</span></span><br><span class="line">    val_labels = <span class="string">'dataset/val.txt'</span>  <span class="comment"># 图片路径</span></span><br><span class="line">    val_record_output = <span class="string">'dataset/record/val.tfrecords'</span></span><br><span class="line">    create_records(image_dir, val_labels, val_record_output, resize_height, resize_width, shuffle)</span><br><span class="line">    val_nums = get_example_nums(val_record_output)</span><br><span class="line">    print(<span class="string">"save val example nums=&#123;&#125;"</span>.format(val_nums))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 测试显示函数</span></span><br><span class="line">    <span class="comment"># disp_records(train_record_output,resize_height, resize_width)</span></span><br><span class="line">    batch_test(train_record_output, resize_height, resize_width)</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+
+    <div>
+      
+         <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>谢谢老板！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/23/基于YOLO的目标检测/" rel="next" title="基于YOLO的目标检测">
+                <i class="fa fa-chevron-left"></i> 基于YOLO的目标检测
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/07/21/基于MATLAB的深度学习——入门篇/" rel="prev" title="基于MATLAB的深度学习——入门篇">
+                基于MATLAB的深度学习——入门篇 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MjAyMi8xODU2OQ=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">41</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#AlexNet"><span class="nav-number">1.</span> <span class="nav-text">AlexNet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介"><span class="nav-number">1.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构"><span class="nav-number">1.2.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层C1"><span class="nav-number">1.2.1.</span> <span class="nav-text">卷积层C1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层C2"><span class="nav-number">1.2.2.</span> <span class="nav-text">卷积层C2</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层C3"><span class="nav-number">1.2.3.</span> <span class="nav-text">卷积层C3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层C4"><span class="nav-number">1.2.4.</span> <span class="nav-text">卷积层C4</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卷积层C5"><span class="nav-number">1.2.5.</span> <span class="nav-text">卷积层C5</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层FC6"><span class="nav-number">1.2.6.</span> <span class="nav-text">全连接层FC6</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层FC7"><span class="nav-number">1.2.7.</span> <span class="nav-text">全连接层FC7</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出层"><span class="nav-number">1.2.8.</span> <span class="nav-text">输出层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数数量"><span class="nav-number">1.3.</span> <span class="nav-text">参数数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现"><span class="nav-number">1.4.</span> <span class="nav-text">TensorFlow实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#VGG"><span class="nav-number">2.</span> <span class="nav-text">VGG</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#简介-1"><span class="nav-number">2.1.</span> <span class="nav-text">简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#网络结构-1"><span class="nav-number">2.2.</span> <span class="nav-text">网络结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一组卷积"><span class="nav-number">2.2.1.</span> <span class="nav-text">第一组卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二组卷积"><span class="nav-number">2.2.2.</span> <span class="nav-text">第二组卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三组卷积"><span class="nav-number">2.2.3.</span> <span class="nav-text">第三组卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四组卷积"><span class="nav-number">2.2.4.</span> <span class="nav-text">第四组卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五组卷积"><span class="nav-number">2.2.5.</span> <span class="nav-text">第五组卷积</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全连接层和输出层"><span class="nav-number">2.2.6.</span> <span class="nav-text">全连接层和输出层</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参数数量-1"><span class="nav-number">2.3.</span> <span class="nav-text">参数数量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#改进"><span class="nav-number">2.4.</span> <span class="nav-text">改进</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现-1"><span class="nav-number">2.5.</span> <span class="nav-text">TensorFlow实现</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#GoogLeNet"><span class="nav-number">3.</span> <span class="nav-text">GoogLeNet</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorFlow实现-2"><span class="nav-number">3.1.</span> <span class="nav-text">TensorFlow实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#项目文件结构说明"><span class="nav-number">3.1.1.</span> <span class="nav-text">项目文件结构说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据集预处理"><span class="nav-number">3.1.2.</span> <span class="nav-text">数据集预处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#数据集下载"><span class="nav-number">3.1.2.1.</span> <span class="nav-text">数据集下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成train-txt和val-txt"><span class="nav-number">3.1.2.2.</span> <span class="nav-text">生成train.txt和val.txt</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#制作tfrecords数据格式"><span class="nav-number">3.1.3.</span> <span class="nav-text">制作tfrecords数据格式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#tfrecords数据格式简介"><span class="nav-number">3.1.3.1.</span> <span class="nav-text">tfrecords数据格式简介</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#写入tfrecords数据"><span class="nav-number">3.1.3.2.</span> <span class="nav-text">写入tfrecords数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#读取tfrecords数据"><span class="nav-number">3.1.3.3.</span> <span class="nav-text">读取tfrecords数据</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">103.2k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共103.2k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      访客数
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      人
+    </span>
+  
+
+  
+    <span class="site-pv">
+      总访问量
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      次
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
+
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
+
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
