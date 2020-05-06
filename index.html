@@ -2,15 +2,26 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next mist use-motion" lang="zh-Hans">
+
 <head><meta name="generator" content="Hexo 3.9.0">
   <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
 <meta name="theme-color" content="#222">
+
 
 
 
@@ -19,20 +30,7 @@
     
     
   <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
-  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
-
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-  <meta name="google-site-verification" content="true">
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
 
 
 
@@ -41,17 +39,76 @@
 
 
 
-  <meta name="baidu-site-verification" content="LmRKxmt2tr">
 
 
 
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
 
 
 
 
   
   
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
 
 
 
@@ -59,61 +116,20 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
-
-
-
-
-
-  <meta name="keywords" content="Hexo, NexT">
-
-
-
-
-
-
-
-
-
-
-<meta property="og:type" content="website">
-<meta property="og:title" content="NJTECH_cxx">
-<meta property="og:url" content="http://www.chenxiuxiang.site/index.html">
-<meta property="og:site_name" content="NJTECH_cxx">
-<meta property="og:locale" content="zh-Hans">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NJTECH_cxx">
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
-    version: '5.1.4',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    scheme: 'Mist',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":true,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
     fancybox: true,
+    fastclick: true,
+    lazyload: true,
     tabs: true,
-    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
-    duoshuo: {
-      userId: '0',
-      author: '博主'
-    },
+    motion: {"enable":true,"async":false,"transition":{"post_block":"shrinkIn","post_header":"slideLeftIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},
     algolia: {
       applicationID: '',
       apiKey: '',
@@ -125,14 +141,46 @@
 </script>
 
 
+  
 
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "bd399fce"
+    });
+  daovoice('update');
+  </script>
+
+  <meta property="og:type" content="website">
+<meta property="og:title" content="NJTECH_cxx">
+<meta property="og:url" content="http://www.chenxiuxiang.site/index.html">
+<meta property="og:site_name" content="NJTECH_cxx">
+<meta property="og:locale" content="zh-Hans">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="NJTECH_cxx">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="NJTECH_cxx" type="application/atom+xml">
+
+
+
+  
+  
   <link rel="canonical" href="http://www.chenxiuxiang.site/">
 
 
 
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
 
-
-  <title>NJTECH_cxx</title><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  <title>NJTECH_cxx</title>
   
 
 
@@ -142,6 +190,35 @@
 
 
 
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -157,7 +234,7 @@
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -167,13 +244,16 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
-    <button>
+    <button aria-label="Navigationsleiste an/ausschalten">
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
       <span class="btn-bar"></span>
@@ -181,56 +261,131 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            首页
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            分类
-          </a>
-        </li>
-      
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            归档
-          </a>
-        </li>
-      
+          
+          <li class="menu-item menu-item-home menu-item-active">
 
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>Startseite</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>Schlagwörter</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-bookmark"></i> <br>Kategorien</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>Archiv</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>Über</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-互动">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/guestbook/" rel="section"><i class="menu-item-icon fa fa-fw fa-comments"></i> <br>互动</a>
+
+  </li>
+
+      
       
         <li class="menu-item menu-item-search">
           
             <a href="javascript:;" class="popup-trigger">
           
             
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            搜索
-          </a>
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>Suche</a>
         </li>
       
     </ul>
+  
+
+  
+    
+
   
 
   
@@ -245,7 +400,7 @@
       <i class="fa fa-times-circle"></i>
     </span>
     <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+      <input autocomplete="off" placeholder="Suche..." spellcheck="false" type="text" id="local-search-input">
     </div>
   </div>
   <div id="local-search-result"></div>
@@ -259,12 +414,20 @@
 
 
 
- </div>
+  
+
+
+
+</div>
     </header>
+
+    
+
 
     <main id="main" class="main">
       <div class="main-inner">
         <div class="content-wrap">
+          
           <div id="content" class="content">
             
   <section id="posts" class="posts-expand">
@@ -277,6 +440,8 @@
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -287,7 +452,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -301,25 +466,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/05/Gmapping算法原理及源代码解析/" itemprop="url">Gmapping算法原理及源代码解析</a></h1>
+                
+                <a href="/2020/05/05/Gmapping算法原理及源代码解析/" class="post-title-link" itemprop="url">Gmapping算法原理及源代码解析</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-05T19:15:30+08:00">
-                2020-05-05
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2020-05-05 19:15:30" itemprop="dateCreated datePublished" datetime="2020-05-05T19:15:30+08:00">2020-05-05</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-05-06 16:06:01" itemprop="dateModified" datetime="2020-05-06T16:06:01+08:00">2020-05-06</time>
+              
             
           </span>
 
@@ -327,6 +518,7 @@
 
           
             
+            
           
 
           
@@ -334,37 +526,6 @@
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  646 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -384,32 +545,41 @@
       
         
           
-          平台&emsp;&emsp;Ubuntu 16.04&emsp;&emsp;ROS Kinetic Kame    
+            <p>
+              平台&emsp;&emsp;Ubuntu 16.04&emsp;&emsp;ROS Kinetic Kame    
 建图算法概述Gmapping源代码简单使用下载并编译源代码&emsp;&emsp;Gmapping的程序框架是依托Open_slam(OpenSLAM.org的目标是为SLAM研究人
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/05/Gmapping算法原理及源代码解析/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/05/05/Gmapping算法原理及源代码解析/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -437,6 +607,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -449,7 +621,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -463,25 +635,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/30/ROS功能包及其应用/" itemprop="url">ROS功能包及其应用</a></h1>
+                
+                <a href="/2020/04/30/ROS功能包及其应用/" class="post-title-link" itemprop="url">ROS功能包及其应用</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-30T13:40:02+08:00">
-                2020-04-30
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2020-04-30 13:40:02" itemprop="dateCreated datePublished" datetime="2020-04-30T13:40:02+08:00">2020-04-30</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-05-06 16:20:18" itemprop="dateModified" datetime="2020-05-06T16:20:18+08:00">2020-05-06</time>
+              
             
           </span>
 
@@ -494,14 +692,10 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS开发与应用/" itemprop="url" rel="index">
-                    <span itemprop="name">ROS开发与应用</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ROS开发与应用/" itemprop="url" rel="index"><span itemprop="name">ROS开发与应用</span></a></span>
 
                 
                 
@@ -511,6 +705,7 @@
 
           
             
+            
           
 
           
@@ -518,37 +713,6 @@
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3,065 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  12 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -568,33 +732,42 @@
       
         
           
-          平台&emsp;&emsp;Ubuntu16.04&emsp;&emsp;ROS Kinetic Kame
+            <p>
+              平台&emsp;&emsp;Ubuntu16.04&emsp;&emsp;ROS Kinetic Kame
 环境配置&emsp;&emsp;具体详见该博客   
 创建工作空间Work Space&emsp;&emsp;首先创建ROS的工作空间，一般创建在Home目录下，使用命令行或者右击创建文件夹均
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/30/ROS功能包及其应用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/04/30/ROS功能包及其应用/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -622,6 +795,8 @@
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -634,7 +809,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -648,25 +823,51 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/04/25/基于turtlebot的定位与建图/" itemprop="url">基于turtlebot的定位与建图</a></h1>
+                
+                <a href="/2020/04/25/基于turtlebot的定位与建图/" class="post-title-link" itemprop="url">基于turtlebot的定位与建图</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-04-25T18:46:37+08:00">
-                2020-04-25
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2020-04-25 18:46:37" itemprop="dateCreated datePublished" datetime="2020-04-25T18:46:37+08:00">2020-04-25</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-04-26 10:47:23" itemprop="dateModified" datetime="2020-04-26T10:47:23+08:00">2020-04-26</time>
+              
             
           </span>
 
@@ -674,6 +875,7 @@
 
           
             
+            
           
 
           
@@ -681,37 +883,6 @@
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  772 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -731,33 +902,42 @@
       
         
           
-          平台&emsp;&emsp;Ubuntu16.04&emsp;&emsp;turtlebot2&emsp;&emsp;RPLIDAR A1/2(思岚)    
+            <p>
+              平台&emsp;&emsp;Ubuntu16.04&emsp;&emsp;turtlebot2&emsp;&emsp;RPLIDAR A1/2(思岚)    
 Ubuntu与ROS系统安装&emsp;&emsp;具体详见另一篇博客Ubuntu安装，ROS安装
 turtlebot配置安装turtleb
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/04/25/基于turtlebot的定位与建图/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/04/25/基于turtlebot的定位与建图/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -785,6 +965,8 @@ turtlebot配置安装turtleb
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -797,7 +979,7 @@ turtlebot配置安装turtleb
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -811,25 +993,51 @@ turtlebot配置安装turtleb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/03/13/无人清洁车/" itemprop="url">无人清洁车</a></h1>
+                
+                <a href="/2020/03/13/无人清洁车/" class="post-title-link" itemprop="url">无人清洁车</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-03-13T09:13:39+08:00">
-                2020-03-13
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2020-03-13 09:13:39" itemprop="dateCreated datePublished" datetime="2020-03-13T09:13:39+08:00">2020-03-13</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-03-19 10:01:09" itemprop="dateModified" datetime="2020-03-19T10:01:09+08:00">2020-03-19</time>
+              
             
           </span>
 
@@ -837,6 +1045,7 @@ turtlebot配置安装turtleb
 
           
             
+            
           
 
           
@@ -844,37 +1053,6 @@ turtlebot配置安装turtleb
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  988 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -894,32 +1072,41 @@ turtlebot配置安装turtleb
       
         
           
-          ROS基础知识roslaunch命令命令格式1roslaunch  功能包名称  launch文件 [参数设置(arg:=value)]
-&emsp;&emsp;这里roslaunch命令会在对应的功能包中找到名称匹配的launch文件，并执行这个launch文件。如果设置了参数的话，会将参数传入到
-          ...
+            <p>
+              ROS基础知识roslaunch命令命令格式roslaunch  功能包名称  launch文件 [参数设置(arg:=value)]
+&emsp;&emsp;这里roslaunch命令会在对应的功能包中找到名称匹配的launch文件，并执行这个launch文件。如果设置了参数的话，会将参数传入到l
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/03/13/无人清洁车/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/03/13/无人清洁车/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -947,6 +1134,8 @@ turtlebot配置安装turtleb
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -959,7 +1148,7 @@ turtlebot配置安装turtleb
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -973,25 +1162,51 @@ turtlebot配置安装turtleb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/01/07/视觉系统界面设计/" itemprop="url">视觉系统界面设计</a></h1>
+                
+                <a href="/2020/01/07/视觉系统界面设计/" class="post-title-link" itemprop="url">视觉系统界面设计</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-01-07T10:01:53+08:00">
-                2020-01-07
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2020-01-07 10:01:53" itemprop="dateCreated datePublished" datetime="2020-01-07T10:01:53+08:00">2020-01-07</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-01-09 15:22:43" itemprop="dateModified" datetime="2020-01-09T15:22:43+08:00">2020-01-09</time>
+              
             
           </span>
 
@@ -1004,14 +1219,10 @@ turtlebot配置安装turtleb
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工业机器人视觉/" itemprop="url" rel="index">
-                    <span itemprop="name">工业机器人视觉</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工业机器人视觉/" itemprop="url" rel="index"><span itemprop="name">工业机器人视觉</span></a></span>
 
                 
                 
@@ -1021,6 +1232,7 @@ turtlebot配置安装turtleb
 
           
             
+            
           
 
           
@@ -1028,37 +1240,6 @@ turtlebot配置安装turtleb
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  236 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -1078,33 +1259,42 @@ turtlebot配置安装turtleb
       
         
           
-          平台&emsp;&emsp;界面设计软件：Qt&emsp;&emsp;编程语言：C++   
+            <p>
+              平台&emsp;&emsp;界面设计软件：Qt&emsp;&emsp;编程语言：C++   
 界面设计整体界面&emsp;&emsp;整体分为标题栏，菜单栏，状态栏和功能区，图像区，信息区和参数区等。采用灰白色主色调，华为楷体字体。   
 设计原则&emsp;&emsp;采用界面布局和控件功能分开设
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/01/07/视觉系统界面设计/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2020/01/07/视觉系统界面设计/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -1132,6 +1322,8 @@ turtlebot配置安装turtleb
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1144,7 +1336,7 @@ turtlebot配置安装turtleb
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1158,25 +1350,51 @@ turtlebot配置安装turtleb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/23/C++动态库的实现与调用/" itemprop="url">C++动态库的实现与调用</a></h1>
+                
+                <a href="/2019/12/23/C++动态库的实现与调用/" class="post-title-link" itemprop="url">C++动态库的实现与调用</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-23T10:52:06+08:00">
-                2019-12-23
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-12-23 10:52:06" itemprop="dateCreated datePublished" datetime="2019-12-23T10:52:06+08:00">2019-12-23</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-01-09 15:19:37" itemprop="dateModified" datetime="2020-01-09T15:19:37+08:00">2020-01-09</time>
+              
             
           </span>
 
@@ -1189,14 +1407,10 @@ turtlebot配置安装turtleb
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/C/" itemprop="url" rel="index">
-                    <span itemprop="name">C++</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C/" itemprop="url" rel="index"><span itemprop="name">C++</span></a></span>
 
                 
                 
@@ -1206,6 +1420,7 @@ turtlebot配置安装turtleb
 
           
             
+            
           
 
           
@@ -1213,37 +1428,6 @@ turtlebot配置安装turtleb
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,045 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  4 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -1263,32 +1447,41 @@ turtlebot配置安装turtleb
       
         
           
-          平台&emsp;&emsp;Visual Studio 2015&emsp;&emsp;Qt Creator     
+            <p>
+              平台&emsp;&emsp;Visual Studio 2015&emsp;&emsp;Qt Creator     
 概述&emsp;&emsp;动态链接库(Dynamic Link Library)DLL文件与exe文件一样也是可执行文件，但是DLL也被称之为库，因为里面封装了各种类和函数等，就
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/23/C++动态库的实现与调用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/12/23/C++动态库的实现与调用/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -1316,6 +1509,8 @@ turtlebot配置安装turtleb
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1328,7 +1523,7 @@ turtlebot配置安装turtleb
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1342,25 +1537,51 @@ turtlebot配置安装turtleb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/12/16/模板匹配算法简介/" itemprop="url">模板匹配算法简介</a></h1>
+                
+                <a href="/2019/12/16/模板匹配算法简介/" class="post-title-link" itemprop="url">模板匹配算法简介</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-12-16T11:27:23+08:00">
-                2019-12-16
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-12-16 11:27:23" itemprop="dateCreated datePublished" datetime="2019-12-16T11:27:23+08:00">2019-12-16</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-01-09 15:22:26" itemprop="dateModified" datetime="2020-01-09T15:22:26+08:00">2020-01-09</time>
+              
             
           </span>
 
@@ -1373,14 +1594,10 @@ turtlebot配置安装turtleb
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工业机器人视觉/" itemprop="url" rel="index">
-                    <span itemprop="name">工业机器人视觉</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/工业机器人视觉/" itemprop="url" rel="index"><span itemprop="name">工业机器人视觉</span></a></span>
 
                 
                 
@@ -1390,6 +1607,7 @@ turtlebot配置安装turtleb
 
           
             
+            
           
 
           
@@ -1397,37 +1615,6 @@ turtlebot配置安装turtleb
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  3,673 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  14 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -1447,32 +1634,41 @@ turtlebot配置安装turtleb
       
         
           
-          基本概念&emsp;&emsp;在图像中寻找目标图像（模板），或者说，就是在图像中寻找与模板图像相似部分的一种图像处理技术。依赖于选择的方法不同，模板匹配可以处理各种情形下的变换，如照明、杂点、大小、位置以及旋转，甚至模板内部的相对移动。   
+            <p>
+              基本概念&emsp;&emsp;在图像中寻找目标图像（模板），或者说，就是在图像中寻找与模板图像相似部分的一种图像处理技术。依赖于选择的方法不同，模板匹配可以处理各种情形下的变换，如照明、杂点、大小、位置以及旋转，甚至模板内部的相对移动。   
 分类&emsp;&emsp;HDevelop开发环境中
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/12/16/模板匹配算法简介/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/12/16/模板匹配算法简介/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -1500,6 +1696,8 @@ turtlebot配置安装turtleb
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1512,7 +1710,7 @@ turtlebot配置安装turtleb
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1526,25 +1724,51 @@ turtlebot配置安装turtleb
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/11/Cartographer的原理与应用/" itemprop="url">Cartographer的原理与应用</a></h1>
+                
+                <a href="/2019/11/11/Cartographer的原理与应用/" class="post-title-link" itemprop="url">Cartographer的原理与应用</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-11-11T13:01:32+08:00">
-                2019-11-11
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-11-11 13:01:32" itemprop="dateCreated datePublished" datetime="2019-11-11T13:01:32+08:00">2019-11-11</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-01-09 15:11:16" itemprop="dateModified" datetime="2020-01-09T15:11:16+08:00">2020-01-09</time>
+              
             
           </span>
 
@@ -1557,14 +1781,10 @@ turtlebot配置安装turtleb
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS开发与应用/" itemprop="url" rel="index">
-                    <span itemprop="name">ROS开发与应用</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ROS开发与应用/" itemprop="url" rel="index"><span itemprop="name">ROS开发与应用</span></a></span>
 
                 
                 
@@ -1574,6 +1794,7 @@ turtlebot配置安装turtleb
 
           
             
+            
           
 
           
@@ -1581,37 +1802,6 @@ turtlebot配置安装turtleb
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  521 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  3 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -1631,32 +1821,41 @@ turtlebot配置安装turtleb
       
         
           
-          平台&emsp;&emsp;Ubuntu 16.04&emsp;&emsp;ROS kinect&emsp;&emsp;Cartographer    
-Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安装3.6以上的版本。1234567891011su
-          ...
+            <p>
+              平台&emsp;&emsp;Ubuntu 16.04&emsp;&emsp;ROS kinect&emsp;&emsp;Cartographer    
+Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安装3.6以上的版本。sudo apt-get in
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/11/11/Cartographer的原理与应用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/11/11/Cartographer的原理与应用/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -1684,6 +1883,8 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
 
   
   
+  
+
   
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
@@ -1696,7 +1897,7 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1710,25 +1911,51 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/24/基于ROS的视觉SLAM/" itemprop="url">基于ROS的视觉SLAM</a></h1>
+                
+                <a href="/2019/10/24/基于ROS的视觉SLAM/" class="post-title-link" itemprop="url">基于ROS的视觉SLAM</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-24T09:13:20+08:00">
-                2019-10-24
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-10-24 09:13:20" itemprop="dateCreated datePublished" datetime="2019-10-24T09:13:20+08:00">2019-10-24</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-01-09 15:12:15" itemprop="dateModified" datetime="2020-01-09T15:12:15+08:00">2020-01-09</time>
+              
             
           </span>
 
@@ -1741,14 +1968,10 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS开发与应用/" itemprop="url" rel="index">
-                    <span itemprop="name">ROS开发与应用</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ROS开发与应用/" itemprop="url" rel="index"><span itemprop="name">ROS开发与应用</span></a></span>
 
                 
                 
@@ -1758,6 +1981,7 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
 
           
             
+            
           
 
           
@@ -1765,37 +1989,6 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  490 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  2 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -1815,33 +2008,42 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
       
         
           
-          平台&emsp;&emsp;Ubuntu16.04(两台计算机)&emsp;&emsp;ROS Kinetic Kame&emsp;&emsp;turtlebot2&emsp;&emsp;Kinectv2
+            <p>
+              平台&emsp;&emsp;Ubuntu16.04(两台计算机)&emsp;&emsp;ROS Kinetic Kame&emsp;&emsp;turtlebot2&emsp;&emsp;Kinectv2
 硬件安装
 打开电源打开turtlebot2机器人的电源开关(确定电池有电)，此时底座的状态指示
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/10/24/基于ROS的视觉SLAM/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/24/基于ROS的视觉SLAM/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -1871,6 +2073,8 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
   
   
 
+  
+
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
   
   
@@ -1881,7 +2085,7 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -1895,25 +2099,51 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/10/23/ROS的安装及简单使用/" itemprop="url">ROS的安装及简单使用</a></h1>
+                
+                <a href="/2019/10/23/ROS的安装及简单使用/" class="post-title-link" itemprop="url">ROS的安装及简单使用</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">发表于</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-10-23T10:11:49+08:00">
-                2019-10-23
-              </time>
+
+              
+                
+              
+
+              <time title="Erstellt: 2019-10-23 10:11:49" itemprop="dateCreated datePublished" datetime="2019-10-23T10:11:49+08:00">2019-10-23</time>
             
 
             
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Bearbeitet am</span>
+                
+                <time title="Geändert am: 2020-03-20 17:35:36" itemprop="dateModified" datetime="2020-03-20T17:35:36+08:00">2020-03-20</time>
+              
             
           </span>
 
@@ -1926,14 +2156,10 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">分类于</span>
+                <span class="post-meta-item-text">in</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/ROS开发与应用/" itemprop="url" rel="index">
-                    <span itemprop="name">ROS开发与应用</span>
-                  </a>
-                </span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ROS开发与应用/" itemprop="url" rel="index"><span itemprop="name">ROS开发与应用</span></a></span>
 
                 
                 
@@ -1943,6 +2169,7 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
 
           
             
+            
           
 
           
@@ -1950,37 +2177,6 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
 
           
 
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,832 字
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  7 分钟
-                </span>
-              
-            </div>
           
 
           
@@ -2000,32 +2196,41 @@ Cartographer的安装安装依赖库protobuf3&emsp;&emsp;注：这里需要安�
       
         
           
-          平台&emsp;&emsp;Ubuntu 16.04   
+            <p>
+              平台&emsp;&emsp;Ubuntu 16.04   
 ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS系统是起源于2007年斯坦福大学人工智能实验室的项目与机器人技术公司Willow Garage的个人机器人项目之间的合作，200
-          ...
+              ...
+            </p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/10/23/ROS的安装及简单使用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/10/23/ROS的安装及简单使用/#more" rel="contents">
+                Weiterlesen &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
     </div>
+
+    
+
     
     
     
 
+    
+
+    
+      
+    
+    
+
+    
     <div>
       
     </div>
-
-    
-
-    
-
-    
 
     <footer class="post-footer">
       
@@ -2051,15 +2256,12 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="Nächste Seite"></i></a>
   </nav>
 
 
 
           </div>
-          
-
-
           
 
         </div>
@@ -2075,70 +2277,193 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="Cxx">
+            
               <p class="site-author-name" itemprop="name">Cxx</p>
-              <p class="site-description motion-element" itemprop="description"></p>
+              <div class="site-description motion-element" itemprop="description"></div>
           </div>
 
-          <nav class="site-state motion-element">
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">41</span>
+                    <span class="site-state-item-name">Artikel</span>
+                  </a>
+                </div>
+              
 
-            
-              <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">10</span>
+                    <span class="site-state-item-name">Kategorien</span>
+                  </a>
+                </div>
               
-                  <span class="site-state-item-count">41</span>
-                  <span class="site-state-item-name">日志</span>
-                </a>
+
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/ipyker" title="GitHub &rarr; https://github.com/ipyker" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="mailto:pyker@qq.com" title="E-Mail &rarr; mailto:pyker@qq.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://weibo.com/viszhang" title="Weibo &rarr; https://weibo.com/viszhang" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://message/?uin=123435796&Site=&menu=yes" title="QQ &rarr; tencent://message/?uin=123435796&Site=&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-book"></i>
+                推荐阅读
               </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.ttlsa.com/" title="http://www.ttlsa.com/" rel="noopener" target="_blank">运维生存时间</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.iyunw.cn" title="https://www.iyunw.cn" rel="noopener" target="_blank">爱运维</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://nginxconfig.io/" title="https://nginxconfig.io/" rel="noopener" target="_blank">Nginxconfig</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://linux.51yip.com/" title="http://linux.51yip.com/" rel="noopener" target="_blank">Linux命令手册</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://echarts.baidu.com/index.html" title="https://echarts.baidu.com/index.html" rel="noopener" target="_blank">echarts可视化库</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
             
-
-            
-              
-              
-              <div class="site-state-item site-state-categories">
-                <a href="/categories/index.html">
-                  <span class="site-state-item-count">10</span>
-                  <span class="site-state-item-name">分类</span>
-                </a>
-              </div>
-            
-
-            
-
-          </nav>
-
-          
-
-          
-
           
           
-
-          
-          
-
-          
-
         </div>
-      </section>
+      </div>
 
       
 
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
       
 
     </div>
   </aside>
+  
 
 
         
@@ -2147,62 +2472,73 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-user"></i>
+        <div class="copyright" style=" text-align:center;">&copy; 2017 – <span itemprop="copyrightYear">2020</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
   </span>
-  <span class="author" itemprop="copyrightHolder">Cxx</span>
+  <span class="author" itemprop="copyrightHolder">Pyker</span>
 
   
-    <span class="post-meta-divider">|</span>
-    <span class="post-meta-item-icon">
-      <i class="fa fa-area-chart"></i>
-    </span>
-    
-      <span class="post-meta-item-text">Site words total count&#58;</span>
-    
-    <span title="Site words total count">103.2k</span>
   
-</div>
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
-
-
-
   <span class="post-meta-divider">|</span>
+  <a href="http://www.beian.miit.gov.cn" rel="noopener" target="_blank">粤ICP备19028706号 </a>
+
+</div>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
 
 
 
 
-<div class="theme-info">
-  <div class="powered-by"></div>
-  <span class="post-count">博客全站共103.2k字</span>
+<div class="run_time" style=" text-align:center;">
+  <span id="timeDate">载入天数...</span><span id="times">载入时分秒...</span>
+  <script>
+    var now = new Date(); 
+    function createtime() { 
+        var grt= new Date("07/23/2017 10:00:00");//此处修改你的建站时间或者网站上线时间 
+        now.setTime(now.getTime()+250); 
+        days = (now - grt ) / 1000 / 60 / 60 / 24; dnum = Math.floor(days); 
+        hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum); hnum = Math.floor(hours); 
+        if(String(hnum).length ==1 ){hnum = "0" + hnum;} minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum); 
+        mnum = Math.floor(minutes); if(String(mnum).length ==1 ){mnum = "0" + mnum;} 
+        seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum); 
+        snum = Math.round(seconds); if(String(snum).length ==1 ){snum = "0" + snum;} 
+        document.getElementById("timeDate").innerHTML = "本站已安全运行 "+dnum+" 天 "; 
+        document.getElementById("times").innerHTML = hnum + " 小时 " + mnum + " 分 " + snum + " 秒"; 
+    } 
+    setInterval("createtime()",250);
+  </script>
 </div>
         
-<div class="busuanzi-count">
+<div class="busuanzi-count" style=" text-align:center;">
   <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
   
-    <span class="site-uv">
-      访客数
-      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
-      人
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="Alle Besucher">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 人
     </span>
   
 
   
-    <span class="site-pv">
-      总访问量
-      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
-      次
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="Alle Aufrufe">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次
     </span>
   
 </div>
+
+
 
 
 
@@ -2214,21 +2550,18 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
         
       </div>
     </footer>
-
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
     
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2238,106 +2571,7 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
 
 
 
-
-
-
-
   
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
 
 
 
@@ -2348,6 +2582,20 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
 
 
 
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="255,0,255" opacity="0.7" zindex="-1" count="140" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js"></script>
+
+
+
 
 
 
@@ -2355,8 +2603,98 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
 
 
   
+  
+  <script id="ribbon" size="300" alpha="0.1" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
 
-  <script type="text/javascript">
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/schemes/muse.js?v=7.1.1"></script>
+
+
+
+
+  
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+    
+      
+    
+  
+
+  
+  
+  
+    <script src="/lib/quicklink/quicklink.umd.js"></script>
+    <script>
+      
+        window.addEventListener('load', () => {
+      
+        quicklink({
+          timeout: 3000,
+          priority: true,
+          ignores: [uri => uri.includes('#'),uri => uri == 'http://www.chenxiuxiang.site/',]
+        });
+      
+        });
+      
+    </script>
+  
+
+
+  
+
+
+
+  
+  <script>
     // Popup Window;
     var isfetched = false;
     var isXml = true;
@@ -2405,6 +2743,8 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
         .css('overflow', 'hidden');
       $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
 
+      
+
       $.ajax({
         url: path,
         dataType: isXml ? "xml" : "json",
@@ -2438,8 +2778,9 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
                 var title = data.title.trim();
                 var titleInLowerCase = title.toLowerCase();
                 var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
                 var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
                 var indexOfTitle = [];
                 var indexOfContent = [];
                 // only match articles with not empty titles
@@ -2608,9 +2949,9 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
               })
             };
             if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
             } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
             } else {
               resultItems.sort(function (resultLeft, resultRight) {
                 if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
@@ -2682,46 +3023,30 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
+
+  
+
+  
+
+  
+
+  
+
+  
+
   
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.loadBookmark();
+  
+  </script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -2739,8 +3064,9 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
 </script>
 <!-- End: Injected MathJax -->
 <!-- hexo-inject:end -->
-  
 
+
+  
 
   
 
@@ -2748,6 +3074,5 @@ ROS简介&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS�
 
 </body>
 </html>
-
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
