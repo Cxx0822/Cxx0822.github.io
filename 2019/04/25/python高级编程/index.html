@@ -157,12 +157,12 @@
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="推导式&amp;emsp;&amp;emsp;推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。    列表推导式1[expression for item in iterable if condition] &amp;emsp;&amp;emsp;例：1num = [num + 1 for num in range(0, 5) if num">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/04/25/python高级编程//关系图.png">
+<meta property="og:image" content="http://cxx0822.github.io/2019/04/25/python高级编程//关系图.png">
 <meta property="og:updated_time" content="2020-01-09T07:20:40.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高级编程">
 <meta name="twitter:description" content="推导式&amp;emsp;&amp;emsp;推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。    列表推导式1[expression for item in iterable if condition] &amp;emsp;&amp;emsp;例：1num = [num + 1 for num in range(0, 5) if num">
-<meta name="twitter:image" content="http://cxx0822.github.io/cxx0822/2019/04/25/python高级编程//关系图.png">
+<meta name="twitter:image" content="http://cxx0822.github.io/2019/04/25/python高级编程//关系图.png">
 
 
 
@@ -574,7 +574,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <h3 id="集合推导式"><a href="#集合推导式" class="headerlink" title="集合推导式"></a>集合推导式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;expression <span class="keyword">for</span> expression <span class="keyword">in</span> iterable <span class="keyword">if</span> condition&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"banana"</span>, <span class="string">"pear"</span>]</span><br><span class="line">A = &#123;len(s) <span class="keyword">for</span> s <span class="keyword">in</span> A&#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;程序输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">5</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;可迭代对象：实现了<code>__iter__()</code>方法的对象都是可迭代对象。如果没有实现<code>__iter__</code>而实现了<code>__getitem__</code>方法，并且其参数是从零开始的索引，这种对象，如序列，也是可迭代的。<br><img src="/cxx0822/2019/04/25/python高级编程/\关系图.png" alt="data"><br>&emsp;&emsp;迭代器：实现了<code>__iter__</code>和<code>__next__()</code>方法的对象都是迭代器。<br>&emsp;&emsp;由定义可知，除了内置的序列和字典之外，我们还可以自己定义可迭代对象。   </p>
+<h2 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;可迭代对象：实现了<code>__iter__()</code>方法的对象都是可迭代对象。如果没有实现<code>__iter__</code>而实现了<code>__getitem__</code>方法，并且其参数是从零开始的索引，这种对象，如序列，也是可迭代的。<br><img src="/2019/04/25/python高级编程/\关系图.png" alt="data"><br>&emsp;&emsp;迭代器：实现了<code>__iter__</code>和<code>__next__()</code>方法的对象都是迭代器。<br>&emsp;&emsp;由定义可知，除了内置的序列和字典之外，我们还可以自己定义可迭代对象。   </p>
 <h3 id="iter"><a href="#iter" class="headerlink" title="iter()"></a><strong>iter</strong>()</h3><p>&emsp;&emsp;该方法返回的是当前对象的迭代器类的实例。因为可迭代对象与迭代器都要实现这个方法，因此有以下两种写法。</p>
 <ol>
 <li>用于可迭代对象类的写法，返回该可迭代对象的迭代器类的实例。</li>
@@ -1879,6 +1879,28 @@ if(canvas.getContext){
   
 
    
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20181108,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#DA70D6">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});

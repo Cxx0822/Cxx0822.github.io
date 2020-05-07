@@ -1993,7 +1993,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a2000b;
+  background: #20ffff;
 }
 .feed-link,
 .chat {
@@ -3242,7 +3242,7 @@ body {
   background-size: cover;
 }
 .footer {
-  background: rgba(0,0,0,0.5) none repeat scroll !important;
+  background: rgba(73,177,245,0.5) none repeat scroll !important;
 }
 .main-inner {
   background: #fff;
@@ -3284,6 +3284,9 @@ body {
 .site-subtitle {
   margin-top: 10px;
   font-size: 13px;
+  color: #fff;
+}
+.footer-inner {
   color: #fff;
 }
 .btn {
@@ -3346,4 +3349,10 @@ code {
   padding: 1px 4px;
   word-break: break-all;
   border-radius: 4px;
+}
+.back-to-top .fa-arrow-up:before {
+  color: #ffff69;
+}
+.busuanzi-value {
+  color: #da70d6;
 }

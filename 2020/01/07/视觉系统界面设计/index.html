@@ -157,12 +157,12 @@
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="平台&amp;emsp;&amp;emsp;界面设计软件：Qt&amp;emsp;&amp;emsp;编程语言：C++    界面设计整体界面&amp;emsp;&amp;emsp;整体分为标题栏，菜单栏，状态栏和功能区，图像区，信息区和参数区等。采用灰白色主色调，华为楷体字体。    设计原则&amp;emsp;&amp;emsp;采用界面布局和控件功能分开设计的原则，即界面布局在Qt Creator中的设计窗口中设计。控件功能通过槽函数在编辑窗口中设计。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2020/01/07/视觉系统界面设计/整体界面.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/01/07/视觉系统界面设计/整体界面.png">
 <meta property="og:updated_time" content="2020-01-09T07:22:43.391Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="视觉系统界面设计">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;界面设计软件：Qt&amp;emsp;&amp;emsp;编程语言：C++    界面设计整体界面&amp;emsp;&amp;emsp;整体分为标题栏，菜单栏，状态栏和功能区，图像区，信息区和参数区等。采用灰白色主色调，华为楷体字体。    设计原则&amp;emsp;&amp;emsp;采用界面布局和控件功能分开设计的原则，即界面布局在Qt Creator中的设计窗口中设计。控件功能通过槽函数在编辑窗口中设计。">
-<meta name="twitter:image" content="http://cxx0822.github.io/cxx0822/2020/01/07/视觉系统界面设计/整体界面.png">
+<meta name="twitter:image" content="http://cxx0822.github.io/2020/01/07/视觉系统界面设计/整体界面.png">
 
 
 
@@ -524,7 +524,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <!-- <span title="本文字数">962</span> -->
+                <!-- <span title="本文字数">954</span> -->
 			  <span title="本文字数">
                   236字
                 </span>
@@ -563,7 +563,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 
       
         <h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>&emsp;&emsp;界面设计软件：Qt<br>&emsp;&emsp;编程语言：C++   </p>
-<h1 id="界面设计"><a href="#界面设计" class="headerlink" title="界面设计"></a>界面设计</h1><h2 id="整体界面"><a href="#整体界面" class="headerlink" title="整体界面"></a>整体界面</h2><p><img src="/cxx0822/2020/01/07/视觉系统界面设计/整体界面.png" alt><br>&emsp;&emsp;整体分为标题栏，菜单栏，状态栏和功能区，图像区，信息区和参数区等。采用灰白色主色调，华为楷体字体。   </p>
+<h1 id="界面设计"><a href="#界面设计" class="headerlink" title="界面设计"></a>界面设计</h1><h2 id="整体界面"><a href="#整体界面" class="headerlink" title="整体界面"></a>整体界面</h2><p><img src="/2020/01/07/视觉系统界面设计/整体界面.png" alt><br>&emsp;&emsp;整体分为标题栏，菜单栏，状态栏和功能区，图像区，信息区和参数区等。采用灰白色主色调，华为楷体字体。   </p>
 <h2 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h2><p>&emsp;&emsp;采用界面布局和控件功能分开设计的原则，即界面布局在<code>Qt Creator</code>中的设计窗口中设计。控件功能通过槽函数在编辑窗口中设计。    </p>
 <h3 id="界面布局"><a href="#界面布局" class="headerlink" title="界面布局"></a>界面布局</h3><p>&emsp;&emsp;控件通过拖拽产生，其位置大小图标等信息在设计窗口的右下角部分直接编辑其<code>属性</code>即可。控件样式通过右击控件选择<code>改变样式表</code>设计。最终使用其布局工具栏对界面快速布局。<br>&emsp;&emsp;注：   </p>
 <ol>
@@ -1863,6 +1863,28 @@ if(canvas.getContext){
   
 
    
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20181108,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#DA70D6">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
 <script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
