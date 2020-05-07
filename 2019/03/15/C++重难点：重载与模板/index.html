@@ -153,17 +153,17 @@
   <meta name="description" content="&amp;emsp;&amp;emsp;在之前的C语言编程中，一个函数实现一个功能，但有时候我们需要实现几个功能类似的函数，只是有些细节不同，如果按照C语言的编程方式，我们需要重新定义函数，这会使得代码十分不美观。但在C++中，我们可以使用重载或模板很好的解决这个问题。    函数重载定义&amp;emsp;&amp;emsp;在同一作用域类中，一组函数名相同，参数列表（函数特征标）不同（参数个数不同/参数类型不同/参数排列顺序">
 <meta property="og:type" content="article">
 <meta property="og:title" content="C++重难点：重载与模板">
-<meta property="og:url" content="http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板/index.html">
+<meta property="og:url" content="http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="&amp;emsp;&amp;emsp;在之前的C语言编程中，一个函数实现一个功能，但有时候我们需要实现几个功能类似的函数，只是有些细节不同，如果按照C语言的编程方式，我们需要重新定义函数，这会使得代码十分不美观。但在C++中，我们可以使用重载或模板很好的解决这个问题。    函数重载定义&amp;emsp;&amp;emsp;在同一作用域类中，一组函数名相同，参数列表（函数特征标）不同（参数个数不同/参数类型不同/参数排列顺序">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板//map.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板//fun.png">
+<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板//map.png">
+<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板//fun.png">
 <meta property="og:updated_time" content="2019-04-16T07:11:38.274Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="C++重难点：重载与模板">
 <meta name="twitter:description" content="&amp;emsp;&amp;emsp;在之前的C语言编程中，一个函数实现一个功能，但有时候我们需要实现几个功能类似的函数，只是有些细节不同，如果按照C语言的编程方式，我们需要重新定义函数，这会使得代码十分不美观。但在C++中，我们可以使用重载或模板很好的解决这个问题。    函数重载定义&amp;emsp;&amp;emsp;在同一作用域类中，一组函数名相同，参数列表（函数特征标）不同（参数个数不同/参数类型不同/参数排列顺序">
-<meta name="twitter:image" content="http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板//map.png">
+<meta name="twitter:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板//map.png">
 
 
 
@@ -171,7 +171,7 @@
 
   
   
-  <link rel="canonical" href="http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板/">
+  <link rel="canonical" href="http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板/">
 
 
 
@@ -412,7 +412,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板/">
+    <link itemprop="mainEntityOfPage" href="http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
@@ -575,7 +575,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <p>&emsp;&emsp;为什么此时没有报错呢？明明没有定义参数列表是<code>double</code>类型的<code>fun</code>函数。如果再定义个<code>fun</code>函数的重载，将参数类型设置为<code>int &amp;</code>，即引用参数，如下所示：  </p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> &amp;, <span class="keyword">int</span> &amp;)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fun</span><span class="params">(<span class="keyword">int</span> &amp; a, <span class="keyword">int</span> &amp; b)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"&amp; a + &amp; b : "</span>;</span><br><span class="line">    <span class="keyword">return</span> a + b;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;此时再调用刚才的<code>cout &lt;&lt; fun(a1, b1) &lt;&lt; endl;</code>程序会报错：<code>error C2668: “fun”: 对重载函数的调用不明确</code>。这又有什么会报错呢？见下文解析。  </p>
-<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="如何解决命名冲突"><a href="#如何解决命名冲突" class="headerlink" title="如何解决命名冲突"></a>如何解决命名冲突</h3><p>&emsp;&emsp;编译器在编译当前作用域里的同名函数时，会根据<code>函数形参的类型和顺序会</code>对函数进行重命名（不同的编译器在编译时对函数的重命名标准不一样）。在<code>visual studio</code>编译器中，根据返回值类型（不起决定性作用）+形参类型和顺序（起决定性作用）的规则重命名并记录在<code>map</code>文件中。<br>&emsp;&emsp;右击工程名，然后选择<code>属性</code>，在依次选择<code>配置属性</code>-&gt;<code>链接器</code>–&gt;<code>调试</code>，将其中的<code>生成映射文件</code>和<code>映射导出</code>都设置为<code>是</code>，<code>映射文件名</code>为生成的<code>map</code>文件名，可以自己命名也可以用默认的。点击确定，并运行程序后，会在工程文件夹中的<code>Debug</code>文件夹下生成一个<code>.map</code>的文件夹，将其拖拽至编译器内即可打开。<br><img src="/2019/03/15/C++重难点：重载与模板/\map.png" alt="data"><br><img src="/2019/03/15/C++重难点：重载与模板/\fun.png" alt="data">  </p>
+<h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><h3 id="如何解决命名冲突"><a href="#如何解决命名冲突" class="headerlink" title="如何解决命名冲突"></a>如何解决命名冲突</h3><p>&emsp;&emsp;编译器在编译当前作用域里的同名函数时，会根据<code>函数形参的类型和顺序会</code>对函数进行重命名（不同的编译器在编译时对函数的重命名标准不一样）。在<code>visual studio</code>编译器中，根据返回值类型（不起决定性作用）+形参类型和顺序（起决定性作用）的规则重命名并记录在<code>map</code>文件中。<br>&emsp;&emsp;右击工程名，然后选择<code>属性</code>，在依次选择<code>配置属性</code>-&gt;<code>链接器</code>–&gt;<code>调试</code>，将其中的<code>生成映射文件</code>和<code>映射导出</code>都设置为<code>是</code>，<code>映射文件名</code>为生成的<code>map</code>文件名，可以自己命名也可以用默认的。点击确定，并运行程序后，会在工程文件夹中的<code>Debug</code>文件夹下生成一个<code>.map</code>的文件夹，将其拖拽至编译器内即可打开。<br><img src="/cxx0822/2019/03/15/C++重难点：重载与模板/\map.png" alt="data"><br><img src="/cxx0822/2019/03/15/C++重难点：重载与模板/\fun.png" alt="data">  </p>
 <p>&emsp;&emsp;从图中可以看到，虽然函数名相同，但在<code>map</code>中的生成的名称去不一样。<code>？</code>表示名称开始，<code>？</code>后边是函数名，<code>@@YA</code>表示参数表开始，后边的3个字符分别表示<code>返回值类型</code>，<code>参数类型</code>。<code>@Z</code>表示名称结束。由上述分析可知，函数重载仅仅是语法层面的，本质上它们还是不同的函数，占用不同的内存，入口地址也不一样。  </p>
 <h3 id="如何解决调用匹配"><a href="#如何解决调用匹配" class="headerlink" title="如何解决调用匹配"></a>如何解决调用匹配</h3><p>&emsp;&emsp;除了利用函数重载可以实现相同的函数名实现不同的功能，函数模板同样的也可以实现。为了更好的解释其中的调用匹配问题，在讲完函数模板后，再重新解释（刚才提到的问题属于调度匹配问题）。   </p>
 <h2 id="作用及意义"><a href="#作用及意义" class="headerlink" title="作用及意义"></a>作用及意义</h2><p>&emsp;&emsp;函数重载是属于多态中的静态多态，即在编译时的多态，而虚函数与虚继承属于动态多态，即在运行时的多态，其两者都是为了减少函数名的数量，避免名字空间的污染，提高程序的可读性。   </p>
@@ -654,7 +654,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板/" title="C++重难点：重载与模板">http://cxx0822.github.io/2019/03/15/C++重难点：重载与模板/</a>
+    <a href="http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板/" title="C++重难点：重载与模板">http://chenxiuxiang.gitee.io/cxx0822/2019/03/15/C++重难点：重载与模板/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -1870,14 +1870,7 @@ if(canvas.getContext){
       }, 300);
     }).append(e);
   })
-</script>
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1894,7 +1887,14 @@ if(canvas.getContext){
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>

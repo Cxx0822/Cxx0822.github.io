@@ -153,18 +153,18 @@
   <meta name="description" content="概述&amp;emsp;&amp;emsp;支持向量机(support vector machine，一般称为SVM。是一种二类分类模型，其基本模型定义为特征空间上的间隔最大的线性分类器，其学习策略便是间隔最大化，最终可转化为一个凸二次规划问题的求解。&amp;emsp;&amp;emsp;因为其较低的错误率，使其被认为是机器学习中目前为止最好的分类器。    基本概念&amp;emsp;&amp;emsp;上图一共有四个部分，A为原始数据集，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="支持向量机的原理及python实现">
-<meta property="og:url" content="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现/index.html">
+<meta property="og:url" content="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="概述&amp;emsp;&amp;emsp;支持向量机(support vector machine，一般称为SVM。是一种二类分类模型，其基本模型定义为特征空间上的间隔最大的线性分类器，其学习策略便是间隔最大化，最终可转化为一个凸二次规划问题的求解。&amp;emsp;&amp;emsp;因为其较低的错误率，使其被认为是机器学习中目前为止最好的分类器。    基本概念&amp;emsp;&amp;emsp;上图一共有四个部分，A为原始数据集，">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现//基本概念.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现//函数间隔图.png">
-<meta property="og:image" content="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现//大于1.png">
+<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现//基本概念.png">
+<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现//函数间隔图.png">
+<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现//大于1.png">
 <meta property="og:updated_time" content="2020-01-09T07:22:57.890Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="支持向量机的原理及python实现">
 <meta name="twitter:description" content="概述&amp;emsp;&amp;emsp;支持向量机(support vector machine，一般称为SVM。是一种二类分类模型，其基本模型定义为特征空间上的间隔最大的线性分类器，其学习策略便是间隔最大化，最终可转化为一个凸二次规划问题的求解。&amp;emsp;&amp;emsp;因为其较低的错误率，使其被认为是机器学习中目前为止最好的分类器。    基本概念&amp;emsp;&amp;emsp;上图一共有四个部分，A为原始数据集，">
-<meta name="twitter:image" content="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现//基本概念.png">
+<meta name="twitter:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现//基本概念.png">
 
 
 
@@ -172,7 +172,7 @@
 
   
   
-  <link rel="canonical" href="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现/">
+  <link rel="canonical" href="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现/">
 
 
 
@@ -413,7 +413,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现/">
+    <link itemprop="mainEntityOfPage" href="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
@@ -565,8 +565,8 @@ WIDGET = {FID: 'H94fFEffHo'}
 
       
         <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><p>&emsp;&emsp;支持向量机(<code>support vector machine</code>，一般称为<code>SVM</code>。是一种二类分类模型，其基本模型定义为特征空间上的间隔最大的线性分类器，其学习策略便是间隔最大化，最终可转化为一个凸二次规划问题的求解。<br>&emsp;&emsp;因为其较低的错误率，使其被认为是机器学习中目前为止最好的分类器。   </p>
-<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><img src="/2019/08/11/支持向量机的原理及python实现/\基本概念.png" alt="data"><br>&emsp;&emsp;上图一共有四个部分，<code>A</code>为原始数据集，一共有两类，分别在左边和右边，<code>B，C，D</code>分别给出了一条可以将两类分开的直线。这条直线被称为分隔超平面。如果是在二维平面上，这个超平面就是一条直线，如果是三维的，就是一个平面。如果数据集是<code>N</code>维的话，就需要一个<code>N-1</code>维的对其分隔，也就是分类的决策边界。<br>&emsp;&emsp;对于上图的三种决策边界，我们明显认为<code>D</code>的决策边界是最好的，因为其距离两类的间距都是最大的。也就是说，我们希望找到离分隔超平面最近的点，确保它们离分隔面的距离尽可能地远。这里点到分割面地距离被称为间隔。我们希望间隔尽可能地大。<br>&emsp;&emsp;而所谓的支持向量就是离分隔超平面最近的那些点，机的意思就是决策边界。所以接下来的任务就是最大化支持向量到分隔面的距离。   </p>
-<h1 id="任务——寻找最大间隔"><a href="#任务——寻找最大间隔" class="headerlink" title="任务——寻找最大间隔"></a>任务——寻找最大间隔</h1><p>&emsp;&emsp;首先我们要确定点到决策边界的距离，也就是所谓的函数间隔(可能有的书这里指的是几何间隔)。<br><img src="/2019/08/11/支持向量机的原理及python实现/\函数间隔图.png" alt="data"><br>&emsp;&emsp;分隔超平面的直线可以记为$y=\omega ^Tx + b$(这里的$\omega$和$x$都是一个向量，$b$类似于截距)，然后计算点<code>A</code>到分隔面的法线或垂线的长度，利用点到平面的公式可以得到其函数间隔为：   </p>
+<h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><p><img src="/cxx0822/2019/08/11/支持向量机的原理及python实现/\基本概念.png" alt="data"><br>&emsp;&emsp;上图一共有四个部分，<code>A</code>为原始数据集，一共有两类，分别在左边和右边，<code>B，C，D</code>分别给出了一条可以将两类分开的直线。这条直线被称为分隔超平面。如果是在二维平面上，这个超平面就是一条直线，如果是三维的，就是一个平面。如果数据集是<code>N</code>维的话，就需要一个<code>N-1</code>维的对其分隔，也就是分类的决策边界。<br>&emsp;&emsp;对于上图的三种决策边界，我们明显认为<code>D</code>的决策边界是最好的，因为其距离两类的间距都是最大的。也就是说，我们希望找到离分隔超平面最近的点，确保它们离分隔面的距离尽可能地远。这里点到分割面地距离被称为间隔。我们希望间隔尽可能地大。<br>&emsp;&emsp;而所谓的支持向量就是离分隔超平面最近的那些点，机的意思就是决策边界。所以接下来的任务就是最大化支持向量到分隔面的距离。   </p>
+<h1 id="任务——寻找最大间隔"><a href="#任务——寻找最大间隔" class="headerlink" title="任务——寻找最大间隔"></a>任务——寻找最大间隔</h1><p>&emsp;&emsp;首先我们要确定点到决策边界的距离，也就是所谓的函数间隔(可能有的书这里指的是几何间隔)。<br><img src="/cxx0822/2019/08/11/支持向量机的原理及python实现/\函数间隔图.png" alt="data"><br>&emsp;&emsp;分隔超平面的直线可以记为$y=\omega ^Tx + b$(这里的$\omega$和$x$都是一个向量，$b$类似于截距)，然后计算点<code>A</code>到分隔面的法线或垂线的长度，利用点到平面的公式可以得到其函数间隔为：   </p>
 <script type="math/tex; mode=display">
 d=\frac{\left | \omega ^{T}x+b \right |}{\left \| \omega  \right \|}</script><p>&emsp;&emsp;所以我们对一个数据点进行分类时，当超平面离数据点的“间隔”越大，分类的置信度也越大。为了使得分类的确信度尽量高，需要让所选择的超平面能够最大化这个“间隔”值。<br>&emsp;&emsp;但是只有这个间隔也不够，因为我们有两类数据，所以还需要再定义类别标签的概念。<br>&emsp;&emsp;这里的类别的定义和之前的机器学习算法不同，使用的是<code>-1</code>和<code>+1</code>两种标签，即：   </p>
 <script type="math/tex; mode=display">
@@ -575,7 +575,7 @@ g\left ( z \right )=g\left ( \omega ^{T}x+b \right )=\left\{\begin{matrix}
  1 & z < 0
 \end{matrix}\right.</script><p>&emsp;&emsp;为什么这样定义呢？因为之前我们定义的间隔公式中含有绝对值项$\left | \omega ^{T}x+b \right |$，这对后面的计算来说不太方便，而现在我们可以将其替换为$lable<em>\left ( \omega ^{T}x+b \right )$，因为这是一个恒正的表达式。如果数据点处于正方向(<code>+1</code>类)，并且离分隔面很远的位置时，$\left ( \omega ^{T}x+b \right )$会是一个很大的正数，同时$lable</em>\left ( \omega ^{T}x+b \right )$也是一个很大的正数。反之，如果在负方向，其最终的值也是一个正数(负负得正)。而且标签值为<code>+1</code>和<code>-1</code>，也不影响最终的间距值。<br>&emsp;&emsp;综上所述，我们最终的目标任务可以用以下的数学表达式表示：   </p>
 <script type="math/tex; mode=display">
-arg  \underset{\omega,b}{max}\left \{ \underset{n}{min}\left ( label\cdot \left ( \omega ^{T}x+b \right ) \right ) \cdot \frac{1}{\left \| \omega  \right \|}\right \}</script><p>&emsp;&emsp;公式前面的$argmax$表示的是间隔最大值时，参数$\omega,b$的取值。$min$表示的是具有最小间隔的数据点。<br>&emsp;&emsp;但是这里面都是乘积项，对其求最值比较困难，如果能固定某个乘积项，只求其中一个的最值就会简单很多，而经过之前的分析，$lable*\left ( \omega ^{T}x+b \right )$项都是大于<code>0</code>的，在准确地说其值是$\geqslant 1$的(如下图所示)。那么其最小值为<code>1</code>，就可以去掉该项。<br><img src="/2019/08/11/支持向量机的原理及python实现/\大于1.png" alt="data"><br>&emsp;&emsp;所以我们就将此问题转换为了约束条件下的极值问题，即<br>&emsp;&emsp;目标函数为：   </p>
+arg  \underset{\omega,b}{max}\left \{ \underset{n}{min}\left ( label\cdot \left ( \omega ^{T}x+b \right ) \right ) \cdot \frac{1}{\left \| \omega  \right \|}\right \}</script><p>&emsp;&emsp;公式前面的$argmax$表示的是间隔最大值时，参数$\omega,b$的取值。$min$表示的是具有最小间隔的数据点。<br>&emsp;&emsp;但是这里面都是乘积项，对其求最值比较困难，如果能固定某个乘积项，只求其中一个的最值就会简单很多，而经过之前的分析，$lable*\left ( \omega ^{T}x+b \right )$项都是大于<code>0</code>的，在准确地说其值是$\geqslant 1$的(如下图所示)。那么其最小值为<code>1</code>，就可以去掉该项。<br><img src="/cxx0822/2019/08/11/支持向量机的原理及python实现/\大于1.png" alt="data"><br>&emsp;&emsp;所以我们就将此问题转换为了约束条件下的极值问题，即<br>&emsp;&emsp;目标函数为：   </p>
 <script type="math/tex; mode=display">
 max\frac{1}{\left \| \omega  \right \|}</script><p>&emsp;&emsp;约束条件为：     </p>
 <script type="math/tex; mode=display">
@@ -647,7 +647,7 @@ s.t. \quad \quad y_i*\left ( \omega ^{T}x_i+b \right) \geqslant 1,i=1,2,...,n</s
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现/" title="支持向量机的原理及python实现">http://cxx0822.github.io/2019/08/11/支持向量机的原理及python实现/</a>
+    <a href="http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现/" title="支持向量机的原理及python实现">http://chenxiuxiang.gitee.io/cxx0822/2019/08/11/支持向量机的原理及python实现/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -1863,14 +1863,7 @@ if(canvas.getContext){
       }, 300);
     }).append(e);
   })
-</script>
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1887,7 +1880,14 @@ if(canvas.getContext){
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>

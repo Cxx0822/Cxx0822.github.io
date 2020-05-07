@@ -153,16 +153,16 @@
   <meta name="description" content="推导式&amp;emsp;&amp;emsp;推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。    列表推导式1[expression for item in iterable if condition] &amp;emsp;&amp;emsp;例：1num = [num + 1 for num in range(0, 5) if num">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python高级编程">
-<meta property="og:url" content="http://cxx0822.github.io/2019/04/25/python高级编程/index.html">
+<meta property="og:url" content="http://chenxiuxiang.gitee.io/cxx0822/2019/04/25/python高级编程/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="推导式&amp;emsp;&amp;emsp;推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。    列表推导式1[expression for item in iterable if condition] &amp;emsp;&amp;emsp;例：1num = [num + 1 for num in range(0, 5) if num">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://cxx0822.github.io/2019/04/25/python高级编程//关系图.png">
+<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/04/25/python高级编程//关系图.png">
 <meta property="og:updated_time" content="2020-01-09T07:20:40.578Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python高级编程">
 <meta name="twitter:description" content="推导式&amp;emsp;&amp;emsp;推导式comprehensions（又称解析式），是Python的一种独有特性。推导式是可以从一个数据序列构建另一个新的数据序列的结构体。    列表推导式1[expression for item in iterable if condition] &amp;emsp;&amp;emsp;例：1num = [num + 1 for num in range(0, 5) if num">
-<meta name="twitter:image" content="http://cxx0822.github.io/2019/04/25/python高级编程//关系图.png">
+<meta name="twitter:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/04/25/python高级编程//关系图.png">
 
 
 
@@ -170,7 +170,7 @@
 
   
   
-  <link rel="canonical" href="http://cxx0822.github.io/2019/04/25/python高级编程/">
+  <link rel="canonical" href="http://chenxiuxiang.gitee.io/cxx0822/2019/04/25/python高级编程/">
 
 
 
@@ -411,7 +411,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2019/04/25/python高级编程/">
+    <link itemprop="mainEntityOfPage" href="http://chenxiuxiang.gitee.io/cxx0822/2019/04/25/python高级编程/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
@@ -574,7 +574,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <h3 id="集合推导式"><a href="#集合推导式" class="headerlink" title="集合推导式"></a>集合推导式</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;expression <span class="keyword">for</span> expression <span class="keyword">in</span> iterable <span class="keyword">if</span> condition&#125;</span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;例：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">A = [<span class="string">"apple"</span>, <span class="string">"orange"</span>, <span class="string">"banana"</span>, <span class="string">"pear"</span>]</span><br><span class="line">A = &#123;len(s) <span class="keyword">for</span> s <span class="keyword">in</span> A&#125;</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;程序输出：<br><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[<span class="number">5</span>, <span class="number">6</span>, <span class="number">6</span>, <span class="number">4</span>]</span><br></pre></td></tr></table></figure></p>
-<h2 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;可迭代对象：实现了<code>__iter__()</code>方法的对象都是可迭代对象。如果没有实现<code>__iter__</code>而实现了<code>__getitem__</code>方法，并且其参数是从零开始的索引，这种对象，如序列，也是可迭代的。<br><img src="/2019/04/25/python高级编程/\关系图.png" alt="data"><br>&emsp;&emsp;迭代器：实现了<code>__iter__</code>和<code>__next__()</code>方法的对象都是迭代器。<br>&emsp;&emsp;由定义可知，除了内置的序列和字典之外，我们还可以自己定义可迭代对象。   </p>
+<h2 id="可迭代对象"><a href="#可迭代对象" class="headerlink" title="可迭代对象"></a>可迭代对象</h2><h3 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h3><p>&emsp;&emsp;可迭代对象：实现了<code>__iter__()</code>方法的对象都是可迭代对象。如果没有实现<code>__iter__</code>而实现了<code>__getitem__</code>方法，并且其参数是从零开始的索引，这种对象，如序列，也是可迭代的。<br><img src="/cxx0822/2019/04/25/python高级编程/\关系图.png" alt="data"><br>&emsp;&emsp;迭代器：实现了<code>__iter__</code>和<code>__next__()</code>方法的对象都是迭代器。<br>&emsp;&emsp;由定义可知，除了内置的序列和字典之外，我们还可以自己定义可迭代对象。   </p>
 <h3 id="iter"><a href="#iter" class="headerlink" title="iter()"></a><strong>iter</strong>()</h3><p>&emsp;&emsp;该方法返回的是当前对象的迭代器类的实例。因为可迭代对象与迭代器都要实现这个方法，因此有以下两种写法。</p>
 <ol>
 <li>用于可迭代对象类的写法，返回该可迭代对象的迭代器类的实例。</li>
@@ -657,7 +657,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://cxx0822.github.io/2019/04/25/python高级编程/" title="python高级编程">http://cxx0822.github.io/2019/04/25/python高级编程/</a>
+    <a href="http://chenxiuxiang.gitee.io/cxx0822/2019/04/25/python高级编程/" title="python高级编程">http://chenxiuxiang.gitee.io/cxx0822/2019/04/25/python高级编程/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -1873,14 +1873,7 @@ if(canvas.getContext){
       }, 300);
     }).append(e);
   })
-</script>
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -1897,7 +1890,14 @@ if(canvas.getContext){
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
