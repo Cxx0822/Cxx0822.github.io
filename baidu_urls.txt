@@ -1,3 +1,3 @@
-http://chenxiuxiang.gitee.io/cxx0822/2020/05/05/Gmapping算法原理及源代码解析/
-http://chenxiuxiang.gitee.io/cxx0822/2020/04/30/ROS功能包及其应用/
-http://chenxiuxiang.gitee.io/cxx0822/2020/04/25/基于turtlebot的定位与建图/
+http://cxx0822.github.io/2020/05/05/Gmapping算法原理及源代码解析/
+http://cxx0822.github.io/2020/04/30/ROS功能包及其应用/
+http://cxx0822.github.io/2020/04/25/基于turtlebot的定位与建图/

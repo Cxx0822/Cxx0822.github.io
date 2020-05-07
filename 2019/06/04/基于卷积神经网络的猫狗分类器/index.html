@@ -153,24 +153,24 @@
   <meta name="description" content="摘要&amp;emsp;&amp;emsp;Cats vs. Dogs（猫狗大战）是Kaggle大数据竞赛某一年的一道赛题，利用给定的数据集，用算法实现猫和狗的识别。本博客设计了一个简单的两层卷积神经网络，利用TensorFlow深度学习框架进行模型训练，最终得到一个简单的二分类器。&amp;emsp;&amp;emsp;本博客从数据集开始讲起，然后通过模型搭建、模型训练和模型测试依次讲解深度学习目标检测常用的步骤，并穿插着Te">
 <meta property="og:type" content="article">
 <meta property="og:title" content="基于卷积神经网络的猫狗分类器">
-<meta property="og:url" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器/index.html">
+<meta property="og:url" content="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
 <meta property="og:description" content="摘要&amp;emsp;&amp;emsp;Cats vs. Dogs（猫狗大战）是Kaggle大数据竞赛某一年的一道赛题，利用给定的数据集，用算法实现猫和狗的识别。本博客设计了一个简单的两层卷积神经网络，利用TensorFlow深度学习框架进行模型训练，最终得到一个简单的二分类器。&amp;emsp;&amp;emsp;本博客从数据集开始讲起，然后通过模型搭建、模型训练和模型测试依次讲解深度学习目标检测常用的步骤，并穿插着Te">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//打乱数据集.png">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//读取图片机制.png">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//读取图片机制_2.gif">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//显示图片.png">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//归一化公式.png">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//参数统计.png">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//参数统计_代码.png">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//模型训练.png">
-<meta property="og:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//测试结果.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//打乱数据集.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//读取图片机制.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//读取图片机制_2.gif">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//显示图片.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//归一化公式.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//参数统计.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//参数统计_代码.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//模型训练.png">
+<meta property="og:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//测试结果.png">
 <meta property="og:updated_time" content="2019-08-04T01:38:56.502Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="基于卷积神经网络的猫狗分类器">
 <meta name="twitter:description" content="摘要&amp;emsp;&amp;emsp;Cats vs. Dogs（猫狗大战）是Kaggle大数据竞赛某一年的一道赛题，利用给定的数据集，用算法实现猫和狗的识别。本博客设计了一个简单的两层卷积神经网络，利用TensorFlow深度学习框架进行模型训练，最终得到一个简单的二分类器。&amp;emsp;&amp;emsp;本博客从数据集开始讲起，然后通过模型搭建、模型训练和模型测试依次讲解深度学习目标检测常用的步骤，并穿插着Te">
-<meta name="twitter:image" content="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//打乱数据集.png">
+<meta name="twitter:image" content="http://cxx0822.github.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器//打乱数据集.png">
 
 
 
@@ -178,7 +178,7 @@
 
   
   
-  <link rel="canonical" href="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器/">
+  <link rel="canonical" href="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/">
 
 
 
@@ -419,7 +419,7 @@ WIDGET = {FID: 'H94fFEffHo'}
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器/">
+    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cxx">
@@ -958,7 +958,7 @@ def training():
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
     
-    <a href="http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器/" title="基于卷积神经网络的猫狗分类器">http://chenxiuxiang.gitee.io/cxx0822/2019/06/04/基于卷积神经网络的猫狗分类器/</a>
+    <a href="http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/" title="基于卷积神经网络的猫狗分类器">http://cxx0822.github.io/2019/06/04/基于卷积神经网络的猫狗分类器/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
@@ -2174,14 +2174,7 @@ if(canvas.getContext){
       }, 300);
     }).append(e);
   })
-</script>
-
-
-  
-
-  
-
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
 </script>
@@ -2198,7 +2191,14 @@ if(canvas.getContext){
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
 </script>
 <!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<!-- hexo-inject:end -->
+
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
