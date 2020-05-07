@@ -1942,7 +1942,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #cbff0b;
+  background: #fe33ff;
 }
 .feed-link,
 .chat {
@@ -3191,7 +3191,7 @@ body {
   background-size: cover;
 }
 .footer {
-  background: rgba(0,0,0,0.6) none repeat scroll !important;
+  background: rgba(0,0,0,0.5) none repeat scroll !important;
 }
 .main-inner {
   background: #fff;
@@ -3262,4 +3262,14 @@ body {
   transition-duration: 0.2s;
   transition-timing-function: ease-in-out;
   transition-delay: 0s;
+}
+.hider_title {
+  cursor: pointer;
+  color: #ef4a05;
+}
+.close:before {
+  content: "▼";
+}
+.open:before {
+  content: "▲";
 }
