@@ -159,14 +159,14 @@ body {
   color: #555;
   background: #eee;
 }
-@media (max-width: 991px) {
+@media (max-width: 767px) {
   body {
     padding-right: 0 !important;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 768px) and (max-width: 991px) {
   body {
-    font-size: 16px;
+    padding-right: 0 !important;
   }
 }
 h1,
@@ -1075,6 +1075,11 @@ pre .javascript .function {
 .back-to-top:hover {
   opacity: 0.8;
 }
+@media (max-width: 991px) {
+  .back-to-top {
+    display: none;
+  }
+}
 .back-to-top.back-to-top-on {
   visibility: visible;
   transition-duration: 0.2s;
@@ -1925,6 +1930,7 @@ pre .javascript .function {
   .sidebar-toggle {
     opacity: 0.8;
     right: 20px;
+    display: none;
   }
 }
 .sidebar-toggle-line {
@@ -1993,7 +1999,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #20ffff;
+  background: #0bb1a4;
 }
 .feed-link,
 .chat {
@@ -3351,7 +3357,7 @@ code {
   border-radius: 4px;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #ffff69;
+  color: #28c298;
 }
 .busuanzi-value {
   color: #da70d6;
