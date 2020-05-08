@@ -1999,7 +1999,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #423405;
+  background: #ba3db4;
 }
 .feed-link,
 .chat {
@@ -2768,13 +2768,13 @@ ul.breadcrumb li+li:last-child {
   padding-right: 260px;
 }
 header {
-  width: 80% !important;
+  width: 90% !important;
 }
 header.post-header {
   width: auto !important;
 }
 .container .main-inner {
-  width: 80%;
+  width: 90%;
 }
 .content-wrap {
   width: calc(100% - 260px);
@@ -3213,7 +3213,7 @@ code {
   border-radius: 4px;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #ffff24;
+  color: #ff25ff;
 }
 .busuanzi-value {
   color: #da70d6;
