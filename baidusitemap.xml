@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://cxx0822.github.io/2018/11/09/matlab-de-gui-xiao-you-xi-ni-hua-wo-cai/</loc>
+    <lastmod>2020-05-08</lastmod>
+  </url>  <url>
+    <loc>http://cxx0822.github.io/2019/03/20/nao-bi-sai-shi-jue-xi-tong-she-ji-python-chu-ji-ban/</loc>
+    <lastmod>2020-05-08</lastmod>
+  </url>  <url>
+    <loc>http://cxx0822.github.io/2019/04/27/nao-bi-sai-shi-jue-xi-tong-she-ji-python-gao-ji-ban/</loc>
+    <lastmod>2020-05-08</lastmod>
+  </url>  <url>
+    <loc>http://cxx0822.github.io/2018/11/08/nao-gao-er-fu-bi-sai-python-chu-ji-ban/</loc>
+    <lastmod>2020-05-08</lastmod>
+  </url>  <url>
+    <loc>http://cxx0822.github.io/2018/12/17/nao-gao-er-fu-bi-sai-python-ti-gao-ban/</loc>
+    <lastmod>2020-05-08</lastmod>
+  </url>  <url>
+    <loc>http://cxx0822.github.io/2019/06/23/ji-yu-yolo-de-mu-biao-jian-ce/</loc>
+    <lastmod>2020-05-08</lastmod>
+  </url>  <url>
     <loc>http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/</loc>
     <lastmod>2020-05-08</lastmod>
   </url>  <url>
@@ -43,9 +61,6 @@
     <loc>http://cxx0822.github.io/2019/04/25/python-gao-ji-bian-cheng/</loc>
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
-    <loc>http://cxx0822.github.io/2018/11/09/matlab-de-gui-xiao-you-xi-ni-hua-wo-cai/</loc>
-    <lastmod>2020-01-09</lastmod>
-  </url>  <url>
     <loc>http://cxx0822.github.io/2019/03/05/linux-de-wen-jian-yu-mu-lu/</loc>
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
@@ -59,9 +74,6 @@
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2019/11/11/cartographer-de-yuan-li-yu-ying-yong/</loc>
-    <lastmod>2020-01-09</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2019/06/23/ji-yu-yolo-de-mu-biao-jian-ce/</loc>
     <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2019/01/05/jiang-hexo-bo-ke-zhuan-yi-dao-ling-yi-tai-dian-nao/</loc>
@@ -88,23 +100,11 @@
     <loc>http://cxx0822.github.io/2018/12/24/bei-xie-si-suan-fa/</loc>
     <lastmod>2019-06-29</lastmod>
   </url>  <url>
-    <loc>http://cxx0822.github.io/2019/04/27/nao-bi-sai-shi-jue-xi-tong-she-ji-python-gao-ji-ban/</loc>
-    <lastmod>2019-05-23</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2019/03/20/nao-bi-sai-shi-jue-xi-tong-she-ji-python-chu-ji-ban/</loc>
-    <lastmod>2019-05-22</lastmod>
-  </url>  <url>
     <loc>http://cxx0822.github.io/2019/03/15/c-chong-nan-dian-chong-zai-yu-mo-ban/</loc>
     <lastmod>2019-04-16</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2019/03/12/c-chong-nan-dian-you-yuan/</loc>
     <lastmod>2019-04-16</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2018/11/08/nao-gao-er-fu-bi-sai-python-chu-ji-ban/</loc>
-    <lastmod>2019-03-20</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2018/12/17/nao-gao-er-fu-bi-sai-python-ti-gao-ban/</loc>
-    <lastmod>2019-03-20</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2019/03/07/c-chong-nan-dian-xu-han-shu-yu-xu-ji-cheng/</loc>
     <lastmod>2019-03-12</lastmod>
