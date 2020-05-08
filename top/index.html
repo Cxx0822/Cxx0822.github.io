@@ -150,17 +150,17 @@
 
 
 
-  <meta name="description" content="AV.initialize(&quot;7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz&quot;, &quot;vsGiLpHSGoRkai2uNgwVim1S&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
+  <meta name="description" content="firebase.initializeApp({       apiKey: &apos;AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4&apos;, //你的apiKey       projectId: &apos;cxx0822-7221e&apos;  //你的projectId    })     var title= &apos;&apos;;    var count = 0;">
 <meta property="og:type" content="website">
-<meta property="og:title" content="NJTECH_cxx">
+<meta property="og:title" content="文章热度排行">
 <meta property="og:url" content="http://cxx0822.github.io/top/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
-<meta property="og:description" content="AV.initialize(&quot;7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz&quot;, &quot;vsGiLpHSGoRkai2uNgwVim1S&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
+<meta property="og:description" content="firebase.initializeApp({       apiKey: &apos;AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4&apos;, //你的apiKey       projectId: &apos;cxx0822-7221e&apos;  //你的projectId    })     var title= &apos;&apos;;    var count = 0;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-05-08T11:11:01.205Z">
+<meta property="og:updated_time" content="2020-05-08T12:35:54.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NJTECH_cxx">
-<meta name="twitter:description" content="AV.initialize(&quot;7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz&quot;, &quot;vsGiLpHSGoRkai2uNgwVim1S&quot;);    var time=0   var title=&quot;&quot;   var url=&quot;&quot;   var query = new AV.Query(&apos;Counter&apos;);   query.notEqualTo(&apos;id&apos;,0);   query.d">
+<meta name="twitter:title" content="文章热度排行">
+<meta name="twitter:description" content="firebase.initializeApp({       apiKey: &apos;AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4&apos;, //你的apiKey       projectId: &apos;cxx0822-7221e&apos;  //你的projectId    })     var title= &apos;&apos;;    var count = 0;">
 
 
 
@@ -178,7 +178,7 @@
   };
 </script>
 
-  <title> | NJTECH_cxx</title>
+  <title>文章热度排行 | NJTECH_cxx</title>
   
 
 
@@ -443,7 +443,7 @@ WIDGET = {FID: 'H94fFEffHo'}
     <div class="post-block page">
       <header class="post-header">
 
-<h1 class="post-title" itemprop="name headline">
+<h1 class="post-title" itemprop="name headline">文章热度排行
 
 </h1>
 
@@ -463,30 +463,42 @@ WIDGET = {FID: 'H94fFEffHo'}
       <div class="post-body">
         
         
-          <p><div id="top"></div></p>
-<script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-<script>AV.initialize("7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz", "vsGiLpHSGoRkai2uNgwVim1S");</script>
-<script type="text/javascript">
-  var time=0
-  var title=""
-  var url=""
-  var query = new AV.Query('Counter');
-  query.notEqualTo('id',0);
-  query.descending('time');
-  query.limit(1000);
-  query.find().then(function (todo) {
-    for (var i=0;i<1000;i++){
-      var result=todo[i].attributes;
-      time=result.time;
-      title=result.title;
-      url=result.url;
-      // var content="<a href='"+"https://hoxis.github.io"+url+"'>"+title+"</a>"+"<br>"+"<font color='#fff'>"+"阅读次数："+time+"</font>"+"<br><br>";
-      var content="<p>"+"<font color='#1C1C1C'>"+"【文章热度:"+time+"℃】"+"</font>"+"<a href='"+"https://Cxx0822.github.io"+url+"'>"+title+"</a>"+"</p>";
-      document.getElementById("top").innerHTML+=content
-    }
-  }, function (error) {
-    console.log("error");
-  });
+          <div id="top" style="margin-top:80px;">
+
+</div>
+
+<!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-app.js"></script>
+
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-database.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/5.10.1/firebase-firestore.js"></script>
+
+<script>
+
+  firebase.initializeApp({
+      apiKey: 'AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4', //你的apiKey
+      projectId: 'cxx0822-7221e'  //你的projectId
+   })
+
+   var title= '';
+   var count = 0;
+   var url = '';
+   const db = firebase.firestore();
+   var collection =  'articles'; //主题配置文件配置的collection //';
+   db.collection(collection).orderBy('count', 'desc').limit(10).get().then((querySnapshot) => {
+       querySnapshot.forEach((doc) => {
+       //  console.log(doc.id, " => ", doc.data());
+           title = doc.id;
+           count = doc.data().count;
+           url = doc.data().url;
+           var content="<h5><p>"+"<font color='#1C1C1C'>"+"【文章热度: "+count+" ℃】"+"</font>" + '&emsp;&emsp;' + "<span'><a href='"+url+"'>"+title+"</a></span>"+"</p></h5>";
+           document.getElementById("top").innerHTML+=content
+       });
+   });
+
 </script>
         
       </div>
@@ -1542,6 +1554,137 @@ if(canvas.getContext){
   
 
   
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: 'AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4',
+        projectId: 'cxx0822-7221e'
+      })
+
+      function getCount(doc, url, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1,
+                'url': url
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+               // $('<i>').addClass('fa fa-users')
+                $('<i>').addClass('fa fa-eye')
+              )
+              ).append($('<span>').text('热度 ' + count + ' 次'))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/zh-tw/docs/variables.html
+      var isPost = '文章热度排行'.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      var urlPath = 'top/index.html';
+      var urlFullPath = 'http://cxx0822.github.io/top/index.html';
+      var indexPath = 'index.html'; //首页链接
+      var isMenu = false;
+      
+         
+         var menuLink = '/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/categories/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/archives/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/hot/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+
+    //  if (isPost) { //is article page
+      if (!isMenu) { // 非菜单页、非主页（即在某篇文章链接里）
+        var title = '文章热度排行'
+        var doc = articles.doc(title)
+
+      //  getCount(doc, true).then(appendCountTo($('.post-meta')))
+        getCount(doc, urlFullPath, true).then(appendCountTo($('.post-wordcount')))
+      }
+     // else if (!isArchive && !isCategory && !isTag) { //is index page
+      else if (urlPath == indexPath) { // 主页
+        var titles = [] //array to titles
+
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          // var metas = $('.post-meta')
+          var metas = $('.post-wordcount')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
 
   
 
