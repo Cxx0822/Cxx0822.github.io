@@ -3,23 +3,28 @@ const ap = new APlayer({
     fixed: true,
     autoplay: false,
     audio: [
-      {
-        name: "PDD洪荒之力",
-        artist: '徐梦圆',
-        url: 'http://up.mcyt.net/?down/39868.mp3',
-        cover: 'http://oeff2vktt.bkt.clouddn.com/image/84.jpg',
+	  {
+        name: '断点',
+        artist: '张敬轩',
+        url: 'http://music.163.com/song/media/outer/url?id=189323.mp3',
+        cover: 'http://p1.music.126.net/UwB8YHn4BWODYj_CuGt37w==/109951163520357845.jpg',
       },
-      {
-        name: '9420',
-        artist: '麦小兜',
-        url: 'http://up.mcyt.net/?down/45967.mp3',
-        cover: 'http://oeff2vktt.bkt.clouddn.com/image/8.jpg',
+  
+	  
+	  {
+        name: '回梦游仙',
+        artist: '骆集益',
+        url: 'http://music.163.com/song/media/outer/url?id=28786838.mp3',
+        cover: 'http://p2.music.126.net/0pni7yz15rknO9gE-9gJGQ==/18763165929885295.jpg',
       },
+
       {
-        name: '风筝误',
-        artist: '刘珂矣',
-        url: 'http://up.mcyt.net/?down/46644.mp3',
-        cover: 'http://oeff2vktt.bkt.clouddn.com/image/96.jpg',
+        name: '千年缘',
+        artist: '心然',
+        url: 'http://music.163.com/song/media/outer/url?id=314315.mp3',
+        cover: 'http://p1.music.126.net/dQl5FK6hkjrrr5Ph6tBbkQ==/18778559092796622.jpg',
       }
+
     ]
 });
+
