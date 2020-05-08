@@ -1824,7 +1824,7 @@ pre .javascript .function {
   text-align: center;
   word-break: break-word;
   font-weight: 400;
-  background-color: #b9d3ee;
+  background-color: #87cefa;
   border-radius: 0.3em;
   line-height: 1em;
   padding-bottom: 0.12em;
@@ -1999,7 +1999,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3794b5;
+  background: #c94b28;
 }
 .feed-link,
 .chat {
@@ -3121,11 +3121,11 @@ header.post-header {
   border-bottom: 1px solid #fc6423;
 }
 ::selection {
-  background: #00c4b6;
+  background: #87cefa;
   color: #f7f7f7;
 }
 ::-moz-selection {
-  background: #00c4b6;
+  background: #87cefa;
   color: #f7f7f7;
 }
 .post-toc .nav .nav-child {
@@ -3136,30 +3136,30 @@ header.post-header {
 }
 .headband {
   height: 3px;
-  background: #49b1f5;
+  background: #87cefa;
 }
 .site-meta {
   padding: 20px 0;
-  color: #fff;
-  background: #49b1f5;
+  color: #000;
+  background: #87cefa;
 }
 .site-subtitle {
   margin-top: 10px;
   font-size: 13px;
-  color: #fff;
+  color: #000;
 }
 .footer-inner {
   color: #000;
 }
 .btn {
-  color: #49b1f5;
+  color: #87cefa;
   background: #fff;
-  border: 2px solid #49b1f5;
+  border: 2px solid #87cefa;
 }
 .btn:hover {
-  border-color: #49b1f5;
+  border-color: #87cefa;
   color: #fff;
-  background: #49b1f5;
+  background: #87cefa;
 }
 .posts-expand .post-title-link::before {
   content: "";
@@ -3168,7 +3168,7 @@ header.post-header {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #49b1f5;
+  background-color: #87cefa;
   visibility: hidden;
   -webkit-transform: scaleX(0);
   -moz-transform: scaleX(0);
@@ -3213,7 +3213,7 @@ code {
   border-radius: 4px;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #ffc300;
+  color: #cf58d5;
 }
 .busuanzi-value {
   color: #da70d6;
