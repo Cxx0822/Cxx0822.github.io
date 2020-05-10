@@ -1809,6 +1809,16 @@ pre .javascript .function {
 .rtl.post-title {
   font-family: UKIJ Ekran;
 }
+.reading-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #87CEFA;
+}
 .post-body p a {
   color: #0593d3;
   border-bottom: none;
@@ -1999,7 +2009,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #1a17bf;
+  background: #9affff;
 }
 .feed-link,
 .chat {
@@ -3232,7 +3242,7 @@ code {
   border-radius: 4px;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #0062ab;
+  color: #ff7cfb;
 }
 .busuanzi-value {
   color: #da70d6;
