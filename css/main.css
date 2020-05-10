@@ -1999,7 +1999,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e2776c;
+  background: #b0449c;
 }
 .feed-link,
 .chat {
@@ -3213,7 +3213,7 @@ code {
   border-radius: 4px;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #25796b;
+  color: #d4ff47;
 }
 .busuanzi-value {
   color: #da70d6;
