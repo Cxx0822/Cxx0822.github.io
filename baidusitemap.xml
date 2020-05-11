@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://cxx0822.github.io/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/</loc>
+    <lastmod>2020-05-11</lastmod>
+  </url>  <url>
     <loc>http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/</loc>
+    <lastmod>2020-05-11</lastmod>
+  </url>  <url>
+    <loc>http://cxx0822.github.io/2018/11/08/fang-ren-qi-dong-shou-bi-ying-jian-lian-jie-tu/</loc>
     <lastmod>2020-05-11</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi/</loc>
@@ -33,12 +39,6 @@
   </url>  <url>
     <loc>http://cxx0822.github.io/2020/03/13/wu-ren-qing-ji-che/</loc>
     <lastmod>2020-05-08</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2018/11/08/fang-ren-qi-dong-shou-bi-ying-jian-lian-jie-tu/</loc>
-    <lastmod>2020-04-21</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/</loc>
-    <lastmod>2020-03-20</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2019/02/26/ji-yu-ubuntu-xi-tong-de-nao-kai-fa-01-an-zhuang-xi-tong-bing-pei-zhi-python-huan-jing/</loc>
     <lastmod>2020-01-09</lastmod>
