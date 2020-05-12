@@ -197,7 +197,7 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong//serviceCMake.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong//serviceCMake2.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong//service运行.png">
-<meta property="og:updated_time" content="2020-05-10T09:14:45.750Z">
+<meta property="og:updated_time" content="2020-05-12T06:20:17.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS功能包及其应用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;ROS Kinetic Kame 环境配置&amp;emsp;&amp;emsp;具体详见该博客    创建工作空间Work Space&amp;emsp;&amp;emsp;首先创建ROS的工作空间，一般创建在Home目录下，使用命令行或者右击创建文件夹均可。例如，我在Home文件夹下创建一个名为cxx_ws(也可以是其他名字)的工作空间。&amp;emsp;&amp;">
@@ -550,7 +550,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-10 17:14:45" itemprop="dateModified" datetime="2020-05-10T17:14:45+08:00">2020-05-10</time>
+                <time title="修改时间：2020-05-12 14:20:17" itemprop="dateModified" datetime="2020-05-12T14:20:17+08:00">2020-05-12</time>
               
             
           </span>
@@ -618,7 +618,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                 <!-- <span title="本文字数">39k</span> -->
 			  <span title="本文字数">
-                  4,846字
+                  5,099字
                 </span>
               
 
@@ -666,7 +666,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <h1 id="创建功能包package"><a href="#创建功能包package" class="headerlink" title="创建功能包package"></a>创建功能包package</h1><p>&emsp;&emsp;<code>ROS</code>功能包<code>package</code>指的是一种特定的文件结构和文件夹组成。工程文件夹下的<code>src</code>文件夹由一个个<code>package</code>功能包组成，一个功能包中可以包含一个或多个节点的文件。               </p>
 <h2 id="创建package"><a href="#创建package" class="headerlink" title="创建package"></a>创建package</h2><p>&emsp;&emsp;创建功能包的指令为：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">catkin_create_pkg</span> &lt;<span class="selector-tag">package_name</span>&gt; <span class="selector-attr">[depend1]</span> <span class="selector-attr">[depend2]</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;<code>package_name</code>为包名，<code>depend</code>为依赖包名。<br>&emsp;&emsp;进入<code>src</code>文件夹，创建<code>hello</code>功能包。<br><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">cd</span> <span class="string">src</span></span><br><span class="line"><span class="attr">catkin_create_pkg</span> <span class="string">hello std_msgs roscpp</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;刷新环境变量：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ..</span><br><span class="line">catkin_make</span><br><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;回到工作空间并编译：<br><figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">cd</span></span> ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/\创建功能包.png" alt="创建功能包"><br>&emsp;&emsp;注：同一个工作空间下，不允许存在同名功能包，不同工作空间下，允许存在同名功能包。功能包名字只能使用小写字母、数字和下划线，首字符必须是小写字母。<br>&emsp;&emsp;<code>std_msgs</code>包含了常见消息类型。<code>roscpp</code>使用C++实现<code>ROS</code>的各种功能，提供了一个客户端库。<br>&emsp;&emsp;创建完成的功能包一般会自带<code>include</code>、<code>src</code>、<code>CMakeList.txt</code>和<code>package.xml</code>文件。   </p>
 <h2 id="package详解"><a href="#package详解" class="headerlink" title="package详解"></a>package详解</h2><p>&emsp;&emsp;通常，一个完整的<code>package</code>由以下几个部分组成：   </p>
 <ol>
@@ -731,7 +731,11 @@ WIDGET = {FID: 'H94fFEffHo'}
 <p>&emsp;&emsp;进入工程文件夹下，使用<code>catkin_make</code>编译。编译完成后，可以进入<code>devel/lib/hello</code>文件夹下面看到新生成的<code>hello_server</code>和<code>hello_client</code>可执行文件。<br>&emsp;&emsp;首先打开节点管理器<code>roscore</code>，然后分别打开2个终端，运行指令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun hello hello_server</span></span><br></pre></td></tr></table></figure></p>
 <figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun hello hello_client</span></span><br></pre></td></tr></table></figure>
 <p>&emsp;&emsp;要先打开<code>server</code>节点程序，然后再打开<code>client</code>节点。<br><img src="/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/\service运行.png" alt="运行service节点"><br>&emsp;&emsp;<code>service</code>消息只会在<code>client</code>开启时才会调用，且调用完后立即结束，而<code>topic</code>会一直发送消息。      </p>
-<h1 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h1><p>&emsp;&emsp;<code>ros</code>中<code>node</code>是最基本也是最小的一个单元，一个<code>node</code>就是一个<code>main()</code>函数，也就是一个可执行文件，而每个<code>package</code>则是由若干个<code>node</code>组成的一个功能包，最后一个个<code>package</code>组成了整个工程文件。因此，实际的工程项目最基础的还是基本功能的编写，<code>ros</code>系统只是一个上层的封装，可以更便于操纵传感器等硬件，是硬件和软件之间的一层系统，所以叫做机器人操作系统，但其本身又不像<code>windows</code>或者<code>Ubuntu</code>那样强大，只是针对机器人硬件进行了封装，所以还必须要依附在<code>Ubuntu</code>上面(据说现在也可以在<code>windows</code>上面安装了，具体还没有试过)。<br>&emsp;&emsp;个人觉得<code>ros</code>中有2个概念非常重要，一个是消息通讯，一个是<code>launch</code>文件，其余的概念接触过<code>C++</code>或者<code>python</code>都可以很快的理解。     </p>
+<h1 id="个人理解"><a href="#个人理解" class="headerlink" title="个人理解"></a>个人理解</h1><ol>
+<li><code>ros</code>中<code>node</code>是最基本也是最小的一个单元，一个<code>node</code>就是一个<code>main()</code>函数，也就是一个可执行文件，而每个<code>package</code>则是由若干个<code>node</code>组成的一个功能包，最后一个个<code>package</code>组成了整个工程文件。因此，实际的工程项目最基础的还是基本功能的编写，<code>ros</code>系统只是一个上层的封装，可以更便于操纵传感器等硬件，是硬件和软件之间的一层系统，所以叫做机器人操作系统，但其本身又不像<code>windows</code>或者<code>Ubuntu</code>那样强大，只是针对机器人硬件进行了封装，所以还必须要依附在<code>Ubuntu</code>上面(据说现在也可以在<code>windows</code>上面安装了，具体还没有试过)。     </li>
+<li>创建完任何一个<code>ROS</code>工程空间，首先要做2件事情，1.编译工作空间；2.添加环境。环境变量添加一次即可，每次修改包里面的内容时都要重新回到工作空间编译，使其生效。编译工作空间的本质就是生成一些库文件、可执行文件，而其工具就是<code>CMake</code>这个交叉编译工具，也就是说通过<code>CMake</code>这个工具(在<code>ros</code>里面就是输入<code>catkin_make</code>)，根据一定的规则和说明文件(在<code>ros</code>里面就是<code>CMakeLists.txt</code>文件)，将<code>package</code>里面的文件转换为其他文件，例如将<code>src</code>里面的<code>.cpp</code>文件转为<code>.exe</code>文件(因为计算机最终执行的是二进制文件，也就是<code>.exe</code>文件，而<code>.cpp</code>文件属于高级语言，是人看的)，将<code>msg</code>里面的文件转为<code>lib</code>里面的文件，等等。在通俗的讲，就是讲我们看的东西转换为计算机看的东西。             </li>
+<li>个人觉得<code>ros</code>中有2个概念非常重要，一个是消息通讯，一个是<code>launch</code>文件，其余的概念接触过<code>C++</code>或者<code>python</code>都可以很快的理解。     </li>
+</ol>
 <h1 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h1><p><a href="https://blog.csdn.net/weixin_41070687/article/details/82079308" target="_blank" rel="noopener">博客1</a> <a href="https://www.jianshu.com/p/42207bdd0a2e" target="_blank" rel="noopener">博客2</a> <a href="https://www.cnblogs.com/linuxAndMcu/p/10571643.html" target="_blank" rel="noopener">博客3</a><br><a href="https://www.jianshu.com/p/e55850b87c7d" target="_blank" rel="noopener">博客4</a> <a href="https://blog.csdn.net/lingchen2348/article/details/79661114" target="_blank" rel="noopener">博客5</a><br><a href="https://blog.csdn.net/qq_32761549/article/details/99984944" target="_blank" rel="noopener">博客6</a>      </p>
 
       
@@ -1413,7 +1417,7 @@ if(canvas.getContext){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共106.9k字</span>
+  <span class="post-count">博客全站共107.7k字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -2093,6 +2097,13 @@ if(canvas.getContext){
   </script>
 
   
+  
+
+  
+  
+
+  
+
 
   
 
@@ -2354,28 +2365,11 @@ if(canvas.getContext){
   function back2top(){
     $('html, body').animate({scrollTop: 0}, 500);
   }
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
    
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>

@@ -178,7 +178,7 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong//ROS版本.png">
 <meta property="og:image" content="http://cxx0822.github.io/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong//turtle测试.png">
 <meta property="og:image" content="http://cxx0822.github.io/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong//ping测试.png">
-<meta property="og:updated_time" content="2020-05-11T10:31:14.897Z">
+<meta property="og:updated_time" content="2020-05-12T06:06:20.171Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ROS的安装及简单使用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu 16.04    ROS简介&amp;emsp;&amp;emsp;ROS即机器人操作系统(Robot Operating System)，ROS系统是起源于2007年斯坦福大学人工智能实验室的项目与机器人技术公司Willow Garage的个人机器人项目之间的合作，2008年之后就由Willow Garage来进行推动。2010年Willow Garage公司发布了开源">
@@ -522,7 +522,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-11 18:31:14" itemprop="dateModified" datetime="2020-05-11T18:31:14+08:00">2020-05-11</time>
+                <time title="修改时间：2020-05-12 14:06:20" itemprop="dateModified" datetime="2020-05-12T14:06:20+08:00">2020-05-12</time>
               
             
           </span>
@@ -588,9 +588,9 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <!-- <span title="本文字数">20k</span> -->
+                <!-- <span title="本文字数">21k</span> -->
 			  <span title="本文字数">
-                  1,832字
+                  1,966字
                 </span>
               
 
@@ -627,23 +627,26 @@ WIDGET = {FID: 'H94fFEffHo'}
 
       
         <h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>&emsp;&emsp;Ubuntu 16.04   </p>
-<h1 id="ROS简介"><a href="#ROS简介" class="headerlink" title="ROS简介"></a>ROS简介</h1><p>&emsp;&emsp;ROS即机器人操作系统(Robot Operating System)，ROS系统是起源于2007年斯坦福大学人工智能实验室的项目与机器人技术公司<code>Willow Garage</code>的个人机器人项目之间的合作，2008年之后就由<code>Willow Garage</code>来进行推动。2010年<code>Willow Garage</code>公司发布了开源机器人操作系统ROS。<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\ROS生态系统.png" alt="data"><br>&emsp;&emsp;ROS是面向机器人的开源的元操作系统(meta-operatingsystem)。它能够提供类似传统操作系统的诸多功能，如硬件抽象、底层设备控制、常用功能实现、进程间消息传递和程序包管理等。此外，它还提供相关工具和库，用于获取、编译、编辑代码以及在多个计算机之间运行程序完成分布式计算。<br>&emsp;&emsp;目前主流的ROS版本如下：<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\ROS版本.png" alt="data"><br>&emsp;&emsp;本博客采用的是<code>Kinetic Kame</code>版本，也是目前为止(2019年)较为稳定的一个版本。     </p>
-<h1 id="ROS安装"><a href="#ROS安装" class="headerlink" title="ROS安装"></a>ROS安装</h1><h2 id="安装-Ubuntu-16-04"><a href="#安装-Ubuntu-16-04" class="headerlink" title="安装 Ubuntu 16.04"></a>安装 Ubuntu 16.04</h2><p>&emsp;&emsp;首先安装好Ubuntu 16.04。(中英文皆可)      </p>
-<h2 id="设置-sources-list"><a href="#设置-sources-list" class="headerlink" title="设置 sources.list"></a>设置 sources.list</h2><p>&emsp;&emsp;为Ubuntu的包管理器增加源，设置计算机接受来自于 <code>packages.ros.org</code>的软件。<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="symbol">'echo</span> <span class="string">"deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"</span> &gt; /etc/apt/sources.<span class="built_in">list</span>.d/ros-latest.list'</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;这一步会根据Ubuntu Linux发行版本的不同，添加不同的源。Ubuntu的版本通过<code>lsb_release -sc</code>获得。一旦添加了正确的软件库，操作系统就知道去哪里下载程序，并根据命令自动安装软件。     </p>
+<h1 id="ROS简介"><a href="#ROS简介" class="headerlink" title="ROS简介"></a>ROS简介</h1><p>&emsp;&emsp;<code>ROS</code>即机器人操作系统(<code>Robot Operating System</code>)，<code>ROS</code>系统是起源于<code>2007</code>年斯坦福大学人工智能实验室的项目与机器人技术公司<code>Willow Garage</code>的个人机器人项目之间的合作，<code>2008</code>年之后就由<code>Willow Garage</code>来进行推动。2010年<code>Willow Garage</code>公司发布了开源机器人操作系统<code>ROS</code>。<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\ROS生态系统.png" alt="ROS生态系统"><br>&emsp;&emsp;<code>ROS</code>是面向机器人的开源的元操作系统(<code>meta-operatingsystem</code>)。它能够提供类似传统操作系统的诸多功能，如硬件抽象、底层设备控制、常用功能实现、进程间消息传递和程序包管理等。此外，它还提供相关工具和库，用于获取、编译、编辑代码以及在多个计算机之间运行程序完成分布式计算。<br>&emsp;&emsp;目前主流的<code>ROS</code>版本如下：<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\ROS版本.png" alt="ROS版本"><br>&emsp;&emsp;本博客采用的是<code>Kinetic Kame</code>版本，也是目前为止(<code>2019</code>年)较为稳定的一个版本。       </p>
+<h1 id="ROS安装"><a href="#ROS安装" class="headerlink" title="ROS安装"></a>ROS安装</h1><h2 id="安装-Ubuntu-16-04"><a href="#安装-Ubuntu-16-04" class="headerlink" title="安装 Ubuntu 16.04"></a>安装 Ubuntu 16.04</h2><p>&emsp;&emsp;首先安装好<code>Ubuntu 16.04</code>。(中英文皆可)      </p>
+<h2 id="设置-sources-list"><a href="#设置-sources-list" class="headerlink" title="设置 sources.list"></a>设置 sources.list</h2><p>&emsp;&emsp;为<code>Ubuntu</code>的包管理器增加源，设置计算机接受来自于 <code>packages.ros.org</code>的软件。<br><figure class="highlight sml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh -c <span class="symbol">'echo</span> <span class="string">"deb http://packages.ros.org/ros/ubuntu $(lsb_release -sc) main"</span> &gt; /etc/apt/sources.<span class="built_in">list</span>.d/ros-latest.list'</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这一步会根据<code>Ubuntu Linux</code>发行版本的不同，添加不同的源。Ubuntu的版本通过<code>lsb_release -sc</code>获得。一旦添加了正确的软件库，操作系统就知道去哪里下载程序，并根据命令自动安装软件。       </p>
 <h2 id="设置密钥"><a href="#设置密钥" class="headerlink" title="设置密钥"></a>设置密钥</h2><p>&emsp;&emsp;这一步是为了确认源代码是正确的，并且没有人在未经所有者授权的情况下，修改任何程序代码。通常情况下，当添加完软件库时，已经添加了软件库的密钥，并将其添加到操作系统的可信任列表中。<br><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">sudo </span><span class="string">apt-key </span><span class="string">adv </span><span class="built_in">--keyserver</span> <span class="string">'hkp://keyserver.ubuntu.com:80'</span> <span class="built_in">--recv-key</span> <span class="string">C1CF6E31E6BADE8868B172B4F42ED6FBAB17C654</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="检查软件更新"><a href="#检查软件更新" class="headerlink" title="检查软件更新"></a>检查软件更新</h2><p>&emsp;&emsp;确保包管理器的索引已经更新至最新。<br><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="正式安装"><a href="#正式安装" class="headerlink" title="正式安装"></a>正式安装</h2><p>&emsp;&emsp;这里安装的是桌面完整版，也是推荐安装的版本。<br><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install ros-kinetic-desktop-<span class="keyword">full</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;这一步比较耗时，耐心等待。   </p>
-<h2 id="初始化-rosdep"><a href="#初始化-rosdep" class="headerlink" title="初始化 rosdep"></a>初始化 rosdep</h2><p>&emsp;&emsp;在使用ROS之前，需要先初始化<code>rosdep</code>。<code>rosdep</code>使得你可以为你想要编译的源码，以及需要运行的 ROS 核心组件，简单地安装系统依赖。<br><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo</span> <span class="string">rosdep init</span></span><br><span class="line"><span class="attr">rosdep</span> <span class="string">update</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;注：多行命令，需依次输入，下同。   </p>
+<h2 id="初始化-rosdep"><a href="#初始化-rosdep" class="headerlink" title="初始化 rosdep"></a>初始化 rosdep</h2><p>&emsp;&emsp;在使用<code>ROS</code>之前，需要先初始化<code>rosdep</code>。<code>rosdep</code>使得你可以为你想要编译的源码，以及需要运行的<code>ROS</code>核心组件，简单地安装系统依赖。<br><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">sudo</span> <span class="string">rosdep init</span></span><br><span class="line"><span class="attr">rosdep</span> <span class="string">update</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注1：多行命令，需依次输入，下同。<br>&emsp;&emsp;注2：实际安装时，通常这里会有个报错：<br><figure class="highlight subunit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ERROR: </span>cannot download default sources list from:https://raw.githubusercontent.com/ros/rosdistro/master/rosdep/sources.list.d/20-default.list</span><br><span class="line">Website may be down.</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;导致这个错误的原因为，该链接必须要科学上网才能打开，因此，需要将其域名改为实际的<code>IP</code>地址。首先打开<code>hosts</code>文件：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit <span class="regexp">/etc/</span>hosts</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后添加以下命令：<br><figure class="highlight accesslog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">199.232.28.133</span> raw.githubusercontent.com</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后重新<code>sudo rosdep init</code>(会报一个已经存在的错误，不用管他)。    </p>
 <h2 id="环境设置"><a href="#环境设置" class="headerlink" title="环境设置"></a>环境设置</h2><p>&emsp;&emsp;如果在每次一个新的终端启动时，ROS环境变量都能自动地添加进你的<code>bash</code>会话是非常方便，这可以通过如下命令来实现：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"source /opt/ros/kinetic/setup.bash"</span> &gt;&gt; ~<span class="string">/.bashrc</span></span><br><span class="line">source ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="构建包所需的依赖"><a href="#构建包所需的依赖" class="headerlink" title="构建包所需的依赖"></a>构建包所需的依赖</h2><p>&emsp;&emsp;到这一步，应该已经安装好了运行核心ROS包的所有东西。要创建和管理你自己的<code>ROS workspace</code>，还有单独发布的许多的工具。比如，<code>rosinstall</code>是一个常用的命令行工具，使你可以通过一个命令为ROS包简单地下载许多源码树。<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-rosinstall <span class="keyword">python</span>-rosinstall-generator <span class="keyword">python</span>-wstool build-essential</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;至此，已经安装完了ROS的所有部分，下面可以进行一个简单的测试。   </p>
 <h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="启动ROS核心管理器"><a href="#启动ROS核心管理器" class="headerlink" title="启动ROS核心管理器"></a>启动ROS核心管理器</h3><p>&emsp;&emsp;打开一个终端，输入以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">roscore</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="启动乌龟仿真器节点"><a href="#启动乌龟仿真器节点" class="headerlink" title="启动乌龟仿真器节点"></a>启动乌龟仿真器节点</h3><p>&emsp;&emsp;再打开一个终端，输入以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun turtlesim turtlesim_node</span></span><br></pre></td></tr></table></figure></p>
 <h3 id="启动控制乌龟操作节点"><a href="#启动控制乌龟操作节点" class="headerlink" title="启动控制乌龟操作节点"></a>启动控制乌龟操作节点</h3><p>&emsp;&emsp;再打开一个终端，输入以下命令：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun turtlesim turtle_teleop_key</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;点击该终端，使其处于激活状态，然后按下键盘的方向键就可以看到小乌龟的运动了。<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\turtle测试.png" alt="data"> </p>
+<p>&emsp;&emsp;点击该终端，使其处于激活状态，然后按下键盘的方向键就可以看到小乌龟的运动了。<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\turtle测试.png" alt="turtle测试"> </p>
 <h1 id="ROS实例——两台计算机的通信"><a href="#ROS实例——两台计算机的通信" class="headerlink" title="ROS实例——两台计算机的通信"></a>ROS实例——两台计算机的通信</h1><h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>&emsp;&emsp;两台安装了<code>Ubuntu16.04</code>和<code>ROS kinetic</code>的计算机<br>&emsp;&emsp;路由器    </p>
 <h2 id="软件配置"><a href="#软件配置" class="headerlink" title="软件配置"></a>软件配置</h2><h3 id="安装chrony包，用于实现同步"><a href="#安装chrony包，用于实现同步" class="headerlink" title="安装chrony包，用于实现同步"></a>安装chrony包，用于实现同步</h3><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install chrony</span><br><span class="line">sudo apt-<span class="builtin-name">get</span> install ntpdate</span><br><span class="line">sudo ntpdate ntp.ubuntu.com</span><br></pre></td></tr></table></figure>
 <h3 id="安装SSH服务器库"><a href="#安装SSH服务器库" class="headerlink" title="安装SSH服务器库"></a>安装SSH服务器库</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> install openssh-server</span><br><span class="line"><span class="keyword">ps</span> -<span class="keyword">e</span>|<span class="keyword">grep</span> ssh</span><br></pre></td></tr></table></figure>
@@ -653,7 +656,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <p>2.打开bash文件：<code>sudo gedit ~/.bashrc</code>，服务器的计算机增加的内容为：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">ROS_MASTER_URL</span>=http://client_IP:11311</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">ROS_HOSTNAME</span>=server_name</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;客户端的计算机增加的内容为：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">ROS_MASTER_URL</span>=http://server_IP:11311</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">ROS_HOSTNAME</span>=client_name</span><br></pre></td></tr></table></figure></p>
 <p>3.在服务器的计算机中可以输入以下内容进行测试：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ssh server_name</span><br><span class="line">ping client_name</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;同理，客户端也可以进行测试。<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\ping测试.png" alt="data">    </p>
+<p>&emsp;&emsp;同理，客户端也可以进行测试。<br><img src="/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/\ping测试.png" alt="ping测试">    </p>
 <h2 id="编写程序"><a href="#编写程序" class="headerlink" title="编写程序"></a>编写程序</h2><h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><ol>
 <li><p>创建工作空间   </p>
 <figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~<span class="string">/catkin_ws/src</span></span><br><span class="line"><span class="keyword">cd</span> ~<span class="string">/catkin_ws/src</span></span><br><span class="line">catkin_init_workspace</span><br></pre></td></tr></table></figure>
@@ -1357,7 +1360,7 @@ if(canvas.getContext){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共106.9k字</span>
+  <span class="post-count">博客全站共107.7k字</span>
 </div>
         
 <div class="busuanzi-count">
@@ -2037,6 +2040,13 @@ if(canvas.getContext){
   </script>
 
   
+  
+
+  
+  
+
+  
+
 
   
 
@@ -2298,28 +2308,11 @@ if(canvas.getContext){
   function back2top(){
     $('html, body').animate({scrollTop: 0}, 500);
   }
-</script>
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
    
 
 
-<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
-</script>
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-    for(i=0; i < all.length; i += 1) {
-      all[i].SourceElement().parentNode.className += ' has-jax';
-    }
-  });
-</script>
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js">
-</script>
-<!-- End: Injected MathJax -->
-<!-- hexo-inject:end --></body>
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"model":{"jsonPath":"/live2dw/assets/wanko.model.json"},"display":{"position":"left","width":150,"height":300},"mobile":{"show":false},"log":false});</script></body>
 </html>
 <!-- 页面点击小红心 -->
 <script type="text/javascript" src="/js/src/clicklove.js"></script>
