@@ -296,11 +296,14 @@ export PKG_CONFIG_PATH</code><br>保存，执行如下命令使得配置生效�
 <script type="math/tex; mode=display">
 \tau =F_{2}d_{2}-F_{1}d_{1}+F_{4}d_{4}-F_{3}d_{3}</script><p>&emsp;&emsp;其中$\tau$为控制力矩，即控制律，下文的控制器设计部分会解释。$F_{i}$为单根气动人工肌肉的输出力，$d_{i}$为$F_{i}$对关节转动中心$O$的力臂。具体分别为：    </p>
 <script type="math/tex; mode=display">
-F_{i} = P\left [ a\left ( 1-\epsilon_{i}  \right )^{2} -b \right ]</script><p>&emsp;&emsp;其中$a$，$b$为常数，分别为：$a=\frac{3\pi D_{0}^{2}}{4tan^{2}\theta _{0}}$，$b=\frac{\pi D_{0}^{2}}{4sin^{2}\theta _{0}}$，$\theta _{0}$，$D _{0}$为常数。    </p>
+F_{i} = P_{i}\left [ a\left ( 1-\epsilon_{i}  \right )^{2} -b \right ]</script><p>&emsp;&emsp;其中$P_{i}$为输出气压值，$\epsilon_{i}$为收缩率，$a$，$b$为常数，分别为：$a=\frac{3\pi D_{0}^{2}}{4tan^{2}\theta _{0}}$，$b=\frac{\pi D_{0}^{2}}{4sin^{2}\theta _{0}}$，$\theta _{0}$，$D _{0}$为常数。    </p>
 <script type="math/tex; mode=display">
 d_{i}=rcos\theta</script><p>&emsp;&emsp;注：具体公式推导这里不做解释，有兴趣可以看我的论文。    </p>
-<h5 id="输出力F"><a href="#输出力F" class="headerlink" title="输出力F"></a>输出力F</h5><p>&emsp;&emsp;输出力公式由气压$P$和收缩率$/epsilon$决定，为了体现仿人手臂系统的拮抗性和仿人性，本项目采用</p>
-<h4 id="控制器设计"><a href="#控制器设计" class="headerlink" title="控制器设计"></a>控制器设计</h4>]]></content>
+<h5 id="气压的理论计算"><a href="#气压的理论计算" class="headerlink" title="气压的理论计算"></a>气压的理论计算</h5><p>&emsp;&emsp;输出力公式由气压$P$和收缩率$\epsilon$决定，为了体现仿人手臂系统的拮抗性和仿人性，本项目采用拮抗式运动方式分配气动肌肉的输入气压，即：   </p>
+<script type="math/tex; mode=display">
+P_{i}=P_{0}\pm \Delta P_{i}</script><p>&emsp;&emsp;其中$P_{i}$为每个气动肌肉的输出气压，$P_{0}$为初始气压，$\Delta P_{i}$为待定偏置气压，$\pm$表示该气动肌肉是拉伸还是收缩作用。<br>&emsp;&emsp;因此每个气压值可以计算为(这里偷懒直接截图了)：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\气压计算.png" alt="气压计算"><br>&emsp;&emsp;注：这里这是上臂的推导过程，下臂原理和其类似。        </p>
+<h4 id="气压的实际编程"><a href="#气压的实际编程" class="headerlink" title="气压的实际编程"></a>气压的实际编程</h4><p>&emsp;&emsp;对于这种设计到大量公式的编程，使用<code>LabVIEW</code>里面的<code>MathScript</code>模块最好不过了(需要单独下载，下载链接见上文)。对于实际的控制系统而已，$P_{1}$和$P_{3}$应该是随着时间的增加越来越大，也就是不断叠加$\Delta P_{i}$的过程，但增加的幅度会慢慢减小，因为控制律$\tau$在慢慢减小，也就是通常说的<code>加速度减小的加速运动</code>，直到趋于稳定。<br>&emsp;&emsp;实际的<code>LabVIEW</code>程序图如下图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\输出气压.png" alt="输出气压"><br>&emsp;&emsp;上图表示的是$P_{1}$和$P_{2}$的输出气压计算过程，其余类似。其中初始气压为<code>0.4MPa</code>。叠加$\Delta P_{i}$的过程通过<code>while</code>循环的移位寄存器实现。具体公式在中间的<code>MathScrip</code>节点。<br>&emsp;&emsp;为了保证气动人工肌肉的安全性，通过设置上下限来保证各个气压的有效范围。其中，由于$\Delta P_{2}$会随着时间会越来越小，甚至趋于<code>0</code>，因此本项目通过设置系数来保证$\Delta P_{2}$减小的趋势。   </p>
+<h4 id="收缩率的理论计算"><a href="#收缩率的理论计算" class="headerlink" title="收缩率的理论计算"></a>收缩率的理论计算</h4><h4 id="收缩率的实际编程"><a href="#收缩率的实际编程" class="headerlink" title="收缩率的实际编程"></a>收缩率的实际编程</h4><h4 id="力臂的理论计算"><a href="#力臂的理论计算" class="headerlink" title="力臂的理论计算"></a>力臂的理论计算</h4><h4 id="力臂的实际编程"><a href="#力臂的实际编程" class="headerlink" title="力臂的实际编程"></a>力臂的实际编程</h4><h4 id="控制器设计"><a href="#控制器设计" class="headerlink" title="控制器设计"></a>控制器设计</h4>]]></content>
   </entry>
   <entry>
     <title>Gmapping算法原理及源代码解析</title>
