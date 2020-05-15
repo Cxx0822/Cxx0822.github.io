@@ -2009,7 +2009,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #0f4736;
+  background: #a4ffe3;
 }
 .feed-link,
 .chat {
@@ -3155,11 +3155,11 @@ header.post-header {
 }
 ::selection {
   background: #87cefa;
-  color: #f7f7f7;
+  color: #f00;
 }
 ::-moz-selection {
   background: #87cefa;
-  color: #f7f7f7;
+  color: #f00;
 }
 .post-toc .nav .nav-child {
   display: block;
@@ -3246,7 +3246,7 @@ code {
   border-radius: 4px;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #5301cd;
+  color: #e0ffff;
 }
 .busuanzi-value {
   color: #da70d6;
