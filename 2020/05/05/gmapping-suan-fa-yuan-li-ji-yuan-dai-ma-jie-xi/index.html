@@ -179,7 +179,7 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi//建图算法分类.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi//地图.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi//gmapping整体框架1.png">
-<meta property="og:updated_time" content="2020-05-15T08:05:48.571Z">
+<meta property="og:updated_time" content="2020-05-15T09:04:50.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Gmapping算法原理及源代码解析">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu 16.04&amp;emsp;&amp;emsp;ROS Kinetic Kame     建图算法概述&amp;emsp;&amp;emsp;在机器人领域中，比较常见的研究问题包括：建图Mapping、定位Localization和路径规划Path Planning。而同时定位与地图构建Simultaneous Localization and Mapping属于位于定位和建图的交集部">
@@ -523,7 +523,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-15 16:05:48" itemprop="dateModified" datetime="2020-05-15T16:05:48+08:00">2020-05-15</time>
+                <time title="修改时间：2020-05-15 17:04:50" itemprop="dateModified" datetime="2020-05-15T17:04:50+08:00">2020-05-15</time>
               
             
           </span>
@@ -573,7 +573,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                 <!-- <span title="本文字数">29k</span> -->
 			  <span title="本文字数">
-                  4,058字
+                  4,146字
                 </span>
               
 
@@ -620,7 +620,7 @@ WIDGET = {FID: 'H94fFEffHo'}
 <h1 id="Gmapping算法原理理解"><a href="#Gmapping算法原理理解" class="headerlink" title="Gmapping算法原理理解"></a>Gmapping算法原理理解</h1><h2 id="Gmapping算法概述"><a href="#Gmapping算法概述" class="headerlink" title="Gmapping算法概述"></a>Gmapping算法概述</h2><p>&emsp;&emsp;<a href="http://www2.informatik.uni-freiburg.de/~stachnis/pdf/grisetti07tro.pdf" target="_blank" rel="noopener">论文下载地址</a><br>&emsp;&emsp;<code>Gmapping</code>是基于滤波<code>SLAM</code>框架的常用开源<code>SLAM</code>算法。其基本原理基于<code>RBpf</code>粒子滤波算法，即将定位和建图过程分离，先进行定位再进行建图。粒子滤波算法是早期的一种建图算法，其基本原理为机器人不断地通过运动、观测的方式，获取周围环境信息，逐步降低自身位置的不确定度，最终得到准确的定位结果。用上一时刻的地图和运动模型预测当前时刻的位姿，然后计算权重，重采样，更新粒子的地图，如此往复。<br>&emsp;&emsp;<code>Gmapping</code>可以实时构建室内地图，在构建小场景地图所需的计算量较小且精度较高。相比<code>Cartographer</code>在构建小场景地图时，<code>Gmapping</code>不需要太多的粒子并且没有回环检测因此计算量小于<code>Cartographer</code>而精度并没有差太多。<code>Gmapping</code>有效利用了车轮里程计信息，这也是<code>Gmapping</code>对激光雷达频率要求低的原因：里程计可以提供机器人的位姿先验。<br>&emsp;&emsp;随着场景增大所需的粒子增加，因为每个粒子都携带一幅地图，因此在构建大地图时所需内存和计算量都会增加。因此不适合构建大场景地图。并且没有回环检测，因此在回环闭合时可能会造成地图错位，虽然增加粒子数目可以使地图闭合但是以增加计算量和内存为代价。所以不能像<code>Cartographer</code>那样构建大的地图。<code>Gmapping</code>和<code>Cartographer</code>一个是基于滤波框架<code>SLAM</code>另一个是基于优化框架的<code>SLAM</code>，两种算法都涉及到时间复杂度和空间复杂度的权衡。<code>Gmapping</code>牺牲空间复杂度保证时间复杂度，这就造成<code>Gmapping</code>不适合构建大场景地图。    </p>
 <h2 id="RBpf粒子滤波算法——先定位再建图"><a href="#RBpf粒子滤波算法——先定位再建图" class="headerlink" title="RBpf粒子滤波算法——先定位再建图"></a>RBpf粒子滤波算法——先定位再建图</h2><p>&emsp;&emsp;<code>SLAM</code>需要解决的是定位与建图问题，而定位需要建图，建图也需要先定位，如何平衡这两者关系就是解决<code>SLAM</code>问题的关键。为此，基于<code>RBpf</code>(<code>Rao-Blackwellized</code>)粒子滤波算法提供了一个思路：先定位再建图，具体如下：        </p>
 <script type="math/tex; mode=display">
-P\left ( x_{1:t},m|z_{1:t},u_{1:t-1} \right )=P\left ( x_{1:t}|z_{1:t},u_{1:t-1} \right ) \cdot P\left ( m|x_{1:t} ,z_{1:t}\right )</script><p>&emsp;&emsp;其中，$x_{1:t}$表示<code>1</code>到<code>t</code>时刻的位姿，<code>m</code>表示地图，$z_{1:t}$表示观测值，这里就是激光雷达的值，$u_{1:t-1}$表示里程计(<code>IMU</code>)的值。<br>&emsp;&emsp;一般的，<code>SLAM</code>的数学模型可以用上式表示。第一部分表示已知里程计和观测值求出地图和机器人位姿，第二部分表示已知里程计和观测值求出机器人位姿，第三部分为已知位姿和观测值求出地图信息。根据概率论的知识，上式是一个条件联合概率分布，即通过观测值和里程计的值得出位姿和地图，但如果把这2个值都作为条件去求概率会十分困难，而由概率论的知识可知，联合概率可以转换成条件概率，即$P\left ( x,y \right )=P\left ( y|x \right )\cdot p\left ( x \right )$。因此可以将上式转换为先根据观测值和里程计的值求出位姿，然后根据观测值和位姿求出地图。这就大大降低了求解的难度。<br>&emsp;&emsp;</p>
+P\left ( x_{1:t},m|z_{1:t},u_{1:t-1} \right )=P\left ( x_{1:t}|z_{1:t},u_{1:t-1} \right ) \cdot P\left ( m|x_{1:t} ,z_{1:t}\right )</script><p>&emsp;&emsp;其中，$x_{1:t}$表示<code>1</code>到<code>t</code>时刻的位姿，<code>m</code>表示地图，$z_{1:t}$表示观测值，这里就是激光雷达的值，$u_{1:t-1}$表示运动值，这里就是里程计(<code>IMU</code>)的值。<br>&emsp;&emsp;一般的，<code>SLAM</code>的数学模型可以用上式表示。第一部分表示已知运动值和观测值求出地图和机器人位姿，第二部分表示已知运动值和观测值求出机器人位姿，第三部分为已知位姿和观测值求出地图信息。根据概率论的知识，上式是一个条件联合概率分布，即通过观测值和里程计的值得出位姿和地图，但如果把这2个值都作为条件去求概率会十分困难，而由概率论的知识可知，联合概率可以转换成条件概率，即$P\left ( x,y \right )=P\left ( y|x \right )\cdot p\left ( x \right )$。因此可以将上式转换为先根据观测值和运动值求出位姿，然后根据观测值和位姿求出地图。这就大大降低了求解的难度。<br>&emsp;&emsp;这看起好像很好，但基于粒子滤波器的算法会存在一些问题：1.精确的地图需要更多的粒子，但同时也会增加计算量和内存消耗；2.频繁执行重采样会造成粒子退化(正确的粒子被丢弃，粒子多样性减小)。    </p>
 <h2 id="参考博客-1"><a href="#参考博客-1" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="https://blog.csdn.net/liuyanpeng12333/article/details/81946841" target="_blank" rel="noopener">博客1</a>   </p>
 <h1 id="Gmapping源代码理解"><a href="#Gmapping源代码理解" class="headerlink" title="Gmapping源代码理解"></a>Gmapping源代码理解</h1><p>&emsp;&emsp;下载完成后，进入<code>src/slam_gmapping/gmapping/src</code>文件夹，打开<code>main.cpp</code>，可以看到<code>gmapping</code>在<code>ros</code>下面定义的一个节点<code>slam_gmapping</code>，该节点也是上节中<code>rosrun</code>命令下的节点。<br>&emsp;&emsp;<code>mian</code>函数比较简单，只是声明了一个节点和一个<code>SlamGMapping</code>类，并调用了该类下面的<code>startLiveSlam()</code>函数，该函数的声明在该文件夹下的<code>slam_gmapping.cpp</code>文件中。下面则正式进入源代码的分析。<br>&emsp;&emsp;注：在正式进入前，需要有一定的<code>ROS</code>基础，具体可参考我的另一篇博客<a href="https://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/#more">ROS功能包及其应用</a>，也可以百度其他博客学习。          </p>
 <h2 id="Gmapping源代码框架"><a href="#Gmapping源代码框架" class="headerlink" title="Gmapping源代码框架"></a>Gmapping源代码框架</h2><p><img src="/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi/\gmapping整体框架1.png" alt="gmapping整体框架"> </p>
@@ -1318,7 +1318,7 @@ if(canvas.getContext){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共111.6k字</span>
+  <span class="post-count">博客全站共111.9k字</span>
 </div>
         
 <div class="busuanzi-count">

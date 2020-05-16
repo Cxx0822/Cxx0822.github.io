@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cxx0822.github.io/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/</loc>
+    
+    <lastmod>2020-05-16T08:25:26.004Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cxx0822.github.io/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi/</loc>
     
-    <lastmod>2020-05-15T08:05:48.571Z</lastmod>
+    <lastmod>2020-05-15T09:04:50.944Z</lastmod>
     
   </url>
   
@@ -26,13 +33,6 @@
     <loc>http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/</loc>
     
     <lastmod>2020-05-12T06:20:17.868Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cxx0822.github.io/2019/10/23/ros-de-an-zhuang-ji-jian-dan-shi-yong/</loc>
-    
-    <lastmod>2020-05-12T06:06:20.171Z</lastmod>
     
   </url>
   
