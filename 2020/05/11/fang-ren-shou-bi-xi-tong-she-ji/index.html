@@ -195,7 +195,8 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//收缩率公式.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//收缩率程序.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//力臂.png">
-<meta property="og:updated_time" content="2020-05-18T09:22:15.551Z">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//离散PID程序.png">
+<meta property="og:updated_time" content="2020-05-18T10:02:42.151Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="仿人手臂系统设计">
 <meta name="twitter:description" content="概述平台硬件平台&amp;emsp;&amp;emsp;Festo气动人工肌肉&amp;emsp;&amp;emsp;NI数据采集卡及其配套硬件            软件平台&amp;emsp;&amp;emsp;LabVIEW2018   主要硬件介绍&amp;emsp;&amp;emsp;整套系统所需硬件如下：        &amp;emsp;&amp;emsp;其中比较重要的有：Festo气动人工肌肉、LabVIEW数据采集卡及其配套硬件和电气比例阀等。     F">
@@ -363,7 +364,7 @@ daovoice('update');
       
     
 
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">42</span></a>
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">43</span></a>
 
   </li>
         
@@ -539,7 +540,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-18 17:22:15" itemprop="dateModified" datetime="2020-05-18T17:22:15+08:00">2020-05-18</time>
+                <time title="修改时间：2020-05-18 18:02:42" itemprop="dateModified" datetime="2020-05-18T18:02:42+08:00">2020-05-18</time>
               
             
           </span>
@@ -587,9 +588,9 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <!-- <span title="本文字数">13k</span> -->
+                <!-- <span title="本文字数">14k</span> -->
 			  <span title="本文字数">
-                  3,980字
+                  4,141字
                 </span>
               
 
@@ -605,7 +606,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">11 分钟</span>
+                <span title="阅读时长">12 分钟</span>
               
             </div>
           
@@ -663,7 +664,11 @@ P_{i}=P_{0}\pm \Delta P_{i}</script><p>&emsp;&emsp;其中$P_{i}$为每个气动�
 <h4 id="收缩率的实际编程"><a href="#收缩率的实际编程" class="headerlink" title="收缩率的实际编程"></a>收缩率的实际编程</h4><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\收缩率程序.png" alt="收缩率程序"><br>&emsp;&emsp;具体编程细节和输出气压类似。     </p>
 <h4 id="力臂的理论计算"><a href="#力臂的理论计算" class="headerlink" title="力臂的理论计算"></a>力臂的理论计算</h4><p>&emsp;&emsp;力臂的计算公式比较简单，通过简单的几何分析可知：$d=r \dot cos\theta$。    </p>
 <h4 id="力臂的实际编程"><a href="#力臂的实际编程" class="headerlink" title="力臂的实际编程"></a>力臂的实际编程</h4><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\力臂.png" alt="力臂">       </p>
-<h3 id="控制器设计"><a href="#控制器设计" class="headerlink" title="控制器设计"></a>控制器设计</h3>
+<h3 id="控制器设计"><a href="#控制器设计" class="headerlink" title="控制器设计"></a>控制器设计</h3><h4 id="离散PID的理论计算"><a href="#离散PID的理论计算" class="headerlink" title="离散PID的理论计算"></a>离散PID的理论计算</h4><p>&emsp;&emsp;由于整个系统是<code>1000ms</code>运行一次，因此可以看作是一个离散的控制系统，控制变量为肘关节的角度，控制误差为实际角度和期望角之差。其中位置式<code>PID</code>算法控制律如下：     </p>
+<script type="math/tex; mode=display">
+u\left ( t \right )=K_{p}\cdot e\left ( t \right )+K_{I}\cdot \sum_{i=0}^{}e\left ( i \right )+K_{D}\left [ e\left ( k \right ) \right - e\left ( k-1 \right )]</script><p>&emsp;&emsp;这里的$u\left ( t \right )$就是上文模型的控制力矩$\tau$。     </p>
+<h4 id="离散PID的实际编程"><a href="#离散PID的实际编程" class="headerlink" title="离散PID的实际编程"></a>离散PID的实际编程</h4><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\离散PID程序.png" alt="离散PID"><br>&emsp;&emsp;这里的输入有3个，即期望值，第一次实际值和第二次实际值。实际的编程并没有加入积分控制，有兴趣可以自行编写积分控制程序。     </p>
+<h3 id="传感器设置"><a href="#传感器设置" class="headerlink" title="传感器设置"></a>传感器设置</h3>
       
     </div>
 
@@ -800,6 +805,10 @@ P_{i}=P_{0}\pm \Delta P_{i}</script><p>&emsp;&emsp;其中$P_{i}$为每个气动�
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2020/05/24/amr-xiao-che-jian-dan-shi-yong/" rel="prev" title="AMR小车简单使用">
+                AMR小车简单使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -873,7 +882,7 @@ P_{i}=P_{0}\pm \Delta P_{i}</script><p>&emsp;&emsp;其中$P_{i}$为每个气动�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">42</span>
+                    <span class="site-state-item-count">43</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -982,6 +991,10 @@ P_{i}=P_{0}\pm \Delta P_{i}</script><p>&emsp;&emsp;其中$P_{i}$为每个气动�
               
               
                 <li>
+                  <a href="/2020/05/24/amr-xiao-che-jian-dan-shi-yong/" title="AMR小车简单使用" target="_blank">AMR小车简单使用</a>
+                </li>
+              
+                <li>
                   <a href="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/" title="仿人手臂系统设计" target="_blank">仿人手臂系统设计</a>
                 </li>
               
@@ -995,10 +1008,6 @@ P_{i}=P_{0}\pm \Delta P_{i}</script><p>&emsp;&emsp;其中$P_{i}$为每个气动�
               
                 <li>
                   <a href="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/" title="基于turtlebot的定位与建图" target="_blank">基于turtlebot的定位与建图</a>
-                </li>
-              
-                <li>
-                  <a href="/2020/03/13/wu-ren-qing-ji-che/" title="无人清洁车" target="_blank">无人清洁车</a>
                 </li>
               
             </ul>
@@ -1286,7 +1295,7 @@ if(canvas.getContext){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">2.</span> <span class="nav-text">平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件平台"><span class="nav-number">2.1.</span> <span class="nav-text">硬件平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件平台"><span class="nav-number">2.2.</span> <span class="nav-text">软件平台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主要硬件介绍"><span class="nav-number">3.</span> <span class="nav-text">主要硬件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Festo气动人工肌肉"><span class="nav-number">3.1.</span> <span class="nav-text">Festo气动人工肌肉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NI数据采集卡及其配套硬件"><span class="nav-number">3.2.</span> <span class="nav-text">NI数据采集卡及其配套硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电气比例阀"><span class="nav-number">3.3.</span> <span class="nav-text">电气比例阀</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#仿人手臂系统设计思想"><span class="nav-number">4.</span> <span class="nav-text">仿人手臂系统设计思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#人体手臂结构"><span class="nav-number">4.1.</span> <span class="nav-text">人体手臂结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人体手臂运动机理"><span class="nav-number">4.2.</span> <span class="nav-text">人体手臂运动机理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仿人手臂系统结构设计"><span class="nav-number">4.3.</span> <span class="nav-text">仿人手臂系统结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机械结构"><span class="nav-number">4.3.1.</span> <span class="nav-text">机械结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运动过程"><span class="nav-number">4.3.2.</span> <span class="nav-text">运动过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#仿人手臂系统实际搭建"><span class="nav-number">5.</span> <span class="nav-text">仿人手臂系统实际搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手臂模型系统"><span class="nav-number">5.1.</span> <span class="nav-text">手臂模型系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电路系统"><span class="nav-number">5.2.</span> <span class="nav-text">电路系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电路系统总图"><span class="nav-number">5.2.1.</span> <span class="nav-text">电路系统总图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟输入端"><span class="nav-number">5.2.2.</span> <span class="nav-text">模拟输入端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟输出端"><span class="nav-number">5.2.3.</span> <span class="nav-text">模拟输出端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际接线图"><span class="nav-number">5.2.4.</span> <span class="nav-text">实际接线图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#气动系统"><span class="nav-number">5.3.</span> <span class="nav-text">气动系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#气缸"><span class="nav-number">5.3.1.</span> <span class="nav-text">气缸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传感器系统"><span class="nav-number">5.4.</span> <span class="nav-text">传感器系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于LabVIEW的PID角度跟踪控制"><span class="nav-number">6.</span> <span class="nav-text">基于LabVIEW的PID角度跟踪控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW软件安装"><span class="nav-number">6.1.</span> <span class="nav-text">LabVIEW软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW前面板设计"><span class="nav-number">6.2.</span> <span class="nav-text">LabVIEW前面板设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW程序框图设计"><span class="nav-number">6.3.</span> <span class="nav-text">LabVIEW程序框图设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制程序原理"><span class="nav-number">6.3.1.</span> <span class="nav-text">控制程序原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手臂模型"><span class="nav-number">6.3.2.</span> <span class="nav-text">手臂模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输出气压的理论计算"><span class="nav-number">6.3.2.1.</span> <span class="nav-text">输出气压的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出气压的实际编程"><span class="nav-number">6.3.2.2.</span> <span class="nav-text">输出气压的实际编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收缩率的理论计算"><span class="nav-number">6.3.2.3.</span> <span class="nav-text">收缩率的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收缩率的实际编程"><span class="nav-number">6.3.2.4.</span> <span class="nav-text">收缩率的实际编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#力臂的理论计算"><span class="nav-number">6.3.2.5.</span> <span class="nav-text">力臂的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#力臂的实际编程"><span class="nav-number">6.3.2.6.</span> <span class="nav-text">力臂的实际编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器设计"><span class="nav-number">6.3.3.</span> <span class="nav-text">控制器设计</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">2.</span> <span class="nav-text">平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件平台"><span class="nav-number">2.1.</span> <span class="nav-text">硬件平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件平台"><span class="nav-number">2.2.</span> <span class="nav-text">软件平台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主要硬件介绍"><span class="nav-number">3.</span> <span class="nav-text">主要硬件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Festo气动人工肌肉"><span class="nav-number">3.1.</span> <span class="nav-text">Festo气动人工肌肉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NI数据采集卡及其配套硬件"><span class="nav-number">3.2.</span> <span class="nav-text">NI数据采集卡及其配套硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电气比例阀"><span class="nav-number">3.3.</span> <span class="nav-text">电气比例阀</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#仿人手臂系统设计思想"><span class="nav-number">4.</span> <span class="nav-text">仿人手臂系统设计思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#人体手臂结构"><span class="nav-number">4.1.</span> <span class="nav-text">人体手臂结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人体手臂运动机理"><span class="nav-number">4.2.</span> <span class="nav-text">人体手臂运动机理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仿人手臂系统结构设计"><span class="nav-number">4.3.</span> <span class="nav-text">仿人手臂系统结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机械结构"><span class="nav-number">4.3.1.</span> <span class="nav-text">机械结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运动过程"><span class="nav-number">4.3.2.</span> <span class="nav-text">运动过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#仿人手臂系统实际搭建"><span class="nav-number">5.</span> <span class="nav-text">仿人手臂系统实际搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手臂模型系统"><span class="nav-number">5.1.</span> <span class="nav-text">手臂模型系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电路系统"><span class="nav-number">5.2.</span> <span class="nav-text">电路系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电路系统总图"><span class="nav-number">5.2.1.</span> <span class="nav-text">电路系统总图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟输入端"><span class="nav-number">5.2.2.</span> <span class="nav-text">模拟输入端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟输出端"><span class="nav-number">5.2.3.</span> <span class="nav-text">模拟输出端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际接线图"><span class="nav-number">5.2.4.</span> <span class="nav-text">实际接线图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#气动系统"><span class="nav-number">5.3.</span> <span class="nav-text">气动系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#气缸"><span class="nav-number">5.3.1.</span> <span class="nav-text">气缸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传感器系统"><span class="nav-number">5.4.</span> <span class="nav-text">传感器系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于LabVIEW的PID角度跟踪控制"><span class="nav-number">6.</span> <span class="nav-text">基于LabVIEW的PID角度跟踪控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW软件安装"><span class="nav-number">6.1.</span> <span class="nav-text">LabVIEW软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW前面板设计"><span class="nav-number">6.2.</span> <span class="nav-text">LabVIEW前面板设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW程序框图设计"><span class="nav-number">6.3.</span> <span class="nav-text">LabVIEW程序框图设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制程序原理"><span class="nav-number">6.3.1.</span> <span class="nav-text">控制程序原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手臂模型"><span class="nav-number">6.3.2.</span> <span class="nav-text">手臂模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输出气压的理论计算"><span class="nav-number">6.3.2.1.</span> <span class="nav-text">输出气压的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出气压的实际编程"><span class="nav-number">6.3.2.2.</span> <span class="nav-text">输出气压的实际编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收缩率的理论计算"><span class="nav-number">6.3.2.3.</span> <span class="nav-text">收缩率的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收缩率的实际编程"><span class="nav-number">6.3.2.4.</span> <span class="nav-text">收缩率的实际编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#力臂的理论计算"><span class="nav-number">6.3.2.5.</span> <span class="nav-text">力臂的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#力臂的实际编程"><span class="nav-number">6.3.2.6.</span> <span class="nav-text">力臂的实际编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器设计"><span class="nav-number">6.3.3.</span> <span class="nav-text">控制器设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#离散PID的理论计算"><span class="nav-number">6.3.3.1.</span> <span class="nav-text">离散PID的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#离散PID的实际编程"><span class="nav-number">6.3.3.2.</span> <span class="nav-text">离散PID的实际编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传感器设置"><span class="nav-number">6.3.4.</span> <span class="nav-text">传感器设置</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -1339,7 +1348,7 @@ if(canvas.getContext){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共112.3k字</span>
+  <span class="post-count">博客全站共113.4k字</span>
 </div>
         
 <div class="busuanzi-count">
