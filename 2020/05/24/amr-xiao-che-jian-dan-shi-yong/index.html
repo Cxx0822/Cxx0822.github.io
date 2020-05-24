@@ -180,7 +180,8 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/24/amr-xiao-che-jian-dan-shi-yong//登录.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/24/amr-xiao-che-jian-dan-shi-yong//PC地图配置文件.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/24/amr-xiao-che-jian-dan-shi-yong//AMR地图配置文件.png">
-<meta property="og:updated_time" content="2020-05-24T05:53:39.655Z">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/24/amr-xiao-che-jian-dan-shi-yong//开始建图.png">
+<meta property="og:updated_time" content="2020-05-24T11:52:07.975Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="AMR小车简单使用">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;AMR003&amp;emsp;&amp;emsp;路由器&amp;emsp;&amp;emsp;Ubuntu18.04&amp;emsp;&amp;emsp;ROS Melodic      环境配置安装Ubuntu18.04&amp;emsp;&amp;emsp;详见其他博客。      安装ROS Melodic&amp;emsp;&amp;emsp;详见其他博客。      安装串口通讯软件minicom&amp;emsp;&amp;emsp;minico">
@@ -507,7 +508,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
               
 
-              <time title="创建时间：2020-05-24 12:19:55 / 修改时间：13:53:39" itemprop="dateCreated datePublished" datetime="2020-05-24T12:19:55+08:00">2020-05-24</time>
+              <time title="创建时间：2020-05-24 12:19:55 / 修改时间：19:52:07" itemprop="dateCreated datePublished" datetime="2020-05-24T12:19:55+08:00">2020-05-24</time>
             
 
             
@@ -560,9 +561,9 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <!-- <span title="本文字数">7k</span> -->
+                <!-- <span title="本文字数">11k</span> -->
 			  <span title="本文字数">
-                  934字
+                  1,403字
                 </span>
               
 
@@ -578,7 +579,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
-                <span title="阅读时长">4 分钟</span>
+                <span title="阅读时长">6 分钟</span>
               
             </div>
           
@@ -612,12 +613,16 @@ WIDGET = {FID: 'H94fFEffHo'}
 <p>&emsp;&emsp;然后通过<code>ifconfig</code>指令即可查看<code>IP</code>信息，也可以进入局域网后台查看。      </p>
 <h3 id="参数配置"><a href="#参数配置" class="headerlink" title="参数配置"></a>参数配置</h3><p>&emsp;&emsp;首先将<code>hontai</code>文件夹放置在<code>PC</code>的根目录下(不要放置在<code>Home</code>文件夹)，然后打开<code>/hontai/params/studio.ini</code>配置文件，修改<code>uuid</code>和<code>ip</code>地址：<br><img src="/2020/05/24/amr-xiao-che-jian-dan-shi-yong/\PC地图配置文件.png" alt="PC地图配置文件"><br>&emsp;&emsp;其中<code>uuid</code>为机器人型号，本博客使用的是<code>zerg003</code>，修改<code>[Comm2]</code>中的<code>host</code>为<code>PC</code>的<code>IP</code>地址。<br>&emsp;&emsp;然后进入<code>AMR</code>终端，打开<code>/hontai/params/config_site.ini</code>配置文件，修改<code>uuid</code>和<code>ip</code>地址：<br><img src="/2020/05/24/amr-xiao-che-jian-dan-shi-yong/\AMR地图配置文件.png" alt="AMR地图配置文件"><br>&emsp;&emsp;其中<code>uuid</code>和<code>PC</code>保持一致，<code>serverIp</code>为<code>AMR</code>的<code>IP</code>的地址。<br>&emsp;&emsp;注：<code>AMR</code>中的文件只能用<code>vim</code>编译器打开编译。      </p>
 <h2 id="开始建图"><a href="#开始建图" class="headerlink" title="开始建图"></a>开始建图</h2><p>&emsp;&emsp;<code>PC</code>端在<code>/hontai</code>目录，执行<code>openStudio.sh</code>脚本文件：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">./openStudio.sh</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;打开后会出现地图界面，会显示目前的点云数据。<br>图<br>&emsp;&emsp;同时在<code>ARM</code>端在<code>/hontai</code>目录，执行<code>./start.sh</code>脚本文件：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="literal">start</span>.sh</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;此时，<code>AMR</code>会播放语音提示：正在重定位。<br>&emsp;&emsp;然后点击地图界面中的<code>Slam</code>按钮会正式开始建图，<code>PC</code>端的终端窗口也会有<code>Start Slam</code>信息提示。<br>&emsp;&emsp;然后将左右两边的急停按钮关闭(向外拨开)，即可正式进入建图！<br>&emsp;&emsp;关闭急停时，<code>AMR</code>会一直在移动，按下<code>shift</code>即可停止移动，上下左右控制方向，连续按下上下左右可以调整速度。<br>&emsp;&emsp;扫描完区域后，再次点击<code>Slam</code>即可关闭建图，然后等2分钟左右，进入<code>AMR</code>的<code>/hontai/log/mapBuilder/</code>文件夹就可以看到刚才生成的地图(后缀为<code>.map</code>的文件)。<br>图      </p>
+<p>&emsp;&emsp;打开后会出现地图界面，会显示目前的点云数据。<br><img src="/2020/05/24/amr-xiao-che-jian-dan-shi-yong/\开始建图.png" alt="开始建图"><br>&emsp;&emsp;同时在<code>ARM</code>端在<code>/hontai</code>目录，执行<code>./start.sh</code>脚本文件：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./<span class="literal">start</span>.sh</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;此时，<code>AMR</code>会播放语音提示：正在重定位。<br>&emsp;&emsp;然后点击地图界面中的<code>Slam</code>按钮会正式开始建图，<code>PC</code>端的终端窗口也会有<code>Start Slam</code>信息提示。<br>&emsp;&emsp;然后将左右两边的急停按钮关闭(向外拨开)，即可正式进入建图！<br>&emsp;&emsp;关闭急停时，<code>AMR</code>会一直在移动，按下<code>shift</code>即可停止移动，上下左右控制方向，连续按下上下左右可以调整速度。<br>&emsp;&emsp;扫描完区域后，再次点击<code>Slam</code>即可关闭建图，然后等2分钟左右，进入<code>AMR</code>的<code>/hontai/log/mapBuilder/</code>文件夹就可以看到刚才生成的地图(后缀为<code>.map</code>的文件)。<br>图        </p>
 <h2 id="修改地图"><a href="#修改地图" class="headerlink" title="修改地图"></a>修改地图</h2><p>&emsp;&emsp;创建的地图是保存在<code>AMR</code>中，需要将其复制到<code>PC</code>中。<br>&emsp;&emsp;这里需要使用<code>ssh</code>中的<code>scp</code>命令，需要安装服务模块：<br><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> install ssh openssh-<span class="keyword">server</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;其使用方式为：   </p>
-<pre><code>scp local_file remote_username@remote_ip:remote_file
-</code></pre>
+<p>&emsp;&emsp;其使用方式为：<br><figure class="highlight ruby"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">scp local_file remote_username@remote_ip<span class="symbol">:remote_file</span></span><br><span class="line"><span class="string">``</span><span class="string">`  </span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 调度系统</span></span><br><span class="line"><span class="string">## 调度部署</span></span><br><span class="line"><span class="string">### 数据库管理系统安装   </span></span><br><span class="line"><span class="string">&amp;emsp;&amp;emsp;`</span>MySQL<span class="string">`是一个关系型数据库管理系统，是最流行的关系型数据库管理系统之一，在`</span>WEB<span class="string">`应用方面，`</span>MySQL<span class="string">`是最好的`</span>RDBMS<span class="string">`(`</span>Relational Database Management System<span class="string">`，关系数据库管理系统) 应用软件之一。     </span></span><br><span class="line"><span class="string">&amp;emsp;&amp;emsp;`</span>MySQL<span class="string">`是一种关系型数据库管理系统，关系数据库将数据保存在不同的表中，而不是将所有数据放在一个大仓库内，这样就增加了速度并提高了灵活性。      </span></span><br><span class="line"><span class="string">&amp;emsp;&amp;emsp;`</span>MySQL<span class="string">`所使用的 `</span>SQL<span class="string">` 语言是用于访问数据库的最常用标准化语言。`</span>MySQL<span class="string">` 软件采用了双授权政策，分为社区版和商业版，由于其体积小、速度快、总体拥有成本低，尤其是开放源码这一特点，一般中小型网站的开发都选择`</span> MySQL <span class="string">`作为网站数据库。          </span></span><br><span class="line"><span class="string">&amp;emsp;&amp;emsp;安装方法：直接终端安装即可：</span></span><br></pre></td></tr></table></figure></p>
+<p>sudo apt-get install mysql-server<br><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">### 更改密码</span></span><br><span class="line"><span class="variable">&amp;emsp</span>;<span class="variable">&amp;emsp</span>;通常默认的`mysql`的密码是随机的，且十分复杂，需要对其进行更改。     </span><br><span class="line"><span class="variable">&amp;emsp</span>;<span class="variable">&amp;emsp</span>;首先输入指令，查看当前密码：</span><br></pre></td></tr></table></figure></p>
+<p>sudo cat /etc/mysql/debian.cnf<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">当前密码</span>](<span class="link">AMR小车简单使用\\查看密码.png</span>)        </span><br><span class="line">&amp;emsp;&amp;emsp;其中，<span class="code">`mysql_upgrade`</span>部分的<span class="code">`password`</span>就是当前的密码。</span><br></pre></td></tr></table></figure></p>
+<p>mysql -u debian-sys-maint -p<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>然后输入密码进入更改密码界面。     </span><br><span class="line"><span class="symbol">&amp;emsp;</span><span class="symbol">&amp;emsp;</span>然后依次输入以下指令：</span><br></pre></td></tr></table></figure></p>
+<p>use mysql;<br>update mysql.user set authentication_string=password(‘123’) where user=’root’ and Host =’localhost’;<br>update user set plugin=”mysql_native_password”;<br>flush privileges;<br>quit;<br><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">![<span class="string">最终效果</span>](<span class="link">AMR小车简单使用\\最终效果.png</span>)      </span><br><span class="line">&amp;emsp;&amp;emsp;注：指令依次输入，以逗号为分隔，其中<span class="code">`123`</span>为新密码。       </span><br><span class="line">&amp;emsp;&amp;emsp;最后重启<span class="code">`mysql`</span>。</span><br></pre></td></tr></table></figure></p>
+<p>sudo service mysql restart<br>``` </p>
+
       
     </div>
 
@@ -1293,7 +1298,7 @@ if(canvas.getContext){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共113.4k字</span>
+  <span class="post-count">博客全站共113.9k字</span>
 </div>
         
 <div class="busuanzi-count">
