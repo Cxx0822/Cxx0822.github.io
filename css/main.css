@@ -2009,7 +2009,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #33b434;
+  background: #2bff44;
 }
 .feed-link,
 .chat {
@@ -3246,7 +3246,7 @@ code {
   border-radius: 4px;
 }
 .back-to-top .fa-arrow-up:before {
-  color: #29ffff;
+  color: #b6e246;
 }
 .busuanzi-value {
   color: #da70d6;
