@@ -184,11 +184,14 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//人体手臂结构图.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//手臂简化图.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//仿人手臂模型图.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//仿人手臂系统.jpg">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//电路系统总图.jpg">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//接线盒接线图.jpg">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//开关电源接线图.jpg">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//接线器.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//气动系统.jpg">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//驱动测试.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//软件系统界面.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//手臂上臂位姿表示.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//气压计算.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//输出气压.png">
@@ -196,7 +199,7 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//收缩率程序.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//力臂.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//离散PID程序.png">
-<meta property="og:updated_time" content="2020-05-18T10:02:42.151Z">
+<meta property="og:updated_time" content="2020-06-10T02:23:05.467Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="仿人手臂系统设计">
 <meta name="twitter:description" content="概述平台硬件平台&amp;emsp;&amp;emsp;Festo气动人工肌肉&amp;emsp;&amp;emsp;NI数据采集卡及其配套硬件            软件平台&amp;emsp;&amp;emsp;LabVIEW2018   主要硬件介绍&amp;emsp;&amp;emsp;整套系统所需硬件如下：        &amp;emsp;&amp;emsp;其中比较重要的有：Festo气动人工肌肉、LabVIEW数据采集卡及其配套硬件和电气比例阀等。     F">
@@ -540,7 +543,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-05-18 18:02:42" itemprop="dateModified" datetime="2020-05-18T18:02:42+08:00">2020-05-18</time>
+                <time title="修改时间：2020-06-10 10:23:05" itemprop="dateModified" datetime="2020-06-10T10:23:05+08:00">2020-06-10</time>
               
             
           </span>
@@ -588,9 +591,9 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <!-- <span title="本文字数">14k</span> -->
+                <!-- <span title="本文字数">15k</span> -->
 			  <span title="本文字数">
-                  4,141字
+                  4,323字
                 </span>
               
 
@@ -641,15 +644,18 @@ WIDGET = {FID: 'H94fFEffHo'}
 <h2 id="仿人手臂系统结构设计"><a href="#仿人手臂系统结构设计" class="headerlink" title="仿人手臂系统结构设计"></a>仿人手臂系统结构设计</h2><p>&emsp;&emsp;受到上述理论的启发，本系统采用<code>6</code>根<code>Festo</code>气动人工肌肉模拟人体手臂肌肉的输出特性并为关节提供驱动扭矩。由<code>Pro/Engineer</code>三维软件绘制的模具设计图如图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\仿人手臂模型图.png" alt="仿人手臂模型图"> </p>
 <h3 id="机械结构"><a href="#机械结构" class="headerlink" title="机械结构"></a>机械结构</h3><p>&emsp;&emsp;该仿人手臂系统一共具有3个关节，即肩关节，肘关节和手臂末端点（手和手腕忽略为末端点）。其中肩关节半固定在金属支架上，中间采用金属法兰盘与气动人工肌肉组相连接，肘关节也采用同样类似的结构搭建而成，但相比肩关节，中间会有2层金属薄片，主要是考虑到要放置相应的传感器。<br>&emsp;&emsp;其中每个金属法兰盘有5个开孔，最中间的开孔通过1根细金属两杆上下穿过以固定气动手臂系统，剩下的位于金属法兰盘周围的4个开孔用于气动肌肉的连接。   </p>
 <h3 id="运动过程"><a href="#运动过程" class="headerlink" title="运动过程"></a>运动过程</h3><p>&emsp;&emsp;仿人系统采用纯气动的方式驱动。当系统实际运行时，通过每对气动肌肉的充气和放气来模拟人体手臂的主动-拮抗作用。例如大臂系统通过4根气动肌肉实现肘关节1自由度的旋转运动，其中4根气动肌肉分为2组，分别模拟人体手臂的肱二头肌和肱三头肌的屈伸肌对。每对肌肉中的1根气动肌肉产生拉伸/收缩运动，同时另一根进行相反的收缩/拉伸以防止主动肌过度伸缩。而且每个气动人工肌肉都可以由气动比例阀精确控制进气量，以实现关节的伸展或内收。通过各个关节的相互配合，最终模拟出人体手臂的肌肉协同作用，实现相应的抓取等动作。     </p>
-<h1 id="仿人手臂系统实际搭建"><a href="#仿人手臂系统实际搭建" class="headerlink" title="仿人手臂系统实际搭建"></a>仿人手臂系统实际搭建</h1><h2 id="手臂模型系统"><a href="#手臂模型系统" class="headerlink" title="手臂模型系统"></a>手臂模型系统</h2><h2 id="电路系统"><a href="#电路系统" class="headerlink" title="电路系统"></a>电路系统</h2><p>&emsp;&emsp;电路系统连接主要指的是电气比例阀、气压传感器、开关电源和接线盒等之间的连接方式。   </p>
+<h1 id="仿人手臂系统实际搭建"><a href="#仿人手臂系统实际搭建" class="headerlink" title="仿人手臂系统实际搭建"></a>仿人手臂系统实际搭建</h1><h2 id="手臂模型系统"><a href="#手臂模型系统" class="headerlink" title="手臂模型系统"></a>手臂模型系统</h2><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\仿人手臂系统.jpg" alt="仿人手臂系统"><br>&emsp;&emsp;实际搭建的仿人手臂系统如图所示。    </p>
+<h2 id="电路系统"><a href="#电路系统" class="headerlink" title="电路系统"></a>电路系统</h2><p>&emsp;&emsp;电路系统连接主要指的是电气比例阀、气压传感器、开关电源和接线盒等之间的连接方式。   </p>
 <h3 id="电路系统总图"><a href="#电路系统总图" class="headerlink" title="电路系统总图"></a>电路系统总图</h3><p>&emsp;&emsp;电路系统总图如图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\电路系统总图.jpg" alt="电路系统总图"><br>&emsp;&emsp;首先将气压传感器、压力传感器和气动比例阀的一端分别接入LabVIEW接线盒的模拟输入端和输出端，另一端接入仿人手臂系统，并分别通过电源接线盒供电。然后将LabVIEW接线盒与PC机中的LabVIEW数据采集卡相连，以实现气压传感器、压力传感器的数据通讯。最后将接入仿人手臂系统的角度传感器通过USB连接线接入PC机，以实现角度传感器的数据通讯。<br>&emsp;&emsp;当系统运行时，首先通过气缸给气动比例阀供气，然后运行LabVIEW控制程序，并通过LabVIEW数据采集卡和接线盒将控制信号传入气动比例阀，并使其工作。此时角度传感器、气压传感器和压力传感器会实时检测到仿人手臂系统的工作状态，并通过LabVIEW数据采集卡和接线盒反馈给LabVIEW控制程序，如此循环往复，最终达到期望的效果。<br>&emsp;&emsp;注：目前压力传感器未接入实际系统。(电气比例阀，气动比例阀指的是一个意思，懒得改了)           </p>
 <h3 id="模拟输入端"><a href="#模拟输入端" class="headerlink" title="模拟输入端"></a>模拟输入端</h3><p>&emsp;&emsp;模拟输入端和气压传感器相连。接线盒的输入端采用单端接入，即连接<code>AI+</code>和<code>GND</code>。气压传感器的白色接线端为信号线，棕色接线端为正极，蓝色接线端为负极。<br>&emsp;&emsp;连接方式：将<code>AI+</code>(接线盒中的任意一个模拟输入端)与气压传感器的白色接线端相接，<code>GND</code>和下一个待接的<code>GND</code>相接(保证接线盒内的所有的地线都连通即可)。气压传感器的棕色接线端和蓝色接线端分别接入电源接线盒的正极和负极，给气压传感器供电。<br>&emsp;&emsp;注：每个<code>LabVIEW</code>接线盒内要有<code>1</code>根地线与电源接线盒的地线(-V)相接。      </p>
 <h3 id="模拟输出端"><a href="#模拟输出端" class="headerlink" title="模拟输出端"></a>模拟输出端</h3><p>&emsp;&emsp;模拟输出端和气动比例阀相连。气动比例阀的白色接线端为信号线，棕色接线端为正极，蓝色接线端为负极。<br>&emsp;&emsp;连接方式：将<code>AO</code>(接线盒中的任意一个模拟输出端)与气动比例阀的白色接线端相接，<code>GND</code>和下一个待接的<code>GND</code>相接(保证接线盒内的所有的地线都连通即可)。气动比例阀的棕色接线端和蓝色接线端分别接入电源接线盒的正极和负极，给气动比例阀供电。    </p>
 <h3 id="实际接线图"><a href="#实际接线图" class="headerlink" title="实际接线图"></a>实际接线图</h3><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\接线盒接线图.jpg" alt="接线盒接线图"><br>&emsp;&emsp;这里的硬件指的是电气比例阀和气压传感器，下同。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\开关电源接线图.jpg" alt="开关电源接线图"><br>&emsp;&emsp;这里比较重要的是，每个接线盒内的地线一定要和开关电源的<code>-V</code>相连！不是零地火的地线！<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\接线器.jpg" alt="接线器"><br>&emsp;&emsp;注：开关电源的开关需要购买插头和零地火导线制作。除了信号线建议使用较粗的导线，并注意使用颜色区分。                  </p>
-<h2 id="气动系统"><a href="#气动系统" class="headerlink" title="气动系统"></a>气动系统</h2><p>&emsp;&emsp;气动系统连接主要指的是气缸、电气比例阀和气动人工肌肉等之间的连接方式。       </p>
-<h3 id="气缸"><a href="#气缸" class="headerlink" title="气缸"></a>气缸</h3><h2 id="传感器系统"><a href="#传感器系统" class="headerlink" title="传感器系统"></a>传感器系统</h2><p>&emsp;&emsp;目前接入系统的传感器有角度传感器：     </p>
+<h2 id="气动系统"><a href="#气动系统" class="headerlink" title="气动系统"></a>气动系统</h2><p>&emsp;&emsp;气动系统连接主要指的是气缸、电气比例阀和气动人工肌肉等之间的连接方式。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\气动系统.jpg" alt="气动系统"><br>&emsp;&emsp;上面的汇流板中，<code>1</code>口为总输入口，接气缸，<code>3</code>为排气口，不用接。下面的汇流板的<code>1</code>和<code>3</code>口需要堵上。<code>2</code>口为输出口，接每根气动人工肌肉，并用三通阀接入气压传感器。其余部分需堵上。    </p>
+<h3 id="气缸"><a href="#气缸" class="headerlink" title="气缸"></a>气缸</h3><p>&emsp;&emsp;开启：①将抽气开关按下，阀门开关闭合。②接通电源。③打开抽气开关(提上去)，气缸开始充气，待气压显示表到达指定气压值时(<code>0.4~0.6MPa</code>)，按下开关。④打开阀门开关，即可出气。<br>&emsp;&emsp;关闭：①关闭阀门开关，停止出气。②拔掉电源，气缸每隔一段时间自动漏气。</p>
+<h2 id="传感器系统"><a href="#传感器系统" class="headerlink" title="传感器系统"></a>传感器系统</h2><p>&emsp;&emsp;目前接入系统的传感器有角度传感器：     </p>
 <h1 id="基于LabVIEW的PID角度跟踪控制"><a href="#基于LabVIEW的PID角度跟踪控制" class="headerlink" title="基于LabVIEW的PID角度跟踪控制"></a>基于LabVIEW的PID角度跟踪控制</h1><h2 id="LabVIEW软件安装"><a href="#LabVIEW软件安装" class="headerlink" title="LabVIEW软件安装"></a>LabVIEW软件安装</h2><p>&emsp;&emsp;本项目采用的是<code>LabVIEW2018</code>，所有程序均在<code>2018</code>下调试通过。<br>&emsp;&emsp;<code>LabVIEW</code>软件下载：<a href="http://bbs.elecfans.com/forum.php?mod=viewthread&amp;tid=1694266&amp;page=1" target="_blank" rel="noopener">LabVIEW2018及其工具包下载(全网最快)</a>。<a href="http://ftp.ni.com/evaluation/labview/ekit/other/downloader/2018LV-WinChn.exe" target="_blank" rel="noopener">LabVIEW2018 点击即可下载</a>。(下载完需要激活，百度即可)<br>&emsp;&emsp;<code>NI</code>驱动下载，驱动主要包括2个，即与<code>DAQ</code>通讯的<code>NI-DAQmx</code>和与<code>USB</code>通讯的<code>NI-VISA</code>。官网下载地址：<a href="https://www.ni.com/zh-cn/support/downloads/drivers.html" target="_blank" rel="noopener">NI驱动下载</a>。注：<code>NI</code>的驱动要和<code>LabVIEW</code>的版本号对应，建议安装<code>2018</code>及以上版本。<br>&emsp;&emsp;驱动测试：打开<code>LabVIEW2018</code>启动界面，选择<code>工具-&gt;Measurement &amp; Automation Explorer</code>，点击<code>我的系统-&gt;设备和接口</code>，如果能找到相应的采集卡，则说明配置成功。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\驱动测试.jpg" alt="驱动测试">    </p>
-<h2 id="LabVIEW前面板设计"><a href="#LabVIEW前面板设计" class="headerlink" title="LabVIEW前面板设计"></a>LabVIEW前面板设计</h2><h2 id="LabVIEW程序框图设计"><a href="#LabVIEW程序框图设计" class="headerlink" title="LabVIEW程序框图设计"></a>LabVIEW程序框图设计</h2><h3 id="控制程序原理"><a href="#控制程序原理" class="headerlink" title="控制程序原理"></a>控制程序原理</h3><h3 id="手臂模型"><a href="#手臂模型" class="headerlink" title="手臂模型"></a>手臂模型</h3><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\手臂上臂位姿表示.png" alt="手臂上臂位姿表示"><br>&emsp;&emsp; $O$点为上臂运动的主动关节。假设整个上臂受到分别沿着$A_{1}A_{2},B_{1}B_{2},C_{1}C_{2},D_{1}D_{2}$四个方向的拉伸力$F_{1},F_{2},F_{3},F_{4}$，则由图可以看出，由气动人工肌肉提供的拉伸力$F_{1},F_{2},F_{3},F_{4}$会在以主动关节点$O$处，形成驱动力矩来带动整个上臂的运动。因此，上臂肘关节的旋转运动可以看成是四根拮抗式的气动人工肌肉直线拉伸运动合成而来。通过给定四根气动人工肌肉的输入气压来实时调节其拉伸力和有效长度，在合成的驱动力矩作用下实现关节的转动。<br>&emsp;&emsp;由力矩的计算公式可知，力矩等于转动轴到着力点之间的距离乘上矢量力，即$\tau =F\cdot d$ 。因此，上臂肘关节的动力学方程可以表示为：     </p>
+<h2 id="LabVIEW前面板设计"><a href="#LabVIEW前面板设计" class="headerlink" title="LabVIEW前面板设计"></a>LabVIEW前面板设计</h2><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\软件系统界面.png" alt="软件系统界面">   </p>
+<h2 id="LabVIEW程序框图设计"><a href="#LabVIEW程序框图设计" class="headerlink" title="LabVIEW程序框图设计"></a>LabVIEW程序框图设计</h2><h3 id="控制程序原理"><a href="#控制程序原理" class="headerlink" title="控制程序原理"></a>控制程序原理</h3><h3 id="手臂模型"><a href="#手臂模型" class="headerlink" title="手臂模型"></a>手臂模型</h3><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\手臂上臂位姿表示.png" alt="手臂上臂位姿表示"><br>&emsp;&emsp; $O$点为上臂运动的主动关节。假设整个上臂受到分别沿着$A_{1}A_{2},B_{1}B_{2},C_{1}C_{2},D_{1}D_{2}$四个方向的拉伸力$F_{1},F_{2},F_{3},F_{4}$，则由图可以看出，由气动人工肌肉提供的拉伸力$F_{1},F_{2},F_{3},F_{4}$会在以主动关节点$O$处，形成驱动力矩来带动整个上臂的运动。因此，上臂肘关节的旋转运动可以看成是四根拮抗式的气动人工肌肉直线拉伸运动合成而来。通过给定四根气动人工肌肉的输入气压来实时调节其拉伸力和有效长度，在合成的驱动力矩作用下实现关节的转动。<br>&emsp;&emsp;由力矩的计算公式可知，力矩等于转动轴到着力点之间的距离乘上矢量力，即$\tau =F\cdot d$ 。因此，上臂肘关节的动力学方程可以表示为：     </p>
 <script type="math/tex; mode=display">
 \tau =F_{2}d_{2}-F_{1}d_{1}+F_{4}d_{4}-F_{3}d_{3}</script><p>&emsp;&emsp;其中$\tau$为控制力矩，即控制律，下文的控制器设计部分会解释。$F_{i}$为单根气动人工肌肉的输出力，$d_{i}$为$F_{i}$对关节转动中心$O$的力臂。具体分别为：    </p>
 <script type="math/tex; mode=display">
@@ -1348,7 +1354,7 @@ if(canvas.getContext){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共115.2k字</span>
+  <span class="post-count">博客全站共115.4k字</span>
 </div>
         
 <div class="busuanzi-count">
