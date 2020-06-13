@@ -167,17 +167,17 @@
 daovoice('update');
  </script>
 
-  <meta name="description" content="平台&amp;emsp;&amp;emsp;Ubuntu系统     安装NVIDIA驱动安装&amp;emsp;&amp;emsp;卸载已有的nvidia显卡驱动(如果已安装的话)1sudo apt remove --purge nvidia* &amp;emsp;&amp;emsp;添加ppa源1sudo add-apt-repository ppa:graphics-drivers/ppa &amp;emsp;&amp;emsp;更新源列表1sudo a">
+  <meta name="description" content="平台&amp;emsp;&amp;emsp;Ubuntu系统     注意事项&amp;emsp;&amp;emsp;配置环境前，请务必检查NVIDIA,CUDA,cudnn和pytorch(gpu),tensorflow(gpu)等之间的正确版本关系！ 安装NVIDIA驱动安装&amp;emsp;&amp;emsp;现在软件与更新-&amp;gt;选择附加驱动中查找驱动，如果有满足的版本，直接安装重启即可。如果没有，按照以下步骤安装。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="深度学习配置GPU环境">
 <meta property="og:url" content="http://cxx0822.github.io/2020/06/13/shen-du-xue-xi-pei-zhi-gpu-huan-jing/index.html">
 <meta property="og:site_name" content="NJTECH_cxx">
-<meta property="og:description" content="平台&amp;emsp;&amp;emsp;Ubuntu系统     安装NVIDIA驱动安装&amp;emsp;&amp;emsp;卸载已有的nvidia显卡驱动(如果已安装的话)1sudo apt remove --purge nvidia* &amp;emsp;&amp;emsp;添加ppa源1sudo add-apt-repository ppa:graphics-drivers/ppa &amp;emsp;&amp;emsp;更新源列表1sudo a">
+<meta property="og:description" content="平台&amp;emsp;&amp;emsp;Ubuntu系统     注意事项&amp;emsp;&amp;emsp;配置环境前，请务必检查NVIDIA,CUDA,cudnn和pytorch(gpu),tensorflow(gpu)等之间的正确版本关系！ 安装NVIDIA驱动安装&amp;emsp;&amp;emsp;现在软件与更新-&amp;gt;选择附加驱动中查找驱动，如果有满足的版本，直接安装重启即可。如果没有，按照以下步骤安装。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2020-06-13T03:03:04.372Z">
+<meta property="og:updated_time" content="2020-06-13T09:43:24.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深度学习配置GPU环境">
-<meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu系统     安装NVIDIA驱动安装&amp;emsp;&amp;emsp;卸载已有的nvidia显卡驱动(如果已安装的话)1sudo apt remove --purge nvidia* &amp;emsp;&amp;emsp;添加ppa源1sudo add-apt-repository ppa:graphics-drivers/ppa &amp;emsp;&amp;emsp;更新源列表1sudo a">
+<meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu系统     注意事项&amp;emsp;&amp;emsp;配置环境前，请务必检查NVIDIA,CUDA,cudnn和pytorch(gpu),tensorflow(gpu)等之间的正确版本关系！ 安装NVIDIA驱动安装&amp;emsp;&amp;emsp;现在软件与更新-&amp;gt;选择附加驱动中查找驱动，如果有满足的版本，直接安装重启即可。如果没有，按照以下步骤安装。">
 
 
 
@@ -500,7 +500,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
               
 
-              <time title="创建时间：2020-06-13 09:16:57 / 修改时间：11:03:04" itemprop="dateCreated datePublished" datetime="2020-06-13T09:16:57+08:00">2020-06-13</time>
+              <time title="创建时间：2020-06-13 09:16:57 / 修改时间：17:43:24" itemprop="dateCreated datePublished" datetime="2020-06-13T09:16:57+08:00">2020-06-13</time>
             
 
             
@@ -553,9 +553,9 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">本文字数：</span>
                 
-                <!-- <span title="本文字数">7.4k</span> -->
+                <!-- <span title="本文字数">7.7k</span> -->
 			  <span title="本文字数">
-                  590字
+                  694字
                 </span>
               
 
@@ -592,20 +592,22 @@ WIDGET = {FID: 'H94fFEffHo'}
 
       
         <h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>&emsp;&emsp;Ubuntu系统    </p>
-<h1 id="安装NVIDIA驱动"><a href="#安装NVIDIA驱动" class="headerlink" title="安装NVIDIA驱动"></a>安装NVIDIA驱动</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>&emsp;&emsp;卸载已有的nvidia显卡驱动(如果已安装的话)<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="built_in">remove</span> <span class="comment">--purge nvidia*</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h1><p>&emsp;&emsp;配置环境前，请务必检查<code>NVIDIA,CUDA,cudnn和pytorch(gpu),tensorflow(gpu)</code>等之间的正确版本关系！</p>
+<h1 id="安装NVIDIA驱动"><a href="#安装NVIDIA驱动" class="headerlink" title="安装NVIDIA驱动"></a>安装NVIDIA驱动</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>&emsp;&emsp;现在<code>软件与更新-&gt;选择附加驱动</code>中查找驱动，如果有满足的版本，直接安装重启即可。如果没有，按照以下步骤安装。        </p>
+<p>&emsp;&emsp;卸载已有的nvidia显卡驱动(如果已安装的话)<br><figure class="highlight lua"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="built_in">remove</span> <span class="comment">--purge nvidia*</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;添加ppa源<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo<span class="built_in"> add-apt-repository </span>ppa:graphics-drivers/ppa</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;更新源列表<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo apt update</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;查看可安装的驱动列表<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">ubuntu-drivers devices</span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;安装nvidia显卡驱动<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> nvidia-driver-<span class="number">440</span>   <span class="comment"># 驱动型号自己修改，要和下面的CUDN匹配！</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;安装nvidia显卡驱动<br><figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt <span class="keyword">install</span> nvidia-driver-<span class="number">430</span>   <span class="comment"># 驱动型号自己修改，要和下面的CUDN匹配！</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;重启电脑生效<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo reboot</span></span><br></pre></td></tr></table></figure></p>
 <h2 id="查看是否安装成功"><a href="#查看是否安装成功" class="headerlink" title="查看是否安装成功"></a>查看是否安装成功</h2><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">nvidia-smi            <span class="meta"># 检查nvidia显卡的相关信息</span></span><br><span class="line">nvidia-settings       <span class="meta"># 查看nvidia设置面板</span></span><br></pre></td></tr></table></figure>
 <h2 id="安装后存在的问题"><a href="#安装后存在的问题" class="headerlink" title="安装后存在的问题"></a>安装后存在的问题</h2><p>&emsp;&emsp;显卡安装后可能会存在一定的问题，可百度自行解决。      </p>
 <h1 id="安装CUDA"><a href="#安装CUDA" class="headerlink" title="安装CUDA"></a>安装CUDA</h1><p>&emsp;&emsp;<code>CUDA</code>是<code>NVIDIA</code>推出的用于自家<code>GPU</code>的并行计算框架，也就是说<code>CUDA</code>只能在<code>NVIDIA</code>的<code>GPU</code>上运行，而且只有当要解决的计算问题是可以大量并行计算的时候才能发挥<code>CUDA</code>的作用。<br>&emsp;&emsp;<a href="https://developer.nvidia.com/cuda-toolkit-archive" target="_blank" rel="noopener">下载地址</a><br>&emsp;&emsp;<code>CUDA</code>的版本要和<code>NVIDIA</code>版本一致，具体可参考<a href="https://docs.nvidia.com/cuda/cuda-toolkit-release-notes/index.html" target="_blank" rel="noopener">官网说明</a>      </p>
 <p>&emsp;&emsp;下载完成后，执行命令安装：<br><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo sh cuda_**_linux.<span class="keyword">run</span><span class="bash">    <span class="comment"># 换成自己的版本号</span></span></span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;按住空格快读阅读。<br>&emsp;&emsp;根据提示选择安装事项，注意询问是否安装显卡驱动(<code>driver</code>)时一定要选择<code>no</code>！<br>&emsp;&emsp;添加环境变量：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;按住空格快读阅读。<br>&emsp;&emsp;根据提示选择安装事项，注意询问是否安装显卡驱动(<code>driver</code>)时一定要选择<code>no</code>！(<code>10.1</code>更新了界面，没有<code>X</code>表示不安装)。实际安装时请稍微等待一会。<br>&emsp;&emsp;添加环境变量：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;在最后添加以下内容：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="builtin-name">export</span> <span class="attribute">PATH</span>=/usr/local/cuda-10.1/bin:$PATH</span><br><span class="line"><span class="builtin-name">export</span> <span class="attribute">LD_LIBRARY_PATH</span>=/usr/local/cuda/lib64:$LD_LIBRARY_PATH</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;刷新环境变量，使其生效：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> ~/.bashrc</span><br></pre></td></tr></table></figure></p>
-<p>&emsp;&emsp;进入<code>/usr/local/cuda-10.1/samples/1_Utilities/</code>目录：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make</span><br><span class="line"><span class="keyword">cd</span> deviceQuery</span><br><span class="line"><span class="string">./deviceQuery</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;进入<code>/usr/local/cuda-10.1/samples/1_Utilities/</code>目录：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> deviceQuery</span><br><span class="line">sudo make</span><br><span class="line"><span class="string">./deviceQuery</span></span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;不报错即可。    </p>
 <h1 id="安装cudnn"><a href="#安装cudnn" class="headerlink" title="安装cudnn"></a>安装cudnn</h1><p>&emsp;&emsp;<code>cuDNN</code>(<code>CUDA Deep Neural Network library</code>)：是<code>NVIDIA</code>打造的针对深度神经网络的加速库，是一个用于深层神经网络的<code>GPU</code>加速库。如果你要用<code>GPU</code>训练模型，<code>cuDNN</code>不是必须的，但是一般会采用这个加速库。<br>&emsp;&emsp;<a href="https://developer.nvidia.com/rdp/cudnn-archive" target="_blank" rel="noopener">下载地址</a><br>&emsp;&emsp;选择对应版本的<code>Linux</code>选项。<br>&emsp;&emsp;下载后解压文件夹，如果后缀不是<code>tgz</code>，自己改一下。<br>&emsp;&emsp;进入目录，依次执行以下命令：<br><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo cp cuda<span class="regexp">/include/</span>cudnn.h <span class="regexp">/usr/</span>local<span class="regexp">/cuda-10.1/</span>include</span><br><span class="line">sudo cp cuda<span class="regexp">/lib64/</span>libcudnn* <span class="regexp">/usr/</span>local<span class="regexp">/cuda-10.1/</span>lib64</span><br><span class="line">sudo chmod a+r <span class="regexp">/usr/</span>local<span class="regexp">/cuda-10.1/</span>include/cudnn.h </span><br><span class="line">sudo chmod a+r <span class="regexp">/usr/</span>local<span class="regexp">/cuda-10.1/</span>lib64/libcudnn*</span><br></pre></td></tr></table></figure></p>
 <p>&emsp;&emsp;查看是否安装成功：<br><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cat</span> /usr/<span class="keyword">local</span>/cuda-10.1/<span class="keyword">include</span>/cudnn.<span class="keyword">h</span> | grep CUDNN_MAJOR -A 2</span><br></pre></td></tr></table></figure></p>
@@ -1233,7 +1235,7 @@ if(canvas.getContext){
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装NVIDIA驱动"><span class="nav-number">2.</span> <span class="nav-text">安装NVIDIA驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">2.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看是否安装成功"><span class="nav-number">2.2.</span> <span class="nav-text">查看是否安装成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装后存在的问题"><span class="nav-number">2.3.</span> <span class="nav-text">安装后存在的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装CUDA"><span class="nav-number">3.</span> <span class="nav-text">安装CUDA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装cudnn"><span class="nav-number">4.</span> <span class="nav-text">安装cudnn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">5.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#注意事项"><span class="nav-number">2.</span> <span class="nav-text">注意事项</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装NVIDIA驱动"><span class="nav-number">3.</span> <span class="nav-text">安装NVIDIA驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">3.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#查看是否安装成功"><span class="nav-number">3.2.</span> <span class="nav-text">查看是否安装成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装后存在的问题"><span class="nav-number">3.3.</span> <span class="nav-text">安装后存在的问题</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装CUDA"><span class="nav-number">4.</span> <span class="nav-text">安装CUDA</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装cudnn"><span class="nav-number">5.</span> <span class="nav-text">安装cudnn</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考博客"><span class="nav-number">6.</span> <span class="nav-text">参考博客</span></a></li></ol></div>
             
 
           </div>
@@ -1286,7 +1288,7 @@ if(canvas.getContext){
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共116.1k字</span>
+  <span class="post-count">博客全站共116.2k字</span>
 </div>
         
 <div class="busuanzi-count">
