@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/</loc>
+    
+    <lastmod>2020-06-17T01:23:51.530Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://cxx0822.github.io/2020/06/13/shen-du-xue-xi-pei-zhi-gpu-huan-jing/</loc>
     
     <lastmod>2020-06-13T09:43:24.412Z</lastmod>
@@ -19,13 +26,6 @@
     <loc>http://cxx0822.github.io/2020/05/24/amr-xiao-che-jian-dan-shi-yong/</loc>
     
     <lastmod>2020-06-06T09:00:45.983Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/</loc>
-    
-    <lastmod>2020-05-20T14:24:37.616Z</lastmod>
     
   </url>
   
