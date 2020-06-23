@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://cxx0822.github.io/2019/02/26/ji-yu-ubuntu-xi-tong-de-nao-kai-fa-01-an-zhuang-xi-tong-bing-pei-zhi-python-huan-jing/</loc>
+    <lastmod>2020-06-23</lastmod>
+  </url>  <url>
     <loc>http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/</loc>
-    <lastmod>2020-06-22</lastmod>
+    <lastmod>2020-06-23</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/</loc>
     <lastmod>2020-06-20</lastmod>
@@ -45,9 +48,6 @@
   </url>  <url>
     <loc>http://cxx0822.github.io/2020/03/13/wu-ren-qing-ji-che/</loc>
     <lastmod>2020-05-08</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2019/02/26/ji-yu-ubuntu-xi-tong-de-nao-kai-fa-01-an-zhuang-xi-tong-bing-pei-zhi-python-huan-jing/</loc>
-    <lastmod>2020-01-09</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2019/08/11/zhi-chi-xiang-liang-ji-de-yuan-li-ji-python-shi-xian/</loc>
     <lastmod>2020-01-09</lastmod>
