@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/</loc>
+    <lastmod>2020-07-06</lastmod>
+  </url>  <url>
     <loc>http://cxx0822.github.io/2020/05/24/amr-xiao-che-jian-dan-shi-yong/</loc>
     <lastmod>2020-07-02</lastmod>
   </url>  <url>
@@ -15,9 +18,6 @@
   </url>  <url>
     <loc>http://cxx0822.github.io/2019/02/26/ji-yu-ubuntu-xi-tong-de-nao-kai-fa-01-an-zhuang-xi-tong-bing-pei-zhi-python-huan-jing/</loc>
     <lastmod>2020-06-23</lastmod>
-  </url>  <url>
-    <loc>http://cxx0822.github.io/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/</loc>
-    <lastmod>2020-06-20</lastmod>
   </url>  <url>
     <loc>http://cxx0822.github.io/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi/</loc>
     <lastmod>2020-06-19</lastmod>
