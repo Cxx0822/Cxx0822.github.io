@@ -187,7 +187,7 @@ daovoice('update');
 <meta property="og:image" content="http://cxx0822.github.io/2020/08/04/yi-liao-ji-qi-ren-yu-yin-xi-tong//自定义问答模板说明.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/08/04/yi-liao-ji-qi-ren-yu-yin-xi-tong//语音转写data字段说明.png">
 <meta property="og:image" content="http://cxx0822.github.io/2020/08/04/yi-liao-ji-qi-ren-yu-yin-xi-tong//onlineAmr接口.jpg">
-<meta property="og:updated_time" content="2020-08-05T02:25:28.731Z">
+<meta property="og:updated_time" content="2020-08-05T02:34:58.382Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="医疗机器人：语音系统">
 <meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Windows/Ubuntu系统&amp;emsp;&amp;emsp;科大讯飞开发套件iFLYOSMT8516开发套件&amp;emsp;&amp;emsp;讯飞开发平台&amp;emsp;&amp;emsp;python       开发套件iFLYOS MT8516&amp;emsp;&amp;emsp;MT8516开发套件是一款基于MTK平台MT8516处理器和科大讯飞环形 6麦阵列结构的语音整体解决方案。此外还提供红外、串">
@@ -531,7 +531,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2020-08-05 10:25:28" itemprop="dateModified" datetime="2020-08-05T10:25:28+08:00">2020-08-05</time>
+                <time title="修改时间：2020-08-05 10:34:58" itemprop="dateModified" datetime="2020-08-05T10:34:58+08:00">2020-08-05</time>
               
             
           </span>
@@ -581,7 +581,7 @@ WIDGET = {FID: 'H94fFEffHo'}
                 
                 <!-- <span title="本文字数">53k</span> -->
 			  <span title="本文字数">
-                  4,393字
+                  4,401字
                 </span>
               
 
@@ -660,8 +660,8 @@ WIDGET = {FID: 'H94fFEffHo'}
 <h3 id="云端操作系统——iFLYOS"><a href="#云端操作系统——iFLYOS" class="headerlink" title="云端操作系统——iFLYOS"></a>云端操作系统——iFLYOS</h3><p>&emsp;&emsp;<code>iFLYOS MT8516</code>套件是通过<code>EVS</code>协议与<code>iFLYOS</code>服务端通信实现语音交互和技能调用的。<code>MTK8516</code>套件基于<code>iotjs</code>开发平台实现了与硬件、网络与文件系统等进行交互的能力，并使用<code>JS</code>语言完成了<code>EVS</code>协议逻辑。<br>&emsp;&emsp;<code>iFLYOS</code>是科大讯飞基于人机智能交互技术为广大开发者和第三方厂商开放的全新语音技术服务操作系统。通过先进的人工智能技术让用户的日常生活更方便，获取信息的方式更快捷。<br><img src="/2020/08/04/yi-liao-ji-qi-ren-yu-yin-xi-tong/\iFLYOS架构.png" alt="iFLYOS架构"><br>&emsp;&emsp;嵌入式协议(<code>Embedded iFLYOS Voice Service</code>， 简称<code>EVS</code>)是一个相对<code>IVS</code>更简单的协议，为厂商接入提供方便，降低设备运行要求，本协议采取<code>websocket</code>进行通讯。<br>&emsp;&emsp;<code>iotjs</code>是三星开源的<code>javascript</code>物联网开发平台。它为<code>javascript</code>应用程序提供了访问硬件、网络、文件系统和异步化的能力，功能类似于<code>nodejs</code>，但无论是代码体积还是内存需求，<code>iotjs</code>都要小很多，是用<code>javascript</code>开发<code>iot</code>(<code>Internet of Things</code>)设备应用程序的首选。       </p>
 <h4 id="创建设备"><a href="#创建设备" class="headerlink" title="创建设备"></a>创建设备</h4><p>&emsp;&emsp;打开并登录科大讯飞<code>iFLYOS</code>系统，选择<code>设备接入</code>并<code>添加产品</code>。这里选择<code>linux</code>平台和<code>EVS</code>网络协议。<br>&emsp;&emsp;注：这里的产品信息为自定义名字。          </p>
 <h4 id="新增技能"><a href="#新增技能" class="headerlink" title="新增技能"></a>新增技能</h4><p>&emsp;&emsp;选择<code>云端配置-&gt;设备能力</code>，找到<code>更多能力</code>，将<code>持续交互能力</code>和<code>儿童模式</code>打开即可。   </p>
-<h4 id="发布到设备"><a href="#发布到设备" class="headerlink" title="发布到设备"></a>发布到设备</h4><p>&emsp;&emsp;将<code>MTK8516</code>开发套件的配置文件(<code>/data/iflyos/iFLYOS.json</code>)拉取到本地，将里面的<code>cliend_id</code>和<code>cliend_secret</code>更改为新建设备的信息。<br>&emsp;&emsp;执行<code>adb shell sync</code>并断电重开。<br>&emsp;&emsp;重新进入配网模式，打开手机<code>小飞在线APP</code>，重新配置，并打开里面的<code>持续交互能力</code>和<code>儿童模式</code>功能。<br>&emsp;&emsp;注：第一次发布可能会出现需要授权的问题。选择<code>产品发布-&gt;设备ID</code>，找到<code>鉴权失败设备</code>，然后将设备导入授权即可。             </p>
-<h4 id="自定义问答"><a href="#自定义问答" class="headerlink" title="自定义问答"></a>自定义问答</h4><p>&emsp;&emsp;选择<code>云端配置-&gt;语义理解</code>找到<code>自定义问答</code>，在点击<code>创建自定义问答</code>，然后新建问答库。其模板格式如下：<br><img src="/2020/08/04/yi-liao-ji-qi-ren-yu-yin-xi-tong/\自定义问答模板说明.png" alt="自定义问答模板说明"><br>&emsp;&emsp;该技能不需要发布到设备，联网即可。      </p>
+<h4 id="发布到设备"><a href="#发布到设备" class="headerlink" title="发布到设备"></a>发布到设备</h4><p>&emsp;&emsp;将<code>MTK8516</code>开发套件的配置文件(<code>/data/iflyos/iFLYOS.json</code>)拉取到本地，将里面的<code>cliend_id</code>和<code>cliend_secret</code>更改为新建设备的信息。并发送至开发套件。<br>&emsp;&emsp;执行<code>adb shell sync</code>并断电重开。<br>&emsp;&emsp;重新进入配网模式，打开手机<code>小飞在线APP</code>，重新配置，并打开里面的<code>持续交互能力</code>和<code>儿童模式</code>功能。<br>&emsp;&emsp;注：第一次发布可能会出现需要授权的问题。选择<code>产品发布-&gt;设备ID</code>，找到<code>鉴权失败设备</code>，然后将设备导入授权即可。             </p>
+<h4 id="自定义问答"><a href="#自定义问答" class="headerlink" title="自定义问答"></a>自定义问答</h4><p>&emsp;&emsp;选择<code>云端配置-&gt;语义理解</code>找到<code>自定义问答</code>，再点击<code>创建自定义问答</code>，然后新建问答库。其模板格式如下：<br><img src="/2020/08/04/yi-liao-ji-qi-ren-yu-yin-xi-tong/\自定义问答模板说明.png" alt="自定义问答模板说明"><br>&emsp;&emsp;该技能不需要发布到设备，联网即可。      </p>
 <h1 id="讯飞开发平台"><a href="#讯飞开发平台" class="headerlink" title="讯飞开发平台"></a>讯飞开发平台</h1><p>&emsp;&emsp;第一部分介绍的是<code>MTK8516</code>开发套件的使用，但其更多的是用于娱乐型的交互，如果需要任务型的交互，还需要使用科大讯飞的开发平台。<br>&emsp;&emsp;打开<a href="https://www.xfyun.cn/" target="_blank" rel="noopener">讯飞开发平台</a>，点击<code>产品服务</code>，可以看到讯飞开发平台提供了很多易操作的服务功能。    </p>
 <h2 id="创建控制台"><a href="#创建控制台" class="headerlink" title="创建控制台"></a>创建控制台</h2><p>&emsp;&emsp;点击<code>控制台</code>，创建新应用。    </p>
 <h2 id="实时语音转写"><a href="#实时语音转写" class="headerlink" title="实时语音转写"></a>实时语音转写</h2><p>&emsp;&emsp;选择<code>语音识别-&gt;实时语音转写</code>，找到<code>实时语音转写API</code>，点击并打开文档。<br>&emsp;&emsp;实时语音转写(<code>Real-time ASR</code>)基于深度全序列卷积神经网络框架，通过<code>WebSocket</code>协议，建立应用与语言转写核心引擎的长连接，开发者可实现将连续的音频流内容，实时识别返回对应的文字流内容。<br>&emsp;&emsp;官方文档已经解释的很清楚了，这里就不多做介绍了。在<code>接口demo</code>里面可以下载官方代码。           </p>
