@@ -1,0 +1,2436 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"shrinkIn","post_header":"slideLeftIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b1d1072f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+ <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/b6dbddb6.js","daovoice")
+ daovoice('init', {
+  app_id: "b1d1072f"
+});
+daovoice('update');
+ </script>
+
+  <meta name="description" content="第1章 预备知识 C++融合了3种不同的编程方式：C语言代表的过程性语言、C++在C语言基础上添加的类代表的面向对象语言、C++模板支持的泛型编程。   面向过程强调算法，面向对象强调数据。类是一种规范，它描述了这种新型数据格式，对象是根据这种规范构造的特定数据结构。即类是抽象的，对象是具体的。类是模板，对象是实例。    第2章 开始学习C++ C++能够使用printf()、scanf()和其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C++笔记">
+<meta property="og:url" content="http://cxx0822.github.io/2018/12/20/c-bi-ji/index.html">
+<meta property="og:site_name" content="NJTECH_Cxx">
+<meta property="og:description" content="第1章 预备知识 C++融合了3种不同的编程方式：C语言代表的过程性语言、C++在C语言基础上添加的类代表的面向对象语言、C++模板支持的泛型编程。   面向过程强调算法，面向对象强调数据。类是一种规范，它描述了这种新型数据格式，对象是根据这种规范构造的特定数据结构。即类是抽象的，对象是具体的。类是模板，对象是实例。    第2章 开始学习C++ C++能够使用printf()、scanf()和其">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2022-03-31T11:39:40.029Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="C++笔记">
+<meta name="twitter:description" content="第1章 预备知识 C++融合了3种不同的编程方式：C语言代表的过程性语言、C++在C语言基础上添加的类代表的面向对象语言、C++模板支持的泛型编程。   面向过程强调算法，面向对象强调数据。类是一种规范，它描述了这种新型数据格式，对象是根据这种规范构造的特定数据结构。即类是抽象的，对象是具体的。类是模板，对象是实例。    第2章 开始学习C++ C++能够使用printf()、scanf()和其">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://cxx0822.github.io/2018/12/20/c-bi-ji/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>C++笔记 | NJTECH_Cxx</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- APlayer -->
+  <!-- 
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_Cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">70</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-top">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/top/" rel="section"><i class="menu-item-icon fa fa-fw fa-signal"></i> <br>热度排行</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+<!-- 天气 -->
+<script type="text/javascript">
+WIDGET = {FID: 'H94fFEffHo'}
+</script>
+<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/Cxx0822" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2018/12/20/c-bi-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_Cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">C++笔记
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-12-20 16:29:42" itemprop="dateCreated datePublished" datetime="2018-12-20T16:29:42+08:00">2018-12-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-03-31 19:39:40" itemprop="dateModified" datetime="2022-03-31T19:39:40+08:00">2022-03-31</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/C-学习/" itemprop="url" rel="index"><span itemprop="name">C++学习</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2018/12/20/c-bi-ji/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2018/12/20/c-bi-ji/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <!-- <span title="本文字数">33k</span> -->
+			  <span title="本文字数">
+                  4,214字
+                </span>
+              
+
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">15 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="第1章-预备知识"><a href="#第1章-预备知识" class="headerlink" title="第1章 预备知识"></a>第1章 预备知识</h2><ol>
+<li>C++融合了3种不同的编程方式：C语言代表的过程性语言、C++在C语言基础上添加的类代表的面向对象语言、C++模板支持的泛型编程。  </li>
+<li>面向过程强调算法，面向对象强调数据。类是一种规范，它描述了这种新型数据格式，对象是根据这种规范构造的特定数据结构。即类是抽象的，对象是具体的。类是模板，对象是实例。  </li>
+</ol>
+<h2 id="第2章-开始学习C"><a href="#第2章-开始学习C" class="headerlink" title="第2章 开始学习C++"></a>第2章 开始学习C++</h2><ol>
+<li>C++能够使用printf()、scanf()和其他所有标准C输入和输出函数，只需要包含常规C语言的stdio.h文件。  </li>
+<li>namespace的使用方法：<br>using namespace std;&emsp;   所有的名称都可以使用<br>using std::cout; &emsp;&emsp;&emsp;&emsp;只使用std里面的cout。  </li>
+<li>类是用户定义的一种数据类型。  </li>
+<li>C++程序应当为程序中使用的每个函数提供原型。C++不允许将函数定义嵌套在另一个函数定义中。  </li>
+<li>main()函数的返回值返回给操作系统。即返回1则程序正确执行。 </li>
+</ol>
+<h2 id="第3章-处理数据"><a href="#第3章-处理数据" class="headerlink" title="第3章 处理数据"></a>第3章 处理数据</h2><ol>
+<li>面向对象编程(OOP)的本质是设计并扩展自己的数据类型。   </li>
+<li>基本类型：整数和浮点数； 复合类型：数组、字符串、指针和结构。  </li>
+<li>最小长度：short：16位；int：至少与short一样长；long：至少32位，且至少与int一样长；long long：至少64位，且至少与long一样长。（1个字节8位）  </li>
+<li>整数相加减时，如果超越了限制，其值将为范围另一端的取值。例：unsigned short类型的0-1将得到65535。  </li>
+<li>cin只接受输入流中的第一个字符，其余字符会继续存放在流中，后续可以使用。  </li>
+<li>浮点数在计算机中分成两部分存储，一部分表示值，另一部分用于对值进行放大和缩小。  </li>
+<li>浮点数的缺点： 浮点数运算的速度比整数的慢，并且精度会降低。<br>例：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">float</span> a = <span class="number">2.34E+22</span>f;</span><br><span class="line"><span class="keyword">float</span> b = a + <span class="number">1.0f</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; b - a &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;输出的结果应为1，但实际的输出值为0。因为a是一个小数点左边有23位的数字，加上1，即在第23位加1，而float类型只能表示数字中的前6位或前7位，即有效位为6或7，因此修改第23位对这个值并没有任何影响。<br>&emsp;&emsp;对于float，C++只能保证6位有效位。    </p>
+<ol>
+<li>C++会自动执行很多类型转换，但当较大整型转换为较小的整型时，原来的值 可能超出目标类型的取值范围，通常只复制右边的字节，即高位将被截掉。<br>例： </li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">7.2E12</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; a &lt;&lt; <span class="built_in">endl</span>;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;由于a的值超过了int的最大取值范围，因此在某些操作系统上，得到的值为2147483647(int类型的最大值)。</p>
+<ol>
+<li>C++类型转换：typeName(value)</li>
+</ol>
+<h2 id="第4章-复合类型"><a href="#第4章-复合类型" class="headerlink" title="第4章 复合类型"></a>第4章 复合类型</h2><ol>
+<li>只有在定义数组时才能使用初始化，初始化时可以省略等号，不能将一个数组赋给另一个数组。如果只对数组的一部分初始化，则其他位置为0，如果初始化数组时，方括号内为空，则编译器会计算元素个数。<br>例：</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">short a[] = &#123;<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;编译器会计算short型数组包含4个元素。<br>&emsp;&emsp;short指定了类型，a表示变量名，[]表明是一个数组。</p>
+<ol>
+<li>字符串与字符数组</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> NJUT[<span class="number">4</span>] = &#123;<span class="string">'n'</span>, <span class="string">'j'</span>, <span class="string">'u'</span>, <span class="string">'t'</span>&#125;;</span><br><span class="line"><span class="keyword">char</span> NJUT_2[<span class="number">5</span>] = &#123;<span class="string">'n'</span>, <span class="string">'j'</span>, <span class="string">'u'</span>, <span class="string">'t'</span>, <span class="string">'\0'</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;这2个数组都是char数组，但只有第2个是字符串。即字符串必须是以’\0’结尾的字符数组。对于第2个字符数组，cout会打印’njut’，即遇到’\0’则停止，但对于第1个，会一直打印，直到遇到内存中有’\0’为止。<br>&emsp;&emsp;还有1种更简单的方法是用一个引号将这些字符括起来，即<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> NJUT[] = <span class="string">"njut"</span>;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这种称为字符串常量，编译器会自动将’\0’加上。”njut”指的是字符串所在的内存地址。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> name[<span class="number">10</span>] = <span class="string">"cxx"</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="built_in">strlen</span>(name);</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; <span class="keyword">sizeof</span>(name);</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;strlen()返回的是存储在数组中的字符串的个数，即可见的字符个数，因此该返回值为3，而sizeof()计算的是整个数组的长度。如果要存储一个字符串，则数组的长度至少是strlen(字符串)+1。   </p>
+<ol>
+<li>cin、cin.getline()和cin.get()<br>cin：使用空白(空格，制表符和换行符)来确定字符串的结束位置。所以cin只能1次读取1个单词(遇到空格会结束)，剩下的部分会继续存放在cin流中，直到下次的读取。<br>cin.getline(name,size)：函数读取整行，通过换行符确定字符串的结束位置，第1个参数为用来存储输入的数组名称，第2个为要读取的字符串的字符数，其值为size-1，即最后1位用于字符串结尾的空字符。<br>cin.get()：其中一种形式get(name,size)和getline(name,size)类似，都读到行尾，但get()不会读取并丢弃换行符，而是会留在输入流中，这样就会存在一个问题，例：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(name1, <span class="number">10</span>);</span><br><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(name2, <span class="number">10</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;当读完第1个名字后，由于get()并不会丢弃换行符，所以第2次读取的时候会直接读到换行符，从而会认为已经到达行尾，不会读取任何字符。为了避免这个问题，可以采用无参数的get()函数，即cin.get()，该函数读取下一个字符(换行符也可以)，即采用下面的方法：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(name1, <span class="number">10</span>);</span><br><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>()</span><br><span class="line"><span class="built_in">cin</span>.<span class="built_in">get</span>(name2, <span class="number">10</span>);</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;也可以将这2个函数拼在一起，即cin.get(name1, 10).get()。   </p>
+<ol>
+<li>string对象和字符数组之间的主要区别是：可以将string对象声明为简单变量，而不是数组。<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">string</span> name;</span><br><span class="line"><span class="built_in">string</span> name = <span class="string">"cxx"</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;string相当于一个类，字符串相当于类的实例化，不需要在string后面加上长度。  </p>
+<ol>
+<li>创建结构体时首先要创建一个模板。例</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">inflatable</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> name[<span class="number">20</span>];</span><br><span class="line">    <span class="keyword">float</span> volume;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">inflatable guest = </span><br><span class="line">&#123;</span><br><span class="line">    <span class="string">"Glorious Gloria"</span>;</span><br><span class="line">    <span class="number">1.88</span>;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;前一个为结构体的声明，后一个为结构体的赋值。结构体相当于用户自定义的一种结构类型。struct指定了类型为结构体，inflatable为这种新类型的名称。大括号的内容为结构体的成员。整体相当于一个对象的模板，后面的则是对象的实例化，guest为结构体的名称，其具体内容为大括号里面的内容。<br>&emsp;&emsp;注意，不管是声明还是赋值，都是C++的语句，需要加分号结束。 </p>
+<ol>
+<li>可以创建多个值相同的枚举量</li>
+</ol>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> number &#123;first, second, third = <span class="number">1.</span> forth = <span class="number">100</span>, fifth&#125;;</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;first在默认情况下为0，second和third都为1，fifth为101。枚举也相当于一个数据类型，初始化相当于模板，使用时需要先实例化，在调用里面的枚举值，即：<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">number mynumber;</span><br><span class="line">mynumber = first;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;类似于const限定符。  </p>
+<ol>
+<li>只有初始化指针时，才会出现*=&amp;，其他情况，*指的是解除引用，即取出地址存放的值，&amp;指的是地址运算符，即获得变量存在的地址。  <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> a = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">int</span> * pt = &amp;a;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;相当于<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> * pt;</span><br><span class="line">pt = &amp;a;</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;int指定了类型为整型，pt是变量名，*表明是指针，和数组，结构体类似，指针也是个复合类型，需要同基本类型同时使用，即pt是一个整型的指针类型。<br>&emsp;&emsp;指针指的是地址，只有在初始化时才可以将*和&amp;同时使用，否则指针变量后面的赋值一定是某个地址。    </p>
+<ol>
+<li><p>在对指针变量使用解除引用运算符(*)之前，一定要将指针初始化为一个确定的，适当的地址。否则指针将找不到该地址，将错误的地址，甚至是正在运行的程序地址返回并执行操作。  </p>
+</li>
+<li><p>一定要配对的使用new和delete，否则会发生内存泄漏。delete只能删除new创建的指针。  </p>
+</li>
+<li><p>指针和字符串 </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">char</span> flower[<span class="number">10</span>] = <span class="string">"rose"</span>;</span><br><span class="line"><span class="built_in">cout</span> &lt;&lt; flower &lt;&lt; <span class="string">"s are red.\n;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;如果给cout提供一个字符的地址，则将从这个字符开始打印，直到遇到空字符为止。  </p>
+<ol>
+<li>指针与数组、字符串、结构体<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">double</span> wages[<span class="number">3</span>] = &#123;<span class="number">100.0</span>, <span class="number">200.0</span>, <span class="number">300.0</span>&#125;;</span><br><span class="line"><span class="keyword">double</span> * p1 = wages;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> animal[<span class="number">10</span>] = <span class="string">"bear"</span>;</span><br><span class="line"><span class="keyword">char</span> * p2 = animal;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">info</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">int</span> year;</span><br><span class="line">&#125;;</span><br><span class="line">info s01;</span><br><span class="line">info * p3 = &amp;s01;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;指针在初始化时，后面需要赋值一个地址，数组名和字符串常量都是地址，所以不需要再加上取地址符。  </p>
+<ol>
+<li>vector和array<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">typename</span>&gt; <span class="title">vt</span><span class="params">(n_elem)</span></span>;</span><br><span class="line"><span class="built_in">array</span>&lt;<span class="keyword">typename</span>, n_elem&gt; arr;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> a1[<span class="number">4</span>] = &#123;<span class="number">1.2</span>, <span class="number">2.3</span>, <span class="number">3.4</span>, <span class="number">4.5</span>&#125;;</span><br><span class="line"><span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">double</span>&gt; <span class="title">a2</span><span class="params">(<span class="number">4</span>)</span></span>;</span><br><span class="line"><span class="built_in">array</span>&lt;<span class="keyword">double</span>, 4&gt; a3 = &#123;<span class="number">1.2</span>, <span class="number">2.3</span>, <span class="number">3.4</span>, <span class="number">4.5</span>&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;使用vector和array，需要添加头文件#include<vector>和#include<array>，且都可以使用标准的数组索引访问数组中的元素。  </array></vector></p>
+<ol>
+<li>new创建指针<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">typeName * pointer_name = <span class="keyword">new</span> typeName;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<h2 id="第5章-循环和关系表达式"><a href="#第5章-循环和关系表达式" class="headerlink" title="第5章 循环和关系表达式"></a>第5章 循环和关系表达式</h2><ol>
+<li>for循环：<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> (初始化;测试语句;更新语句)</span><br><span class="line">&#123;</span><br><span class="line">    主体;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;测试语句可以是任意表达式，C++会将结果强制转换为bool类型。<br>&emsp;&emsp;C++中，在for和括号之间加上一个空格，以区别函数名和括号。   </p>
+<ol>
+<li><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cout</span>.setf(ios_base::boolalpha);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;设置显示为布尔值。   </p>
+<h2 id="第6章-分支语句和逻辑运算符"><a href="#第6章-分支语句和逻辑运算符" class="headerlink" title="第6章 分支语句和逻辑运算符"></a>第6章 分支语句和逻辑运算符</h2><ol>
+<li><p>c++有if - else if - else 结构  </p>
+</li>
+<li><p>isalpha()：测试字符是否为字母字符，isdigits()：测试字符是否为数字字符，isspace()：测试字符是否为空白(换行符，空格和制表符)，ispunct()：测试字符是否为标点符号。  </p>
+</li>
+</ol>
+<h2 id="第7章-函数"><a href="#第7章-函数" class="headerlink" title="第7章 函数"></a>第7章 函数</h2><ol>
+<li><p>如果声明的返回值类型为double，而函数返回一个int表达式，则该int值会将强制转换为double类型。  </p>
+</li>
+<li><p>C++的返回值不可以是数组，但可以将数组作为结构或对象组成部分来返回。  </p>
+</li>
+<li><p>在函数中使用指针来处理数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">sum_arr</span><span class="params">(<span class="keyword">int</span> * arr, <span class="keyword">int</span> n)</span></span>; <span class="comment">//函数原型</span></span><br><span class="line"><span class="keyword">int</span> sum = sum_arr(cookies, <span class="number">10</span>); <span class="comment">//函数调用</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;这里的cookies为数组名，表示数组中第一个元素的地址，而函数原型中，* arr表示的也是地址，当然也可以用arr[]替换，因为在c++中，当且仅当用于函数头或函数原型中，* arr 和 arr[]的含义是相同的。<br>&emsp;&emsp;在使用数组名作为参数时，并没有将数组的全部内容传递给函数，而是将数组的地址，包含的元素类型以及数目传递给函数，这样会大大减少内存空间。  </p>
+<ol>
+<li>指针常量和常量指针<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * pt = &amp;age;  <span class="comment">//常量指针</span></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> finger = &amp;sloth;  <span class="comment">//指针常量</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;变量名左边是变量的类型，当有多个类型修饰时，看最近的。<br>&emsp;&emsp;变量pt最左边是*，代表的是指针，再往左是int，表明基本类型为整型，最左边是const，表明其值是一个常量。所以pt首先是一个指针，其存放的内容是变量age的地址，地址指向的是一个整型数据，且该数据是个常量，即const int 是共同修饰*pt的。所以变量pt指向的值是不可以改变的，即地址不可变。<br>&emsp;&emsp;而变量finger最左边是const,代表的是常量，再往左是 *,表明是一个指针，最左边是int，表明基本类型为整型。所以finger首先是一个常量，只是该常量指向的是一个int型的指针，所以其指向的变量不可以更改。<br><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> gorp = <span class="number">16</span>;</span><br><span class="line"><span class="keyword">int</span> chips = <span class="number">12</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> * p_snack = &amp;gorp;</span><br><span class="line">*p_snack = <span class="number">20</span>;  <span class="comment">//禁止修改</span></span><br><span class="line">p_snack = &amp;chips;  <span class="comment">//可以修改</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> * <span class="keyword">const</span> p_snack = &amp;gorp;</span><br><span class="line">*p_snack = <span class="number">20</span>;  <span class="comment">//可以修改</span></span><br><span class="line">p_snack = &amp;chips;  <span class="comment">//禁止修改</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;第一个创建的是常量指针，所以指针指向的地址不可以修改，该例中，p_snack指针指向的是gorp的地址，而该地址存放的变量值是16，所以*p_snack的值只能是16，不能是其他值。但是指针指向的变量是可以更改的，即原来是指向gorp变量地址的，现在可以改为指向chips变量地址，但其值仍为16。虽然不能直接修改，但可以通过改变chips的值修改，比如将chips的值改为20，那么现在该常量指针的值就是20了。<br>&emsp;&emsp;第二个创建的是指针常量，所以指针指向的变量是不可以修改的。也就是变量p_snack是一个常量，其值是不可以修改的，只不过这个变量是指针，而指针的值是地址，所以p_snack只能指向chips变量，其值等于chips的地址，但可以修改该地址对应的值，即本来存放chips变量的地址，其值是12，可以修改为20。   </p>
+<ol>
+<li><p>二维数组与指针</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">arr[a][b] = *(*(arr +a) + b)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>函数与字符串数组</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_char</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * a[])</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_string</span><span class="params">(<span class="built_in">string</span> a[])</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* Seasons_char[<span class="number">4</span>] = &#123;<span class="string">"Spring"</span>, <span class="string">"Summer"</span>, <span class="string">"Autumn"</span>, <span class="string">"winter"</span>&#125;;</span><br><span class="line"><span class="built_in">string</span>  Seasons_string[<span class="number">4</span>] = &#123;<span class="string">"Spring"</span>, <span class="string">"Summer"</span>, <span class="string">"Autumn"</span>, <span class="string">"winter"</span>&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_char</span><span class="params">(<span class="keyword">const</span> <span class="keyword">char</span> * a[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_string</span><span class="params">(<span class="built_in">string</span> a[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</span><br><span class="line">        <span class="built_in">cout</span> &lt;&lt; a[i] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    show_char(Seasons_char);</span><br><span class="line">    show_string(Seasons_string);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;创建字符串数组的两种形式。第一种形式时，必须要加const。相当于二维数组char Seasons_char[][4]。</p>
+<ol>
+<li>函数与结构体/结构体指针<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">box</span></span></span><br><span class="line"><span class="class">&#123;</span></span><br><span class="line">    <span class="keyword">char</span> maker[<span class="number">40</span>];</span><br><span class="line">    <span class="keyword">float</span> <span class="built_in">height</span>;</span><br><span class="line">    <span class="keyword">float</span> <span class="built_in">width</span>;</span><br><span class="line">    <span class="keyword">float</span> length;</span><br><span class="line">    <span class="keyword">float</span> volume;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">(box x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"maker: "</span> &lt;&lt; x.maker &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"height: "</span> &lt;&lt; x.<span class="built_in">height</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"width: "</span> &lt;&lt; x.<span class="built_in">width</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"length: "</span> &lt;&lt; x.length &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"volume: "</span> &lt;&lt; x.volume &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_pointer</span><span class="params">(box * x)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    x-&gt;volume = x-&gt;<span class="built_in">height</span> * x-&gt;length * x-&gt;<span class="built_in">width</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"maker: "</span> &lt;&lt; x-&gt;maker &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"height: "</span> &lt;&lt; x-&gt;<span class="built_in">height</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"width: "</span> &lt;&lt; x-&gt;<span class="built_in">width</span> &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"length: "</span> &lt;&lt; x-&gt;length &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">    <span class="built_in">cout</span> &lt;&lt; <span class="string">"volume: "</span> &lt;&lt; x-&gt;volume &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show</span><span class="params">(box x)</span></span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">show_pointer</span><span class="params">(box * x)</span></span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> <span class="keyword">const</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    box box1 = &#123;<span class="string">"cxx"</span>, <span class="number">1</span>, <span class="number">1</span>, <span class="number">1.2</span>&#125;;</span><br><span class="line">    show(box1);</span><br><span class="line">    show_pointer(&amp;box1);</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;在C++中，结构体struct和整型int类似，也是一种数据类型，只不过是由用户自己定义的，所以可以将其看作是int型。<br>&emsp;&emsp;上面代码创建了2个函数，一个是按值传递结构体，一个是按地址传递结构体。在使用结构体时要先定义一个结构体模板。<br>&emsp;&emsp;按值传递的结构体中，函数头是void show(box x);表明其数据类型是box，而box就是定义好的结构体类型，相当于int x。在按值传递时，通过用点运算符访问成员变量，调用函数时，传递的参数为结构体的变量名，而按地址传递时，函数头是void show_pointer(box * x);表明其数据类型也是box，但是传递的是一个指针，也就是结构体变量的地址，在按地址传递时，需要用-&gt;运算符访问成员变量，调用函数时，传递的参数应该是结构体变量的地址，即在变量名前面加上取地址符。  </p>
+<ol>
+<li><p>函数调用时，传递的参数要么是变量名，要么是变量的地址，不需要加修饰符。  </p>
+</li>
+<li><p>与普通的变量一样，函数也有地址。函数的地址是存储其机器语言代码的内存的开始地址。函数名即函数的地址，后面的括号表示调用，不需要加取地址符。这样就可以将函数名作为一个参数传递给另一个函数。    </p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">pam</span><span class="params">(<span class="keyword">int</span>)</span></span>;    <span class="comment">//函数声明</span></span><br><span class="line"><span class="keyword">double</span> (*pf)(<span class="keyword">int</span>);  <span class="comment">//函数指针</span></span><br><span class="line"><span class="function"><span class="keyword">double</span> * <span class="title">pf</span><span class="params">(<span class="keyword">int</span>)</span></span>;   <span class="comment">//指针函数</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;声明一个函数pam，有1个参数为int，返回值为double。用一个指针(*pf)来替代函数名就可以声明一个函数指针，也就是必须要指针函数的参数类型和返回值类型。此时pam和*pf一样，都是函数名，而pf就是函数指针，即函数的地址。<br>&emsp;&emsp;指针必须用括号括起来，否则pf会和后面的括号先结合，然后和*结合，变成指针函数，相当于创建一个pf(int)的函数，其返回值为double类型的指针。  </p>
+<h2 id="未完待续…"><a href="#未完待续…" class="headerlink" title="未完待续…"></a>未完待续…</h2>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>谢谢老板！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Cxx</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://cxx0822.github.io/2018/12/20/c-bi-ji/" title="C++笔记">http://cxx0822.github.io/2018/12/20/c-bi-ji/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-heart"></i>感谢您的阅读<i class="fa fa-heart"></i>给个五星好评吧~~-------------</div>
+    
+</div>
+      
+    </div>  
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/12/18/jue-ce-shu-suan-fa/" rel="next" title="决策树算法">
+                <i class="fa fa-chevron-left"></i> 决策树算法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/12/24/bei-xie-si-suan-fa/" rel="prev" title="贝叶斯算法">
+                贝叶斯算法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDM5Mi8yMDkyNA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.jpg" alt="Cxx">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Cxx0822" title="GitHub &rarr; https://github.com/Cxx0822" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/1556464090@qq.com" title="E-Mail &rarr; 1556464090@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://message/?uin=1556464090&Site=&menu=yes" title="QQ &rarr; tencent://message/?uin=1556464090&Site=&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+
+          
+
+          
+          
+
+          
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <!-- modify icon to fire by szw -->
+              <i class="fa fa-history fa-" aria-hidden="true"></i>
+              近期文章
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+              
+                <li>
+                  <a href="/2022/08/30/vue3-she-ji-yu-shi-xian-bi-ji-zheng-li-bian-yi-qi/" title="Vue3设计与实现笔记整理：编译器" target="_blank">Vue3设计与实现笔记整理：编译器</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/04/01/vue3-admin-template-xiang-mu-shuo-ming/" title="vue3-admin-template项目说明" target="_blank">vue3-admin-template项目说明</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/24/typescript-zhi-shi-dian-zheng-li/" title="TypeScript知识点整理" target="_blank">TypeScript知识点整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/23/dian-nao-chang-jian-wen-ti-ji-jie-jue-fang-fa-zheng-li/" title="电脑常见问题及解决方法整理" target="_blank">电脑常见问题及解决方法整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/19/xue-xi-zi-liao-he-wang-zhan-zheng-li/" title="学习资料网站整理" target="_blank">学习资料网站整理</a>
+                </li>
+              
+            </ul>
+            </div>
+          
+
+          
+            
+          
+          <div style>
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#第1章-预备知识"><span class="nav-number">1.</span> <span class="nav-text">第1章 预备知识</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第2章-开始学习C"><span class="nav-number">2.</span> <span class="nav-text">第2章 开始学习C++</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第3章-处理数据"><span class="nav-number">3.</span> <span class="nav-text">第3章 处理数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第4章-复合类型"><span class="nav-number">4.</span> <span class="nav-text">第4章 复合类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第5章-循环和关系表达式"><span class="nav-number">5.</span> <span class="nav-text">第5章 循环和关系表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第6章-分支语句和逻辑运算符"><span class="nav-number">6.</span> <span class="nav-text">第6章 分支语句和逻辑运算符</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#第7章-函数"><span class="nav-number">7.</span> <span class="nav-text">第7章 函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#未完待续…"><span class="nav-number">8.</span> <span class="nav-text">未完待续…</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共223.3k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    
+       <span class="site-uv">
+       我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+    </span>
+    
+
+     <span class="site-pv">
+       历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+      </span>
+    
+ 
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.7" zindex="-1" count="140" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.1" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz',
+    appKey: 'vsGiLpHSGoRkai2uNgwVim1S',
+    placeholder: '有什么想和我说的呢',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2018/12/20/c-bi-ji/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: 'AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4',
+        projectId: 'cxx0822-7221e'
+      })
+
+      function getCount(doc, url, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1,
+                'url': url
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+               // $('<i>').addClass('fa fa-users')
+                $('<i>').addClass('fa fa-eye')
+              )
+              ).append($('<span>').text('热度 ' + count + ' 次'))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/zh-tw/docs/variables.html
+      var isPost = 'C++笔记'.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      var urlPath = '2018/12/20/c-bi-ji/';
+      var urlFullPath = 'http://cxx0822.github.io/2018/12/20/c-bi-ji/';
+      var indexPath = 'index.html'; //首页链接
+      var isMenu = false;
+      
+         
+         var menuLink = '/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/categories/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/archives/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/top/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+
+    //  if (isPost) { //is article page
+      if (!isMenu) { // 非菜单页、非主页（即在某篇文章链接里）
+        var title = 'C++笔记'
+        var doc = articles.doc(title)
+
+      //  getCount(doc, true).then(appendCountTo($('.post-meta')))
+        getCount(doc, urlFullPath, true).then(appendCountTo($('.post-wordcount')))
+      }
+     // else if (!isArchive && !isCategory && !isTag) { //is index page
+      else if (urlPath == indexPath) { // 主页
+        var titles = [] //array to titles
+
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          // var metas = $('.post-meta')
+          var metas = $('.post-wordcount')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "default";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "default";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 25076,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20181108,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#DA70D6">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+<!-- 旋转魔方 -->
+
+   
+      <style>
+    .cube_container {
+      width: 50px;
+      height: 60px;
+      margin: 0 auto;
+      position: fixed;
+      z-index: 999;
+      -webkit-perspective: 1000px;
+              perspective: 1000px;
+      right: 0px;
+      bottom: 0px;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+
+    .cube {
+      /*
+      width: 100%;
+      height: 100%;
+      */
+      width: 0%; /* 大角度旋转 */
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      -webkit-transform-origin: center center -100px;
+      transform-origin: center center -100px;
+      -webkit-animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+      animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+    }
+    .cube div {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0;
+      position: absolute;
+    }
+    .cube div a {
+      color: white;
+      font-size: 12px;
+      text-decoration: none;
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 45%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+    .cube .front {
+      -webkit-transform: rotateY(0deg) translateZ(25px);
+              transform: rotateY(0deg) translateZ(25px);
+      background-color: rgba(0, 191, 255, 0.7);
+      border: 1px solid rgba(0, 191, 255, 0.7);
+    }
+    .cube .back {
+      -webkit-transform: rotateX(180deg) translateZ(25px);
+              transform: rotateX(180deg) translateZ(25px);
+      background-color: rgba(124, 252, 0, 0.7);
+      border: 1px solid rgba(124, 252, 0, 0.7);
+    }
+    .cube .left {
+      -webkit-transform: rotateY(-90deg) translateZ(25px);
+              transform: rotateY(-90deg) translateZ(25px);
+      background-color: rgba(255, 215, 0, 0.7);
+      border: 1px solid rgba(255, 215, 0, 0.7);
+    }
+    .cube .right {
+      -webkit-transform: rotateY(90deg) translateZ(25px);
+              transform: rotateY(90deg) translateZ(25px);
+      background-color: rgba(255, 69, 0, 0.7);
+      border: 1px solid rgba(255, 69, 0, 0.7);
+    }
+    .cube .top {
+      -webkit-transform: rotateX(90deg) translateZ(25px);
+              transform: rotateX(90deg) translateZ(25px);
+      background-color: rgba(255, 0, 157, 0.7);
+      border: 1px solid rgba(255, 0, 157, 0.7);
+    }
+    .cube .bottom {
+      -webkit-transform: rotateX(-90deg) translateZ(25px);
+              transform: rotateX(-90deg) translateZ(25px);
+      background-color: rgba(184, 111, 220, 0.7);
+      border: 1px solid rgba(184, 111, 220, 0.7);
+    }
+
+     @-webkit-keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+                transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+
+    @keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+        transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+</style>
+
+<div class="cube_container">
+  <div class="cube">
+    <div class="front"><a onclick="back2top()" rel="nofollow"> 欢迎光临 </a></div>
+    <div class="back"><a onclick="back2top()" rel="nofollow"> ❤️ </a></div>
+    <div class="right"><a onclick="back2top()" rel="nofollow"> NJTech Cxx </a></div>
+    <div class="left"><a onclick="back2top()" role="button" rel="nofollow"> 请多关照 </a></div>
+    <div class="top"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+    <div class="bottom"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+  </div>
+</div>
+
+<script>
+  function back2top(){
+    $('html, body').animate({scrollTop: 0}, 500);
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+   
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!-- 评论特效 -->
+<script src="/js/activate-power-mode.js"></script>
+<script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+</script>

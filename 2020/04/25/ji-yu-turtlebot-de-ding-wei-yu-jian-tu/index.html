@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"shrinkIn","post_header":"slideLeftIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b1d1072f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+ <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/b6dbddb6.js","daovoice")
+ daovoice('init', {
+  app_id: "b1d1072f"
+});
+daovoice('update');
+ </script>
+
+  <meta name="description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;turtlebot2&amp;emsp;&amp;emsp;RPLIDAR A1/2(思岚)     Ubuntu与ROS系统安装&amp;emsp;&amp;emsp;具体详见另一篇博客Ubuntu安装，ROS安装 turtlebot配置安装turtlebot库&amp;emsp;&amp;emsp;升级软件版本1sudo apt-get update &amp;emsp;&amp;e">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于turtlebot的定位与建图">
+<meta property="og:url" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/index.html">
+<meta property="og:site_name" content="NJTECH_Cxx">
+<meta property="og:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;turtlebot2&amp;emsp;&amp;emsp;RPLIDAR A1/2(思岚)     Ubuntu与ROS系统安装&amp;emsp;&amp;emsp;具体详见另一篇博客Ubuntu安装，ROS安装 turtlebot配置安装turtlebot库&amp;emsp;&amp;emsp;升级软件版本1sudo apt-get update &amp;emsp;&amp;e">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//显示底盘端口.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//显示激光雷达端口.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//启动激光雷达.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//rplidar节点主函数.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//rplidar内容查看.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//rviz中laser配置.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//启动建图.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//turtlebot底盘驱动.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//gmapping节点.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//所有节点.png">
+<meta property="og:updated_time" content="2022-03-21T06:19:12.902Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于turtlebot的定位与建图">
+<meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;Ubuntu16.04&amp;emsp;&amp;emsp;turtlebot2&amp;emsp;&amp;emsp;RPLIDAR A1/2(思岚)     Ubuntu与ROS系统安装&amp;emsp;&amp;emsp;具体详见另一篇博客Ubuntu安装，ROS安装 turtlebot配置安装turtlebot库&amp;emsp;&amp;emsp;升级软件版本1sudo apt-get update &amp;emsp;&amp;e">
+<meta name="twitter:image" content="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu//显示底盘端口.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>基于turtlebot的定位与建图 | NJTECH_Cxx</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- APlayer -->
+  <!-- 
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_Cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">70</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-top">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/top/" rel="section"><i class="menu-item-icon fa fa-fw fa-signal"></i> <br>热度排行</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+<!-- 天气 -->
+<script type="text/javascript">
+WIDGET = {FID: 'H94fFEffHo'}
+</script>
+<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/Cxx0822" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_Cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于turtlebot的定位与建图
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-04-25 18:46:37" itemprop="dateCreated datePublished" datetime="2020-04-25T18:46:37+08:00">2020-04-25</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-03-21 14:19:12" itemprop="dateModified" datetime="2022-03-21T14:19:12+08:00">2022-03-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ROS开发与应用/" itemprop="url" rel="index"><span itemprop="name">ROS开发与应用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <!-- <span title="本文字数">57k</span> -->
+			  <span title="本文字数">
+                  3,524字
+                </span>
+              
+
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">24 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>&emsp;&emsp;Ubuntu16.04<br>&emsp;&emsp;turtlebot2<br>&emsp;&emsp;RPLIDAR A1/2(思岚)    </p>
+<h1 id="Ubuntu与ROS系统安装"><a href="#Ubuntu与ROS系统安装" class="headerlink" title="Ubuntu与ROS系统安装"></a>Ubuntu与ROS系统安装</h1><p>&emsp;&emsp;具体详见另一篇博客<a href="https://cxx0822.github.io/2019/02/26/%E5%9F%BA%E4%BA%8EUbuntu%E7%B3%BB%E7%BB%9F%E7%9A%84NAO%E5%BC%80%E5%8F%9101%EF%BC%9A%E5%AE%89%E8%A3%85%E7%B3%BB%E7%BB%9F%E5%B9%B6%E9%85%8D%E7%BD%AEpython%E7%8E%AF%E5%A2%83/">Ubuntu安装</a>，<a href="https://cxx0822.github.io/2019/10/23/ROS%E7%9A%84%E5%AE%89%E8%A3%85%E5%8F%8A%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/">ROS安装</a></p>
+<h1 id="turtlebot配置"><a href="#turtlebot配置" class="headerlink" title="turtlebot配置"></a>turtlebot配置</h1><h2 id="安装turtlebot库"><a href="#安装turtlebot库" class="headerlink" title="安装turtlebot库"></a>安装turtlebot库</h2><p>&emsp;&emsp;升级软件版本<br><figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="keyword">get</span> <span class="keyword">update</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;安装依赖库：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install ros-kinetic-turtlebot</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;安装<code>turtlebot</code>下的功能包(也可以根据需要安装)：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install ros-kinetic-turtlebot-*</span><br></pre></td></tr></table></figure></p>
+<h2 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h2><h3 id="检查硬件连接"><a href="#检查硬件连接" class="headerlink" title="检查硬件连接"></a>检查硬件连接</h3><p>&emsp;&emsp;打开<code>turtlebot2</code>电源，将<code>turtlebot2</code>的<code>USB</code>线接入工控机(PC机)的<code>USB</code>口(最好是<code>USB3.0</code>)，然后打开终端，启动<code>ROS</code>。<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">roscore</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;再打开一个终端，输入检测命令：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> <span class="string">/dev/kobuki</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\显示底盘端口.png" alt="显示底盘端口"><br>&emsp;&emsp;显示相应设备即可。<br>&emsp;&emsp;如果没有显示，则执行：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">rosrun kobuki_ftdi create_udev_rules</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="检查底盘及电机"><a href="#检查底盘及电机" class="headerlink" title="检查底盘及电机"></a>检查底盘及电机</h3><p>&emsp;&emsp;打开电源，再打开一个终端，输入启动底盘命令：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turtlebot_bringup minimal.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;不报错，听到声音即可。<br>&emsp;&emsp;再打开一个终端，输入键盘操作底盘命令：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turtlebot_teleop keyboard_teleop.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;根据提示信息，输入指令字母，<code>turtlebot</code>能动即可。   </p>
+<h1 id="激光雷达配置"><a href="#激光雷达配置" class="headerlink" title="激光雷达配置"></a>激光雷达配置</h1><h2 id="安装驱动"><a href="#安装驱动" class="headerlink" title="安装驱动"></a>安装驱动</h2><p>&emsp;&emsp;需要下载思岚官网提供的激光雷达驱动包。   </p>
+<h3 id="创建工程文件夹"><a href="#创建工程文件夹" class="headerlink" title="创建工程文件夹"></a>创建工程文件夹</h3><figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> catkin_ws   # 可以是其他名字</span><br><span class="line"><span class="built_in">cd</span> catkin_ws</span><br><span class="line"><span class="built_in">mkdir</span> src</span><br><span class="line"><span class="built_in">cd</span> src</span><br></pre></td></tr></table></figure>
+<h3 id="下载并编译"><a href="#下载并编译" class="headerlink" title="下载并编译"></a>下载并编译</h3><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/Slamtec/rplidar_ros.git</span><br><span class="line">cd ..</span><br><span class="line">catkin_make</span><br></pre></td></tr></table></figure>
+<h3 id="添加环境变量"><a href="#添加环境变量" class="headerlink" title="添加环境变量"></a>添加环境变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> devel/setup.bash</span><br><span class="line">gedit ~/.bashrc  <span class="comment"># 打开环境变量文件</span></span><br><span class="line"><span class="built_in">source</span> ~/catkin_ws/devel/setup.bash  <span class="comment"># 在文档最下面添加该命令</span></span><br><span class="line"><span class="built_in">source</span> ~/.bashrc  <span class="comment"># 生效</span></span><br></pre></td></tr></table></figure>
+<h2 id="设置串口权限"><a href="#设置串口权限" class="headerlink" title="设置串口权限"></a>设置串口权限</h2><p>&emsp;&emsp;使激光雷达串口可以读和写。 </p>
+<h3 id="检查端口号"><a href="#检查端口号" class="headerlink" title="检查端口号"></a>检查端口号</h3><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dmesg <span class="string">| grep ttyUSB*</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\显示激光雷达端口.png" alt="显示激光雷达端口"><br>&emsp;&emsp;有cp210x对应的USB口即可。(RPLIDAR A系列激光雷达使用的是cp210x串口驱动)。 </p>
+<h3 id="设置权限"><a href="#设置权限" class="headerlink" title="设置权限"></a>设置权限</h3><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit <span class="regexp">/etc/u</span>dev<span class="regexp">/rules.d/</span><span class="number">70</span>-ttyusb.rules</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;打开后，输入：<br><figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">KERNEL</span>==<span class="string">"ttyUSB[0-9]*"</span>, MODE=<span class="string">"0666"</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;运行如下程序，查看权限，有两个<code>rw</code>即可。<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ls</span> -l <span class="string">/dev</span> |grep ttyUSB*</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;设置激光雷达串口的权限：<br><figure class="highlight angelscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chmod <span class="number">777</span> /dev/ttyUSB0</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注意这里的<code>USB0</code>和之前显示的要保持一致，如果下次更换<code>USB</code>接口可能需要更改数字。     </p>
+<h2 id="添加环境变量-1"><a href="#添加环境变量-1" class="headerlink" title="添加环境变量"></a>添加环境变量</h2><p>&emsp;&emsp;添加别名：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"export TURTLEBOT_LASER_SENSOR=rplidar"</span> &gt;&gt; ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;转至<code>rplidar_ros</code>文件夹，输入命令：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.<span class="regexp">/scripts/</span>create_udev_rules.sh</span><br></pre></td></tr></table></figure></p>
+<h2 id="测试激光雷达"><a href="#测试激光雷达" class="headerlink" title="测试激光雷达"></a>测试激光雷达</h2><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch rplidar_ros rplidar.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure>
+<p><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\启动激光雷达.png" alt="启动激光雷达"><br>&emsp;&emsp;无错误，激光雷达正常运转即可。  </p>
+<h2 id="激光雷达再分析"><a href="#激光雷达再分析" class="headerlink" title="激光雷达再分析"></a>激光雷达再分析</h2><p>&emsp;&emsp;学而不思则罔，思而不学则殆。<br>&emsp;&emsp;打开<code>src/rplidar_ros/launch/rplidar.launch</code>，可以看到里面调用了一个<code>rplidarNode</code>的节点，并为其设置了一些参数。打开<code>src/rplidar_ros/</code>文件夹下的<code>CMakeLists.txt</code>文件夹，可以找到<code>add_executable()</code>中的<code>rplidarNode</code>节点，而该节点真正的定义是在<code>src/rplidar_ros/src</code>文件夹下的<code>node.cpp</code>文件，找到<code>main</code>函数即可看到该节点的定义。<br><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\rplidar节点主函数.png" alt="rplidar节点main函数"><br>&emsp;&emsp;从这段代码中可以看出，该节点订阅了一个<code>sensor_msgs::LaserScan</code>的消息类型，该消息类型也是<code>ros</code>中自带的激光雷达数据类型。打开<code>/opt/ros/kinetic/share/sensor_msgs/msg/LaserScan.msg</code>即可查看该数据类型。然后紧跟着定义了一些参数，这也是<code>rplidar.launch</code>里面的参数。对该数据类型的具体处理在<code>pubulish_scan()</code>函数中。<br>&emsp;&emsp;运行<code>roslaunch rplidar_ros rplidar.launch</code>，并通过简单的指令可以查看当前节点、话题和消息的内容：<br>&emsp;&emsp;<code>rosnode list</code>：显示所有节点。<br>&emsp;&emsp;<code>rostopic list</code>：显示所有话题。<br>&emsp;&emsp;<code>rqt_graph</code>：图形化显示节点和话题之间的关系。<br>&emsp;&emsp;<code>rostopic info topic名称</code>：查看话题信息。<br>&emsp;&emsp;<code>rostopic type topic名称</code>：查看话题的消息类型。<br>&emsp;&emsp;<code>rosmsg show message名称</code> 查看消息数据结构。<br>&emsp;&emsp;<code>rostopic echo topic名称</code>：显示话题上发布的具体消息。<br><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\rplidar内容查看.png" alt="rplidar内容查看"><br>&emsp;&emsp;如果想在<code>rviz</code>界面中显示激光雷达数据，先在终端输入<code>rviz</code>打开界面，然后点击<code>Add</code>添加<code>LaserScan</code>话题，并在<code>Topic</code>里面选择目前的<code>laser</code>话题。但是现在仍然看不到激光雷达数据，因为目前的坐标系是<code>map</code>，而激光雷达需要的是<code>laser</code>坐标系，所以在<code>Global Options</code>中的<code>Fixed Frame</code>选项手动输入<code>laser</code>，最终的设置及效果如下：<br><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\rviz中laser配置.png" alt="rviz中laser配置"><br>&emsp;&emsp;当然也可以直接输入<code>rplidar</code>官方配置好的<code>launch</code>文件：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch rplidar_ros view_rplidar.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="基于hector-slam的定位与建图"><a href="#基于hector-slam的定位与建图" class="headerlink" title="基于hector-slam的定位与建图"></a>基于hector-slam的定位与建图</h1><h2 id="平台-1"><a href="#平台-1" class="headerlink" title="平台"></a>平台</h2><p>&emsp;&emsp;硬件：<code>RPLIDAR A1</code>，算法：<code>hector-slam</code>。  </p>
+<h2 id="安装算法包"><a href="#安装算法包" class="headerlink" title="安装算法包"></a>安装算法包</h2><p>&emsp;&emsp;具体操作见上(注意一定要编译)。算法包网址：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/NickL77/RPLidar_Hector_SLAM</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注：<code>hector-slam</code>软件包中自带<code>rplidar_ros</code>包，为了避免因为2个同名的包导致错误产生，可以在环境变量中将之前的激光雷达环境注释掉，后续的建图算法也建议这么操作。           </p>
+<h2 id="定位与建图"><a href="#定位与建图" class="headerlink" title="定位与建图"></a>定位与建图</h2><p>&emsp;&emsp;打开激光雷达：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch rplidar_ros rplidar.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;运行建图算法：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch hector_slam_launch tutorial.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\启动建图.png" alt="启动建图">     </p>
+<p>&emsp;&emsp;然后手推<code>turtlebot</code>或使用之前的键盘控制指令使其移动，在<code>rviz</code>界面中可以看到地图的更新。      </p>
+<h1 id="基于Gmapping的定位与建图"><a href="#基于Gmapping的定位与建图" class="headerlink" title="基于Gmapping的定位与建图"></a>基于Gmapping的定位与建图</h1><h2 id="Gmapping简介"><a href="#Gmapping简介" class="headerlink" title="Gmapping简介"></a>Gmapping简介</h2><p>&emsp;&emsp;<code>Gmapping</code>的程序框架是依托<code>Open_slam</code>(<code>OpenSLAM.org</code>的目标是为<code>SLAM</code>研究人员提供一个平台，使他们能够发布自己的算法。<code>OpenSLAM.org</code>成立于<code>2006</code>年，并于<code>2018</code>年移至<code>github</code>。目前开源的项目有：<a href="https://openslam-org.github.io/" target="_blank" rel="noopener">OpenSLAM.org</a>)，该框架主要分成<code>slam_gmapping</code>和<code>openslam_gmapping</code>。<code>slam_gmapping</code>是<code>openslam_gampping</code>在<code>ros</code>下的二次封装，真正的核心代码实现都在<code>openslam_gampping</code>里面。         </p>
+<h2 id="平台-2"><a href="#平台-2" class="headerlink" title="平台"></a>平台</h2><p>&emsp;&emsp;硬件：<code>RPLIDAR A2</code>，算法：<code>Gmapping</code>。      </p>
+<h2 id="下载源代码"><a href="#下载源代码" class="headerlink" title="下载源代码"></a>下载源代码</h2><p>&emsp;&emsp;<code>Gmapping</code>算法在安装<code>ros</code>时已经安装好，当然也可以通过下载源代码编译安装。<br>&emsp;&emsp;首先新建工作空间<code>gmapping_ws</code>(也可以是其他名字)，然后新建<code>src</code>文件夹，并下载<code>gmapping</code>源代码：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/ros-perception/openslam_gmapping.git</span><br><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/ros-perception/slam_gmapping.git</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后下载<code>rplidar</code>源代码：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/Slamtec/rplidar_ros.git</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最后下载<code>turtlebot</code>底盘驱动源代码：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/Cxx0822/turtlebot_move_base.git</span><br></pre></td></tr></table></figure></p>
+<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><p>&emsp;&emsp;首先打开<code>src/rplidar_ros/launch</code>文件夹，新建<code>my_rplidar.launch</code>文件：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"rplidarNode"</span>          <span class="attr">pkg</span>=<span class="string">"rplidar_ros"</span>  <span class="attr">type</span>=<span class="string">"rplidarNode"</span> <span class="attr">output</span>=<span class="string">"screen"</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"serial_port"</span>         <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">value</span>=<span class="string">"/dev/ttyUSB0"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"serial_baudrate"</span>     <span class="attr">type</span>=<span class="string">"int"</span>    <span class="attr">value</span>=<span class="string">"115200"</span>/&gt;</span><span class="comment">&lt;!--A1/A2 --&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--param name="serial_baudrate"     type="int"    value="256000"--&gt;</span><span class="comment">&lt;!--A3 --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"frame_id"</span>            <span class="attr">type</span>=<span class="string">"string"</span> <span class="attr">value</span>=<span class="string">"laser"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"inverted"</span>            <span class="attr">type</span>=<span class="string">"bool"</span>   <span class="attr">value</span>=<span class="string">"false"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"angle_compensate"</span>    <span class="attr">type</span>=<span class="string">"bool"</span>   <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"tf"</span> <span class="attr">type</span>=<span class="string">"static_transform_publisher"</span> <span class="attr">name</span>=<span class="string">"base_to_laser"</span> <span class="attr">args</span>=<span class="string">"0.0 0.0 0.4 0 0.0 0.0 base_link laser 100"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;该<code>launch</code>文件一共包含2个<code>ros</code>节点，一个是启动雷达节点<code>rplidarNode</code>，一个是<code>tf</code>坐标变换节点<code>static_transform_publisher</code>。其参数为：<br><figure class="highlight gml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">static_transform_publisher <span class="symbol">x</span> <span class="symbol">y</span> z yaw pitch roll frame_id child_frame_id period_in_ms</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;在这里表示的是<code>turtlebot</code>基坐标到雷达坐标的转换，这里的<code>0.4</code>指的是安装高度。      </p>
+<p>&emsp;&emsp;然后打开<code>src/slam_gmapping/gmapping/launch</code>文件夹，现建<code>my_gmapping_rplidar.launch</code>文件：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"scan_topic"</span>  <span class="attr">default</span>=<span class="string">"scan"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"base_frame"</span>  <span class="attr">default</span>=<span class="string">"base_footprint"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"odom_frame"</span>  <span class="attr">default</span>=<span class="string">"odom"</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="tag">&lt;<span class="name">node</span> <span class="attr">pkg</span>=<span class="string">"gmapping"</span> <span class="attr">type</span>=<span class="string">"slam_gmapping"</span> <span class="attr">name</span>=<span class="string">"slam_gmapping"</span> <span class="attr">output</span>=<span class="string">"screen"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"base_frame"</span> <span class="attr">value</span>=<span class="string">"$(arg base_frame)"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"odom_frame"</span> <span class="attr">value</span>=<span class="string">"$(arg odom_frame)"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"map_update_interval"</span> <span class="attr">value</span>=<span class="string">"0.01"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"maxUrange"</span> <span class="attr">value</span>=<span class="string">"4.0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"maxRange"</span> <span class="attr">value</span>=<span class="string">"5.0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"sigma"</span> <span class="attr">value</span>=<span class="string">"0.05"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"kernelSize"</span> <span class="attr">value</span>=<span class="string">"3"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"lstep"</span> <span class="attr">value</span>=<span class="string">"0.05"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"astep"</span> <span class="attr">value</span>=<span class="string">"0.05"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"iterations"</span> <span class="attr">value</span>=<span class="string">"5"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"lsigma"</span> <span class="attr">value</span>=<span class="string">"0.075"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"ogain"</span> <span class="attr">value</span>=<span class="string">"3.0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"lskip"</span> <span class="attr">value</span>=<span class="string">"0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"minimumScore"</span> <span class="attr">value</span>=<span class="string">"30"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"srr"</span> <span class="attr">value</span>=<span class="string">"0.01"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"srt"</span> <span class="attr">value</span>=<span class="string">"0.02"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"str"</span> <span class="attr">value</span>=<span class="string">"0.01"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"stt"</span> <span class="attr">value</span>=<span class="string">"0.02"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"linearUpdate"</span> <span class="attr">value</span>=<span class="string">"0.05"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"angularUpdate"</span> <span class="attr">value</span>=<span class="string">"0.0436"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"temporalUpdate"</span> <span class="attr">value</span>=<span class="string">"-1.0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"resampleThreshold"</span> <span class="attr">value</span>=<span class="string">"0.5"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"particles"</span> <span class="attr">value</span>=<span class="string">"8"</span>/&gt;</span></span><br><span class="line">  <span class="comment">&lt;!--</span></span><br><span class="line"><span class="comment">    &lt;param name="xmin" value="-50.0"/&gt;</span></span><br><span class="line"><span class="comment">    &lt;param name="ymin" value="-50.0"/&gt;</span></span><br><span class="line"><span class="comment">    &lt;param name="xmax" value="50.0"/&gt;</span></span><br><span class="line"><span class="comment">    &lt;param name="ymax" value="50.0"/&gt;</span></span><br><span class="line"><span class="comment">  make the starting size small for the benefit of the Android client's memory...</span></span><br><span class="line"><span class="comment">  --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"xmin"</span> <span class="attr">value</span>=<span class="string">"-1.0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"ymin"</span> <span class="attr">value</span>=<span class="string">"-1.0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"xmax"</span> <span class="attr">value</span>=<span class="string">"1.0"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"ymax"</span> <span class="attr">value</span>=<span class="string">"1.0"</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"delta"</span> <span class="attr">value</span>=<span class="string">"0.05"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"llsamplerange"</span> <span class="attr">value</span>=<span class="string">"0.01"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"llsamplestep"</span> <span class="attr">value</span>=<span class="string">"0.01"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"lasamplerange"</span> <span class="attr">value</span>=<span class="string">"0.005"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"lasamplestep"</span> <span class="attr">value</span>=<span class="string">"0.005"</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">"scan"</span> <span class="attr">to</span>=<span class="string">"$(arg scan_topic)"</span>/&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;该文件主要包含一个<code>slam_gmapping</code>节点，并设置了参数，最后将<code>scan</code>话题重映射到<code>scan_topic</code>中。具体参数解释可参考：<a href="https://blog.csdn.net/bufengzj/article/details/99079017" target="_blank" rel="noopener">GMAPPING的参数设置</a>            </p>
+<p>&emsp;&emsp;<code>turtlebot_move_base</code>部分已经修改好，直接用即可。<br>&emsp;&emsp;最后创建一个功能包：<code>turtlebot_gmapping</code>：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">catkin_create_pkg turtlebot_gmapping std_msgs roscpp rospy</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后进入该功能包，新建<code>launch</code>文件夹，并新建<code>my_gmapping.launch</code>文件：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">  <span class="comment">&lt;!-- Define laser type--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"laser_type"</span> <span class="attr">default</span>=<span class="string">"rplidar"</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment">&lt;!-- laser driver --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$(find rplidar_ros)/launch/my_$(arg laser_type).launch"</span> /&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment">&lt;!-- Gmapping --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$(find gmapping)/launch/my_gmapping_$(arg laser_type).launch"</span>/&gt;</span></span><br><span class="line"> </span><br><span class="line">  <span class="comment">&lt;!-- Move base --&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$(find turtlebot_move_base)/launch/includes/move_base.launch.xml"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">&lt;!-- Rviz--&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$(find turtlebot_rviz_launchers)/launch/view_navigation.launch"</span>/&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;该<code>launch</code>文件相当于是之前的一个整合。一共包含四个部分：启动雷达，启动建图，启动底盘控制和启动<code>rviz</code>。<br>&emsp;&emsp;然后回到工作空间编译，添加环境变量即可。      </p>
+<h2 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h2><p>&emsp;&emsp;首先打开<code>turtlebot</code>底盘：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turtlebot_bringup minimal.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后打开<code>gmapping</code>建图算法：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turtlebot_gmapping my_gmapping.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最后启动键盘控制程序，开始建图：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turtlebot_teletop keyboard_teletop.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;同样的，我们也可以使用<code>ros</code>自带的工具<code>rqt_graph</code>查看整个流程。<br>&emsp;&emsp;其中单独的底盘节点状态图如图所示：<br><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\turtlebot底盘驱动.png" alt="底盘节点状态图"><br>&emsp;&emsp;单独的<code>gmapping</code>节点状态图如图所示：<br><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\gmapping节点.png" alt="gmapping节点状态图"><br>&emsp;&emsp;所有节点状态图如图所示：<br><img src="/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/\所有节点.png" alt="所有节点状态图"><br>&emsp;&emsp;这里椭圆表示节点名字，也就是<code>launch</code>文件启动节点的<code>name</code>值，矩形表示话题。       </p>
+<h2 id="附："><a href="#附：" class="headerlink" title="附："></a>附：</h2><p>&emsp;&emsp;<code>turtlebot</code>有一个官方的工具包，里面包含了大量的建图等算法，可以直接使用。<br>&emsp;&emsp;新建工作空间，并下载源代码：<br><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p ~<span class="regexp">/turbot_ws/</span>src</span><br><span class="line">cd ~<span class="regexp">/turbot_ws/</span>src</span><br><span class="line">git clone https:<span class="regexp">//gi</span>thub.com<span class="regexp">/ncnynl/</span>turtlebot_apps</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后下载<code>turbot</code>工具包：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/ncnynl/turbot</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;回到工作空间编译并添加至环境变量。<br>&emsp;&emsp;依次执行以下命令建图：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">roslaunch turbot_bringup minimal.<span class="built_in">launch</span></span><br><span class="line">roslaunch turbot_slam laser_gmapping_demo.<span class="built_in">launch</span></span><br><span class="line">roslaunch turbot_rviz nav.<span class="built_in">launch</span></span><br><span class="line">roslaunch turbot_teleop keyboard.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;参考博客：<a href="https://www.jianshu.com/p/4277243c786d" target="_blank" rel="noopener">Turtlebot + Rplidar A2使用Gmapping建图与导航</a>         </p>
+<h1 id="基于Cartographer的定位与建图"><a href="#基于Cartographer的定位与建图" class="headerlink" title="基于Cartographer的定位与建图"></a>基于Cartographer的定位与建图</h1><h2 id="平台-3"><a href="#平台-3" class="headerlink" title="平台"></a>平台</h2><p>&emsp;&emsp;硬件：<code>RPLIDAR A2</code>，算法：<code>Cartographer</code>。     </p>
+<h2 id="Cartographer简介"><a href="#Cartographer简介" class="headerlink" title="Cartographer简介"></a>Cartographer简介</h2><p>&emsp;&emsp;2016年10月5日，谷歌宣布开放一个名为<code>cartographer</code>的即时定位与地图建模库，开发人员可以使用该库实现机器人在二维或三维条件下的定位及建图功能。<code>cartograhper</code>的设计目的是在计算资源有限的情况下，实时获取相对较高精度的<code>2D</code>地图。考虑到基于模拟策略的粒子滤波方法在较大环境下对内存和计算资源的需求较高，<code>cartographer</code>采用基于图网络的优化方法。目前<code>cartographer</code>主要基于激光雷达来实现<code>SLAM</code>，谷歌希望通过后续的开发及社区的贡献支持更多的传感器和机器人平台，同时不断增加新的功能。           </p>
+<h2 id="Cartographer的安装"><a href="#Cartographer的安装" class="headerlink" title="Cartographer的安装"></a>Cartographer的安装</h2><h3 id="安装依赖库protobuf3"><a href="#安装依赖库protobuf3" class="headerlink" title="安装依赖库protobuf3"></a>安装依赖库protobuf3</h3><p>&emsp;&emsp;注：这里需要安装<code>3.6</code>以上的版本。<br><figure class="highlight smali"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install autoconf autogen</span><br><span class="line">git clone https://github.com/protocolbuffers/protobuf.git</span><br><span class="line">cd protobuf</span><br><span class="line">git submodule update --init --recursive</span><br><span class="line"><span class="keyword">.</span>/autogen.sh</span><br><span class="line"><span class="keyword">.</span>/configure</span><br><span class="line">make</span><br><span class="line"><span class="comment"># 这一步可能会报错，无视就好</span></span><br><span class="line">make check</span><br><span class="line">sudo make install</span><br><span class="line">sudo ldconfig</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注：需要分开依次执行，下同。<br>&emsp;&emsp;检查安装的版本号：<br><figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">protoc <span class="comment">--version</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="安装Cartographer"><a href="#安装Cartographer" class="headerlink" title="安装Cartographer"></a>安装Cartographer</h3><p>&emsp;&emsp;安装<code>wstool,rosdep,ninja</code>工具：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="built_in">get</span> <span class="keyword">update</span></span><br><span class="line">sudo apt-<span class="built_in">get</span> install <span class="keyword">python</span>-wstool <span class="keyword">python</span>-rosdep ninja-build</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;创建工作空间<code>carto_ws</code>(可以是其他名字)，并初始化。<br><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">mkdir</span> <span class="string">carto_ws</span></span><br><span class="line"><span class="attr">cd</span> <span class="string">carto_ws</span></span><br><span class="line"><span class="attr">wstool</span> <span class="string">init src</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wstool merge -t src https:<span class="regexp">//</span>raw.githubusercontent.com<span class="regexp">/googlecartographer/</span>cartographer_ros<span class="regexp">/master/</span>cartographer_ros.rosinstall</span><br><span class="line">wstool update -t src</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如果报错或长时间未安装，则更改下载地址：<code>cd src/</code>，<code>gedit .rosinstall</code>。     </p>
+<p>&emsp;&emsp;将最后一个<code>git</code>来源网址由<code>https://ceres-solver.googlesource.com/ceres-solver.git</code>改为<code>https://github.com/ceres-solver/ceres-solver.git</code>。 </p>
+<p>&emsp;&emsp;回到工作空间，重新执行：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">wstool update -t src</span></span><br></pre></td></tr></table></figure></p>
+<figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">sudo </span><span class="string">rosdep </span><span class="string">init </span>   <span class="comment"># 报错可忽视</span></span><br><span class="line"><span class="string">rosdep </span><span class="string">update </span>      <span class="comment"># 报错则重新执行(网络原因)</span></span><br><span class="line"><span class="string">rosdep </span><span class="string">install </span><span class="built_in">--from-paths</span> <span class="string">src </span><span class="built_in">--ignore-src</span> <span class="built_in">--rosdistro=$&#123;ROS_DISTRO&#125;</span> -y</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注：如果报错，未设置环境变量，则执行以下命令：<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">echo</span> <span class="string">"source /opt/ros/kinetic/setup.bash"</span> &gt;&gt; ~<span class="string">/.bashrc</span></span><br><span class="line">source ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;重新执行：<br><figure class="highlight brainfuck"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">rosdep</span> <span class="comment">install</span> --<span class="comment">from</span><span class="literal">-</span><span class="comment">paths</span> <span class="comment">src</span> --<span class="comment">ignore</span><span class="literal">-</span><span class="comment">src</span> --<span class="comment">rosdistro=$&#123;ROS_DISTRO&#125;</span> <span class="literal">-</span><span class="comment">y</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最终出现：<code>#All required rosdeps installed successfully</code>。    </p>
+<h3 id="编译-1"><a href="#编译-1" class="headerlink" title="编译"></a>编译</h3><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">catkin_make_isolated <span class="params">--install</span> <span class="params">--use-ninja</span></span><br><span class="line">source install_isolated/setup.bash</span><br><span class="line"><span class="keyword">echo</span> <span class="string">"source ~/carto_ws/install_isolated/setup.bash"</span> &gt;&gt; ~<span class="string">/.bashrc</span></span><br><span class="line">source ~<span class="string">/.bashrc</span></span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;注：如果这里报错，检查一下<code>protoc</code>的版本，至少是<code>3.6</code>的，如果不是，按照上文重新安装<code>protoc</code>依赖库。安装时间较长，和系统性能有关，约<code>10-15</code>分钟。      </p>
+<h3 id="测试-2"><a href="#测试-2" class="headerlink" title="测试"></a>测试</h3><figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Download the 2D backpack example bag.</span></span><br><span class="line">wget -P ~<span class="regexp">/Downloads https:/</span><span class="regexp">/storage.googleapis.com/cartographer</span>-public-data/bags/backpack_2d/cartographer_paper_deutsches_museum.bag</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Launch the 2D backpack demo.</span></span><br><span class="line">roslaunch cartographer_ros demo_backpack_2d.launch <span class="symbol">bag_filename:</span>=<span class="variable">$&#123;</span>HOME&#125;/Downloads/cartographer_paper_deutsches_museum.bag</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Download the 3D backpack example bag.</span></span><br><span class="line">wget -P ~<span class="regexp">/Downloads https:/</span><span class="regexp">/storage.googleapis.com/cartographer</span>-public-data/bags/backpack_3d/with_intensities/b3<span class="number">-2016-04</span>-05<span class="number">-14-14</span>-00.bag</span><br><span class="line"> </span><br><span class="line"><span class="comment"># Launch the 3D backpack demo.</span></span><br><span class="line">roslaunch cartographer_ros demo_backpack_3d.launch <span class="symbol">bag_filename:</span>=<span class="variable">$&#123;</span>HOME&#125;/Downloads/b3<span class="number">-2016-04</span>-05<span class="number">-14-14</span>-00.bag</span><br></pre></td></tr></table></figure>
+<p>&emsp;&emsp;如果报错，检查下是否刷新了环境变量(<code>source ~/carto_ws/install_isolated/setup.bash</code>)。   </p>
+<h3 id="参考博客"><a href="#参考博客" class="headerlink" title="参考博客"></a>参考博客</h3><p>&emsp;&emsp;<a href="https://blog.csdn.net/seeseeatre/article/details/84863485" target="_blank" rel="noopener">博客1</a>，<a href="https://blog.csdn.net/rjasd1128hf/article/details/79888305" target="_blank" rel="noopener">博客2</a></p>
+<h2 id="安装cartographer-turtlebot"><a href="#安装cartographer-turtlebot" class="headerlink" title="安装cartographer_turtlebot"></a>安装cartographer_turtlebot</h2><p>&emsp;&emsp;首先下载<code>rplidar</code>驱动：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/Slamtec/rplidar_ros.git</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后和<code>gmapping</code>类似，添加坐标变换节点。(参考上文<code>gmapping</code>部分)<br>&emsp;&emsp;然后下载<code>cartographer_turtlebot</code>源代码：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/cartographer-project/cartographer_turtlebot</span><br></pre></td></tr></table></figure></p>
+<h2 id="修改配置文件"><a href="#修改配置文件" class="headerlink" title="修改配置文件"></a>修改配置文件</h2><p>&emsp;&emsp;首先打开<code>src/cartographer_ros/cartographer_ros/configuration_files/revo_lds.lua</code>，将<code>tracking_frame</code>和<code>published_frame</code>改为<code>rplidar</code>的<code>frame_id</code>，即将原来的替换成<code>laser</code>。<br>&emsp;&emsp;注：实际测试时发现，运行时会报错，需要将里面的  <code>use_pose_extrapolator</code>的<code>true</code>改为<code>on</code>。<br>&emsp;&emsp;然后打开<code>src/cartographer_turtlebot/cartographer_turtlebot/launch</code>，新建<code>turtlebot_lidar.launch</code>文件：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"configuration_basename"</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$(find turtlebot_bringup)/launch/minimal.launch"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"cartographer_node"</span> <span class="attr">pkg</span>=<span class="string">"cartographer_ros"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"cartographer_node"</span> <span class="attr">args</span>=<span class="string">"</span></span></span><br><span class="line"><span class="tag"><span class="string">          -configuration_directory</span></span></span><br><span class="line"><span class="tag"><span class="string">              $(find cartographer_turtlebot)/configuration_files</span></span></span><br><span class="line"><span class="tag"><span class="string">          -configuration_basename $(arg configuration_basename)"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">output</span>=<span class="string">"screen"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">"scan"</span> <span class="attr">to</span>=<span class="string">"/scan"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"flat_world_imu_node"</span> <span class="attr">pkg</span>=<span class="string">"cartographer_turtlebot"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">type</span>=<span class="string">"cartographer_flat_world_imu_node"</span> <span class="attr">output</span>=<span class="string">"screen"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">"imu_in"</span> <span class="attr">to</span>=<span class="string">"/mobile_base/sensors/imu_data_raw"</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">remap</span> <span class="attr">from</span>=<span class="string">"imu_out"</span> <span class="attr">to</span>=<span class="string">"/imu"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">node</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">node</span> <span class="attr">name</span>=<span class="string">"rviz"</span> <span class="attr">pkg</span>=<span class="string">"rviz"</span> <span class="attr">type</span>=<span class="string">"rviz"</span> <span class="attr">required</span>=<span class="string">"true"</span></span></span><br><span class="line"><span class="tag">      <span class="attr">args</span>=<span class="string">"-d $(find cartographer_turtlebot</span></span></span><br><span class="line"><span class="tag"><span class="string">          )/configuration_files/demo_turtlebot.rviz"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;再新增启动文件：<code>turtlebot_carto.launch</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">launch</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">include</span> <span class="attr">file</span>=<span class="string">"$(find cartographer_turtlebot)/launch/turtlebot_lidar.launch"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">arg</span> <span class="attr">name</span>=<span class="string">"configuration_basename"</span> <span class="attr">value</span>=<span class="string">"turtlebot_urg_lidar_2d.lua"</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">launch</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后回到工作空间，编译(<code>catkin_make_isolated --install –use-ninja</code>)并刷新环境变量即可。           </p>
+<h2 id="测试-3"><a href="#测试-3" class="headerlink" title="测试"></a>测试</h2><p>&emsp;&emsp;首先运行激光雷达：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch rplidar_ros rplidar.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;然后启动建图程序：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch cartographer_turtlebot turtlebot_carto.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="参考博客-1"><a href="#参考博客-1" class="headerlink" title="参考博客"></a>参考博客</h2><p><a href="https://www.jianshu.com/p/cb87eab6535c" target="_blank" rel="noopener">使用Turtlebot 2和Rplidar A2实现Cartographer</a><br><a href="https://www.jianshu.com/p/07700e0ba224" target="_blank" rel="noopener">Jetson TX2 使用 Rplidar A2 实现 Cartographer</a>      </p>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>谢谢老板！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Cxx</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/" title="基于turtlebot的定位与建图">http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-heart"></i>感谢您的阅读<i class="fa fa-heart"></i>给个五星好评吧~~-------------</div>
+    
+</div>
+      
+    </div>  
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/03/13/wu-ren-qing-ji-che/" rel="next" title="无人清洁车">
+                <i class="fa fa-chevron-left"></i> 无人清洁车
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/04/30/ros-gong-neng-bao-ji-qi-ying-yong/" rel="prev" title="ROS功能包及其应用">
+                ROS功能包及其应用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDM5Mi8yMDkyNA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.jpg" alt="Cxx">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Cxx0822" title="GitHub &rarr; https://github.com/Cxx0822" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/1556464090@qq.com" title="E-Mail &rarr; 1556464090@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://message/?uin=1556464090&Site=&menu=yes" title="QQ &rarr; tencent://message/?uin=1556464090&Site=&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+
+          
+
+          
+          
+
+          
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <!-- modify icon to fire by szw -->
+              <i class="fa fa-history fa-" aria-hidden="true"></i>
+              近期文章
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+              
+                <li>
+                  <a href="/2022/08/30/vue3-she-ji-yu-shi-xian-bi-ji-zheng-li-bian-yi-qi/" title="Vue3设计与实现笔记整理：编译器" target="_blank">Vue3设计与实现笔记整理：编译器</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/04/01/vue3-admin-template-xiang-mu-shuo-ming/" title="vue3-admin-template项目说明" target="_blank">vue3-admin-template项目说明</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/24/typescript-zhi-shi-dian-zheng-li/" title="TypeScript知识点整理" target="_blank">TypeScript知识点整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/23/dian-nao-chang-jian-wen-ti-ji-jie-jue-fang-fa-zheng-li/" title="电脑常见问题及解决方法整理" target="_blank">电脑常见问题及解决方法整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/19/xue-xi-zi-liao-he-wang-zhan-zheng-li/" title="学习资料网站整理" target="_blank">学习资料网站整理</a>
+                </li>
+              
+            </ul>
+            </div>
+          
+
+          
+            
+          
+          <div style>
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Ubuntu与ROS系统安装"><span class="nav-number">2.</span> <span class="nav-text">Ubuntu与ROS系统安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#turtlebot配置"><span class="nav-number">3.</span> <span class="nav-text">turtlebot配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装turtlebot库"><span class="nav-number">3.1.</span> <span class="nav-text">安装turtlebot库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试"><span class="nav-number">3.2.</span> <span class="nav-text">测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查硬件连接"><span class="nav-number">3.2.1.</span> <span class="nav-text">检查硬件连接</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检查底盘及电机"><span class="nav-number">3.2.2.</span> <span class="nav-text">检查底盘及电机</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#激光雷达配置"><span class="nav-number">4.</span> <span class="nav-text">激光雷达配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装驱动"><span class="nav-number">4.1.</span> <span class="nav-text">安装驱动</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建工程文件夹"><span class="nav-number">4.1.1.</span> <span class="nav-text">创建工程文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下载并编译"><span class="nav-number">4.1.2.</span> <span class="nav-text">下载并编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加环境变量"><span class="nav-number">4.1.3.</span> <span class="nav-text">添加环境变量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置串口权限"><span class="nav-number">4.2.</span> <span class="nav-text">设置串口权限</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#检查端口号"><span class="nav-number">4.2.1.</span> <span class="nav-text">检查端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置权限"><span class="nav-number">4.2.2.</span> <span class="nav-text">设置权限</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加环境变量-1"><span class="nav-number">4.3.</span> <span class="nav-text">添加环境变量</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试激光雷达"><span class="nav-number">4.4.</span> <span class="nav-text">测试激光雷达</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#激光雷达再分析"><span class="nav-number">4.5.</span> <span class="nav-text">激光雷达再分析</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于hector-slam的定位与建图"><span class="nav-number">5.</span> <span class="nav-text">基于hector-slam的定位与建图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#平台-1"><span class="nav-number">5.1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装算法包"><span class="nav-number">5.2.</span> <span class="nav-text">安装算法包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定位与建图"><span class="nav-number">5.3.</span> <span class="nav-text">定位与建图</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Gmapping的定位与建图"><span class="nav-number">6.</span> <span class="nav-text">基于Gmapping的定位与建图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Gmapping简介"><span class="nav-number">6.1.</span> <span class="nav-text">Gmapping简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#平台-2"><span class="nav-number">6.2.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载源代码"><span class="nav-number">6.3.</span> <span class="nav-text">下载源代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编译"><span class="nav-number">6.4.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-1"><span class="nav-number">6.5.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#附："><span class="nav-number">6.6.</span> <span class="nav-text">附：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于Cartographer的定位与建图"><span class="nav-number">7.</span> <span class="nav-text">基于Cartographer的定位与建图</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#平台-3"><span class="nav-number">7.1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cartographer简介"><span class="nav-number">7.2.</span> <span class="nav-text">Cartographer简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Cartographer的安装"><span class="nav-number">7.3.</span> <span class="nav-text">Cartographer的安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装依赖库protobuf3"><span class="nav-number">7.3.1.</span> <span class="nav-text">安装依赖库protobuf3</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Cartographer"><span class="nav-number">7.3.2.</span> <span class="nav-text">安装Cartographer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#编译-1"><span class="nav-number">7.3.3.</span> <span class="nav-text">编译</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试-2"><span class="nav-number">7.3.4.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考博客"><span class="nav-number">7.3.5.</span> <span class="nav-text">参考博客</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#安装cartographer-turtlebot"><span class="nav-number">7.4.</span> <span class="nav-text">安装cartographer_turtlebot</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改配置文件"><span class="nav-number">7.5.</span> <span class="nav-text">修改配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#测试-3"><span class="nav-number">7.6.</span> <span class="nav-text">测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考博客-1"><span class="nav-number">7.7.</span> <span class="nav-text">参考博客</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共223.3k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    
+       <span class="site-uv">
+       我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+    </span>
+    
+
+     <span class="site-pv">
+       历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+      </span>
+    
+ 
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.7" zindex="-1" count="140" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.1" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz',
+    appKey: 'vsGiLpHSGoRkai2uNgwVim1S',
+    placeholder: '有什么想和我说的呢',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: 'AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4',
+        projectId: 'cxx0822-7221e'
+      })
+
+      function getCount(doc, url, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1,
+                'url': url
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+               // $('<i>').addClass('fa fa-users')
+                $('<i>').addClass('fa fa-eye')
+              )
+              ).append($('<span>').text('热度 ' + count + ' 次'))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/zh-tw/docs/variables.html
+      var isPost = '基于turtlebot的定位与建图'.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      var urlPath = '2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/';
+      var urlFullPath = 'http://cxx0822.github.io/2020/04/25/ji-yu-turtlebot-de-ding-wei-yu-jian-tu/';
+      var indexPath = 'index.html'; //首页链接
+      var isMenu = false;
+      
+         
+         var menuLink = '/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/categories/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/archives/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/top/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+
+    //  if (isPost) { //is article page
+      if (!isMenu) { // 非菜单页、非主页（即在某篇文章链接里）
+        var title = '基于turtlebot的定位与建图'
+        var doc = articles.doc(title)
+
+      //  getCount(doc, true).then(appendCountTo($('.post-meta')))
+        getCount(doc, urlFullPath, true).then(appendCountTo($('.post-wordcount')))
+      }
+     // else if (!isArchive && !isCategory && !isTag) { //is index page
+      else if (urlPath == indexPath) { // 主页
+        var titles = [] //array to titles
+
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          // var metas = $('.post-meta')
+          var metas = $('.post-wordcount')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "default";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "default";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 25076,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20181108,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#DA70D6">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+<!-- 旋转魔方 -->
+
+   
+      <style>
+    .cube_container {
+      width: 50px;
+      height: 60px;
+      margin: 0 auto;
+      position: fixed;
+      z-index: 999;
+      -webkit-perspective: 1000px;
+              perspective: 1000px;
+      right: 0px;
+      bottom: 0px;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+
+    .cube {
+      /*
+      width: 100%;
+      height: 100%;
+      */
+      width: 0%; /* 大角度旋转 */
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      -webkit-transform-origin: center center -100px;
+      transform-origin: center center -100px;
+      -webkit-animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+      animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+    }
+    .cube div {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0;
+      position: absolute;
+    }
+    .cube div a {
+      color: white;
+      font-size: 12px;
+      text-decoration: none;
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 45%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+    .cube .front {
+      -webkit-transform: rotateY(0deg) translateZ(25px);
+              transform: rotateY(0deg) translateZ(25px);
+      background-color: rgba(0, 191, 255, 0.7);
+      border: 1px solid rgba(0, 191, 255, 0.7);
+    }
+    .cube .back {
+      -webkit-transform: rotateX(180deg) translateZ(25px);
+              transform: rotateX(180deg) translateZ(25px);
+      background-color: rgba(124, 252, 0, 0.7);
+      border: 1px solid rgba(124, 252, 0, 0.7);
+    }
+    .cube .left {
+      -webkit-transform: rotateY(-90deg) translateZ(25px);
+              transform: rotateY(-90deg) translateZ(25px);
+      background-color: rgba(255, 215, 0, 0.7);
+      border: 1px solid rgba(255, 215, 0, 0.7);
+    }
+    .cube .right {
+      -webkit-transform: rotateY(90deg) translateZ(25px);
+              transform: rotateY(90deg) translateZ(25px);
+      background-color: rgba(255, 69, 0, 0.7);
+      border: 1px solid rgba(255, 69, 0, 0.7);
+    }
+    .cube .top {
+      -webkit-transform: rotateX(90deg) translateZ(25px);
+              transform: rotateX(90deg) translateZ(25px);
+      background-color: rgba(255, 0, 157, 0.7);
+      border: 1px solid rgba(255, 0, 157, 0.7);
+    }
+    .cube .bottom {
+      -webkit-transform: rotateX(-90deg) translateZ(25px);
+              transform: rotateX(-90deg) translateZ(25px);
+      background-color: rgba(184, 111, 220, 0.7);
+      border: 1px solid rgba(184, 111, 220, 0.7);
+    }
+
+     @-webkit-keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+                transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+
+    @keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+        transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+</style>
+
+<div class="cube_container">
+  <div class="cube">
+    <div class="front"><a onclick="back2top()" rel="nofollow"> 欢迎光临 </a></div>
+    <div class="back"><a onclick="back2top()" rel="nofollow"> ❤️ </a></div>
+    <div class="right"><a onclick="back2top()" rel="nofollow"> NJTech Cxx </a></div>
+    <div class="left"><a onclick="back2top()" role="button" rel="nofollow"> 请多关照 </a></div>
+    <div class="top"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+    <div class="bottom"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+  </div>
+</div>
+
+<script>
+  function back2top(){
+    $('html, body').animate({scrollTop: 0}, 500);
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+   
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!-- 评论特效 -->
+<script src="/js/activate-power-mode.js"></script>
+<script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+</script>

@@ -1,0 +1,2400 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"shrinkIn","post_header":"slideLeftIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b1d1072f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+ <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/b6dbddb6.js","daovoice")
+ daovoice('init', {
+  app_id: "b1d1072f"
+});
+daovoice('update');
+ </script>
+
+  <meta name="description" content="概述平台硬件平台&amp;emsp;&amp;emsp;Festo气动人工肌肉&amp;emsp;&amp;emsp;NI数据采集卡及其配套硬件            软件平台&amp;emsp;&amp;emsp;LabVIEW2018   主要硬件介绍&amp;emsp;&amp;emsp;整套系统所需硬件如下：      &amp;emsp;&amp;emsp;其中比较重要的有：Festo气动人工肌肉、LabVIEW数据采集卡及其配套硬件和电气比例阀等。     Fes">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仿人手臂系统设计">
+<meta property="og:url" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/index.html">
+<meta property="og:site_name" content="NJTECH_Cxx">
+<meta property="og:description" content="概述平台硬件平台&amp;emsp;&amp;emsp;Festo气动人工肌肉&amp;emsp;&amp;emsp;NI数据采集卡及其配套硬件            软件平台&amp;emsp;&amp;emsp;LabVIEW2018   主要硬件介绍&amp;emsp;&amp;emsp;整套系统所需硬件如下：      &amp;emsp;&amp;emsp;其中比较重要的有：Festo气动人工肌肉、LabVIEW数据采集卡及其配套硬件和电气比例阀等。     Fes">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//硬件配置图.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//Festo气动人工肌肉.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//DAQ系统结构.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//6281.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//线缆和接线盒.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//电气比例阀.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//电气比例阀说明.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//电气比例阀集装式.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//人体手臂结构图.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//手臂简化图.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//仿人手臂模型图.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//仿人手臂系统.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//电路系统总图.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//接线盒接线图.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//开关电源接线图.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//接线器.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//气动系统.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//驱动测试.jpg">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//软件系统界面.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//手臂上臂位姿表示.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//气压计算.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//输出气压.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//收缩率公式.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//收缩率程序.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//力臂.png">
+<meta property="og:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//离散PID程序.png">
+<meta property="og:updated_time" content="2022-03-21T06:19:12.673Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="仿人手臂系统设计">
+<meta name="twitter:description" content="概述平台硬件平台&amp;emsp;&amp;emsp;Festo气动人工肌肉&amp;emsp;&amp;emsp;NI数据采集卡及其配套硬件            软件平台&amp;emsp;&amp;emsp;LabVIEW2018   主要硬件介绍&amp;emsp;&amp;emsp;整套系统所需硬件如下：      &amp;emsp;&amp;emsp;其中比较重要的有：Festo气动人工肌肉、LabVIEW数据采集卡及其配套硬件和电气比例阀等。     Fes">
+<meta name="twitter:image" content="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji//硬件配置图.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>仿人手臂系统设计 | NJTECH_Cxx</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- APlayer -->
+  <!-- 
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_Cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">70</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-top">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/top/" rel="section"><i class="menu-item-icon fa fa-fw fa-signal"></i> <br>热度排行</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+<!-- 天气 -->
+<script type="text/javascript">
+WIDGET = {FID: 'H94fFEffHo'}
+</script>
+<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/Cxx0822" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_Cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">仿人手臂系统设计
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2020-05-11 09:15:19" itemprop="dateCreated datePublished" datetime="2020-05-11T09:15:19+08:00">2020-05-11</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-03-21 14:19:12" itemprop="dateModified" datetime="2022-03-21T14:19:12+08:00">2022-03-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/毕业论文/" itemprop="url" rel="index"><span itemprop="name">毕业论文</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <!-- <span title="本文字数">15k</span> -->
+			  <span title="本文字数">
+                  4,446字
+                </span>
+              
+
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">12 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h1><h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><h2 id="硬件平台"><a href="#硬件平台" class="headerlink" title="硬件平台"></a>硬件平台</h2><p>&emsp;&emsp;<code>Festo</code>气动人工肌肉<br>&emsp;&emsp;<code>NI</code>数据采集卡及其配套硬件           </p>
+<h2 id="软件平台"><a href="#软件平台" class="headerlink" title="软件平台"></a>软件平台</h2><p>&emsp;&emsp;<code>LabVIEW</code>2018  </p>
+<h1 id="主要硬件介绍"><a href="#主要硬件介绍" class="headerlink" title="主要硬件介绍"></a>主要硬件介绍</h1><p>&emsp;&emsp;整套系统所需硬件如下：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\硬件配置图.png" alt="硬件配置图">     </p>
+<p>&emsp;&emsp;其中比较重要的有：<code>Festo</code>气动人工肌肉、<code>LabVIEW</code>数据采集卡及其配套硬件和电气比例阀等。    </p>
+<h2 id="Festo气动人工肌肉"><a href="#Festo气动人工肌肉" class="headerlink" title="Festo气动人工肌肉"></a>Festo气动人工肌肉</h2><p>&emsp;&emsp;气动人工肌肉驱动器<code>Pneumatic Muscle Actuator, PMA</code>，简称为气动肌肉，是一种以空气为驱动力的拉伸型驱动器。<code>McKibben</code>型的<code>PMA</code>由于其和生物肌肉的运动具有高度的相似性，一直是气动肌肉研究者的首选类型。其中，<code>McKibben</code>型中比较典型的有德国的<code>Festor</code>气动人工肌肉和英国的<code>Shadow</code>气动人工肌肉，本项目主要采用的<code>Festor</code>气动人工肌肉。该气动人工肌肉具有结构紧凑，响应速度快，输出拉力大等优点，可以很好的模拟人体肌肉的性能。详细信息可参考官网<a href="https://www.festo.com.cn/cat/zh-cn_cn/products_DMSP" target="_blank" rel="noopener">Festo气动肌腱</a>。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\Festo气动人工肌肉.png" alt="Festo气动人工肌肉"><br>&emsp;&emsp;本项目采用的型号为：<code>DMSP-10-300-AM-AM</code>，即直径为<code>10mm</code>，长度为<code>300mm</code>，两端连接方式均为：<code>Axial connection</code>(轴向连接)，理论最大承受压力为<code>8bar</code>(<code>0.8MPa</code>)。      </p>
+<h2 id="NI数据采集卡及其配套硬件"><a href="#NI数据采集卡及其配套硬件" class="headerlink" title="NI数据采集卡及其配套硬件"></a>NI数据采集卡及其配套硬件</h2><p>&emsp;&emsp;数据采集(<code>DAQ</code>)是使用计算机测量电压、电流、温度、压力或声音等电子、物理现象的过程。<code>DAQ</code>系统由传感器、<code>DAQ</code>测量硬件和带有可编程软件的计算机组成。与传统的测量系统相比，基于<code>PC</code>的<code>DAQ</code>系统利用行业标准计算机的处理、生产、显示和连通能力，提供更强大、灵活且具有成本效益的测量解决方案。其系统结构图如图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\DAQ系统结构.jpg" alt="DAQ系统结构">            </p>
+<p>&emsp;&emsp;目前，<code>NI DAQ</code>经过30多年的不断发展，提供了5千万个<code>I/O</code>通道，是最值得用户信赖的基于计算机的测量硬件。创新的<code>DAQ</code>硬件和<code>NI-DAQmx</code>驱动技术提供了更高的精确度和最优的性能(就是太贵了)。<br>&emsp;&emsp;详细信息可参考<code>NI</code>官网：<a href="https://www.ni.com/data-acquisition/what-is/zhs/" target="_blank" rel="noopener">数据采集</a></p>
+<p>&emsp;&emsp;目前，本系统所采用的<code>NI</code>数据采集卡型号为：<code>PXI-6281</code>和<code>PXIe-6353</code>，分别具有2个模拟输出通道和4个模拟输出通道，详细信息可参考官网<a href="https://www.ni.com/zh-cn/shop/select/pxi-multifunction-io-module" target="_blank" rel="noopener">采集卡型号</a>。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\6281.jpg" alt="PXI-6281(6353和6281类似)"><br>&emsp;&emsp;安装方法：将其插入计算机中的<code>PXI</code>或<code>PXIe</code>插槽即可。<br>&emsp;&emsp;除了数据采集卡，还需要缆线和接线盒配套使用，接线盒也叫<code>I/O</code>接线盒，用于将<code>I/O</code>信号连接至插入式<code>DAQ</code>设备(这里指<code>NI</code>采集卡)，而线缆就是连接接线盒和采集卡的屏蔽线。具体如图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\线缆和接线盒.png" alt="线缆和接线盒"><br>&emsp;&emsp;详细信息可参考<code>NI</code>官网：<a href="https://sine.ni.com/nips/cds/view/p/lang/zhs/nid/210777" target="_blank" rel="noopener">接线盒</a>，<a href="https://www.ni.com/zh-cn/shop/select/multifunction-cable" target="_blank" rel="noopener">线缆</a>     </p>
+<h2 id="电气比例阀"><a href="#电气比例阀" class="headerlink" title="电气比例阀"></a>电气比例阀</h2><p>&emsp;&emsp;电气比例阀可以通过电气比例信号，实现对压缩空气的无级控制(相对于水龙头的作用)。<br>&emsp;&emsp;本项目采用的是日本电气比例阀，型号为：<code>ITV0050-3ML</code>：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\电气比例阀.jpg" alt="电气比例阀"><br>&emsp;&emsp;其具体含义为：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\电气比例阀说明.png" alt="电气比例阀说明"><br>&emsp;&emsp;由于本项目所需电气比例阀较多，所以使用集装式安装，即堆叠在一起，通过上下汇流板固定。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\电气比例阀集装式.png" alt="电气比例阀集装式"><br>&emsp;&emsp;图中①指的是<code>Supply</code>(输入口)，②指的是<code>output</code>(输出口)，③指的是<code>Exhaust</code>(排气口)。    </p>
+<h1 id="仿人手臂系统设计思想"><a href="#仿人手臂系统设计思想" class="headerlink" title="仿人手臂系统设计思想"></a>仿人手臂系统设计思想</h1><p>&emsp;&emsp;本系统的主要设计思想来源于实际的人体手臂系统。   </p>
+<h2 id="人体手臂结构"><a href="#人体手臂结构" class="headerlink" title="人体手臂结构"></a>人体手臂结构</h2><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\人体手臂结构图.png" alt="人体手臂结构图"><br>&emsp;&emsp;人体手臂由两骨骼三关节的组织结构构成，即上肢带骨(上臂)和自由上肢骨(下臂)，肩关节、肘关节和腕关节组成。手臂肌肉都统称为人体的上肢肌，其中又具体细分为肩肌、臂肌、前臂肌和手肌四个。<br>&emsp;&emsp;人体手臂肌肉的原理为：首先由神经系统发出一定的控制信号，当肌肉组织接收到该信号后会立即产生一定的效应力，并通过该效应力使得肌肉周围附着的骨骼组织做出相应的运动。    </p>
+<h2 id="人体手臂运动机理"><a href="#人体手臂运动机理" class="headerlink" title="人体手臂运动机理"></a>人体手臂运动机理</h2><p>&emsp;&emsp;人体的大部分运动都是通过肌肉的收缩和舒张产生的，而肌肉的收缩运动一般都是发生在关节上的。因此，在人体关节的两侧会存在着两组彼此分离、作用不同的肌肉，一般称为主动肌和拮抗肌，它们彼此相互配合才能实现一个完整的关节动作。<br>&emsp;&emsp;当神经系统产生关节运动的信号时，主动肌会收缩并带动关节肢体产生相应方向的运动，而此时拮抗肌也会同时产生一个与主动肌相反的收缩运动，其作用就是为了克制住主动肌带来的力度和速度，以保证关节肢体能够平稳并适时地停止运动。<br>&emsp;&emsp;例如如上图所示的肱二头肌和肱三头肌就是肱骨两侧的屈伸肌对。这些屈伸肌对通常会以某个复合关节为支点，以杠杆的形式实现相应的内收和伸展动作。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\手臂简化图.png" alt="手臂简化图"><br>&emsp;&emsp;通常会将手臂模型简化为上臂，前臂和手三个部分。而由于手的长度占整体手臂的比例很小，所以一般来说，也可以将前臂和手当成一个部分，最终可以简化为一个二关节的手臂肌肉骨骼模型，如上图左所示。在整个手臂中，存在着若干对肌肉对，为了便于模型的分析与计算，同样可以将其简化为三组比较重要的肌肉对，即分别位于肩关节、肘关节和同时位于两个关节的肌肉对，最终简化的手臂肌肉模型如上图右所示。    </p>
+<h2 id="仿人手臂系统结构设计"><a href="#仿人手臂系统结构设计" class="headerlink" title="仿人手臂系统结构设计"></a>仿人手臂系统结构设计</h2><p>&emsp;&emsp;受到上述理论的启发，本系统采用<code>6</code>根<code>Festo</code>气动人工肌肉模拟人体手臂肌肉的输出特性并为关节提供驱动扭矩。由<code>Pro/Engineer</code>三维软件绘制的模具设计图如图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\仿人手臂模型图.png" alt="仿人手臂模型图"> </p>
+<h3 id="机械结构"><a href="#机械结构" class="headerlink" title="机械结构"></a>机械结构</h3><p>&emsp;&emsp;该仿人手臂系统一共具有3个关节，即肩关节，肘关节和手臂末端点（手和手腕忽略为末端点）。其中肩关节半固定在金属支架上，中间采用金属法兰盘与气动人工肌肉组相连接，肘关节也采用同样类似的结构搭建而成，但相比肩关节，中间会有2层金属薄片，主要是考虑到要放置相应的传感器。<br>&emsp;&emsp;其中每个金属法兰盘有5个开孔，最中间的开孔通过1根细金属两杆上下穿过以固定气动手臂系统，剩下的位于金属法兰盘周围的4个开孔用于气动肌肉的连接。   </p>
+<h3 id="运动过程"><a href="#运动过程" class="headerlink" title="运动过程"></a>运动过程</h3><p>&emsp;&emsp;仿人系统采用纯气动的方式驱动。当系统实际运行时，通过每对气动肌肉的充气和放气来模拟人体手臂的主动-拮抗作用。例如大臂系统通过4根气动肌肉实现肘关节1自由度的旋转运动，其中4根气动肌肉分为2组，分别模拟人体手臂的肱二头肌和肱三头肌的屈伸肌对。每对肌肉中的1根气动肌肉产生拉伸/收缩运动，同时另一根进行相反的收缩/拉伸以防止主动肌过度伸缩。而且每个气动人工肌肉都可以由气动比例阀精确控制进气量，以实现关节的伸展或内收。通过各个关节的相互配合，最终模拟出人体手臂的肌肉协同作用，实现相应的抓取等动作。     </p>
+<h1 id="仿人手臂系统实际搭建"><a href="#仿人手臂系统实际搭建" class="headerlink" title="仿人手臂系统实际搭建"></a>仿人手臂系统实际搭建</h1><h2 id="手臂模型系统"><a href="#手臂模型系统" class="headerlink" title="手臂模型系统"></a>手臂模型系统</h2><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\仿人手臂系统.jpg" alt="仿人手臂系统"><br>&emsp;&emsp;实际搭建的仿人手臂系统如图所示。    </p>
+<h2 id="电路系统"><a href="#电路系统" class="headerlink" title="电路系统"></a>电路系统</h2><p>&emsp;&emsp;电路系统连接主要指的是电气比例阀、气压传感器、开关电源和接线盒等之间的连接方式。   </p>
+<h3 id="电路系统总图"><a href="#电路系统总图" class="headerlink" title="电路系统总图"></a>电路系统总图</h3><p>&emsp;&emsp;电路系统总图如图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\电路系统总图.jpg" alt="电路系统总图"><br>&emsp;&emsp;首先将气压传感器、压力传感器和气动比例阀的一端分别接入LabVIEW接线盒的模拟输入端和输出端，另一端接入仿人手臂系统，并分别通过电源接线盒供电。然后将LabVIEW接线盒与PC机中的LabVIEW数据采集卡相连，以实现气压传感器、压力传感器的数据通讯。最后将接入仿人手臂系统的角度传感器通过USB连接线接入PC机，以实现角度传感器的数据通讯。<br>&emsp;&emsp;当系统运行时，首先通过气缸给气动比例阀供气，然后运行LabVIEW控制程序，并通过LabVIEW数据采集卡和接线盒将控制信号传入气动比例阀，并使其工作。此时角度传感器、气压传感器和压力传感器会实时检测到仿人手臂系统的工作状态，并通过LabVIEW数据采集卡和接线盒反馈给LabVIEW控制程序，如此循环往复，最终达到期望的效果。<br>&emsp;&emsp;注：目前压力传感器未接入实际系统。(电气比例阀，气动比例阀指的是一个意思，懒得改了)           </p>
+<h3 id="模拟输入端"><a href="#模拟输入端" class="headerlink" title="模拟输入端"></a>模拟输入端</h3><p>&emsp;&emsp;模拟输入端和气压传感器相连。接线盒的输入端采用单端接入，即连接<code>AI+</code>和<code>GND</code>。气压传感器的白色接线端为信号线，棕色接线端为正极，蓝色接线端为负极。<br>&emsp;&emsp;连接方式：将<code>AI+</code>(接线盒中的任意一个模拟输入端)与气压传感器的白色接线端相接，<code>GND</code>和下一个待接的<code>GND</code>相接(保证接线盒内的所有的地线都连通即可)。气压传感器的棕色接线端和蓝色接线端分别接入电源接线盒的正极和负极，给气压传感器供电。<br>&emsp;&emsp;注：每个<code>LabVIEW</code>接线盒内要有<code>1</code>根地线与电源接线盒的地线(-V)相接。      </p>
+<h3 id="模拟输出端"><a href="#模拟输出端" class="headerlink" title="模拟输出端"></a>模拟输出端</h3><p>&emsp;&emsp;模拟输出端和气动比例阀相连。气动比例阀的白色接线端为信号线，棕色接线端为正极，蓝色接线端为负极。<br>&emsp;&emsp;连接方式：将<code>AO</code>(接线盒中的任意一个模拟输出端)与气动比例阀的白色接线端相接，<code>GND</code>和下一个待接的<code>GND</code>相接(保证接线盒内的所有的地线都连通即可)。气动比例阀的棕色接线端和蓝色接线端分别接入电源接线盒的正极和负极，给气动比例阀供电。    </p>
+<h3 id="实际接线图"><a href="#实际接线图" class="headerlink" title="实际接线图"></a>实际接线图</h3><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\接线盒接线图.jpg" alt="接线盒接线图"><br>&emsp;&emsp;这里的硬件指的是电气比例阀和气压传感器，下同。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\开关电源接线图.jpg" alt="开关电源接线图"><br>&emsp;&emsp;这里比较重要的是，每个接线盒内的地线一定要和开关电源的<code>-V</code>相连！不是零地火的地线！<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\接线器.jpg" alt="接线器"><br>&emsp;&emsp;注：开关电源的开关需要购买插头和零地火导线制作。除了信号线建议使用较粗的导线，并注意使用颜色区分。                  </p>
+<h2 id="气动系统"><a href="#气动系统" class="headerlink" title="气动系统"></a>气动系统</h2><p>&emsp;&emsp;气动系统连接主要指的是气缸、电气比例阀和气动人工肌肉等之间的连接方式。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\气动系统.jpg" alt="气动系统"><br>&emsp;&emsp;上面的汇流板中，<code>1</code>口为总输入口，接气缸，<code>3</code>为排气口，不用接。下面的汇流板的<code>1</code>和<code>3</code>口需要堵上。<code>2</code>口为输出口，接每根气动人工肌肉，并用三通阀接入气压传感器。其余部分需堵上。    </p>
+<h3 id="气缸"><a href="#气缸" class="headerlink" title="气缸"></a>气缸</h3><p>&emsp;&emsp;开启：①将抽气开关按下，阀门开关闭合。②接通电源。③打开抽气开关(提上去)，气缸开始充气，待气压显示表到达指定气压值时(<code>0.4~0.6MPa</code>)，按下开关。④打开阀门开关，即可出气。<br>&emsp;&emsp;关闭：①关闭阀门开关，停止出气。②拔掉电源，气缸每隔一段时间自动漏气。</p>
+<h2 id="传感器系统"><a href="#传感器系统" class="headerlink" title="传感器系统"></a>传感器系统</h2><p>&emsp;&emsp;目前接入系统的传感器有角度传感器：     </p>
+<h1 id="基于LabVIEW的PID角度跟踪控制"><a href="#基于LabVIEW的PID角度跟踪控制" class="headerlink" title="基于LabVIEW的PID角度跟踪控制"></a>基于LabVIEW的PID角度跟踪控制</h1><h2 id="LabVIEW软件安装"><a href="#LabVIEW软件安装" class="headerlink" title="LabVIEW软件安装"></a>LabVIEW软件安装</h2><p>&emsp;&emsp;本项目采用的是<code>LabVIEW2018</code>，所有程序均在<code>2018</code>下调试通过。<br>&emsp;&emsp;<code>LabVIEW</code>软件下载：<a href="http://bbs.elecfans.com/forum.php?mod=viewthread&amp;tid=1694266&amp;page=1" target="_blank" rel="noopener">LabVIEW2018及其工具包下载(全网最快)</a>。<a href="http://ftp.ni.com/evaluation/labview/ekit/other/downloader/2018LV-WinChn.exe" target="_blank" rel="noopener">LabVIEW2018 点击即可下载</a>。(下载完需要激活，百度即可)<br>&emsp;&emsp;<code>NI</code>驱动下载，驱动主要包括2个，即与<code>DAQ</code>通讯的<code>NI-DAQmx</code>和与<code>USB</code>通讯的<code>NI-VISA</code>。官网下载地址：<a href="https://www.ni.com/zh-cn/support/downloads/drivers.html" target="_blank" rel="noopener">NI驱动下载</a>。注：<code>NI</code>的驱动要和<code>LabVIEW</code>的版本号对应，建议安装<code>2018</code>及以上版本。<br>&emsp;&emsp;驱动测试：打开<code>LabVIEW2018</code>启动界面，选择<code>工具-&gt;Measurement &amp; Automation Explorer</code>，点击<code>我的系统-&gt;设备和接口</code>，如果能找到相应的采集卡，则说明配置成功。<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\驱动测试.jpg" alt="驱动测试">    </p>
+<h2 id="LabVIEW前面板设计"><a href="#LabVIEW前面板设计" class="headerlink" title="LabVIEW前面板设计"></a>LabVIEW前面板设计</h2><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\软件系统界面.png" alt="软件系统界面">   </p>
+<h2 id="LabVIEW程序框图设计"><a href="#LabVIEW程序框图设计" class="headerlink" title="LabVIEW程序框图设计"></a>LabVIEW程序框图设计</h2><h3 id="控制程序原理"><a href="#控制程序原理" class="headerlink" title="控制程序原理"></a>控制程序原理</h3><p>&emsp;&emsp;当控制系统每执行一次循环时，首先通过实际的角度值和期望的角度值计算得出控制误差，然后将此误差经过控制器得出其控制律，再将此控制律经过实际控制模型得出各个气动人工肌肉的实际输出力值，并通过气动比例阀精确调整各气动人工肌肉的气压输出，如此循环往复，直至满足期望的控制效果。        </p>
+<h3 id="手臂模型"><a href="#手臂模型" class="headerlink" title="手臂模型"></a>手臂模型</h3><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\手臂上臂位姿表示.png" alt="手臂上臂位姿表示"><br>&emsp;&emsp; $O$点为上臂运动的主动关节。假设整个上臂受到分别沿着$A<em>{1}A</em>{2},B<em>{1}B</em>{2},C<em>{1}C</em>{2},D<em>{1}D</em>{2}$四个方向的拉伸力$F<em>{1},F</em>{2},F<em>{3},F</em>{4}$，则由图可以看出，由气动人工肌肉提供的拉伸力$F<em>{1},F</em>{2},F<em>{3},F</em>{4}$会在以主动关节点$O$处，形成驱动力矩来带动整个上臂的运动。因此，上臂肘关节的旋转运动可以看成是四根拮抗式的气动人工肌肉直线拉伸运动合成而来。通过给定四根气动人工肌肉的输入气压来实时调节其拉伸力和有效长度，在合成的驱动力矩作用下实现关节的转动。<br>&emsp;&emsp;由力矩的计算公式可知，力矩等于转动轴到着力点之间的距离乘上矢量力，即$\tau =F\cdot d$ 。因此，上臂肘关节的动力学方程可以表示为：     </p>
+<script type="math/tex; mode=display">
+\tau =F_{2}d_{2}-F_{1}d_{1}+F_{4}d_{4}-F_{3}d_{3}</script><p>&emsp;&emsp;其中$\tau$为控制力矩，即控制律，下文的控制器设计部分会解释。$F<em>{i}$为单根气动人工肌肉的输出力，$d</em>{i}$为$F_{i}$对关节转动中心$O$的力臂。具体分别为：    </p>
+<script type="math/tex; mode=display">
+F_{i} = P_{i}\left [ a\left ( 1-\epsilon_{i}  \right )^{2} -b \right ]</script><p>&emsp;&emsp;其中$P<em>{i}$为输出气压值，$\epsilon</em>{i}$为收缩率，$a$，$b$为常数，分别为：$a=\frac{3\pi D<em>{0}^{2}}{4tan^{2}\theta </em>{0}}$，$b=\frac{\pi D<em>{0}^{2}}{4sin^{2}\theta </em>{0}}$，$\theta <em>{0}$，$D </em>{0}$为常数。    </p>
+<script type="math/tex; mode=display">
+d_{i}=rcos\theta</script><p>&emsp;&emsp;注：具体公式推导这里不做解释，有兴趣可以看我的论文。    </p>
+<h4 id="输出气压的理论计算"><a href="#输出气压的理论计算" class="headerlink" title="输出气压的理论计算"></a>输出气压的理论计算</h4><p>&emsp;&emsp;输出力公式由气压$P$和收缩率$\epsilon$决定，为了体现仿人手臂系统的拮抗性和仿人性，本项目采用拮抗式运动方式分配气动肌肉的输入气压，即：   </p>
+<script type="math/tex; mode=display">
+P_{i}=P_{0}\pm \Delta P_{i}</script><p>&emsp;&emsp;其中$P<em>{i}$为每个气动肌肉的输出气压，$P</em>{0}$为初始气压，$\Delta P_{i}$为待定偏置气压，$\pm$表示该气动肌肉是拉伸还是收缩作用。<br>&emsp;&emsp;因此每个气压值可以计算为(这里偷懒直接截图了)：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\气压计算.png" alt="气压计算"><br>&emsp;&emsp;注：这里这是上臂的推导过程，下臂原理和其类似。        </p>
+<h4 id="输出气压的实际编程"><a href="#输出气压的实际编程" class="headerlink" title="输出气压的实际编程"></a>输出气压的实际编程</h4><p>&emsp;&emsp;对于这种设计到大量公式的编程，使用<code>LabVIEW</code>里面的<code>MathScript</code>模块最好不过了(需要单独下载，下载链接见上文)。对于实际的控制系统而已，$P<em>{1}$和$P</em>{3}$应该是随着时间的增加越来越大，也就是不断叠加$\Delta P<em>{i}$的过程，但增加的幅度会慢慢减小，因为控制律$\tau$在慢慢减小，然后直到趋于稳定。<br>&emsp;&emsp;实际的<code>LabVIEW</code>程序图如下图所示：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\输出气压.png" alt="输出气压"><br>&emsp;&emsp;上图表示的是$P</em>{1}$和$P<em>{2}$的输出气压计算过程，其余类似。其中初始气压为<code>0.4MPa</code>。叠加$\Delta P</em>{i}$的过程通过<code>while</code>循环的移位寄存器实现。具体公式在中间的<code>MathScrip</code>节点中实现。<br>&emsp;&emsp;为了保证气动人工肌肉的安全性，通过设置上下限来保证各个气压的有效范围。其中，由于$\Delta P<em>{2}$会随着时间会越来越小，甚至趋于<code>0</code>，因此本项目通过设置系数来保证$\Delta P</em>{2}$减小的趋势。   </p>
+<h4 id="收缩率的理论计算"><a href="#收缩率的理论计算" class="headerlink" title="收缩率的理论计算"></a>收缩率的理论计算</h4><p>&emsp;&emsp;收缩率由$\epsilon =1-\frac{L}{L_{0}}$，具体公式如下：<br><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\收缩率公式.png" alt="收缩率公式">    </p>
+<h4 id="收缩率的实际编程"><a href="#收缩率的实际编程" class="headerlink" title="收缩率的实际编程"></a>收缩率的实际编程</h4><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\收缩率程序.png" alt="收缩率程序"><br>&emsp;&emsp;具体编程细节和输出气压类似。     </p>
+<h4 id="力臂的理论计算"><a href="#力臂的理论计算" class="headerlink" title="力臂的理论计算"></a>力臂的理论计算</h4><p>&emsp;&emsp;力臂的计算公式比较简单，通过简单的几何分析可知：$d=r \dot cos\theta$。    </p>
+<h4 id="力臂的实际编程"><a href="#力臂的实际编程" class="headerlink" title="力臂的实际编程"></a>力臂的实际编程</h4><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\力臂.png" alt="力臂">       </p>
+<h3 id="控制器设计"><a href="#控制器设计" class="headerlink" title="控制器设计"></a>控制器设计</h3><h4 id="离散PID的理论计算"><a href="#离散PID的理论计算" class="headerlink" title="离散PID的理论计算"></a>离散PID的理论计算</h4><p>&emsp;&emsp;由于整个系统是<code>1000ms</code>运行一次，因此可以看作是一个离散的控制系统，控制变量为肘关节的角度，控制误差为实际角度和期望角之差。其中位置式<code>PID</code>算法控制律如下：     </p>
+<script type="math/tex; mode=display">
+u\left ( t \right )=K_{p}\cdot e\left ( t \right )+K_{I}\cdot \sum_{i=0}^{}e\left ( i \right )+K_{D}\left [ e\left ( k \right ) \right - e\left ( k-1 \right )]</script><p>&emsp;&emsp;这里的$u\left ( t \right )$就是上文模型的控制力矩$\tau$。     </p>
+<h4 id="离散PID的实际编程"><a href="#离散PID的实际编程" class="headerlink" title="离散PID的实际编程"></a>离散PID的实际编程</h4><p><img src="/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/\离散PID程序.png" alt="离散PID"><br>&emsp;&emsp;这里的输入有3个，即期望值，第一次实际值和第二次实际值。实际的编程并没有加入积分控制，有兴趣可以自行编写积分控制程序。     </p>
+<h3 id="传感器设置"><a href="#传感器设置" class="headerlink" title="传感器设置"></a>传感器设置</h3>
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>谢谢老板！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Cxx</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/" title="仿人手臂系统设计">http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-heart"></i>感谢您的阅读<i class="fa fa-heart"></i>给个五星好评吧~~-------------</div>
+    
+</div>
+      
+    </div>  
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/05/05/gmapping-suan-fa-yuan-li-ji-yuan-dai-ma-jie-xi/" rel="next" title="Gmapping算法原理及源代码解析">
+                <i class="fa fa-chevron-left"></i> Gmapping算法原理及源代码解析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2020/05/24/amr-xiao-che-jian-dan-shi-yong/" rel="prev" title="AMR小车简单使用">
+                AMR小车简单使用 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDM5Mi8yMDkyNA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.jpg" alt="Cxx">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Cxx0822" title="GitHub &rarr; https://github.com/Cxx0822" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/1556464090@qq.com" title="E-Mail &rarr; 1556464090@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://message/?uin=1556464090&Site=&menu=yes" title="QQ &rarr; tencent://message/?uin=1556464090&Site=&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+
+          
+
+          
+          
+
+          
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <!-- modify icon to fire by szw -->
+              <i class="fa fa-history fa-" aria-hidden="true"></i>
+              近期文章
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+              
+                <li>
+                  <a href="/2022/08/30/vue3-she-ji-yu-shi-xian-bi-ji-zheng-li-bian-yi-qi/" title="Vue3设计与实现笔记整理：编译器" target="_blank">Vue3设计与实现笔记整理：编译器</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/04/01/vue3-admin-template-xiang-mu-shuo-ming/" title="vue3-admin-template项目说明" target="_blank">vue3-admin-template项目说明</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/24/typescript-zhi-shi-dian-zheng-li/" title="TypeScript知识点整理" target="_blank">TypeScript知识点整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/23/dian-nao-chang-jian-wen-ti-ji-jie-jue-fang-fa-zheng-li/" title="电脑常见问题及解决方法整理" target="_blank">电脑常见问题及解决方法整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/19/xue-xi-zi-liao-he-wang-zhan-zheng-li/" title="学习资料网站整理" target="_blank">学习资料网站整理</a>
+                </li>
+              
+            </ul>
+            </div>
+          
+
+          
+            
+          
+          <div style>
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#概述"><span class="nav-number">1.</span> <span class="nav-text">概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">2.</span> <span class="nav-text">平台</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#硬件平台"><span class="nav-number">2.1.</span> <span class="nav-text">硬件平台</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#软件平台"><span class="nav-number">2.2.</span> <span class="nav-text">软件平台</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#主要硬件介绍"><span class="nav-number">3.</span> <span class="nav-text">主要硬件介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Festo气动人工肌肉"><span class="nav-number">3.1.</span> <span class="nav-text">Festo气动人工肌肉</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NI数据采集卡及其配套硬件"><span class="nav-number">3.2.</span> <span class="nav-text">NI数据采集卡及其配套硬件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电气比例阀"><span class="nav-number">3.3.</span> <span class="nav-text">电气比例阀</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#仿人手臂系统设计思想"><span class="nav-number">4.</span> <span class="nav-text">仿人手臂系统设计思想</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#人体手臂结构"><span class="nav-number">4.1.</span> <span class="nav-text">人体手臂结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#人体手臂运动机理"><span class="nav-number">4.2.</span> <span class="nav-text">人体手臂运动机理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#仿人手臂系统结构设计"><span class="nav-number">4.3.</span> <span class="nav-text">仿人手臂系统结构设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#机械结构"><span class="nav-number">4.3.1.</span> <span class="nav-text">机械结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运动过程"><span class="nav-number">4.3.2.</span> <span class="nav-text">运动过程</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#仿人手臂系统实际搭建"><span class="nav-number">5.</span> <span class="nav-text">仿人手臂系统实际搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#手臂模型系统"><span class="nav-number">5.1.</span> <span class="nav-text">手臂模型系统</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#电路系统"><span class="nav-number">5.2.</span> <span class="nav-text">电路系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#电路系统总图"><span class="nav-number">5.2.1.</span> <span class="nav-text">电路系统总图</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟输入端"><span class="nav-number">5.2.2.</span> <span class="nav-text">模拟输入端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#模拟输出端"><span class="nav-number">5.2.3.</span> <span class="nav-text">模拟输出端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际接线图"><span class="nav-number">5.2.4.</span> <span class="nav-text">实际接线图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#气动系统"><span class="nav-number">5.3.</span> <span class="nav-text">气动系统</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#气缸"><span class="nav-number">5.3.1.</span> <span class="nav-text">气缸</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传感器系统"><span class="nav-number">5.4.</span> <span class="nav-text">传感器系统</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基于LabVIEW的PID角度跟踪控制"><span class="nav-number">6.</span> <span class="nav-text">基于LabVIEW的PID角度跟踪控制</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW软件安装"><span class="nav-number">6.1.</span> <span class="nav-text">LabVIEW软件安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW前面板设计"><span class="nav-number">6.2.</span> <span class="nav-text">LabVIEW前面板设计</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#LabVIEW程序框图设计"><span class="nav-number">6.3.</span> <span class="nav-text">LabVIEW程序框图设计</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#控制程序原理"><span class="nav-number">6.3.1.</span> <span class="nav-text">控制程序原理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#手臂模型"><span class="nav-number">6.3.2.</span> <span class="nav-text">手臂模型</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#输出气压的理论计算"><span class="nav-number">6.3.2.1.</span> <span class="nav-text">输出气压的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#输出气压的实际编程"><span class="nav-number">6.3.2.2.</span> <span class="nav-text">输出气压的实际编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收缩率的理论计算"><span class="nav-number">6.3.2.3.</span> <span class="nav-text">收缩率的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#收缩率的实际编程"><span class="nav-number">6.3.2.4.</span> <span class="nav-text">收缩率的实际编程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#力臂的理论计算"><span class="nav-number">6.3.2.5.</span> <span class="nav-text">力臂的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#力臂的实际编程"><span class="nav-number">6.3.2.6.</span> <span class="nav-text">力臂的实际编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#控制器设计"><span class="nav-number">6.3.3.</span> <span class="nav-text">控制器设计</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#离散PID的理论计算"><span class="nav-number">6.3.3.1.</span> <span class="nav-text">离散PID的理论计算</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#离散PID的实际编程"><span class="nav-number">6.3.3.2.</span> <span class="nav-text">离散PID的实际编程</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#传感器设置"><span class="nav-number">6.3.4.</span> <span class="nav-text">传感器设置</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共223.3k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    
+       <span class="site-uv">
+       我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+    </span>
+    
+
+     <span class="site-pv">
+       历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+      </span>
+    
+ 
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.7" zindex="-1" count="140" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.1" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz',
+    appKey: 'vsGiLpHSGoRkai2uNgwVim1S',
+    placeholder: '有什么想和我说的呢',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: 'AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4',
+        projectId: 'cxx0822-7221e'
+      })
+
+      function getCount(doc, url, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1,
+                'url': url
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+               // $('<i>').addClass('fa fa-users')
+                $('<i>').addClass('fa fa-eye')
+              )
+              ).append($('<span>').text('热度 ' + count + ' 次'))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/zh-tw/docs/variables.html
+      var isPost = '仿人手臂系统设计'.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      var urlPath = '2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/';
+      var urlFullPath = 'http://cxx0822.github.io/2020/05/11/fang-ren-shou-bi-xi-tong-she-ji/';
+      var indexPath = 'index.html'; //首页链接
+      var isMenu = false;
+      
+         
+         var menuLink = '/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/categories/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/archives/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/top/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+
+    //  if (isPost) { //is article page
+      if (!isMenu) { // 非菜单页、非主页（即在某篇文章链接里）
+        var title = '仿人手臂系统设计'
+        var doc = articles.doc(title)
+
+      //  getCount(doc, true).then(appendCountTo($('.post-meta')))
+        getCount(doc, urlFullPath, true).then(appendCountTo($('.post-wordcount')))
+      }
+     // else if (!isArchive && !isCategory && !isTag) { //is index page
+      else if (urlPath == indexPath) { // 主页
+        var titles = [] //array to titles
+
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          // var metas = $('.post-meta')
+          var metas = $('.post-wordcount')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "default";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "default";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 25076,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20181108,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#DA70D6">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+<!-- 旋转魔方 -->
+
+   
+      <style>
+    .cube_container {
+      width: 50px;
+      height: 60px;
+      margin: 0 auto;
+      position: fixed;
+      z-index: 999;
+      -webkit-perspective: 1000px;
+              perspective: 1000px;
+      right: 0px;
+      bottom: 0px;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+
+    .cube {
+      /*
+      width: 100%;
+      height: 100%;
+      */
+      width: 0%; /* 大角度旋转 */
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      -webkit-transform-origin: center center -100px;
+      transform-origin: center center -100px;
+      -webkit-animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+      animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+    }
+    .cube div {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0;
+      position: absolute;
+    }
+    .cube div a {
+      color: white;
+      font-size: 12px;
+      text-decoration: none;
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 45%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+    .cube .front {
+      -webkit-transform: rotateY(0deg) translateZ(25px);
+              transform: rotateY(0deg) translateZ(25px);
+      background-color: rgba(0, 191, 255, 0.7);
+      border: 1px solid rgba(0, 191, 255, 0.7);
+    }
+    .cube .back {
+      -webkit-transform: rotateX(180deg) translateZ(25px);
+              transform: rotateX(180deg) translateZ(25px);
+      background-color: rgba(124, 252, 0, 0.7);
+      border: 1px solid rgba(124, 252, 0, 0.7);
+    }
+    .cube .left {
+      -webkit-transform: rotateY(-90deg) translateZ(25px);
+              transform: rotateY(-90deg) translateZ(25px);
+      background-color: rgba(255, 215, 0, 0.7);
+      border: 1px solid rgba(255, 215, 0, 0.7);
+    }
+    .cube .right {
+      -webkit-transform: rotateY(90deg) translateZ(25px);
+              transform: rotateY(90deg) translateZ(25px);
+      background-color: rgba(255, 69, 0, 0.7);
+      border: 1px solid rgba(255, 69, 0, 0.7);
+    }
+    .cube .top {
+      -webkit-transform: rotateX(90deg) translateZ(25px);
+              transform: rotateX(90deg) translateZ(25px);
+      background-color: rgba(255, 0, 157, 0.7);
+      border: 1px solid rgba(255, 0, 157, 0.7);
+    }
+    .cube .bottom {
+      -webkit-transform: rotateX(-90deg) translateZ(25px);
+              transform: rotateX(-90deg) translateZ(25px);
+      background-color: rgba(184, 111, 220, 0.7);
+      border: 1px solid rgba(184, 111, 220, 0.7);
+    }
+
+     @-webkit-keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+                transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+
+    @keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+        transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+</style>
+
+<div class="cube_container">
+  <div class="cube">
+    <div class="front"><a onclick="back2top()" rel="nofollow"> 欢迎光临 </a></div>
+    <div class="back"><a onclick="back2top()" rel="nofollow"> ❤️ </a></div>
+    <div class="right"><a onclick="back2top()" rel="nofollow"> NJTech Cxx </a></div>
+    <div class="left"><a onclick="back2top()" role="button" rel="nofollow"> 请多关照 </a></div>
+    <div class="top"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+    <div class="bottom"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+  </div>
+</div>
+
+<script>
+  function back2top(){
+    $('html, body').animate({scrollTop: 0}, 500);
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+   
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!-- 评论特效 -->
+<script src="/js/activate-power-mode.js"></script>
+<script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+</script>

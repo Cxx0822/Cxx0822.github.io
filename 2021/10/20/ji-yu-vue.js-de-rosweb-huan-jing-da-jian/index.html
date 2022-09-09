@@ -1,0 +1,2350 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link rel="stylesheet" href="/lib/pace/pace-theme-bounce.min.css?v=1.0.2">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link rel="stylesheet" href="/lib/fancybox/source/jquery.fancybox.css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Roboto Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext">
+  
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.1.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.1.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.1" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.1',
+    sidebar: {"position":"left","display":"always","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: true,
+    fancybox: true,
+    fastclick: true,
+    lazyload: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"shrinkIn","post_header":"slideLeftIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideDownIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/0f81ff2f.js","daovoice")
+  daovoice('init', {
+      app_id: "b1d1072f"
+    });
+  daovoice('update');
+  </script>
+
+
+
+ <script>(function(i,s,o,g,r,a,m){i["DaoVoiceObject"]=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;a.charset="utf-8";m.parentNode.insertBefore(a,m)})(window,document,"script",('https:' == document.location.protocol ? 'https:' : 'http:') + "//widget.daovoice.io/widget/b6dbddb6.js","daovoice")
+ daovoice('init', {
+  app_id: "b1d1072f"
+});
+daovoice('update');
+ </script>
+
+  <meta name="description" content="平台&amp;emsp;&amp;emsp;操作系统：Ubuntu18.04&amp;emsp;&amp;emsp;Web前端框架：Node.js + Vue.js + Element UI&amp;emsp;&amp;emsp;ROS与Web开发工具：Robot Web Tools(roslibjs+ros2djs+ros3djs)&amp;emsp;&amp;emsp;开发工具：Visual Studio Code&amp;emsp;&amp;emsp;服务器：Tomca">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于Vue.js的ROSWeb环境搭建">
+<meta property="og:url" content="http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/index.html">
+<meta property="og:site_name" content="NJTECH_Cxx">
+<meta property="og:description" content="平台&amp;emsp;&amp;emsp;操作系统：Ubuntu18.04&amp;emsp;&amp;emsp;Web前端框架：Node.js + Vue.js + Element UI&amp;emsp;&amp;emsp;ROS与Web开发工具：Robot Web Tools(roslibjs+ros2djs+ros3djs)&amp;emsp;&amp;emsp;开发工具：Visual Studio Code&amp;emsp;&amp;emsp;服务器：Tomca">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/启动rosbridge.png">
+<meta property="og:updated_time" content="2022-03-21T06:19:12.801Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于Vue.js的ROSWeb环境搭建">
+<meta name="twitter:description" content="平台&amp;emsp;&amp;emsp;操作系统：Ubuntu18.04&amp;emsp;&amp;emsp;Web前端框架：Node.js + Vue.js + Element UI&amp;emsp;&amp;emsp;ROS与Web开发工具：Robot Web Tools(roslibjs+ros2djs+ros3djs)&amp;emsp;&amp;emsp;开发工具：Visual Studio Code&amp;emsp;&amp;emsp;服务器：Tomca">
+<meta name="twitter:image" content="http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/启动rosbridge.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>基于Vue.js的ROSWeb环境搭建 | NJTECH_Cxx</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+ 
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><!-- APlayer -->
+  <!-- 
+  <link rel="stylesheet" href="/dist/APlayer.min.css">
+  <div id="aplayer"></div>
+  <script type="text/javascript" src="/dist/APlayer.min.js"></script>
+  <script type="text/javascript" src="/dist/music.js"></script>
+  -->
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">NJTECH_Cxx</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">不要因为别人5%的负面评价而否定自己100%的努力。</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">70</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-top">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/top/" rel="section"><i class="menu-item-icon fa fa-fw fa-signal"></i> <br>热度排行</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+<!-- 天气 -->
+<script type="text/javascript">
+WIDGET = {FID: 'H94fFEffHo'}
+</script>
+<script type="text/javascript" src="https://apip.weatherdt.com/float/static/js/r.js?v=1111"></script>
+</div>
+    </header>
+
+    
+  
+  
+
+  
+
+  <a href="https://github.com/Cxx0822" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#FD6C6C; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg></a>
+
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+    <div class="reading-progress-bar"></div>
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Cxx">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/author.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="NJTECH_Cxx">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">基于Vue.js的ROSWeb环境搭建
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+
+            
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2021-10-20 23:07:03" itemprop="dateCreated datePublished" datetime="2021-10-20T23:07:03+08:00">2021-10-20</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2022-03-21 14:19:12" itemprop="dateModified" datetime="2022-03-21T14:19:12+08:00">2022-03-21</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Web前端开发与应用/" itemprop="url" rel="index"><span itemprop="name">Web前端开发与应用</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+            <div class="post-symbolscount">
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">本文字数：</span>
+                
+                <!-- <span title="本文字数">22k</span> -->
+			  <span title="本文字数">
+                  1,732字
+                </span>
+              
+
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">10 分钟</span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="平台"><a href="#平台" class="headerlink" title="平台"></a>平台</h1><p>&emsp;&emsp;操作系统：<code>Ubuntu18.04</code><br>&emsp;&emsp;<code>Web</code>前端框架：<code>Node.js</code> + <code>Vue.js</code> + <code>Element UI</code><br>&emsp;&emsp;<code>ROS</code>与<code>Web</code>开发工具：<code>Robot Web Tools(roslibjs+ros2djs+ros3djs)</code><br>&emsp;&emsp;开发工具：<code>Visual Studio Code</code><br>&emsp;&emsp;服务器：<code>Tomcat8.5</code>      </p>
+<h1 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h1><h2 id="Vue-js环境搭建"><a href="#Vue-js环境搭建" class="headerlink" title="Vue.js环境搭建"></a>Vue.js环境搭建</h2><h3 id="安装node-js"><a href="#安装node-js" class="headerlink" title="安装node.js"></a>安装node.js</h3><p>&emsp;&emsp;打开<code>Node.js</code><a href="https://nodejs.org/en/" target="_blank" rel="noopener">官网</a>，查看最新版本号。<br>&emsp;&emsp;本教程中<code>LTS</code>(稳定发行版)版本为<code>14.17</code>，在终端输入指令，添加源：<br><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -sL http<span class="variable">s:</span>//<span class="keyword">deb</span>.nodesource.<span class="keyword">com</span>/setup_14.<span class="keyword">x</span> | sudo -E bash -</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注意这里的<code>setup_14</code>就是安装<code>14</code>版本，后续有新版本或者想安装其他版本更改此数字即可。<br>&emsp;&emsp;然后根据提示的指令(上述指令输入完终端的提示部分)安装<code>node.js</code>和<code>npm</code>：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install -y nodejs</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;最后检查是否安装正确：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">node</span> <span class="title">-v</span></span><br><span class="line">npm -v</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注：这里注意最好不要使用<code>sudo apt-get install nodejs</code>方式安装，因为此方式安装的版本过低，后续安装其他库时会出现一定的错误。   </p>
+<h3 id="安装cnpm-淘宝镜像"><a href="#安装cnpm-淘宝镜像" class="headerlink" title="安装cnpm(淘宝镜像)"></a>安装cnpm(淘宝镜像)</h3><p>&emsp;&emsp;在终端输入指令：<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">npm</span> install -g cnpm --registry=https://registry.<span class="built_in">npm</span>.taobao.org</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;注：这里还是建议安装<code>cnpm</code>，库会比较新。   </p>
+<h3 id="安装Vue-js"><a href="#安装Vue-js" class="headerlink" title="安装Vue.js"></a>安装Vue.js</h3><p>&emsp;&emsp;安装<code>vue</code>脚手架工具<code>vue-cli</code>，用来搭建项目所需模板框架:<br><figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo cnpm install -g vue-<span class="keyword">cli</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;查看版本号，确定安装完成：<br><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">vue -V</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="Visual-Studio-Code环境搭建"><a href="#Visual-Studio-Code环境搭建" class="headerlink" title="Visual Studio Code环境搭建"></a>Visual Studio Code环境搭建</h2><h3 id="VSCode安装"><a href="#VSCode安装" class="headerlink" title="VSCode安装"></a>VSCode安装</h3><p>&emsp;&emsp;打开<a href="https://code.visualstudio.com/" target="_blank" rel="noopener">官网</a>，下载最新版本的<code>deb</code>格式。<br>&emsp;&emsp;注：这里最好不要从<code>Ubuntu</code>系统的软件商城里面安装，里面版本较老，不支持中文输入。<br>&emsp;&emsp;下载完成后，输入命令安装：<br><figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">sudo</span> dpkg -i ****<span class="regexp">*.deb</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="VSCode配置Vue-js"><a href="#VSCode配置Vue-js" class="headerlink" title="VSCode配置Vue.js"></a>VSCode配置Vue.js</h3><h4 id="安装插件"><a href="#安装插件" class="headerlink" title="安装插件"></a>安装插件</h4><ol>
+<li>安装<code>vetur</code>插件，vue语法的高亮插件。    </li>
+<li>安装<code>eslint</code>插件，智能错误检测插件。   </li>
+</ol>
+<h4 id="创建第一个项目"><a href="#创建第一个项目" class="headerlink" title="创建第一个项目"></a>创建第一个项目</h4><ol>
+<li>在<code>VSCode</code>中打开一个文件夹(自己新建)，并打开终端，输入指令创建一个新项目：   <figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue <span class="keyword">init</span> webpack  ”项目名称“</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;下载模板后，根据提示完成配置。<br>&emsp;&emsp;附：配置信息：<br>&emsp;&emsp;<code>Project name</code>—-项目名称；<br>&emsp;&emsp;<code>Project description</code>—-项目描述；<br>&emsp;&emsp;<code>Author</code>—-作者；<br>&emsp;&emsp;<code>Runtime + Compiler: recommended for most users</code>和<code>Runtime-only: about 6KB lighter min+gzip, but templates (or any Vue-specificHTML) are ONLY allowed in .vue files - render functions are required elsewhere</code>两个选项—-第一个是运行加编译，推荐使用，第二个仅运行时。通过键盘上下按钮选择后，点击回车；<br>&emsp;&emsp;<code>Install vue-router?&lt;Y/n&gt;</code>—-是否安装vue路由插件，输入“<code>Y</code>”,点击回车；<br>&emsp;&emsp;<code>Use ESLint to lint your code? &lt;Y/n&gt;</code>—-是否使用<code>ESLint</code>管理代码，<code>ESLint</code>是个代码风格管理工具，是用来统一代码风格的，一般项目中都会使用，输入“<code>y</code>”，点击回车；<br>&emsp;&emsp;<code>Set up unit tests&lt;Y/n&gt;</code>—-是否安装单元测试，这里输入“<code>n</code>”，点击回车；<br>&emsp;&emsp;<code>Setup e2e tests with Nightwatch&lt;Y/n&gt;?</code>—-是否安装<code>e2e</code>测试，这里输入“<code>n</code>”，点击回车；<br>&emsp;&emsp;<code>Should we run “npm install” for you after the project has been created?&lt;recommended&gt;&lt;use arrow keys&gt;Yes, use NPM   Yes, use Yarn    No, I will handle that myself</code>—-三个选项，这里我们选择第三个，因为通过<code>npm install</code>安装<code>vue</code>项目依赖库，非常的慢，我们可以在项目创建后，自己通过“<code>cnpm install</code>”安装。 </p>
+<ol>
+<li><p>切换到项目目录</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ”项目名称“</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装依赖包</p>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm <span class="keyword">install</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动项目</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm <span class="keyword">run</span><span class="bash"> dev</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>输入<code>http://localhost:8080/#/</code>，打开网址。    </p>
+</li>
+</ol>
+<h4 id="注：常见问题整理"><a href="#注：常见问题整理" class="headerlink" title="注：常见问题整理"></a>注：常见问题整理</h4><ol>
+<li><p><code>npm(cnpm) run dev</code>报错，<code>Error: ENOSPC: System limit for number of file watchers reached</code>，在终端输入以下命令：   </p>
+<figure class="highlight dos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="built_in">fs</span>.inotify.max_user_watches=<span class="number">524288</span> | sudo tee -a /etc/sysctl.conf &amp;&amp; sudo sysctl -p</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>VSCode</code>空格间隔小，终端字间隔很大，这里主要是在<code>Ubuntu</code>环境下字体的问题，按下<code>ctrl+shift+p</code>，选择<code>首选项：打开设置</code>，打开<code>User-&gt;setting.json</code>文件，输入以下配置：  </p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"editor.fontFamily"</span>: <span class="string">"'monospace'"</span>,</span><br><span class="line">    <span class="attr">"editor.fontLigatures"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="attr">"editor.fontSize"</span>: <span class="number">20</span>,</span><br><span class="line">    <span class="attr">"editor.codeLensFontFamily"</span>: <span class="string">"'monospace'"</span>,</span><br><span class="line">    <span class="attr">"terminal.integrated.fontFamily"</span>: <span class="string">"monospace"</span>,</span><br><span class="line">    <span class="attr">"terminal.integrated.fontSize"</span>: <span class="number">16</span>,</span><br><span class="line">    <span class="attr">"window.zoomLevel"</span>: <span class="number">2</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>&emsp;&emsp;重启软件即可。     </p>
+<h2 id="Robot-Web环境搭建"><a href="#Robot-Web环境搭建" class="headerlink" title="Robot Web环境搭建"></a><a href="http://robotwebtools.org/index" target="_blank" rel="noopener">Robot Web</a>环境搭建</h2><h3 id="安装Robot-Web"><a href="#安装Robot-Web" class="headerlink" title="安装Robot Web"></a>安装Robot Web</h3><p>&emsp;&emsp;安装<code>rosbridge_suit</code>功能包：<br><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-<span class="builtin-name">get</span> install ros-melodic-rosbridge-suite</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;下载<code>roslibjs</code>，<code>ros2djs</code>和<code>ros3djs</code>功能包：<br><figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/RobotWebTools/roslibjs.git</span><br><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/RobotWebTools/ros2djs</span><br><span class="line">git <span class="keyword">clone</span> <span class="title">https</span>://github.com/RobotWebTools/ros3djs</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;测试是否安装成功：<br><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">roslaunch rosbridge_server rosbridge_websocket.<span class="built_in">launch</span></span><br></pre></td></tr></table></figure></p>
+<p><img src="/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/启动rosbridge.png" alt="启动rosbridge"><br>&emsp;&emsp;附：<code>Ubuntu16.04</code>安装<code>rosbridge</code><br>&emsp;&emsp;如果<code>Ubuntu16.04</code>不支持<code>apt-get</code>安装，只能下载源码编译安装(<code>catkin_make</code>)。除了<code>rosbridge</code>官方源码还需要<code>rosauth</code>源码，和<code>python</code>的一些开源库(根据报错提示安装)。      </p>
+<h3 id="结合Vue-js和Element-UI"><a href="#结合Vue-js和Element-UI" class="headerlink" title="结合Vue.js和Element UI"></a>结合Vue.js和Element UI</h3><h4 id="下载rosweb的JS文件"><a href="#下载rosweb的JS文件" class="headerlink" title="下载rosweb的JS文件"></a>下载rosweb的JS文件</h4><p>&emsp;&emsp;<a href="https://static.robotwebtools.org/threejs/current/three.js" target="_blank" rel="noopener">three.js</a><br>&emsp;&emsp;<a href="https://static.robotwebtools.org/threejs/current/ColladaLoader.js" target="_blank" rel="noopener">ColladaLoader.js</a><br>&emsp;&emsp;<a href="https://static.robotwebtools.org/threejs/current/STLLoader.js" target="_blank" rel="noopener">STLLoader.js</a><br>&emsp;&emsp;<a href="https://static.robotwebtools.org/EventEmitter2/current/eventemitter2.min.js" target="_blank" rel="noopener">eventemitter2.min.js</a><br>&emsp;&emsp;<a href="https://static.robotwebtools.org/roslibjs/current/roslib.js" target="_blank" rel="noopener">roslib.js</a><br>&emsp;&emsp;<a href="https://static.robotwebtools.org/ros3djs/current/ros3d.js" target="_blank" rel="noopener">ros3d.js</a><br>&emsp;&emsp;下载完成后，在<code>vue.js</code>工程中的<code>static</code>文件夹下新建<code>rosweb</code>文件夹，并将这些<code>js</code>文件放入该文件夹。<br>&emsp;&emsp;打开<code>vue.js</code>工程中的<code>index.html</code>文件，在<code>head</code>区域添加以下<code>js</code>文件：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/rosweb/three.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/rosweb/ColladaLoader.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/rosweb/STLLoader.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/rosweb/eventemitter2.min.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/rosweb/roslib.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"./static/rosweb/ros3d.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;打开<code>vue.js</code>工程中的<code>.eslintrc.js</code>文件，在<code>rules</code>中添加全局变量：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// add your custom rules here</span></span><br><span class="line">  rules: &#123;</span><br><span class="line">    <span class="comment">// allow async-await</span></span><br><span class="line">    <span class="string">'generator-star-spacing'</span>: <span class="string">'off'</span>,</span><br><span class="line">    <span class="comment">// allow debugger during development</span></span><br><span class="line">    <span class="string">'no-debugger'</span>: process.env.NODE_ENV === <span class="string">'production'</span> ? <span class="string">'error'</span> : <span class="string">'off'</span>,</span><br><span class="line">    <span class="string">'no-unused-vars'</span>: <span class="string">'off'</span></span><br><span class="line">  &#125;,</span><br><span class="line">  <span class="string">"globals"</span>:&#123;</span><br><span class="line">    <span class="string">"THREE"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"ROSLIB"</span>: <span class="literal">true</span>,</span><br><span class="line">    <span class="string">"ROS3D"</span>: <span class="literal">true</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="安装Element-UI"><a href="#安装Element-UI" class="headerlink" title="安装Element UI"></a>安装<a href="https://element.eleme.cn/#/zh-CN/component/installation" target="_blank" rel="noopener">Element UI</a></h4><p>&emsp;&emsp;终端输入<code>npm i element-ui -S</code><br>&emsp;&emsp;在<code>src-&gt;main.js</code>中输入以下内容：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> ElementUI <span class="keyword">from</span> <span class="string">'element-ui'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'element-ui/lib/theme-chalk/index.css'</span>;</span><br><span class="line"></span><br><span class="line">Vue.use(ElementUI);</span><br></pre></td></tr></table></figure></p>
+<h2 id="部署到服务器"><a href="#部署到服务器" class="headerlink" title="部署到服务器"></a>部署到服务器</h2><h3 id="下载安装Java和Tomcat"><a href="#下载安装Java和Tomcat" class="headerlink" title="下载安装Java和Tomcat"></a>下载安装Java和Tomcat</h3><p>&emsp;&emsp;下载<a href="https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html" target="_blank" rel="noopener">java jdk 1.8</a><br>&emsp;&emsp;下载<a href="https://tomcat.apache.org/download-80.cgi" target="_blank" rel="noopener">Tomcat8.5</a>(当然也可以是其他版本)<br>&emsp;&emsp;打开<code>~/.bashrc</code>添加到环境变量：<br><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/path/to/jdk1.8.0_151</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/lib:<span class="variable">$&#123;JAVA_HOME&#125;</span>/jre/lib</span><br><span class="line"><span class="built_in">export</span> PATH=.:<span class="variable">$&#123;JAVA_HOME&#125;</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CATALINA_HOME=/path/to/apache-tomcat-8.5.69</span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这里的<code>/path/to</code>为具体的<code>java sdk</code>和<code>tomcat</code>的路径。    </p>
+<h3 id="打包Vue-js项目"><a href="#打包Vue-js项目" class="headerlink" title="打包Vue.js项目"></a>打包Vue.js项目</h3><p>&emsp;&emsp;运行<code>npm run dev</code>指令打包生成<code>dist</code>文件夹。    </p>
+<h3 id="部署到Tomcat服务器"><a href="#部署到Tomcat服务器" class="headerlink" title="部署到Tomcat服务器"></a>部署到Tomcat服务器</h3><p>&emsp;&emsp;将<code>dist</code>文件夹到放到<code>tomcat-&gt;webapps</code>中。<br>&emsp;&emsp;进入<code>tomcat-&gt;bin</code>目录，运行启动服务器指令<code>sh startup.sh</code>(可能会出现一些执行权限问题，百度自行更改即可)。<br>&emsp;&emsp;打开网址<code>ip:8080/dist</code>即可进入页面，同一局域网下均可进入该网页。<br>&emsp;&emsp;更改<code>Tomcat</code>服务器的默认主页：打开<code>tomcat-&gt;config-&gt;server.xml</code>找到<code>host</code>节点，添加以下配置：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">""</span> <span class="attr">docBase</span>=<span class="string">"/path/to/dist"</span> <span class="attr">debug</span>=<span class="string">"0"</span> <span class="attr">reloadable</span>=<span class="string">"true"</span>/&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>&emsp;&emsp;这里的<code>docBase</code>更改为自己的项目目录，然后重启服务器输入网址<code>ip:8080</code>即可。<br>&emsp;&emsp;注：如果启动失败(启动后网页无法显示)，注意检查<code>server.xml</code>中的<code>host</code>和<code>docBase</code>是否正确！     </p>
+<h4 id="注：常见问题整理-1"><a href="#注：常见问题整理-1" class="headerlink" title="注：常见问题整理"></a>注：常见问题整理</h4><ol>
+<li>首页为空白页<br>更改<code>config/index.js</code>中的<code>assetsPublicPath</code>为<code>&#39;./&#39;</code>     </li>
+<li><p><code>Element UI</code>图标显示问题<br>在<code>build/utils.js</code>中，<code>if (options.extract)</code>的<code>return</code>部分增加一行：    </p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (options.extract) &#123;</span><br><span class="line">    <span class="keyword">return</span> ExtractTextPlugin.extract(&#123;</span><br><span class="line">    use: loaders,</span><br><span class="line">    fallback: <span class="string">'vue-style-loader'</span>,</span><br><span class="line">    publicPath: <span class="string">'../../'</span>  <span class="comment">// 增加的部分</span></span><br><span class="line">    &#125;)</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> [<span class="string">'vue-style-loader'</span>].concat(loaders)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>CSS样式没生效<br>在<code>src-&gt;main.js</code>中，将<code>import router from &#39;./router&#39;</code>这一句放在所有的<code>import</code>的最后一行。    </p>
+</li>
+</ol>
+
+      
+    </div>
+
+    
+      
+
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+      <div>
+        <div id="reward-container">
+  <div>谢谢老板！</div>
+  <button id="reward-button" disable="enable" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    打赏
+  </button>
+  <div id="qr" style="display: none;">
+
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/wechatpay.jpg" alt="Cxx 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+      
+      
+        
+      
+      <div style="display: inline-block">
+        <img src="/images/reward/alipay.jpg" alt="Cxx 支付宝">
+        <p>支付宝</p>
+      </div>
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        
+
+
+
+
+  
+
+
+
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>Cxx</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    
+    <a href="http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/" title="基于Vue.js的ROSWeb环境搭建">http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fa fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:16px;">-------------本文结束<i class="fa fa-heart"></i>感谢您的阅读<i class="fa fa-heart"></i>给个五星好评吧~~-------------</div>
+    
+</div>
+      
+    </div>  
+
+    <footer class="post-footer">
+      
+
+      
+      
+        <div class="post-widgets">
+        
+          <div class="wp_rating">
+            <div id="wpac-rating"></div>
+          </div>
+        
+
+        
+
+        
+          
+            <span class="post-meta-divider">|</span>
+          
+          <div class="social_share">
+            
+            
+              <div id="needsharebutton-postbottom">
+                <span class="btn">
+                  <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </span>
+              </div>
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2021/07/01/ji-yu-retrofit-rxjava-de-app-wang-luo-qing-qiu-ji-zhu/" rel="next" title="基于Retrofit+RxJava的APP网络请求技术">
+                <i class="fa fa-chevron-left"></i> 基于Retrofit+RxJava的APP网络请求技术
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2021/10/20/ji-yu-rosweb-de-wam-jian-dan-gong-neng-kai-fa/" rel="prev" title="基于ROSWEB的WAM简单功能开发">
+                基于ROSWEB的WAM简单功能开发 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80NDM5Mi8yMDkyNA=="></div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/author.jpg" alt="Cxx">
+            
+              <p class="site-author-name" itemprop="name">Cxx</p>
+              <div class="site-description motion-element" itemprop="description"></div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">70</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Cxx0822" title="GitHub &rarr; https://github.com/Cxx0822" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="/1556464090@qq.com" title="E-Mail &rarr; 1556464090@qq.com"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="tencent://message/?uin=1556464090&Site=&menu=yes" title="QQ &rarr; tencent://message/?uin=1556464090&Site=&menu=yes" rel="noopener" target="_blank"><i class="fa fa-fw fa-qq"></i>QQ</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+
+          
+
+          
+          
+
+          
+          <div class="links-of-blogroll motion-element links-of-blogroll-block">
+            <div class="links-of-blogroll-title">
+              <!-- modify icon to fire by szw -->
+              <i class="fa fa-history fa-" aria-hidden="true"></i>
+              近期文章
+            </div>
+            <ul class="links-of-blogroll-list">
+              
+              
+                <li>
+                  <a href="/2022/08/30/vue3-she-ji-yu-shi-xian-bi-ji-zheng-li-bian-yi-qi/" title="Vue3设计与实现笔记整理：编译器" target="_blank">Vue3设计与实现笔记整理：编译器</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/04/01/vue3-admin-template-xiang-mu-shuo-ming/" title="vue3-admin-template项目说明" target="_blank">vue3-admin-template项目说明</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/24/typescript-zhi-shi-dian-zheng-li/" title="TypeScript知识点整理" target="_blank">TypeScript知识点整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/23/dian-nao-chang-jian-wen-ti-ji-jie-jue-fang-fa-zheng-li/" title="电脑常见问题及解决方法整理" target="_blank">电脑常见问题及解决方法整理</a>
+                </li>
+              
+                <li>
+                  <a href="/2022/03/19/xue-xi-zi-liao-he-wang-zhan-zheng-li/" title="学习资料网站整理" target="_blank">学习资料网站整理</a>
+                </li>
+              
+            </ul>
+            </div>
+          
+
+          
+            
+          
+          <div style>
+  <canvas id="canvas" style="width:60%;">当前浏览器不支持canvas，请更换浏览器后再试</canvas>
+</div>
+<script>
+(function(){
+
+   var digit=
+    [
+        [
+            [0,0,1,1,1,0,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,0,1,1,0],
+            [0,0,1,1,1,0,0]
+        ],//0
+        [
+            [0,0,0,1,1,0,0],
+            [0,1,1,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [1,1,1,1,1,1,1]
+        ],//1
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,1,1],
+            [1,1,1,1,1,1,1]
+        ],//2
+        [
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//3
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,0],
+            [0,0,1,1,1,1,0],
+            [0,1,1,0,1,1,0],
+            [1,1,0,0,1,1,0],
+            [1,1,1,1,1,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,1,1]
+        ],//4
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,1,1,1,1,0],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//5
+        [
+            [0,0,0,0,1,1,0],
+            [0,0,1,1,0,0,0],
+            [0,1,1,0,0,0,0],
+            [1,1,0,0,0,0,0],
+            [1,1,0,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//6
+        [
+            [1,1,1,1,1,1,1],
+            [1,1,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,0,0,1,1,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0],
+            [0,0,1,1,0,0,0]
+        ],//7
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,1,1,0]
+        ],//8
+        [
+            [0,1,1,1,1,1,0],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [1,1,0,0,0,1,1],
+            [0,1,1,1,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,0,1,1],
+            [0,0,0,0,1,1,0],
+            [0,0,0,1,1,0,0],
+            [0,1,1,0,0,0,0]
+        ],//9
+        [
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,0,0,0,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,1,1,1,0,0],
+            [0,0,0,0,0,0,0]
+        ]//:
+    ];
+
+var canvas = document.getElementById('canvas');
+
+if(canvas.getContext){
+    var cxt = canvas.getContext('2d');
+    //声明canvas的宽高
+    var H = 100,W = 700;
+    canvas.height = H;
+    canvas.width = W;
+    cxt.fillStyle = '#f00';
+    cxt.fillRect(10,10,50,50);
+
+    //存储时间数据
+    var data = [];
+    //存储运动的小球
+    var balls = [];
+    //设置粒子半径
+    var R = canvas.height/20-1;
+    (function(){
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        //存储时间数字，由十位小时、个位小时、冒号、十位分钟、个位分钟、冒号、十位秒钟、个位秒钟这7个数字组成
+        data.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+    })();
+
+    /*生成点阵数字*/
+    function renderDigit(index,num){
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    cxt.beginPath();
+                    cxt.arc(14*(R+2)*index + j*2*(R+1)+(R+1),i*2*(R+1)+(R+1),R,0,2*Math.PI);
+                    cxt.closePath();
+                    cxt.fill();
+                }
+            }
+        }
+    }
+
+    /*更新时钟*/
+    function updateDigitTime(){
+        var changeNumArray = [];
+        var temp = /(\d)(\d):(\d)(\d):(\d)(\d)/.exec(new Date());
+        var NewData = [];
+        NewData.push(temp[1],temp[2],10,temp[3],temp[4],10,temp[5],temp[6]);
+        for(var i = data.length-1; i >=0 ; i--){
+            //时间发生变化
+            if(NewData[i] !== data[i]){
+                //将变化的数字值和在data数组中的索引存储在changeNumArray数组中
+                changeNumArray.push(i+'_'+(Number(data[i])+1)%10);
+            }
+        }
+        //增加小球
+        for(var i = 0; i< changeNumArray.length; i++){
+            addBalls.apply(this,changeNumArray[i].split('_'));
+        }
+        data = NewData.concat();
+    }
+
+    /*更新小球状态*/
+    function updateBalls(){
+        for(var i = 0; i < balls.length; i++){
+            balls[i].stepY += balls[i].disY;
+            balls[i].x += balls[i].stepX;
+            balls[i].y += balls[i].stepY;
+            if(balls[i].x > W + R || balls[i].y > H + R){
+                balls.splice(i,1);
+                i--;
+            }
+        }
+    }
+
+    /*增加要运动的小球*/
+    function addBalls(index,num){
+        var numArray = [1,2,3];
+        var colorArray =  ["#3BE","#09C","#A6C","#93C","#9C0","#690","#FB3","#F80","#F44","#C00"];
+        for(var i = 0; i < digit[num].length; i++){
+            for(var j = 0; j < digit[num][i].length; j++){
+                if(digit[num][i][j] == 1){
+                    var ball = {
+                        x:14*(R+2)*index + j*2*(R+1)+(R+1),
+                        y:i*2*(R+1)+(R+1),
+                        stepX:Math.floor(Math.random() * 4 -2),
+                        stepY:-2*numArray[Math.floor(Math.random()*numArray.length)],
+                        color:colorArray[Math.floor(Math.random()*colorArray.length)],
+                        disY:1
+                    };
+                    balls.push(ball);
+                }
+            }
+        }
+    }
+
+    /*渲染*/
+    function render(){
+        //重置画布宽度，达到清空画布的效果
+        canvas.height = 100;
+        //渲染时钟
+        for(var i = 0; i < data.length; i++){
+            renderDigit(i,data[i]);
+        }
+        //渲染小球
+        for(var i = 0; i < balls.length; i++){
+            cxt.beginPath();
+            cxt.arc(balls[i].x,balls[i].y,R,0,2*Math.PI);
+            cxt.fillStyle = balls[i].color;
+            cxt.closePath();
+            cxt.fill();
+        }
+    }
+
+    clearInterval(oTimer);
+    var oTimer = setInterval(function(){
+        //更新时钟
+        updateDigitTime();
+        //更新小球状态
+        updateBalls();
+        //渲染
+        render();
+    },50);
+}
+
+})();
+</script>
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#平台"><span class="nav-number">1.</span> <span class="nav-text">平台</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#环境搭建"><span class="nav-number">2.</span> <span class="nav-text">环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Vue-js环境搭建"><span class="nav-number">2.1.</span> <span class="nav-text">Vue.js环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装node-js"><span class="nav-number">2.1.1.</span> <span class="nav-text">安装node.js</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装cnpm-淘宝镜像"><span class="nav-number">2.1.2.</span> <span class="nav-text">安装cnpm(淘宝镜像)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Vue-js"><span class="nav-number">2.1.3.</span> <span class="nav-text">安装Vue.js</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Visual-Studio-Code环境搭建"><span class="nav-number">2.2.</span> <span class="nav-text">Visual Studio Code环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#VSCode安装"><span class="nav-number">2.2.1.</span> <span class="nav-text">VSCode安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#VSCode配置Vue-js"><span class="nav-number">2.2.2.</span> <span class="nav-text">VSCode配置Vue.js</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#安装插件"><span class="nav-number">2.2.2.1.</span> <span class="nav-text">安装插件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#创建第一个项目"><span class="nav-number">2.2.2.2.</span> <span class="nav-text">创建第一个项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#注：常见问题整理"><span class="nav-number">2.2.2.3.</span> <span class="nav-text">注：常见问题整理</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Robot-Web环境搭建"><span class="nav-number">2.3.</span> <span class="nav-text">Robot Web环境搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Robot-Web"><span class="nav-number">2.3.1.</span> <span class="nav-text">安装Robot Web</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结合Vue-js和Element-UI"><span class="nav-number">2.3.2.</span> <span class="nav-text">结合Vue.js和Element UI</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#下载rosweb的JS文件"><span class="nav-number">2.3.2.1.</span> <span class="nav-text">下载rosweb的JS文件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装Element-UI"><span class="nav-number">2.3.2.2.</span> <span class="nav-text">安装Element UI</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署到服务器"><span class="nav-number">2.4.</span> <span class="nav-text">部署到服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载安装Java和Tomcat"><span class="nav-number">2.4.1.</span> <span class="nav-text">下载安装Java和Tomcat</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#打包Vue-js项目"><span class="nav-number">2.4.2.</span> <span class="nav-text">打包Vue.js项目</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署到Tomcat服务器"><span class="nav-number">2.4.3.</span> <span class="nav-text">部署到Tomcat服务器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#注：常见问题整理-1"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">注：常见问题整理</span></a></li></ol></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-[object Object]"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Cxx</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v</div>
+
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共223.3k字</span>
+</div>
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    
+       <span class="site-uv">
+       我的第 <span class="busuanzi-value" id="busuanzi_value_site_uv"></span> 位朋友，
+    </span>
+    
+
+     <span class="site-pv">
+       历经 <span class="busuanzi-value" id="busuanzi_value_site_pv"></span> 次回眸才与你相遇
+      </span>
+    
+ 
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+    
+
+    
+      <div id="needsharebutton-float">
+        <span class="btn">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+        </span>
+      </div>
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+  
+    
+    
+      
+    
+  
+  <script color="0,0,0" opacity="0.7" zindex="-1" count="140" src="//cdn.jsdelivr.net/gh/theme-next/theme-next-canvas-nest@1.0.0/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.1" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+  
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/fancybox/source/jquery.fancybox.pack.js"></script>
+
+  
+  <script src="/lib/reading_progress/reading_progress.js"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.1"></script>
+
+  <script src="/js/motion.js?v=7.1.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.1"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.1"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.1"></script>
+<script src="/js/post-details.js?v=7.1.1"></script>
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.1"></script>
+
+
+  
+
+  
+
+  
+  
+  
+
+  
+
+  
+  
+  
+
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: '7AOJtL3b2isd4rIS5RDL3m1z-gzGzoHsz',
+    appKey: 'vsGiLpHSGoRkai2uNgwVim1S',
+    placeholder: '有什么想和我说的呢',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: false,
+    lang: '' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+    <script>
+  window.livereOptions = {
+    refer: '2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/'
+  };
+  (function(d, s) {
+    var j, e = d.getElementsByTagName(s)[0];
+    if (typeof LivereTower === 'function') { return; }
+    j = d.createElement(s);
+    j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+    j.async = true;
+    e.parentNode.insertBefore(j, e);
+  })(document, 'script');
+</script>
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.6.0/firebase-firestore.js"></script>
+  
+  <script>
+    (function () {
+
+      firebase.initializeApp({
+        apiKey: 'AIzaSyDVo2zpHFwv7n4cwQQvhMCzvbNg4eDwiV4',
+        projectId: 'cxx0822-7221e'
+      })
+
+      function getCount(doc, url, increaseCount) {
+        //increaseCount will be false when not in article page
+
+        return doc.get().then(function (d) {
+          var count
+          if (!d.exists) { //has no data, initialize count
+            if (increaseCount) {
+              doc.set({
+                count: 1,
+                'url': url
+              })
+              count = 1
+            }
+            else {
+              count = 0
+            }
+          }
+          else { //has data
+            count = d.data().count
+            if (increaseCount) {
+              if (!(window.localStorage && window.localStorage.getItem(title))) { //if first view this article
+                doc.set({ //increase count
+                  count: count + 1
+                })
+                count++
+              }
+            }
+          }
+          if (window.localStorage && increaseCount) { //mark as visited
+            localStorage.setItem(title, true)
+          }
+
+          return count
+        })
+      }
+
+      function appendCountTo(el) {
+        return function (count) {
+          $(el).append(
+            $('<span>').addClass('post-visitors-count').append(
+              $('<span>').addClass('post-meta-divider').text('|')
+            ).append(
+              $('<span>').addClass('post-meta-item-icon').append(
+               // $('<i>').addClass('fa fa-users')
+                $('<i>').addClass('fa fa-eye')
+              )
+              ).append($('<span>').text('热度 ' + count + ' 次'))
+          )
+        }
+      }
+
+      var db = firebase.firestore()
+      var articles = db.collection('articles')
+
+      //https://hexo.io/zh-tw/docs/variables.html
+      var isPost = '基于Vue.js的ROSWeb环境搭建'.length > 0
+      var isArchive = '' === 'true'
+      var isCategory = ''.length > 0
+      var isTag = ''.length > 0
+
+      var urlPath = '2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/';
+      var urlFullPath = 'http://cxx0822.github.io/2021/10/20/ji-yu-vue.js-de-rosweb-huan-jing-da-jian/';
+      var indexPath = 'index.html'; //首页链接
+      var isMenu = false;
+      
+         
+         var menuLink = '/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/categories/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/archives/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+         
+         var menuLink = '/top/';
+         if(urlPath.indexOf(menuLink) > 0 || urlPath == indexPath){
+            isMenu = true;
+         }
+      
+
+    //  if (isPost) { //is article page
+      if (!isMenu) { // 非菜单页、非主页（即在某篇文章链接里）
+        var title = '基于Vue.js的ROSWeb环境搭建'
+        var doc = articles.doc(title)
+
+      //  getCount(doc, true).then(appendCountTo($('.post-meta')))
+        getCount(doc, urlFullPath, true).then(appendCountTo($('.post-wordcount')))
+      }
+     // else if (!isArchive && !isCategory && !isTag) { //is index page
+      else if (urlPath == indexPath) { // 主页
+        var titles = [] //array to titles
+
+        var postsstr = '' //if you have a better way to get titles of posts, please change it
+        eval(postsstr)
+
+        var promises = titles.map(function (title) {
+          return articles.doc(title)
+        }).map(function (doc) {
+          return getCount(doc)
+        })
+        Promise.all(promises).then(function (counts) {
+          // var metas = $('.post-meta')
+          var metas = $('.post-wordcount')
+          counts.forEach(function (val, idx) {
+            appendCountTo(metas[idx])(val)
+          })
+        })
+      }
+    })()
+  </script>
+
+  
+  
+
+  
+  
+
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+  <script>
+    
+      pbOptions = {};
+      
+        pbOptions.iconStyle = "default";
+      
+        pbOptions.boxForm = "horizontal";
+      
+        pbOptions.position = "bottomCenter";
+      
+        pbOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-postbottom', pbOptions);
+    
+    
+      flOptions = {};
+      
+        flOptions.iconStyle = "default";
+      
+        flOptions.boxForm = "horizontal";
+      
+        flOptions.position = "middleRight";
+      
+        flOptions.networks = "Weibo,Wechat,Douban,QQZone,Twitter,Facebook";
+      
+      new needShareButton('#needsharebutton-float', flOptions);
+    
+  </script>
+
+
+  
+  <script>
+    wpac_init = window.wpac_init || [];
+    wpac_init.push({
+      widget: 'Rating',
+      id: 25076,
+      el: 'wpac-rating',
+      color: 'fc6423'
+    });
+    (function() {
+      if ('WIDGETPACK_LOADED' in window) return;
+      WIDGETPACK_LOADED = true;
+      var mc = document.createElement('script');
+      mc.type = 'text/javascript';
+      mc.async = true;
+      mc.src = '//embed.widgetpack.com/widget.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(mc, s.nextSibling);
+    })();
+  </script>
+
+
+  
+
+  
+  
+  
+  <script src="/lib/bookmark/bookmark.min.js?v=1.0"></script>
+  <script>
+  
+    bookmark.scrollToMark('auto', "#更多");
+  
+  </script>
+
+
+  
+<script>
+  $('.highlight').not('.gist .highlight').each(function(i, e) {
+    var $wrap = $('<div>').addClass('highlight-wrap');
+    $(e).after($wrap);
+    $wrap.append($('<button>').addClass('copy-btn').append('复制').on('click', function(e) {
+      var code = $(this).parent().find('.code').find('.line').map(function(i, e) {
+        return $(e).text();
+      }).toArray().join('\n');
+      var ta = document.createElement('textarea');
+      var yPosition = window.pageYOffset || document.documentElement.scrollTop;
+      ta.style.top = yPosition + 'px'; // Prevent page scroll
+      ta.style.position = 'absolute';
+      ta.style.opacity = '0';
+      ta.readOnly = true;
+      ta.value = code;
+      document.body.appendChild(ta);
+      ta.select();
+      ta.setSelectionRange(0, code.length);
+      ta.readOnly = false;
+      var result = document.execCommand('copy');
+      
+        if (result) $(this).text('复制成功');
+        else $(this).text('复制失败');
+      
+      ta.blur(); // For iOS
+      $(this).blur();
+    })).on('mouseleave', function(e) {
+      var $b = $(this).find('.copy-btn');
+      setTimeout(function() {
+        $b.text('复制');
+      }, 300);
+    }).append(e);
+  })
+</script>
+
+
+  
+
+  
+
+   
+<script src="https://cdn.jsdelivr.net/npm/moment@2.22.2/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/moment-precise-range-plugin@1.3.0/moment-precise-range.min.js"></script>
+<script>
+  function timer() {
+    var ages = moment.preciseDiff(moment(),moment(20181108,"YYYYMMDD"));
+    ages = ages.replace(/years?/, "年");
+    ages = ages.replace(/months?/, "月");
+    ages = ages.replace(/days?/, "天");
+    ages = ages.replace(/hours?/, "小时");
+    ages = ages.replace(/minutes?/, "分");
+    ages = ages.replace(/seconds?/, "秒");
+    ages = ages.replace(/\d+/g, '<span style="color:#DA70D6">$&</span>');
+    div.innerHTML = `我已在此等候你 ${ages}`;
+  }
+  var div = document.createElement("div");
+  //插入到copyright之后
+  var copyright = document.querySelector(".copyright");
+  document.querySelector(".footer-inner").insertBefore(div, copyright.nextSibling);
+  timer();
+  setInterval("timer()",1000)
+</script>
+
+
+<!-- 旋转魔方 -->
+
+   
+      <style>
+    .cube_container {
+      width: 50px;
+      height: 60px;
+      margin: 0 auto;
+      position: fixed;
+      z-index: 999;
+      -webkit-perspective: 1000px;
+              perspective: 1000px;
+      right: 0px;
+      bottom: 0px;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+
+    .cube {
+      /*
+      width: 100%;
+      height: 100%;
+      */
+      width: 0%; /* 大角度旋转 */
+      position: absolute;
+      -webkit-transform-style: preserve-3d;
+      transform-style: preserve-3d;
+      -webkit-transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      transform: rotateX(-15deg) rotateY(-20deg) translateZ(-100px);
+      -webkit-transform-origin: center center -100px;
+      transform-origin: center center -100px;
+      -webkit-animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+      animation: around 5s cubic-bezier(0.94, -0.6, 0.45, 1.31) infinite;
+    }
+    .cube div {
+      width: 50px;
+      height: 50px;
+      display: block;
+      margin: 0;
+      position: absolute;
+    }
+    .cube div a {
+      color: white;
+      font-size: 12px;
+      text-decoration: none;
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 45%;
+      -webkit-transform: translate(-50%, -50%);
+              transform: translate(-50%, -50%);
+    }
+    .cube .front {
+      -webkit-transform: rotateY(0deg) translateZ(25px);
+              transform: rotateY(0deg) translateZ(25px);
+      background-color: rgba(0, 191, 255, 0.7);
+      border: 1px solid rgba(0, 191, 255, 0.7);
+    }
+    .cube .back {
+      -webkit-transform: rotateX(180deg) translateZ(25px);
+              transform: rotateX(180deg) translateZ(25px);
+      background-color: rgba(124, 252, 0, 0.7);
+      border: 1px solid rgba(124, 252, 0, 0.7);
+    }
+    .cube .left {
+      -webkit-transform: rotateY(-90deg) translateZ(25px);
+              transform: rotateY(-90deg) translateZ(25px);
+      background-color: rgba(255, 215, 0, 0.7);
+      border: 1px solid rgba(255, 215, 0, 0.7);
+    }
+    .cube .right {
+      -webkit-transform: rotateY(90deg) translateZ(25px);
+              transform: rotateY(90deg) translateZ(25px);
+      background-color: rgba(255, 69, 0, 0.7);
+      border: 1px solid rgba(255, 69, 0, 0.7);
+    }
+    .cube .top {
+      -webkit-transform: rotateX(90deg) translateZ(25px);
+              transform: rotateX(90deg) translateZ(25px);
+      background-color: rgba(255, 0, 157, 0.7);
+      border: 1px solid rgba(255, 0, 157, 0.7);
+    }
+    .cube .bottom {
+      -webkit-transform: rotateX(-90deg) translateZ(25px);
+              transform: rotateX(-90deg) translateZ(25px);
+      background-color: rgba(184, 111, 220, 0.7);
+      border: 1px solid rgba(184, 111, 220, 0.7);
+    }
+
+     @-webkit-keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+                transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+
+    @keyframes around {
+      100% {
+        -webkit-transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+        transform: rotateX(-15deg) rotateY(-380deg) translateZ(-100px);
+      }
+    }
+</style>
+
+<div class="cube_container">
+  <div class="cube">
+    <div class="front"><a onclick="back2top()" rel="nofollow"> 欢迎光临 </a></div>
+    <div class="back"><a onclick="back2top()" rel="nofollow"> ❤️ </a></div>
+    <div class="right"><a onclick="back2top()" rel="nofollow"> NJTech Cxx </a></div>
+    <div class="left"><a onclick="back2top()" role="button" rel="nofollow"> 请多关照 </a></div>
+    <div class="top"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+    <div class="bottom"><a href="https://github.com/leafjame/hexo-theme-next5-leaf" target="_blank" rel="nofollow"> ❤️ </a></div>
+  </div>
+</div>
+
+<script>
+  function back2top(){
+    $('html, body').animate({scrollTop: 0}, 500);
+  }
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+   
+
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
+
+<!-- 评论特效 -->
+<script src="/js/activate-power-mode.js"></script>
+<script>
+  POWERMODE.colorful = true;
+  POWERMODE.shake = false; 
+  document.body.addEventListener('input', POWERMODE);
+</script>
